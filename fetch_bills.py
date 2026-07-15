@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.5
+"""Democracy 3.0 정책포크 v0.6
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -280,7 +280,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.5",
+                    "User-Agent": "Democracy3-Policy-Fork/0.6",
                 },
                 timeout=timeout,
             )
@@ -635,6 +635,481 @@ def build_source_signals(text: str, problem_sentence: str) -> dict[str, int]:
     }
 
 
+
+def unique_items(items: list[str], limit: int = 6) -> list[str]:
+    result: list[str] = []
+    for item in items:
+        value = clean_optional(item)
+        if value and value not in result:
+            result.append(value)
+        if len(result) >= limit:
+            break
+    return result
+
+
+def build_decision_question(text: str) -> str:
+    if contains_any(text, ("임명", "선임", "선출", "추천", "동의")):
+        return (
+            "대표성·독립성을 훼손하지 않으면서 전문성과 책임성을 높이려면 "
+            "권한을 누구에게 주고 어떤 견제장치를 붙여야 하는가?"
+        )
+    if contains_any(text, ("보안", "정보시스템", "개인정보", "정보통신망")):
+        return (
+            "새 의무가 서류상 준수에 그치지 않고 실제 안전 향상으로 이어지도록 "
+            "무엇을 측정하고 누가 검증해야 하는가?"
+        )
+    if contains_any(text, ("지원", "보조금", "급여", "감면", "혜택")):
+        return (
+            "지원이 꼭 필요한 대상에게 도달하면서 사각지대·중복지원·재정 누수를 "
+            "어떻게 동시에 줄일 것인가?"
+        )
+    if contains_any(text, ("벌칙", "과태료", "처벌", "제재", "금지")):
+        return (
+            "규제 목적을 달성하면서 과잉제재·선택적 집행·영세주체의 불균형 부담을 "
+            "어떻게 막을 것인가?"
+        )
+    if contains_any(text, ("의무", "수립", "시행", "제출", "보고")):
+        return (
+            "새 의무가 실제 문제를 해결하도록 최소 기준·검증 방식·불이행 책임을 "
+            "어떻게 설계해야 하는가?"
+        )
+    return (
+        "제안된 수단이 문제의 원인에 직접 맞고, 비용과 부작용보다 편익이 크다는 것을 "
+        "어떤 근거로 확인할 것인가?"
+    )
+
+
+def build_weaknesses(text: str) -> list[str]:
+    weaknesses: list[str] = []
+
+    if not contains_any(text, FINANCE_WORDS):
+        weaknesses.append("공식 요약에 재정·인력 소요와 비용 부담 주체가 드러나지 않음")
+    if not contains_any(text, METRIC_WORDS):
+        weaknesses.append("성과를 무엇으로 측정할지 공식 요약에 명확한 기준이 없음")
+    if not contains_any(text, SAFEGUARD_WORDS):
+        weaknesses.append("감독·이의제기·책임추적 같은 통제장치가 공식 요약에 충분히 드러나지 않음")
+    if not contains_any(text, REVIEW_WORDS):
+        weaknesses.append("시행 후 재검토·일몰·중단 조건이 공식 요약에 보이지 않음")
+    if not re.search(r"\d[\d,.]*\s*(건|명|개|%|퍼센트|억원|조원|년|개월)", text):
+        weaknesses.append("문제 규모와 기대효과를 판단할 정량 근거가 제한적임")
+    if not contains_any(text, ("예외", "제외", "면제", "특례")):
+        weaknesses.append("예외·사각지대·경계사례 처리 방식이 공식 요약에 드러나지 않음")
+
+    return unique_items(weaknesses, 5) or [
+        "공식 요약만으로는 조문 간 충돌, 비용, 집행 세부를 충분히 판단하기 어려움"
+    ]
+
+
+def build_counterarguments(text: str) -> list[str]:
+    arguments: list[str] = [
+        "문제의 존재와 별개로, 제안된 수단이 실제 원인을 해결하는 가장 덜 침해적인 방법인지 검증이 필요함"
+    ]
+
+    if contains_any(text, ("임명", "선임")):
+        arguments.append(
+            "직접선거의 문제를 줄일 수 있지만 임명권자에게 권력이 집중되어 정치적 종속이 오히려 커질 수 있음"
+        )
+    if contains_any(text, ("선거", "투표")):
+        arguments.append(
+            "효율성과 전문성을 높이더라도 유권자의 직접 통제와 민주적 정당성을 약화할 수 있음"
+        )
+    if contains_any(text, ("의무", "수립", "시행", "제출", "보고")):
+        arguments.append(
+            "새 의무가 기존 제도와 중복되고 현장에서는 서류 작성만 늘리는 형식적 규제가 될 수 있음"
+        )
+    if contains_any(text, ("보안", "정보시스템", "개인정보")):
+        arguments.append(
+            "보안 의무를 법에 추가해도 예산·전문인력·사고공개가 없으면 실제 보안수준은 개선되지 않을 수 있음"
+        )
+    if contains_any(text, ("지원", "보조금", "급여", "감면")):
+        arguments.append(
+            "지원 확대가 필요한 사람을 돕는 대신 대상선정 왜곡·중복수혜·재정의 경직성을 키울 수 있음"
+        )
+    if contains_any(text, ("벌칙", "과태료", "처벌", "제재")):
+        arguments.append(
+            "제재 강화가 억지력을 높이기보다 영세주체에 불균형한 부담을 주고 음성화를 촉진할 수 있음"
+        )
+    if contains_any(text, ("위원회", "기관", "센터", "기구")):
+        arguments.append(
+            "새 조직이나 절차가 기존 기관과 중복되어 책임소재를 흐리고 행정비용만 늘릴 수 있음"
+        )
+
+    return unique_items(arguments, 5)
+
+
+def build_loopholes(text: str) -> list[str]:
+    loopholes: list[str] = []
+
+    if contains_any(text, ("대통령령", "총리령", "부령", "정하는 바", "필요한 사항")):
+        loopholes.append(
+            "핵심 기준을 하위법령에 넓게 위임하면 집행기관이 법의 실질 범위를 크게 바꿀 수 있음"
+        )
+    if contains_any(text, ("필요한 조치", "적절한", "상당한", "충분한", "합리적")):
+        loopholes.append(
+            "추상적 기준은 기관마다 다르게 해석되어 선택적 집행이나 책임회피에 이용될 수 있음"
+        )
+    if contains_any(text, ("의무", "수립", "시행")) and not contains_any(
+        text, ("벌칙", "과태료", "제재", "공개", "감사", "평가")
+    ):
+        loopholes.append(
+            "의무는 있으나 검증·공개·제재가 없으면 문서만 만들어 형식적으로 준수할 가능성이 있음"
+        )
+    if contains_any(text, ("지원", "보조금", "급여")) and not contains_any(
+        text, ("환수", "중복", "소득", "재산", "심사")
+    ):
+        loopholes.append(
+            "대상요건과 환수기준이 약하면 명의분산·중복신청·형식적 자격맞추기로 제도를 우회할 수 있음"
+        )
+    if contains_any(text, ("등록", "신고", "허가")) and not contains_any(
+        text, ("실질", "관계인", "특수관계", "우회")
+    ):
+        loopholes.append(
+            "법적 명의와 실제 운영주체를 분리해 등록·허가 기준을 우회할 가능성을 확인해야 함"
+        )
+    if contains_any(text, ("정보", "개인정보", "자료")) and not contains_any(
+        text, ("최소", "파기", "보유기간", "접근기록", "암호화")
+    ):
+        loopholes.append(
+            "정보수집 목적과 보유기간이 좁게 정해지지 않으면 목적 외 이용과 과잉보유가 가능함"
+        )
+
+    return unique_items(loopholes, 5) or [
+        "공식 요약만으로는 구체적인 우회경로를 확정할 수 없어 조문 정의·예외·위임규정을 확인해야 함"
+    ]
+
+
+def build_red_team_cases(text: str) -> list[dict[str, str]]:
+    cases: list[dict[str, str]] = []
+
+    def add(title: str, attack: str, consequence: str, guardrail: str, severity: str) -> None:
+        cases.append(
+            {
+                "title": title,
+                "attack": attack,
+                "consequence": consequence,
+                "guardrail": guardrail,
+                "severity": severity,
+            }
+        )
+
+    if contains_any(text, ("임명", "선임", "추천", "동의")):
+        add(
+            "인사권 포획",
+            "임명권자와 다수의회가 자기 진영 인사를 반복 선임하거나 검증 절차를 형식화함",
+            "독립성·전문성·정치적 중립성이 약화되고 책임이 임명권자에게 종속될 수 있음",
+            "독립추천위원회, 공개평가기준, 이해충돌 회피, 임기분산, 청문자료 공개",
+            "높음",
+        )
+
+    if contains_any(text, ("의무", "수립", "시행", "제출", "보고")):
+        add(
+            "서류 준수 공격",
+            "기관이 실제 개선 없이 계획서·보고서만 작성해 법적 의무를 충족한 것처럼 보이게 함",
+            "현장 문제는 남고 행정비용과 허위안심만 증가할 수 있음",
+            "결과지표, 표본감사, 현장검증, 공개보고, 반복 미달 시 시정명령",
+            "높음",
+        )
+
+    if contains_any(text, ("보안", "개인정보", "정보시스템", "정보통신망")):
+        add(
+            "보안 명분의 과잉권한",
+            "보안 강화를 이유로 필요 이상의 정보접근·감시·자료보관 권한을 확대함",
+            "사생활 침해와 내부자 오남용 위험이 커지고 사고 시 피해 규모가 확대될 수 있음",
+            "최소수집, 접근권한 분리, 접속기록, 독립감사, 사고통지, 보유기간 제한",
+            "높음",
+        )
+
+    if contains_any(text, ("지원", "보조금", "급여", "감면", "혜택")):
+        add(
+            "지원제도 포획",
+            "정보와 행정역량이 좋은 집단이 기준을 선점하고 실제 취약계층은 신청에서 탈락함",
+            "정책 혜택이 필요도가 아닌 신청능력과 조직력에 따라 배분될 수 있음",
+            "자동선정·찾아가는 신청, 중복검증, 이의신청, 수혜분포 공개, 주기적 기준조정",
+            "중간",
+        )
+
+    if contains_any(text, ("벌칙", "과태료", "처벌", "제재", "금지")):
+        add(
+            "선택적 집행",
+            "모호한 규정을 이용해 특정 집단에는 엄격히 적용하고 다른 집단에는 느슨하게 적용함",
+            "법 집행의 예측가능성과 평등성이 훼손되고 정치적·행정적 보복수단이 될 수 있음",
+            "명확한 요건, 단계별 제재, 처분사유 공개, 불복절차, 집행통계 공개",
+            "높음",
+        )
+
+    if contains_any(text, ("위원회", "기관", "센터", "기구")):
+        add(
+            "책임 분산",
+            "여러 기관이 권한을 나눠 갖되 실패 책임은 서로에게 미룸",
+            "결정은 늦어지고 예산은 늘지만 누구도 결과에 책임지지 않는 구조가 될 수 있음",
+            "단일 책임기관, 역할표, 처리기한, 공동성과지표, 실패 시 책임귀속 명시",
+            "중간",
+        )
+
+    if not cases:
+        add(
+            "목표-수단 불일치",
+            "정책이 제시한 문제와 직접 관련이 약한 수단을 확대하면서 성과를 홍보함",
+            "비용과 규제는 발생하지만 핵심 문제는 그대로 남을 수 있음",
+            "문제원인 검증, 대안비교, 시범사업, 사전·사후 성과측정, 중단조건",
+            "중간",
+        )
+
+    return cases[:6]
+
+
+def build_failure_modes(text: str) -> list[dict[str, str]]:
+    modes: list[dict[str, str]] = []
+
+    def add(condition: str, failure: str, warning: str, response: str) -> None:
+        modes.append(
+            {
+                "condition": condition,
+                "failure": failure,
+                "warning": warning,
+                "response": response,
+            }
+        )
+
+    add(
+        "문제 규모와 원인에 대한 독립 검증 없이 시행",
+        "정책 수단이 실제 원인과 어긋나 효과가 작거나 역효과가 발생함",
+        "초기 성과지표가 개선되지 않는데 적용범위와 예산만 확대됨",
+        "시행 전 기준선 공개, 대안 비교, 제한된 시범사업, 중단 기준 설정",
+    )
+
+    if contains_any(text, ("의무", "수립", "시행", "제출", "보고")):
+        add(
+            "집행기관의 인력·예산·전문성이 부족함",
+            "현장점검 없이 서류심사만 남고 기관별 편차가 커짐",
+            "처리 지연, 형식적 보고서 반복, 민원과 예외요청 급증",
+            "업무량 추계, 전담인력, 표준지침, 현장감사, 단계적 시행",
+        )
+
+    if contains_any(text, ("임명", "선임", "추천", "동의", "위원회")):
+        add(
+            "인사·위원구성이 특정 세력에 편중됨",
+            "견제장치가 내부 합의기구로 변질되고 반대정보가 배제됨",
+            "후보군 축소, 반복되는 동일 경력·이해관계, 회의록 비공개",
+            "구성 다양성, 공개추천, 소수의견 기록, 이해충돌 공개, 임기 교차",
+        )
+
+    if contains_any(text, FINANCE_WORDS) or contains_any(text, ("지원", "운영", "설치")):
+        add(
+            "지속가능한 재원 없이 사업을 확대함",
+            "초기에는 시행되지만 예산 부족으로 대상 축소·서비스 질 하락이 발생함",
+            "미지급·대기기간·지방별 격차·추가경정 반복",
+            "비용추계 공개, 재원조달 규칙, 우선순위, 자동조정, 재정상한",
+        )
+
+    if contains_any(text, ("정보", "개인정보", "보안")):
+        add(
+            "정보 접근권한과 사고대응 책임이 불명확함",
+            "침해사고 발생 후 기관 간 책임공방으로 피해통지와 복구가 늦어짐",
+            "과도한 권한계정, 로그 미점검, 사고보고 지연, 반복 취약점",
+            "책임자 지정, 접근기록, 사고통지 시한, 독립점검, 피해구제 절차",
+        )
+
+    add(
+        "시행 후 평가와 수정 절차가 없음",
+        "효과가 낮거나 부작용이 커도 제도가 관성적으로 존속함",
+        "성과자료 없이 예산·조직·규제만 계속 유지 또는 확대됨",
+        "일몰조항, 정기 재승인, 공개평가, 시민·전문가 이의제기, 자동축소 조건",
+    )
+
+    return modes[:6]
+
+
+def build_fork_levers(text: str) -> list[dict[str, str]]:
+    levers: list[dict[str, str]] = [
+        {
+            "dimension": "적용대상",
+            "question": "누구에게 적용하고 누구를 예외로 둘 것인가?",
+            "options": "전면 적용 / 고위험 대상 우선 / 규모별 단계 적용 / 취약계층·영세주체 예외",
+        },
+        {
+            "dimension": "시행속도",
+            "question": "한 번에 시행할지 시험 후 확대할지 결정해야 함",
+            "options": "즉시 시행 / 시범지역 / 단계적 확대 / 성과조건부 확대",
+        },
+        {
+            "dimension": "검증과 종료",
+            "question": "실패를 누가 어떻게 확인하고 멈출 수 있는가?",
+            "options": "일몰 / 정기 재승인 / 독립평가 / 자동중단 기준",
+        },
+    ]
+
+    if contains_any(text, ("임명", "선임", "추천", "동의", "위원회")):
+        levers.append(
+            {
+                "dimension": "권한 배분",
+                "question": "결정권·추천권·동의권·해임권을 한 주체에 모을지 나눌지 선택해야 함",
+                "options": "단독권한 / 복수기관 교차견제 / 독립추천 / 시민·전문가 참여",
+            }
+        )
+    if contains_any(text, ("의무", "규제", "금지", "벌칙", "과태료")):
+        levers.append(
+            {
+                "dimension": "강제수단",
+                "question": "권고·공개·시정명령·제재 중 어느 강도를 적용할 것인가?",
+                "options": "자율준수 / 공개평가 / 단계별 시정 / 비례적 제재",
+            }
+        )
+    if contains_any(text, FINANCE_WORDS) or contains_any(text, ("지원", "설치", "운영")):
+        levers.append(
+            {
+                "dimension": "비용 배분",
+                "question": "국가·지자체·기관·사업자·수혜자 중 누가 얼마를 부담할 것인가?",
+                "options": "전액 국비 / 매칭 / 규모별 분담 / 성과연동 / 비용상한",
+            }
+        )
+    if contains_any(text, ("정보", "개인정보", "보안")):
+        levers.append(
+            {
+                "dimension": "데이터 권한",
+                "question": "어떤 정보를 누가 얼마 동안 접근·보관할 수 있는가?",
+                "options": "최소수집 / 분리보관 / 접근기록 / 자동파기 / 외부감사",
+            }
+        )
+
+    return levers[:7]
+
+
+def build_fork_candidates(text: str) -> list[dict[str, str]]:
+    forks: list[dict[str, str]] = []
+
+    def add(kind: str, title: str, body: str, benefit: str, risk: str) -> None:
+        forks.append(
+            {
+                "type": kind,
+                "title": title,
+                "body": body,
+                "benefit": benefit,
+                "risk": risk,
+                "status": "자동 제안·사람 검토 전",
+            }
+        )
+
+    if contains_any(text, ("임명", "선임", "추천", "동의")):
+        add(
+            "권한분산형",
+            "독립추천·공개청문·임기분산 포크",
+            "임명권자가 단독으로 후보를 정하지 못하도록 독립추천기구가 복수후보를 공개하고, 지방의회 또는 국회의 공개청문과 동의를 거치며, 위원·기관장 임기를 선거주기와 엇갈리게 설계합니다.",
+            "정치적 포획과 단일권력 집중을 줄이고 후보 검증자료를 시민에게 공개할 수 있음",
+            "절차가 길어지고 추천기구 자체가 또 다른 이해관계 집단에 포획될 수 있음",
+        )
+
+    if contains_any(text, ("의무", "수립", "시행", "제출", "보고")):
+        add(
+            "성과검증형",
+            "문서 의무를 결과 의무로 바꾸는 포크",
+            "계획서 제출만으로 준수한 것으로 보지 않고 최소 성과지표, 현장검증, 결과공개, 반복 미달 시 개선명령을 법률 또는 하위기준에 명시합니다.",
+            "형식적 준수를 줄이고 실제 정책효과를 확인할 수 있음",
+            "성과지표가 잘못 설계되면 숫자 맞추기와 현장 왜곡이 발생할 수 있음",
+        )
+
+    if contains_any(text, ("정보", "개인정보", "보안", "정보시스템")):
+        add(
+            "권리보호형",
+            "최소수집·접근기록·사고통지 포크",
+            "정보의 수집목적과 보유기간을 제한하고, 접근권한 분리와 접속기록 보존, 독립점검, 침해사고 통지시한과 피해구제 절차를 함께 둡니다.",
+            "보안 강화가 과잉감시나 책임회피로 변질되는 위험을 줄임",
+            "기관의 구축비용과 운영부담이 증가하고 세부기술기준이 빠르게 낡을 수 있음",
+        )
+
+    if contains_any(text, ("지원", "보조금", "급여", "감면", "혜택")):
+        add(
+            "정밀지원형",
+            "자동발굴·중복검증·이의신청 포크",
+            "신청주의만 두지 않고 행정자료로 잠재 대상자를 찾아 안내하며, 중복수혜 검증과 탈락사유 공개, 간단한 이의신청 절차를 결합합니다.",
+            "정보취약계층의 탈락과 중복지원을 동시에 줄일 수 있음",
+            "행정자료 결합이 개인정보 침해를 낳거나 잘못된 자동판정이 발생할 수 있음",
+        )
+
+    if contains_any(text, ("벌칙", "과태료", "처벌", "제재", "금지")):
+        add(
+            "비례규제형",
+            "경고·시정·제재의 단계형 포크",
+            "고의성·피해규모·반복성·자진시정 여부에 따라 경고, 시정명령, 과태료, 강한 제재를 단계화하고 처분사유와 불복절차를 공개합니다.",
+            "과잉제재와 선택적 집행을 줄이면서 반복 위반에는 억지력을 유지할 수 있음",
+            "절차가 복잡해지고 긴급한 위험에 대한 신속대응이 느려질 수 있음",
+        )
+
+    if not contains_any(text, REVIEW_WORDS):
+        add(
+            "가역성형",
+            "시범시행·일몰·재승인 포크",
+            "전면 영구시행 전에 제한된 대상이나 지역에서 시험하고, 공개된 성과·부작용 기준을 충족해야 확대하며, 일정 기간 후 국회가 재승인하지 않으면 종료되도록 합니다.",
+            "잘못된 정책을 작은 범위에서 발견하고 되돌릴 수 있음",
+            "불확실성이 커져 장기투자와 현장 준비가 지연될 수 있음",
+        )
+
+    if not contains_any(text, METRIC_WORDS):
+        add(
+            "책임추적형",
+            "성과지표·공개대시보드 포크",
+            "정책 목표, 기준선, 연도별 목표, 부작용 지표, 책임기관을 공개하고 정기적으로 원자료와 평가결과를 게시합니다.",
+            "정책 성공과 실패를 시민이 추적하고 다음 개정의 근거로 사용할 수 있음",
+            "측정하기 쉬운 지표에만 집중하거나 지표 조작이 발생할 수 있음",
+        )
+
+    return forks[:6]
+
+
+def build_fork_readiness(
+    text: str,
+    problem_sentence: str,
+    change_sentence: str,
+    actors: list[str],
+    committee: str,
+) -> dict[str, Any]:
+    points = 0
+    reasons: list[str] = []
+    missing: list[str] = []
+
+    if problem_sentence:
+        points += 1
+        reasons.append("문제 문장 분리 가능")
+    else:
+        missing.append("명확한 문제정의")
+
+    if change_sentence:
+        points += 1
+        reasons.append("변경방향 분리 가능")
+    else:
+        missing.append("구체적 변경방향")
+
+    if actors:
+        points += 1
+        reasons.append("영향주체 후보 식별")
+    else:
+        missing.append("적용대상·영향주체")
+
+    if re.search(r"\(안\s*제?\d+조", text):
+        points += 1
+        reasons.append("관련 조문 단서 존재")
+    else:
+        missing.append("개정 조문 단서")
+
+    if committee and committee != "소관위원회 미정 또는 확인 필요":
+        points += 1
+        reasons.append("소관위원회 확인")
+    else:
+        missing.append("소관위원회·심사자료")
+
+    level = "높음" if points >= 5 else "중간" if points >= 3 else "초기"
+    missing.extend(["법안 조문 전문", "비용추계서", "위원회 검토보고서·회의록"])
+
+    return {
+        "level": level,
+        "points": points,
+        "max_points": 5,
+        "reasons": unique_items(reasons, 5),
+        "missing": unique_items(missing, 6),
+        "meaning": "정책의 우수성 점수가 아니라 수정안을 설계하기 위해 확보된 정보의 준비 정도",
+    }
+
+
 def build_structured_analysis(
     title: str,
     official_summary: str,
@@ -663,6 +1138,14 @@ def build_structured_analysis(
         else "생성 불가"
     )
 
+    empty_scores = {
+        key: 0
+        for key in (
+            "문제정의", "근거", "재정", "집행",
+            "기본권", "통제장치", "성과측정", "재검토",
+        )
+    }
+
     if not text:
         return {
             "analysis_status": "미분석",
@@ -670,7 +1153,7 @@ def build_structured_analysis(
             "analysis_confidence": "생성 불가",
             "analysis_review_state": "사람 검토 필요",
             "analysis_generated_at": generated_at,
-            "plain_language": "공식 제안이유·주요내용이 없어 구조화 초안을 만들지 못했습니다.",
+            "plain_language": "공식 제안이유·주요내용이 없어 확장 검토 초안을 만들지 못했습니다.",
             "problem_definition": "공식 원문 없음",
             "proposed_change": "공식 원문 없음",
             "affected_groups": [],
@@ -678,50 +1161,106 @@ def build_structured_analysis(
             "cost_bearers": ["공식 원문 없음"],
             "authority_changes": ["공식 원문 없음"],
             "strengths": ["공식 원문 없음"],
+            "weaknesses": ["공식 원문 없음"],
             "risks": ["공식 원문 없음"],
+            "counterarguments": ["공식 원문 없음"],
+            "loopholes": ["공식 원문 없음"],
+            "red_team_cases": [],
+            "failure_modes": [],
+            "fork_levers": [],
+            "fork_candidates": [],
+            "fork_readiness": {
+                "level": "자료 없음",
+                "points": 0,
+                "max_points": 5,
+                "reasons": [],
+                "missing": ["국회 공식 제안이유·주요내용"],
+                "meaning": "정책의 우수성 점수가 아니라 수정안을 설계하기 위해 확보된 정보의 준비 정도",
+            },
+            "one_minute_brief": {
+                "problem": "공식 원문 없음",
+                "change": "공식 원문 없음",
+                "who": "확인 불가",
+                "decision": "국회 원문과 부속자료를 먼저 확보해야 함",
+            },
             "questions": ["국회 원문과 부속자료를 직접 확인해야 함"],
-            "scores": {key: 0 for key in (
-                "문제정의", "근거", "재정", "집행",
-                "기본권", "통제장치", "성과측정", "재검토",
-            )},
+            "scores": empty_scores,
             "analysis_basis": (
                 "공식 제안이유·주요내용을 받지 못했습니다. "
-                "어떠한 정책 판단도 생성하지 않았습니다."
+                "어떠한 정책 판단·레드팀 가설·포크 후보도 생성하지 않았습니다."
             ),
         }
 
+    plain = build_plain_language(
+        title,
+        sentences,
+        problem_sentence,
+        change_sentence,
+    )
+    affected = actors or ["공식 요약에서 직접 적용 주체를 자동 추출하지 못함"]
+    weaknesses = build_weaknesses(text)
+    counterarguments = build_counterarguments(text)
+    loopholes = build_loopholes(text)
+    red_team_cases = build_red_team_cases(text)
+    failure_modes = build_failure_modes(text)
+    fork_levers = build_fork_levers(text)
+    fork_candidates = build_fork_candidates(text)
+    readiness = build_fork_readiness(
+        text,
+        problem_sentence,
+        change_sentence,
+        actors,
+        committee,
+    )
+
     return {
-        "analysis_status": "구조화 초안",
-        "analysis_method": "공식 원문 규칙 기반 구조화 v0.1",
+        "analysis_status": "확장 검토 초안",
+        "analysis_method": "공식 원문 규칙 기반 레드팀·포크 구조화 v0.2",
         "analysis_confidence": confidence,
         "analysis_review_state": "사람 검토 전",
         "analysis_generated_at": generated_at,
-        "plain_language": build_plain_language(
-            title,
-            sentences,
-            problem_sentence,
-            change_sentence,
-        ),
+        "plain_language": plain,
         "problem_definition": problem_sentence or (
             sentences[0] if sentences else "공식 요약에서 문제정의를 분리하지 못함"
         ),
         "proposed_change": change_sentence or (
             sentences[-1] if sentences else "공식 요약에서 변경방향을 분리하지 못함"
         ),
-        "affected_groups": actors or ["공식 요약에서 직접 적용 주체를 자동 추출하지 못함"],
+        "affected_groups": affected,
         "beneficiaries": build_beneficiaries(text, actors),
         "cost_bearers": build_cost_bearers(text, actors),
         "authority_changes": build_authority_changes(text),
         "strengths": build_strengths(text, change_sentence),
+        "weaknesses": weaknesses,
         "risks": build_risks(text),
+        "counterarguments": counterarguments,
+        "loopholes": loopholes,
+        "red_team_cases": red_team_cases,
+        "failure_modes": failure_modes,
+        "fork_levers": fork_levers,
+        "fork_candidates": fork_candidates,
+        "fork_readiness": readiness,
+        "one_minute_brief": {
+            "problem": problem_sentence or (
+                sentences[0] if sentences else "문제정의 확인 필요"
+            ),
+            "change": change_sentence or (
+                sentences[-1] if sentences else "변경방향 확인 필요"
+            ),
+            "who": ", ".join(affected[:4]),
+            "decision": build_decision_question(text),
+        },
         "questions": build_questions(text, committee),
         "scores": build_source_signals(text, problem_sentence),
         "analysis_basis": (
             "대한민국 국회가 공개한 ‘제안이유 및 주요내용’만 사용한 자동 구조화입니다. "
-            "법안 조문 전문, 비용추계서, 위원회 검토보고서, 회의록, 외부 통계는 아직 반영하지 않았습니다. "
-            "따라서 수혜자·부담자·위험 항목은 확정판이 아니라 검토 후보입니다."
+            "레드팀 공격, 파훼 가능성, 반대논거, 실패경로와 포크 후보는 공식 원문에 나타난 "
+            "정책 수단을 기준으로 생성한 검토 가설입니다. "
+            "법안 조문 전문, 비용추계서, 위원회 검토보고서, 회의록, 이해관계자 의견과 외부 통계는 "
+            "아직 반영하지 않았으므로 결론이나 법률 자문으로 사용해서는 안 됩니다."
         ),
     }
+
 
 
 def main() -> None:
@@ -842,7 +1381,16 @@ def main() -> None:
                 "cost_bearers": analysis["cost_bearers"],
                 "authority_changes": analysis["authority_changes"],
                 "strengths": analysis["strengths"],
+                "weaknesses": analysis["weaknesses"],
                 "risks": analysis["risks"],
+                "counterarguments": analysis["counterarguments"],
+                "loopholes": analysis["loopholes"],
+                "red_team_cases": analysis["red_team_cases"],
+                "failure_modes": analysis["failure_modes"],
+                "fork_levers": analysis["fork_levers"],
+                "fork_candidates": analysis["fork_candidates"],
+                "fork_readiness": analysis["fork_readiness"],
+                "one_minute_brief": analysis["one_minute_brief"],
                 "questions": analysis["questions"],
                 "scores": analysis["scores"],
                 "progress_timeline": build_progress_timeline(
@@ -904,7 +1452,13 @@ def main() -> None:
         or len(bill.get("progress_timeline") or []) > 1
     )
     structured_count = sum(
-        1 for bill in bills if bill.get("analysis_status") == "구조화 초안"
+        1 for bill in bills if bill.get("analysis_status") == "확장 검토 초안"
+    )
+    red_team_case_count = sum(
+        len(bill.get("red_team_cases") or []) for bill in bills
+    )
+    fork_candidate_count = sum(
+        len(bill.get("fork_candidates") or []) for bill in bills
     )
 
     if bills and linked_count == 0:
@@ -922,8 +1476,9 @@ def main() -> None:
         "notice": (
             "대한민국 국회 열린국회정보의 제22대 국회 최신 의안입니다. "
             f"기본정보 {len(bills)}건, 공식 제안이유·주요내용 {linked_count}건, "
-            f"상세 진행정보 {detail_count}건, 규칙 기반 구조화 초안 {structured_count}건을 표시합니다. "
-            "구조화 초안은 사람 검토 전 자료이며 정책의 찬반·선악 판정이 아닙니다."
+            f"상세 진행정보 {detail_count}건, 확장 검토 초안 {structured_count}건, "
+            f"레드팀 시나리오 {red_team_case_count}개, 자동 포크 후보 {fork_candidate_count}개를 표시합니다. "
+            "모든 자동 검토는 사람 검토 전 가설이며 정책의 찬반·선악 판정이 아닙니다."
         ),
         "source": {
             "provider": "대한민국 국회 열린국회정보",
@@ -935,6 +1490,8 @@ def main() -> None:
             "official_summary_count": linked_count,
             "official_detail_count": detail_count,
             "structured_draft_count": structured_count,
+            "red_team_case_count": red_team_case_count,
+            "fork_candidate_count": fork_candidate_count,
             "summary_error_count": len(summary_errors),
             "detail_error_count": len(detail_errors),
         },
@@ -942,6 +1499,8 @@ def main() -> None:
             "tracked": len(bills),
             "official_summaries": linked_count,
             "structured_drafts": structured_count,
+            "red_team_cases": red_team_case_count,
+            "fork_candidates": fork_candidate_count,
             "ai_drafts": 0,
             "citizen_review": 0,
             "forks": 0,
@@ -957,7 +1516,8 @@ def main() -> None:
 
     print(
         f"최신 {len(bills)}건 수집 / 공식 원문 {linked_count}건 / "
-        f"상세 진행정보 {detail_count}건 / 구조화 초안 {structured_count}건."
+        f"상세 진행정보 {detail_count}건 / 확장 검토 초안 {structured_count}건 / "
+        f"레드팀 {red_team_case_count}개 / 포크 후보 {fork_candidate_count}개."
     )
     if all_warnings:
         print(f"개별 API 경고 {len(all_warnings)}건은 다음 실행에서 다시 확인합니다.")
