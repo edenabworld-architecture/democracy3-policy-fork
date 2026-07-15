@@ -48,7 +48,7 @@
     .tag{display:inline-flex;align-items:center;background:var(--soft);color:var(--blue);font-size:12px;font-weight:900;padding:6px 9px;border-radius:999px}
     .status{font-size:12px;color:var(--muted);white-space:nowrap}
     .card h3{font-size:21px;line-height:1.38;letter-spacing:-.6px;margin:14px 0 7px}
-    .meta{color:var(--muted);font-size:12px}.summary{font-size:15px;line-height:1.65;color:#38435b;margin:14px 0}
+    .meta{color:var(--muted);font-size:12px}.summary{font-size:15px;line-height:1.65;color:#38435b;margin:14px 0}.card .summary{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}.official-box{background:#f7f9fc;border:1px solid var(--line);border-radius:14px;padding:16px}.official-text{white-space:pre-wrap;line-height:1.75;color:#2f3a52;font-size:14px;max-height:380px;overflow:auto}.source-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:13px}.source-link{display:inline-flex;text-decoration:none;background:var(--navy);color:white;border-radius:9px;padding:9px 12px;font-size:12px;font-weight:800}.pending{background:#fff8e8;border:1px solid #f1d99a;border-radius:13px;padding:14px;line-height:1.65;color:#70510a}
     .split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 15px}
     .mini{border-radius:12px;padding:11px;font-size:12px;line-height:1.55}.mini.good{background:#eefbf5;color:#075b3b}.mini.bad{background:#fff3f1;color:#8a1c13}
     .mini b{display:block;margin-bottom:3px}.card-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -125,7 +125,7 @@
       <input id="search" placeholder="정책명, 위원회, 수혜자, 위험요인을 검색하세요">
       <select id="status">
         <option value="">모든 검토 상태</option>
-        <option>AI 초안</option><option>규칙검사 완료</option><option>시민 검토 중</option><option>전문가 검토</option>
+        <option>공식 원문 연동</option><option>공식 기본정보</option><option>AI 초안</option><option>규칙검사 완료</option><option>시민 검토 중</option><option>전문가 검토</option>
       </select>
       <select id="sort">
         <option value="recent">최근 업데이트순</option>
@@ -180,9 +180,9 @@ fetch('bills.json').then(r=>{
 
 function renderStats(s){
   const items=[
-    ['추적 정책',s.tracked||allBills.length],
+    ['추적 의안',s.tracked||allBills.length],
+    ['공식 원문 연동',s.official_summaries||0],
     ['AI 1차 분석',s.ai_drafts||0],
-    ['시민 검토',s.citizen_review||0],
     ['등록 포크',s.forks||allBills.reduce((a,b)=>a+(b.forks||[]).length,0)]
   ];
   document.getElementById('stats').innerHTML=items.map(([k,v])=>`<div class="stat"><strong>${esc(v)}</strong><span>${esc(k)}</span></div>`).join('');
@@ -216,11 +216,11 @@ function render(){
         <span class="status">${esc(b.status)} · ${esc(b.stage)}</span>
       </div>
       <h3>${esc(b.title)}</h3>
-      <div class="meta">${esc(b.committee)} · 최근 검토 ${esc(b.updated_at)}</div>
+      <div class="meta">${esc(b.committee)} · 제안 ${esc(b.proposed_date)} · 갱신 ${esc(b.updated_at)}</div>
       <p class="summary">${esc(b.summary)}</p>
       <div class="split">
-        <div class="mini good"><b>기대효과</b>${esc((b.strengths||[])[0]||'확인 필요')}</div>
-        <div class="mini bad"><b>핵심위험</b>${esc((b.risks||[])[0]||'확인 필요')}</div>
+        <div class="mini good"><b>대표발의</b>${esc((b.official||{}).lead_proposer||'확인 필요')}</div>
+        <div class="mini bad"><b>분석 상태</b>${esc(b.analysis_status||'미분석')}</div>
       </div>
       <div class="card-bottom">
         <span class="review">검토 ${esc(b.review_count||0)}회 · 포크 ${(b.forks||[]).length}개</span>
@@ -239,8 +239,25 @@ function openBill(id){
       <div class="meta">${esc(b.status)} · ${esc(b.committee)} · 최근 검토 ${esc(b.updated_at)}</div></div>
       <button class="close" onclick="dialog.close()">닫기</button>
     </div>
-    <p class="summary">${esc(b.summary)}</p>
-    <div class="modal-section"><h3>왜 지금 제안되나요?</h3><p class="summary">${esc(b.why_now)}</p></div>
+    <div class="modal-section"><h3>공식 기본정보</h3>
+      <div class="impact-grid">
+        <div class="impact"><b>의안번호</b>${esc((b.official||{}).bill_no||'확인 필요')}</div>
+        <div class="impact"><b>대표발의</b>${esc((b.official||{}).lead_proposer||'확인 필요')}</div>
+        <div class="impact"><b>제안일</b>${esc(b.proposed_date||'확인 필요')}</div>
+      </div>
+    </div>
+    <div class="modal-section"><h3>국회 공식 제안이유 및 주요내용</h3>
+      <div class="official-box">
+        <div class="official-text">${esc(b.official_summary||'국회 공식 제안이유·주요내용 자료가 아직 연결되지 않았습니다.')}</div>
+        <div class="source-row">
+          <span class="meta">출처: 대한민국 국회 열린국회정보 · ${esc(b.official_summary_status||'확인 중')}</span>
+          ${(b.official||{}).source_url?`<a class="source-link" href="${esc(b.official.source_url)}" target="_blank" rel="noopener">국회 원문 열기</a>`:''}
+        </div>
+      </div>
+    </div>
+    <div class="modal-section"><h3>Democracy 3.0 국민용 해설</h3>
+      <div class="pending">${esc(b.why_now||'아직 분석되지 않았습니다.')}</div>
+    </div>
     <div class="modal-section"><h3>영향을 받는 주체</h3>
       <div class="impact-grid">
         <div class="impact"><b>수혜자</b>${list(b.beneficiaries)}</div>
@@ -262,8 +279,8 @@ function openBill(id){
       <p class="meta" style="margin-top:12px">점수는 정책의 선악 판정이 아니라 추가 검토가 필요한 위치를 찾기 위한 탐색지표입니다.</p>
     </div>
     <div class="modal-section"><h3>정책 포크</h3>
-      ${(b.forks||[]).map(f=>`<div class="fork"><div class="fork-head"><b>${esc(f.title)}</b><span class="fork-type">${esc(f.type)}</span></div>
-      <p>${esc(f.body)}</p><small><b>기대:</b> ${esc(f.benefit)}<br><b>새 위험:</b> ${esc(f.risk)}</small></div>`).join('')}
+      ${(b.forks||[]).length?(b.forks||[]).map(f=>`<div class="fork"><div class="fork-head"><b>${esc(f.title)}</b><span class="fork-type">${esc(f.type)}</span></div>
+      <p>${esc(f.body)}</p><small><b>기대:</b> ${esc(f.benefit)}<br><b>새 위험:</b> ${esc(f.risk)}</small></div>`).join(''):'<div class="pending">등록된 정책 포크가 없습니다. 공식 원문 검토와 Democracy 3.0 분석 이후 수정안·대체안을 제시합니다.</div>'}
     </div>`;
   dialog.showModal();
 }
