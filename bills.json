@@ -1,436 +1,5318 @@
 {
-  "generated_at": "2026-07-15",
-  "notice": "현재 화면은 Democracy 3.0 정책포크의 공개 시범판입니다. 표시된 정책은 기능 시연을 위한 가상 자료이며 실제 국회 의안과 연결되지 않았습니다.",
+  "generated_at": "2026-07-15T20:50:47+09:00",
+  "notice": "대한민국 국회 열린국회정보 Open API에서 자동수집한 제22대 국회 의안입니다. 현재 기본정보 100건을 표시하며, 상세 원문 분석과 정책 포크는 다음 단계에서 추가됩니다.",
+  "source": {
+    "provider": "대한민국 국회 열린국회정보",
+    "api": "국회의원 발의법률안",
+    "official_total_count": 18169,
+    "retrieved_count": 100
+  },
   "stats": {
-    "tracked": 6,
-    "ai_drafts": 3,
-    "citizen_review": 2,
-    "forks": 16
+    "tracked": 100,
+    "ai_drafts": 0,
+    "citizen_review": 0,
+    "forks": 0
   },
   "bills": [
     {
-      "id": "demo-001",
-      "category": "민생·경제",
-      "title": "지역 소상공인 디지털 전환 지원법안",
-      "status": "AI 초안",
-      "stage": "발의 전 시뮬레이션",
-      "committee": "산업 관련 위원회",
-      "proposed_date": "2026-07-15",
-      "updated_at": "2026-07-15",
-      "review_count": 14,
-      "summary": "영세 사업자가 주문·회계·고객관리 시스템을 도입할 때 비용 일부를 지원하는 가상 정책입니다.",
-      "why_now": "디지털 도구의 가격과 학습 부담 때문에 소상공인 사이의 생산성 격차가 커지고 있다는 문제의식에서 출발합니다.",
-      "beneficiaries": [
-        "영세 소상공인",
-        "지역 상권",
-        "디지털 서비스 이용자"
-      ],
-      "cost_bearers": [
-        "국가 재정",
-        "사업 집행기관"
-      ],
-      "authority_changes": [
-        "지원대상 선정 권한이 집행기관에 부여됨"
-      ],
-      "strengths": [
-        "초기 도입비용 완화",
-        "업무 자동화와 데이터 활용 촉진",
-        "디지털 격차 축소 가능성"
-      ],
-      "risks": [
-        "공급업체 중심의 보조금 시장 형성",
-        "실제 활용률이 낮을 가능성",
-        "성과측정 없는 일회성 지원"
-      ],
-      "questions": [
-        "지원 이후 실제 사용 여부를 어떻게 확인할 것인가?",
-        "특정 솔루션 업체에 지원이 집중되지 않는가?",
-        "폐업·업종변경 시 지원금은 어떻게 처리할 것인가?"
-      ],
-      "scores": {
-        "문제정의": 3,
-        "근거": 2,
-        "재정": 1,
-        "집행": 2,
-        "기본권": 4,
-        "악용방지": 2,
-        "성과지표": 1,
-        "재검토": 1
-      },
-      "forks": [
-        {
-          "title": "성과연동 지원형",
-          "type": "비용부담 재설계",
-          "body": "도입비를 일괄 지급하지 않고, 실제 사용률과 업무시간 절감 등 확인된 성과에 따라 단계 지급합니다.",
-          "benefit": "형식적 도입을 줄일 수 있습니다.",
-          "risk": "성과 측정 비용이 늘어납니다."
-        },
-        {
-          "title": "공급업체 독점방지형",
-          "type": "보호조항 추가",
-          "body": "복수 솔루션 선택권과 가격공개 의무를 두고, 특정 업체 의존도를 정기적으로 공개합니다.",
-          "benefit": "가격 부풀리기와 독점을 줄일 수 있습니다.",
-          "risk": "행정 절차가 복잡해질 수 있습니다."
-        },
-        {
-          "title": "지역 시범사업형",
-          "type": "시범사업 선행",
-          "body": "업종과 지역을 제한한 1년 시범사업 후 전국 확대 여부를 결정합니다.",
-          "benefit": "실패 비용을 줄일 수 있습니다.",
-          "risk": "전국 확산 속도가 느려질 수 있습니다."
-        }
-      ]
-    },
-    {
-      "id": "demo-002",
-      "category": "행정·AI",
-      "title": "공공 알고리즘 설명책임 강화법안",
-      "status": "시민 검토 중",
-      "stage": "쟁점 검토",
-      "committee": "행정 관련 위원회",
+      "id": "PRC_E2C6D0B7C1K4K1J0H5H1G5H5O8N7N8",
+      "category": "기타",
+      "title": "지방교육자치에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
       "proposed_date": "2026-07-14",
       "updated_at": "2026-07-15",
-      "review_count": 32,
-      "summary": "공공기관이 국민의 권리·급부·제재에 영향을 주는 자동화 시스템을 사용할 때 설명과 이의제기 절차를 두도록 하는 가상 정책입니다.",
-      "why_now": "행정 자동화가 확대되면서 국민이 자신에게 불리한 결정이 어떻게 내려졌는지 알기 어려워지는 문제를 다룹니다.",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 김성원이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
       "beneficiaries": [
-        "행정서비스 이용 국민",
-        "이의제기 당사자",
-        "감사기관"
+        "상세 원문 분석 전"
       ],
       "cost_bearers": [
-        "공공기관 시스템 운영비",
-        "알고리즘 공급업체"
+        "재정·비용 분석 전"
       ],
       "authority_changes": [
-        "공공기관에 설명·기록·이의처리 의무가 추가됨"
+        "권한 변화 분석 전"
       ],
       "strengths": [
-        "행정 투명성 향상",
-        "오류 정정 경로 확보",
-        "자동화 결정의 책임 소재 명확화"
+        "Democracy 3.0 분석 전"
       ],
       "risks": [
-        "형식적인 설명문 제공",
-        "보안·영업비밀과의 충돌",
-        "작은 기관의 행정부담 증가"
+        "Democracy 3.0 분석 전"
       ],
       "questions": [
-        "설명 가능한 수준을 누가 정하는가?",
-        "긴급한 행정결정에도 같은 절차가 필요한가?",
-        "알고리즘 오류로 인한 손해는 누가 책임지는가?"
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
       ],
       "scores": {
-        "문제정의": 4,
-        "근거": 3,
-        "재정": 2,
-        "집행": 3,
-        "기본권": 4,
-        "악용방지": 3,
-        "성과지표": 2,
-        "재검토": 2
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
       },
-      "forks": [
-        {
-          "title": "고위험 결정 우선형",
-          "type": "적용대상 조정",
-          "body": "복지, 채용, 징계, 허가 취소 등 권리 영향이 큰 분야부터 단계적으로 적용합니다.",
-          "benefit": "행정 부담을 낮추면서 핵심 위험부터 관리합니다.",
-          "risk": "저위험으로 분류된 영역의 피해가 누락될 수 있습니다."
-        },
-        {
-          "title": "독립 이의심사형",
-          "type": "보호조항 추가",
-          "body": "원 시스템 운영부서와 분리된 이의심사 절차를 두도록 합니다.",
-          "benefit": "자기검증의 한계를 줄입니다.",
-          "risk": "처리기간과 비용이 늘어납니다."
-        },
-        {
-          "title": "공개 감사로그형",
-          "type": "일몰·사후평가",
-          "body": "개인정보를 제거한 오류·이의제기·정정 통계를 정기 공개합니다.",
-          "benefit": "제도의 실효성을 외부에서 검증할 수 있습니다.",
-          "risk": "통계만으로 개별 피해를 설명하기 어렵습니다."
-        }
-      ]
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219953",
+        "proposer": "김성원의원 등 10인",
+        "lead_proposer": "김성원",
+        "co_proposers": "김선교,고동진,구자근,김종양,송석준,유용원,박충권,박성훈,김태호",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_E2C6D0B7C1K4K1J0H5H1G5H5O8N7N8&ageFrom=22&ageTo=22"
+      }
     },
     {
-      "id": "demo-003",
-      "category": "환경·지역",
-      "title": "생활폐기물 재사용 촉진법안",
-      "status": "규칙검사 완료",
-      "stage": "초기 검토",
-      "committee": "환경 관련 위원회",
-      "proposed_date": "2026-07-12",
+      "id": "PRC_I2G6H0G7E1E3M1N0L2M8K0J5J7R8S7",
+      "category": "기타",
+      "title": "전자정부법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
       "updated_at": "2026-07-15",
-      "review_count": 8,
-      "summary": "재사용 가능한 가전·가구·생활물품의 회수, 수리, 재판매 체계를 지방자치단체가 지원하는 가상 정책입니다.",
-      "why_now": "대형 생활폐기물이 늘고 있지만 재사용 가능한 물품도 폐기되는 문제를 줄이기 위한 제안입니다.",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 김준환이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
       "beneficiaries": [
-        "재사용 사업자",
-        "지역 주민",
-        "지방자치단체"
+        "상세 원문 분석 전"
       ],
       "cost_bearers": [
-        "지방재정",
-        "생산자 일부"
+        "재정·비용 분석 전"
       ],
       "authority_changes": [
-        "지자체에 회수·인증·지원사업 운영 권한이 확대됨"
+        "권한 변화 분석 전"
       ],
       "strengths": [
-        "폐기물 감축",
-        "지역 일자리 가능성",
-        "저가 생활물품 공급"
+        "Democracy 3.0 분석 전"
       ],
       "risks": [
-        "제품 안전과 위생 기준 불명확",
-        "지자체별 역량 격차",
-        "불법 폐기물 유입 가능성"
+        "Democracy 3.0 분석 전"
       ],
       "questions": [
-        "재판매 제품의 안전책임은 누구에게 있는가?",
-        "수리 불가능 제품의 처리비용은 누가 부담하는가?",
-        "기존 중고시장과 충돌하지 않는가?"
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
       ],
       "scores": {
-        "문제정의": 3,
-        "근거": 2,
-        "재정": 2,
-        "집행": 2,
-        "기본권": 4,
-        "악용방지": 2,
-        "성과지표": 2,
-        "재검토": 2
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
       },
-      "forks": [
-        {
-          "title": "품목별 안전기준형",
-          "type": "보호조항 추가",
-          "body": "가전·가구 등 품목별 검사와 보증기준을 먼저 마련합니다.",
-          "benefit": "재사용 제품의 안전 신뢰를 높입니다.",
-          "risk": "검사비용이 올라갑니다."
-        },
-        {
-          "title": "지자체 공동센터형",
-          "type": "비용부담 재설계",
-          "body": "소규모 지자체가 공동으로 회수·수리센터를 운영할 수 있게 합니다.",
-          "benefit": "지역별 비용 격차를 줄입니다.",
-          "risk": "광역 협의가 복잡해질 수 있습니다."
-        }
-      ]
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219952",
+        "proposer": "김준환의원 등 10인",
+        "lead_proposer": "김준환",
+        "co_proposers": "김원이,박정,채현일,김남근,김교흥,송재봉,부승찬,전용기,손명수",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_I2G6H0G7E1E3M1N0L2M8K0J5J7R8S7&ageFrom=22&ageTo=22"
+      }
     },
     {
-      "id": "demo-004",
-      "category": "노동·안전",
-      "title": "산업현장 위험제보 보호법안",
-      "status": "전문가 검토",
-      "stage": "대안 비교",
-      "committee": "노동 관련 위원회",
+      "id": "PRC_R2Z6A0Y7Z1X0X1W6S0S5R0R2P1O1P3",
+      "category": "기타",
+      "title": "소비자집단소송법안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 김남근이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219951",
+        "proposer": "김남근의원 등 10인",
+        "lead_proposer": "김남근",
+        "co_proposers": "송재봉,민병덕,강준현,이훈기,이용우,박정,진성준,박정현,김윤",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2Z6A0Y7Z1X0X1W6S0S5R0R2P1O1P3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Z2Y6X0D6C1A8X1V1V1U5C4B3A5Y5H4",
+      "category": "기타",
+      "title": "도로교통법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 송석준이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219950",
+        "proposer": "송석준의원 등 10인",
+        "lead_proposer": "송석준",
+        "co_proposers": "박상웅,조경태,김형동,이헌승,유상범,고동진,이종배,윤한홍,김예지",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2Y6X0D6C1A8X1V1V1U5C4B3A5Y5H4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_U2U6C0B7B0A6A1Z7Z0V4T2U7S3T4S4",
+      "category": "기타",
+      "title": "전통주 등의 산업진흥에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 어기구이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219949",
+        "proposer": "어기구의원 등 10인",
+        "lead_proposer": "어기구",
+        "co_proposers": "정춘생,손명수,주철현,박균택,허성무,김주영,김의겸,김병주,조인철",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2U6C0B7B0A6A1Z7Z0V4T2U7S3T4S4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Z2V6V0U7S0T7R1S6A3A1Z1X9Y0W7X7",
+      "category": "기타",
+      "title": "공직선거법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 송영길이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219948",
+        "proposer": "송영길의원 등 10인",
+        "lead_proposer": "송영길",
+        "co_proposers": "최혁진,허종식,김교흥,민병덕,박성준,서미화,한준호,김영호,정일영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2V6V0U7S0T7R1S6A3A1Z1X9Y0W7X7&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_R2R6P0Q7F0G7E1D6D3B0C2K2K6J0H4",
+      "category": "기타",
+      "title": "국회법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 송영길이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219947",
+        "proposer": "송영길의원 등 11인",
+        "lead_proposer": "송영길",
+        "co_proposers": "최혁진,허종식,김교흥,민병덕,박성준,서미화,한준호,김영호,정일영,허영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2R6P0Q7F0G7E1D6D3B0C2K2K6J0H4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_C2B6J0J7H0J6H1H6G1N5O5M6N5L6M5",
+      "category": "기타",
+      "title": "가축전염병 예방법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 어기구이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219946",
+        "proposer": "어기구의원 등 11인",
+        "lead_proposer": "어기구",
+        "co_proposers": "정춘생,손명수,임호선,주철현,박균택,허성무,김주영,김의겸,김병주,조인철",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2B6J0J7H0J6H1H6G1N5O5M6N5L6M5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_W2S6R0R7P0Q6P1P6X1V6W2U8V7T1U9",
+      "category": "기타",
+      "title": "양봉산업의 육성 및 지원에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 어기구이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219945",
+        "proposer": "어기구의원 등 12인",
+        "lead_proposer": "어기구",
+        "co_proposers": "정춘생,손명수,임호선,주철현,박균택,김태선,허성무,김주영,김의겸,김병주,조인철",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2S6R0R7P0Q6P1P6X1V6W2U8V7T1U9&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_S2T6R0S6R1P1P1Y3Y2W4X3W6U4U7Q5",
+      "category": "기타",
+      "title": "국회에서의 증언·감정 등에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 이개호이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219944",
+        "proposer": "이개호의원 등 10인",
+        "lead_proposer": "이개호",
+        "co_proposers": "박지원,박정,정준호,임오경,조인철,정진욱,전진숙,문금주,어기구",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2T6R0S6R1P1P1Y3Y2W4X3W6U4U7Q5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_K2O6P0O6M1M1K1L3T2U6S0S0R5P6Q6",
+      "category": "기타",
+      "title": "지방공무원법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 이개호이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219943",
+        "proposer": "이개호의원 등 10인",
+        "lead_proposer": "이개호",
+        "co_proposers": "박지원,박정,정준호,임오경,조인철,전진숙,문금주,어기구,송옥주",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2O6P0O6M1M1K1L3T2U6S0S0R5P6Q6&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_A2X6G0F5C2K1J1J3G3P2O2L3T5T1P7",
+      "category": "기타",
+      "title": "가축전염병 예방법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 서삼석이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219942",
+        "proposer": "서삼석의원 등 11인",
+        "lead_proposer": "서삼석",
+        "co_proposers": "박용갑,맹성규,전종덕,조계원,오세희,장종태,조인철,문금주,노종면,윤준병",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2X6G0F5C2K1J1J3G3P2O2L3T5T1P7&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_S2P6O0X5V2V1E1C3Z3I3H2E7A5Z7J4",
+      "category": "기타",
+      "title": "농업협동조합법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 서삼석이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219941",
+        "proposer": "서삼석의원 등 12인",
+        "lead_proposer": "서삼석",
+        "co_proposers": "박용갑,조계원,오세희,조인철,문금주,이개호,문대림,김교흥,맹성규,이성윤,김준혁",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2P6O0X5V2V1E1C3Z3I3H2E7A5Z7J4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_O2N6M0H5F2N1M1M3S3R5Q1X5W8V6S4",
+      "category": "기타",
+      "title": "국제항해선박 및 항만시설의 보안에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 서삼석이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219940",
+        "proposer": "서삼석의원 등 10인",
+        "lead_proposer": "서삼석",
+        "co_proposers": "박용갑,맹성규,전종덕,조계원,오세희,조인철,문금주,노종면,이성윤",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2N6M0H5F2N1M1M3S3R5Q1X5W8V6S4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_T2R6S0Q6R1Z1X1X3W2X5V1D8D8C9D3",
+      "category": "기타",
+      "title": "국가공무원법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 이개호이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219939",
+        "proposer": "이개호의원 등 10인",
+        "lead_proposer": "이개호",
+        "co_proposers": "박지원,박정,정준호,임오경,조인철,전진숙,문금주,어기구,송옥주",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2R6S0Q6R1Z1X1X3W2X5V1D8D8C9D3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Z2Y6Y0G5D2F1R1O3L3H5G4P6O9L4W8",
+      "category": "기타",
+      "title": "산업입지 및 개발에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 서삼석이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219938",
+        "proposer": "서삼석의원 등 10인",
+        "lead_proposer": "서삼석",
+        "co_proposers": "박용갑,조계원,오세희,조인철,문금주,노종면,윤준병,이성윤,한정애",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2Y6Y0G5D2F1R1O3L3H5G4P6O9L4W8&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Q2X6Y0X7X1V3U0U8C3D2B3C8B2Z8Z1",
+      "category": "기타",
+      "title": "형사소송법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 홍기원이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219937",
+        "proposer": "홍기원의원 등 11인",
+        "lead_proposer": "홍기원",
+        "co_proposers": "모경종,문진석,고민정,민홍철,김남희,곽상언,박균택,이소영,박희승,주철현",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2X6Y0X7X1V3U0U8C3D2B3C8B2Z8Z1&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_S2R6P0Q6O1O9E1E1C1D4B4A5A6I6J8",
+      "category": "기타",
+      "title": "소상공인 보호 및 지원에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 이종배이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219936",
+        "proposer": "이종배의원 등 11인",
+        "lead_proposer": "이종배",
+        "co_proposers": "권영진,안철수,곽규택,서명옥,김기웅,송석준,이소희,최은석,이만희,김태규",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2R6P0Q6O1O9E1E1C1D4B4A5A6I6J8&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_I2H6H0F7G0O8O1N0L3M9L5L1T9T7S3",
+      "category": "기타",
+      "title": "국가첨단전략산업 경쟁력 강화 및 보호에 관한 특별조치법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 김원이이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219935",
+        "proposer": "김원이의원 등 11인",
+        "lead_proposer": "김원이",
+        "co_proposers": "서삼석,허성무,신정훈,문진석,박균택,김준환,김태선,김기표,이해식,문금주",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_I2H6H0F7G0O8O1N0L3M9L5L1T9T7S3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_M2T6S0T6R1R7Q1Q6F4G0E1D3D0B9C3",
+      "category": "기타",
+      "title": "임업 및 산촌 진흥촉진에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 임종득이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219934",
+        "proposer": "임종득의원 등 11인",
+        "lead_proposer": "임종득",
+        "co_proposers": "서천호,박성훈,윤상현,김기현,김용태,나경원,이진숙,김승수,김상훈,박형수",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2T6S0T6R1R7Q1Q6F4G0E1D3D0B9C3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_W2X6W0W7U0V6R0P9Q5O4P4N2V7V1U2",
+      "category": "기타",
+      "title": "물품관리법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 진성준이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219933",
+        "proposer": "진성준의원 등 11인",
+        "lead_proposer": "진성준",
+        "co_proposers": "임오경,김남근,김주영,김태년,박홍배,정태호,민병덕,서영석,김영호,김우영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2X6W0W7U0V6R0P9Q5O4P4N2V7V1U2&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Z2A6I0I7H0H6G0G9E5M4N2L4M6K9L6",
+      "category": "기타",
+      "title": "국유재산법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 진성준이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219932",
+        "proposer": "진성준의원 등 11인",
+        "lead_proposer": "진성준",
+        "co_proposers": "임오경,김남근,김주영,김태년,박홍배,정태호,민병덕,서영석,김영호,김우영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2A6I0I7H0H6G0G9E5M4N2L4M6K9L6&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_P2P6X0W7W0U9W1U1U0C1D4B9Z4A2Y7",
+      "category": "기타",
+      "title": "형법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 유상범이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219931",
+        "proposer": "유상범의원 등 12인",
+        "lead_proposer": "유상범",
+        "co_proposers": "안철수,엄태영,송석준,송언석,조정훈,곽규택,조배숙,김건,김상훈,박충권,김석기",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_P2P6X0W7W0U9W1U1U0C1D4B9Z4A2Y7&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_M2K6J0J7Z0A6Y0Z9X4X8W2E8E5D1E6",
+      "category": "기타",
+      "title": "농수산물 유통 및 가격안정에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 진성준이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219930",
+        "proposer": "진성준의원 등 10인",
+        "lead_proposer": "진성준",
+        "co_proposers": "임오경,김남근,김주영,김태년,박홍배,정태호,민병덕,서영석,김우영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2K6J0J7Z0A6Y0Z9X4X8W2E8E5D1E6&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_E2C6D0C7B0J6H0I9H5G3O2M9N3M9K8",
+      "category": "기타",
+      "title": "국회법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 진성준이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219929",
+        "proposer": "진성준의원 등 11인",
+        "lead_proposer": "진성준",
+        "co_proposers": "임오경,김남근,김주영,김태년,박홍배,정태호,민병덕,서영석,김영호,김우영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_E2C6D0C7B0J6H0I9H5G3O2M9N3M9K8&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_N2J6H0H7G0H6F0F9O5M3M4L8L5K5S9",
+      "category": "기타",
+      "title": "국가채권 관리법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 진성준이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219928",
+        "proposer": "진성준의원 등 11인",
+        "lead_proposer": "진성준",
+        "co_proposers": "임오경,김남근,김주영,김태년,박홍배,정태호,민병덕,서영석,김영호,김우영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2J6H0H7G0H6F0F9O5M3M4L8L5K5S9&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_B2B6Z0A7Y0Z6H0H9G5E3F0D9E0M1M1",
+      "category": "기타",
+      "title": "국가재정법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 진성준이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219927",
+        "proposer": "진성준의원 등 11인",
+        "lead_proposer": "진성준",
+        "co_proposers": "임오경,김남근,김주영,김태년,박홍배,정태호,민병덕,서영석,김영호,김우영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_B2B6Z0A7Y0Z6H0H9G5E3F0D9E0M1M1&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_C2D6K0L7K0K6I0J9H5X4Y0W7X2V0W6",
+      "category": "기타",
+      "title": "국고금 관리법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-14",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-14 제안된 의안입니다. 대표발의자는 진성준이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219926",
+        "proposer": "진성준의원 등 11인",
+        "lead_proposer": "진성준",
+        "co_proposers": "임오경,김남근,김주영,김태년,박홍배,정태호,민병덕,서영석,김영호,김우영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2D6K0L7K0K6I0J9H5X4Y0W7X2V0W6&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_S2S6O0M7N0L6M1K6L1T4R1S8Q8R0P3",
+      "category": "환경·노동",
+      "title": "노동조합 및 노동관계조정법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "기후에너지환경노동위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 김태규이며, 소관위원회는 기후에너지환경노동위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219925",
+        "proposer": "김태규의원 등 10인",
+        "lead_proposer": "김태규",
+        "co_proposers": "서명옥,신성범,김기현,최은석,강대식,김대식,박성민,이만희,엄태영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2S6O0M7N0L6M1K6L1T4R1S8Q8R0P3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_P2N6O0N7U1V3U1U6S2T4R0Z5A6Y7Z3",
+      "category": "농림·해양",
+      "title": "식물방역법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "농림축산식품해양수산위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 김선교이며, 소관위원회는 농림축산식품해양수산위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219924",
+        "proposer": "김선교의원 등 10인",
+        "lead_proposer": "김선교",
+        "co_proposers": "이헌승,구자근,김성원,정동만,박수민,김미애,김상훈,김위상,최수진",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_P2N6O0N7U1V3U1U6S2T4R0Z5A6Y7Z3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_X2W6W0U7W1D0E1C6B3B6Z2A6I1J3H6",
+      "category": "법·사법",
+      "title": "가사소송법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 박균택이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219923",
+        "proposer": "박균택의원 등 11인",
+        "lead_proposer": "박균택",
+        "co_proposers": "홍기원,김동아,박상혁,주철현,양부남,조인철,정준호,박희승,김주영,박지원",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2W6W0U7W1D0E1C6B3B6Z2A6I1J3H6&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_X2X6V0W7V1T0T1P4Q3O7N4N6L4M3U5",
+      "category": "문화·사회",
+      "title": "국민체육진흥법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "문화체육관광위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 정준호이며, 소관위원회는 문화체육관광위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219922",
+        "proposer": "정준호의원 등 10인",
+        "lead_proposer": "정준호",
+        "co_proposers": "서영교,조인철,백선희,장종태,박균택,이정문,김준혁,양부남,안도걸",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2X6V0W7V1T0T1P4Q3O7N4N6L4M3U5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Q2O6P0N7O0K8I1J6H1I0G3H6O4P2O8",
+      "category": "기타",
+      "title": "석유 및 석유대체연료 사업법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 박균택이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219921",
+        "proposer": "박균택의원 등 17인",
+        "lead_proposer": "박균택",
+        "co_proposers": "김현정,어기구,허영,허성무,이상식,김영배,박정,이성윤,홍기원,김동아,박상혁,주철현,양부남,조인철,정준호,박지원",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2O6P0N7O0K8I1J6H1I0G3H6O4P2O8&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_R2S6Q0R7Y0X9Y1W0W4V8W1D4C5D8B0",
+      "category": "법·사법",
+      "title": "민사소송법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 박균택이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219920",
+        "proposer": "박균택의원 등 16인",
+        "lead_proposer": "박균택",
+        "co_proposers": "김현정,김원이,어기구,허영,허성무,이상식,김영배,박정,홍기원,박상혁,주철현,양부남,조인철,정준호,박지원",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2S6Q0R7Y0X9Y1W0W4V8W1D4C5D8B0&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_M2K6L0J7I0I8Q1Q5P5Q9O2O9N7V3V4",
+      "category": "환경·노동",
+      "title": "하천법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "기후에너지환경노동위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 김용태이며, 소관위원회는 기후에너지환경노동위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219919",
+        "proposer": "김용태의원 등 10인",
+        "lead_proposer": "김용태",
+        "co_proposers": "서천호,조은희,김성원,엄태영,이성권,박충권,강선영,김재섭,성일종",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2K6L0J7I0I8Q1Q5P5Q9O2O9N7V3V4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_H2I6G0H6F1N6N1M0N1L9J0K1S3S4R7",
+      "category": "기타",
+      "title": "조세특례제한법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "재정경제기획위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 엄태영이며, 소관위원회는 재정경제기획위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219918",
+        "proposer": "엄태영의원 등 10인",
+        "lead_proposer": "엄태영",
+        "co_proposers": "권영진,이만희,안철수,윤한홍,서천호,이종배,김재섭,이상휘,박성민",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2I6G0H6F1N6N1M0N1L9J0K1S3S4R7&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_M2L6T0S7R0S3Q1M0L0K4I0J1R9P1P5",
+      "category": "과학·디지털",
+      "title": "정보통신망 이용촉진 및 정보보호 등에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "과학기술정보방송통신위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 박상혁이며, 소관위원회는 과학기술정보방송통신위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219917",
+        "proposer": "박상혁의원 등 15인",
+        "lead_proposer": "박상혁",
+        "co_proposers": "김한규,김동아,문금주,이인영,정준호,이정문,진선미,백혜련,강경숙,허영,한민수,김주영,김영환,박균택",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2L6T0S7R0S3Q1M0L0K4I0J1R9P1P5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_N2M6L0L6K1G9F1F0E4C2L0J3K5J0H6",
+      "category": "과학·디지털",
+      "title": "소형모듈원자로 개발 촉진 및 지원에 관한 특별법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "과학기술정보방송통신위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 허성무이며, 소관위원회는 과학기술정보방송통신위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219916",
+        "proposer": "허성무의원 등 10인",
+        "lead_proposer": "허성무",
+        "co_proposers": "서미화,권향엽,조계원,민홍철,박선원,안도걸,김종민,곽상언,김준형",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2M6L0L6K1G9F1F0E4C2L0J3K5J0H6&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_I2H6G0E7N0L3K1L0J0R3Q1P9O0O9W9",
+      "category": "경제·산업",
+      "title": "개인정보 보호법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "정무위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 박상혁이며, 소관위원회는 정무위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219915",
+        "proposer": "박상혁의원 등 13인",
+        "lead_proposer": "박상혁",
+        "co_proposers": "김한규,김동아,문금주,이인영,정준호,이정문,강경숙,허영,한민수,김주영,김영환,박균택",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_I2H6G0E7N0L3K1L0J0R3Q1P9O0O9W9&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_D2B6C0B4B2J8J1I0G4H2F0G6O2O4N4",
+      "category": "경제·산업",
+      "title": "자본시장과 금융투자업에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "정무위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 최혁진이며, 소관위원회는 정무위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219914",
+        "proposer": "최혁진의원 등 10인",
+        "lead_proposer": "최혁진",
+        "co_proposers": "김문수,손솔,정혜경,윤종오,박민규,박용갑,조계원,서영석,윤준병",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2B6C0B4B2J8J1I0G4H2F0G6O2O4N4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_K2L6J0K7I0J6H1I1P3O7O5N2O9M5U3",
+      "category": "법·사법",
+      "title": "변호사시험법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 용혜인,김한규이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219913",
+        "proposer": "용혜인의원ㆍ김한규의원 등 12인",
+        "lead_proposer": "용혜인,김한규",
+        "co_proposers": "손솔,김남희,이성윤,윤종오,전종덕,백혜련,정혜경,서미화,이수진,김윤",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2L6J0K7I0J6H1I1P3O7O5N2O9M5U3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_G2H6F0E7A0Z1A1Y3W5F2E4E1D2B1K4",
+      "category": "기타",
+      "title": "첨단재생의료 및 첨단바이오의약품 안전 및 지원에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 백종헌이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219912",
+        "proposer": "백종헌의원 등 10인",
+        "lead_proposer": "백종헌",
+        "co_proposers": "윤재옥,임종득,김태호,김기웅,박형수,권영진,서천호,김상훈,안상훈",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_G2H6F0E7A0Z1A1Y3W5F2E4E1D2B1K4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_H2H6P0P6O2O2N1L3M2U5V1T4T1R9S6",
+      "category": "기타",
+      "title": "국내입양에 관한 특별법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 김미애이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219911",
+        "proposer": "김미애의원 등 13인",
+        "lead_proposer": "김미애",
+        "co_proposers": "김태규,조배숙,최보윤,엄태영,김대식,우재준,이헌승,안상훈,성일종,이주영,조정훈,주호영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2H6P0P6O2O2N1L3M2U5V1T4T1R9S6&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_O2P6O0M7M0K6M1T4U1S4R5R0P5Q7F3",
+      "category": "행정·안전",
+      "title": "지방자치법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 송재봉이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219910",
+        "proposer": "송재봉의원 등 12인",
+        "lead_proposer": "송재봉",
+        "co_proposers": "민병덕,김문수,허성무,황명선,최혁진,박정,박홍배,김우영,박정현,이광희,김준환",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2P6O0M7M0K6M1T4U1S4R5R0P5Q7F3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_L2T6A0Z6X2F3G1E5D2C6K5L9J8I9H9",
+      "category": "기타",
+      "title": "개발제한구역의 지정 및 관리에 관한 특별조치법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-13",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-13 제안된 의안입니다. 대표발의자는 윤준병이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219909",
+        "proposer": "윤준병의원 등 12인",
+        "lead_proposer": "윤준병",
+        "co_proposers": "허성무,문대림,김현,박홍배,안호영,박민규,양부남,박범계,이정문,서영석,박희승",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2T6A0Z6X2F3G1E5D2C6K5L9J8I9H9&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_G2E6F0N7O0M8M1L5J5K8S3T3R9P4Q8",
+      "category": "기타",
+      "title": "기후위기 대응을 위한 탄소중립ㆍ녹색성장 기본법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "기후위기 특별위원회",
       "proposed_date": "2026-07-10",
       "updated_at": "2026-07-15",
-      "review_count": 47,
-      "summary": "작업자가 위험상황을 제보했을 때 불이익을 받지 않도록 보호하고, 사업주가 처리결과를 기록하도록 하는 가상 정책입니다.",
-      "why_now": "현장에서 위험을 먼저 발견해도 고용관계와 조직문화 때문에 신고하지 못하는 문제를 해결하려는 제안입니다.",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 김용태이며, 소관위원회는 기후위기 특별위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
       "beneficiaries": [
-        "현장 작업자",
-        "안전관리자",
-        "사고 피해 가능자"
+        "상세 원문 분석 전"
       ],
       "cost_bearers": [
-        "사업주",
-        "감독기관"
+        "재정·비용 분석 전"
       ],
       "authority_changes": [
-        "감독기관의 조사·시정 권한 강화"
+        "권한 변화 분석 전"
       ],
       "strengths": [
-        "사고 전 위험정보 확보",
-        "보복성 불이익 억제",
-        "안전조치 기록 강화"
+        "Democracy 3.0 분석 전"
       ],
       "risks": [
-        "악의적·반복적 신고 가능성",
-        "중소사업장의 처리부담",
-        "신고자 신원 노출 가능성"
+        "Democracy 3.0 분석 전"
       ],
       "questions": [
-        "긴급위험과 일반민원을 어떻게 구분할 것인가?",
-        "허위신고 판단은 누가 하는가?",
-        "하청근로자 보호가 실질적으로 가능한가?"
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
       ],
       "scores": {
-        "문제정의": 4,
-        "근거": 3,
-        "재정": 3,
-        "집행": 2,
-        "기본권": 4,
-        "악용방지": 2,
-        "성과지표": 3,
-        "재검토": 3
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
       },
-      "forks": [
-        {
-          "title": "긴급위험 우선형",
-          "type": "적용대상 조정",
-          "body": "생명·신체에 급박한 위험이 있는 신고를 우선 처리하고 별도 기한을 둡니다.",
-          "benefit": "중대한 위험 대응속도를 높입니다.",
-          "risk": "위험등급 판단 분쟁이 생길 수 있습니다."
-        },
-        {
-          "title": "익명 중계기관형",
-          "type": "보호조항 추가",
-          "body": "독립기관이 신고자 정보를 분리해 사업장에 위험내용만 전달합니다.",
-          "benefit": "신고자 보복 위험을 줄입니다.",
-          "risk": "사실확인이 늦어질 수 있습니다."
-        },
-        {
-          "title": "중소사업장 지원형",
-          "type": "인센티브 전환",
-          "body": "처리시스템 구축비와 외부 안전전문가 비용을 지원합니다.",
-          "benefit": "의무만 부과하는 문제를 줄입니다.",
-          "risk": "재정 소요가 증가합니다."
-        }
-      ]
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219908",
+        "proposer": "김용태의원 등 10인",
+        "lead_proposer": "김용태",
+        "co_proposers": "서천호,조은희,김성원,엄태영,이성권,임종득,정동만,박충권,강선영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_G2E6F0N7O0M8M1L5J5K8S3T3R9P4Q8&ageFrom=22&ageTo=22"
+      }
     },
     {
-      "id": "demo-005",
-      "category": "복지·돌봄",
-      "title": "고독사 위험 조기연계 지원법안",
-      "status": "AI 초안",
-      "stage": "발의 전 시뮬레이션",
-      "committee": "복지 관련 위원회",
+      "id": "PRC_I2J6H0I7Q0O3P1N1O5M4M1V8T0T4S5",
+      "category": "법·사법",
+      "title": "소년법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 이성윤이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219907",
+        "proposer": "이성윤의원 등 10인",
+        "lead_proposer": "이성윤",
+        "co_proposers": "윤준병,박균택,서영석,서삼석,강준현,박지원,정혜경,용혜인,황운하",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_I2J6H0I7Q0O3P1N1O5M4M1V8T0T4S5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_D2C6C0B7C0J1K1I1G1I4G3G7O0N0N3",
+      "category": "기타",
+      "title": "소상공인 보호 및 지원에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 복기왕이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219906",
+        "proposer": "복기왕의원 등 13인",
+        "lead_proposer": "복기왕",
+        "co_proposers": "박용갑,이광희,이상식,최혁진,김영배,안태준,염태영,손명수,김우영,문진석,송재봉,강준현",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2C6C0B7C0J1K1I1G1I4G3G7O0N0N3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_T2U6T0T7R0Z1A1Y1Z1X5Y3W4E3F0D8",
+      "category": "행정·안전",
+      "title": "풍수해ㆍ지진재해보험법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 복기왕이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219905",
+        "proposer": "복기왕의원 등 14인",
+        "lead_proposer": "복기왕",
+        "co_proposers": "박용갑,이광희,이상식,김영배,최혁진,양부남,김한규,염태영,손명수,김우영,문진석,송재봉,강준현",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2U6T0T7R0Z1A1Y1Z1X5Y3W4E3F0D8&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_I2I6R0R7P0O6O1N6N1V3W3U9V6T0R4",
+      "category": "행정·안전",
+      "title": "공직선거법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 김태규이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219904",
+        "proposer": "김태규의원 등 10인",
+        "lead_proposer": "김태규",
+        "co_proposers": "최수진,김기현,최은석,강대식,김대식,박성민,이만희,김미애,박상웅",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_I2I6R0R7P0O6O1N6N1V3W3U9V6T0R4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_L2K6L0J7K0R7S1R3P5P2O3P2W2X8V0",
+      "category": "기타",
+      "title": "자동차관리법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 손명수이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219903",
+        "proposer": "손명수의원 등 11인",
+        "lead_proposer": "손명수",
+        "co_proposers": "황명선,이연희,문정복,문진석,허성무,염태영,이해민,복기왕,홍기원,어기구",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2K6L0J7K0R7S1R3P5P2O3P2W2X8V0&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_H2P6Q0O7P1O0M1M3I1J7H0G2G5E8F3",
+      "category": "행정·안전",
+      "title": "경찰공무원법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 임호선이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219902",
+        "proposer": "임호선의원 등 10인",
+        "lead_proposer": "임호선",
+        "co_proposers": "정준호,차지호,김주영,이연희,김한규,김영배,김현정,이상식,손명수",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2P6Q0O7P1O0M1M3I1J7H0G2G5E8F3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_R2Q6Q0Y7Z1X0Y1W3U1V6D3E6C6A5B5",
+      "category": "법·사법",
+      "title": "형법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 임호선이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219901",
+        "proposer": "임호선의원 등 10인",
+        "lead_proposer": "임호선",
+        "co_proposers": "정준호,차지호,김주영,이연희,김한규,김영배,김현정,이상식,손명수",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2Q6Q0Y7Z1X0Y1W3U1V6D3E6C6A5B5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_N2O6M0N6V2V5U1S7T3R7S1O6M1N2L5",
+      "category": "환경·노동",
+      "title": "산업재해보상보험법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "기후에너지환경노동위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 이훈기이며, 소관위원회는 기후에너지환경노동위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219900",
+        "proposer": "이훈기의원 등 11인",
+        "lead_proposer": "이훈기",
+        "co_proposers": "최민희,김남근,이용우,정진욱,허성무,김현,이인영,한준호,황운하,민병덕",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2O6M0N6V2V5U1S7T3R7S1O6M1N2L5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_A2Y6Z0Y7W0W9S1T0R4S3Q3P2P5X1X4",
+      "category": "행정·안전",
+      "title": "공직선거법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 박충권이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219899",
+        "proposer": "박충권의원 등 16인",
+        "lead_proposer": "박충권",
+        "co_proposers": "엄태영,서천호,이인선,김태호,김정재,김종양,김상훈,김성원,김용태,박성민,조정훈,유상범,박대출,안철수,박성훈",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2Y6Z0Y7W0W9S1T0R4S3Q3P2P5X1X4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_N2N6M0K7L0T8T1S6Q4R7P4Q6L9M4K1",
+      "category": "문화·사회",
+      "title": "관광진흥법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "문화체육관광위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 김성원이며, 소관위원회는 문화체육관광위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219898",
+        "proposer": "김성원의원 등 10인",
+        "lead_proposer": "김성원",
+        "co_proposers": "김선교,김종양,김용태,박충권,이인선,송석준,고동진,유의동,박성훈",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2N6M0K7L0T8T1S6Q4R7P4Q6L9M4K1&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_F2E6C0C7K0L2J1K1I4H4H4P9Q3O6O4",
+      "category": "기타",
+      "title": "학교체육 진흥법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 이용선이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219897",
+        "proposer": "이용선의원 등 10인",
+        "lead_proposer": "이용선",
+        "co_proposers": "서영석,송재봉,강준현,안도걸,김남희,박홍배,권향엽,최혁진,안호영",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2E6C0C7K0L2J1K1I4H4H4P9Q3O6O4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_R2P6Q0O4P2X3X1V5W4V4T2T5C9C6A0",
+      "category": "기타",
+      "title": "영유아보육법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 전진숙이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219896",
+        "proposer": "전진숙의원 등 12인",
+        "lead_proposer": "전진숙",
+        "co_proposers": "이수진,남인순,정준호,안호영,손솔,김종민,김남희,이인영,허종식,이정문,김정호",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2P6Q0O4P2X3X1V5W4V4T2T5C9C6A0&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_S2R6P0O7W0V2W1U7T2O2P5O5M7L1M9",
+      "category": "기타",
+      "title": "약사법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 전진숙이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219895",
+        "proposer": "전진숙의원 등 10인",
+        "lead_proposer": "전진숙",
+        "co_proposers": "서영석,김종민,남인순,이인영,이수진,허종식,이정문,김정호,김남희",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2R6P0O7W0V2W1U7T2O2P5O5M7L1M9&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_A2I6H0F6E2A9B1Z0Y4W4X3F1E9C0B3",
+      "category": "기타",
+      "title": "소상공인 보호 및 지원에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 최은석이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219894",
+        "proposer": "최은석의원 등 21인",
+        "lead_proposer": "최은석",
+        "co_proposers": "안철수,서명옥,이종배,권영세,진종오,구자근,신성범,김상훈,한지아,김성원,김장겸,이상휘,서일준,송언석,이종욱,김태규,김기웅,이준석,박덕흠,김기현",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2I6H0F6E2A9B1Z0Y4W4X3F1E9C0B3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Y2X6X0F7E0E6C1D0B1C1Y1W8X3V5W2",
+      "category": "기타",
+      "title": "모자보건법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 김도읍이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219893",
+        "proposer": "김도읍의원 등 11인",
+        "lead_proposer": "김도읍",
+        "co_proposers": "김형동,김은혜,박충권,이헌승,이진숙,이종욱,구자근,이성권,강대식,권영세",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2X6X0F7E0E6C1D0B1C1Y1W8X3V5W2&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_S2R6S0Q7Q0P6E1E0D1D3C5A8B1I5K1",
+      "category": "기타",
+      "title": "장애인·노인·임산부 등의 편의증진 보장에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 김도읍이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219892",
+        "proposer": "김도읍의원 등 10인",
+        "lead_proposer": "김도읍",
+        "co_proposers": "김형동,김은혜,이헌승,이진숙,이종욱,구자근,이성권,강대식,권영세",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2R6S0Q7Q0P6E1E0D1D3C5A8B1I5K1&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_X2W6U0U4C2B3Z1Y5Z4H5F2G4E0F7D9",
+      "category": "기타",
+      "title": "유아교육법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 전진숙이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219891",
+        "proposer": "전진숙의원 등 12인",
+        "lead_proposer": "전진숙",
+        "co_proposers": "이수진,남인순,정준호,안호영,손솔,김종민,김남희,이인영,허종식,이정문,김정호",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2W6U0U4C2B3Z1Y5Z4H5F2G4E0F7D9&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_L2I6F0E6M1L6L1R0Q1N7M5L6U7T7Q4",
+      "category": "행정·안전",
+      "title": "지방세특례제한법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 엄태영이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219890",
+        "proposer": "엄태영의원 등 10인",
+        "lead_proposer": "엄태영",
+        "co_proposers": "권영진,이만희,안철수,윤한홍,서천호,이종배,김재섭,김용태,이상휘",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2I6F0E6M1L6L1R0Q1N7M5L6U7T7Q4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_A2I6J0H7I0G6G1F0B1B2A3A2Y2X8Y5",
+      "category": "과학·디지털",
+      "title": "우편법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "과학기술정보방송통신위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 김도읍이며, 소관위원회는 과학기술정보방송통신위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219889",
+        "proposer": "김도읍의원 등 12인",
+        "lead_proposer": "김도읍",
+        "co_proposers": "김형동,조배숙,김은혜,박충권,이헌승,이진숙,이종욱,구자근,이성권,강대식,권영세",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2I6J0H7I0G6G1F0B1B2A3A2Y2X8Y5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_A2B6A0Y6Y2X3X1F5E2E9C4D6B2C5Y0",
+      "category": "행정·안전",
+      "title": "지방교부세법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 윤준병이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219888",
+        "proposer": "윤준병의원 등 10인",
+        "lead_proposer": "윤준병",
+        "co_proposers": "김현,박홍배,안호영,이춘석,박민규,양부남,박범계,이정문,박희승",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2B6A0Y6Y2X3X1F5E2E9C4D6B2C5Y0&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_R2Q6Y0Z6X2W3V2R0S1Q2O0N5V2R0S8",
+      "category": "기타",
+      "title": "청소년복지 지원법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 전진숙이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219887",
+        "proposer": "전진숙의원 등 13인",
+        "lead_proposer": "전진숙",
+        "co_proposers": "안도걸,양부남,김한규,이춘석,김종민,김남희,문금주,이인영,이수진,허종식,이정문,김정호",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2Q6Y0Z6X2W3V2R0S1Q2O0N5V2R0S8&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_C2A6B0Z7Y0Y9U1V0T2T8S5Q5R5Y0Z5",
+      "category": "행정·안전",
+      "title": "선거관리위원회법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 김영배이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219886",
+        "proposer": "김영배의원 등 10인",
+        "lead_proposer": "김영배",
+        "co_proposers": "최혁진,장철민,송기헌,손명수,임미애,민병덕,박균택,김태선,박상혁",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2A6B0Z7Y0Y9U1V0T2T8S5Q5R5Y0Z5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_O2N6L0U6U3T0S0Q9Y4Z1Y3X0V6D2C0",
+      "category": "법·사법",
+      "title": "집합건물의 소유 및 관리에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 이건태이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219885",
+        "proposer": "이건태의원 등 10인",
+        "lead_proposer": "이건태",
+        "co_proposers": "문진석,박지혜,노종면,박균택,양부남,윤준병,권향엽,김성범,허종식",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2N6L0U6U3T0S0Q9Y4Z1Y3X0V6D2C0&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_A2I6J0I6G2G2E1G3N2O7M0K4L0J4K3",
+      "category": "법·사법",
+      "title": "아동학대범죄의 처벌 등에 관한 특례법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 김미애이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219884",
+        "proposer": "김미애의원 등 12인",
+        "lead_proposer": "김미애",
+        "co_proposers": "성일종,김태규,조배숙,최보윤,엄태영,김대식,우재준,이헌승,안상훈,이주영,조정훈",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2I6J0I6G2G2E1G3N2O7M0K4L0J4K3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_F2D6D0L7M0K9J1J0H2I8Q0R4P4N9O5",
+      "category": "행정·안전",
+      "title": "공직선거법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 김영배이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219883",
+        "proposer": "김영배의원 등 10인",
+        "lead_proposer": "김영배",
+        "co_proposers": "최혁진,장철민,송기헌,손명수,임미애,민병덕,박균택,김태선,박상혁",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2D6D0L7M0K9J1J0H2I8Q0R4P4N9O5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_R2S6Q0O7P0N8O0W9W3V2T2U4S7T1O8",
+      "category": "과학·디지털",
+      "title": "원자력 진흥법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "과학기술정보방송통신위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 박상웅이며, 소관위원회는 과학기술정보방송통신위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219882",
+        "proposer": "박상웅의원 등 12인",
+        "lead_proposer": "박상웅",
+        "co_proposers": "조은희,김대식,이양수,이종욱,김상훈,강대식,신동욱,최보윤,김도읍,고동진,이헌승",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2S6Q0O7P0N8O0W9W3V2T2U4S7T1O8&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_K2L6J0K6S1Q6Q1P0Q1O9W3X1V0V9T3",
+      "category": "기타",
+      "title": "조세특례제한법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "재정경제기획위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 엄태영이며, 소관위원회는 재정경제기획위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219881",
+        "proposer": "엄태영의원 등 10인",
+        "lead_proposer": "엄태영",
+        "co_proposers": "권영진,이만희,안철수,윤한홍,이양수,서천호,이종배,김재섭,김용태",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2L6J0K6S1Q6Q1P0Q1O9W3X1V0V9T3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_P2O6O0M4N1L7T1U7S2T1R1S1Q4Y7Z0",
+      "category": "행정·안전",
+      "title": "지방세특례제한법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-10",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-10 제안된 의안입니다. 대표발의자는 배준영이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219880",
+        "proposer": "배준영의원 등 10인",
+        "lead_proposer": "배준영",
+        "co_proposers": "박대출,이상휘,김은혜,안철수,곽규택,김예지,김미애,서명옥,강명구",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_P2O6O0M4N1L7T1U7S2T1R1S1Q4Y7Z0&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_X2X6U0S6R2Q2X1W4X4W2U1C5D3C9B3",
+      "category": "기타",
+      "title": "소득세법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "재정경제기획위원회",
       "proposed_date": "2026-07-09",
       "updated_at": "2026-07-15",
-      "review_count": 19,
-      "summary": "공공요금 체납, 장기 미접촉 등 위험신호를 활용해 고립가구에 복지서비스를 먼저 안내하는 가상 정책입니다.",
-      "why_now": "고립가구가 사망이나 응급상황 이후에야 발견되는 문제를 줄이기 위한 제안입니다.",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 안철수이며, 소관위원회는 재정경제기획위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
       "beneficiaries": [
-        "고립가구",
-        "지방자치단체 복지부서",
-        "지역 돌봄기관"
+        "상세 원문 분석 전"
       ],
       "cost_bearers": [
-        "지방재정",
-        "정보연계 기관"
+        "재정·비용 분석 전"
       ],
       "authority_changes": [
-        "지자체의 위험가구 정보연계 권한 확대"
+        "권한 변화 분석 전"
       ],
       "strengths": [
-        "위험 조기발견",
-        "복지서비스 접근성 향상",
-        "사후 대응비용 절감 가능성"
+        "Democracy 3.0 분석 전"
       ],
       "risks": [
-        "개인정보 과잉결합",
-        "정상가구의 낙인",
-        "현장 인력 부족"
+        "Democracy 3.0 분석 전"
       ],
       "questions": [
-        "위험신호의 정확도는 충분한가?",
-        "당사자가 연락을 거부할 권리는 어떻게 보장하는가?",
-        "정보 보관기간은 얼마인가?"
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
       ],
       "scores": {
-        "문제정의": 4,
-        "근거": 2,
-        "재정": 2,
-        "집행": 2,
-        "기본권": 1,
-        "악용방지": 1,
-        "성과지표": 2,
-        "재검토": 2
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
       },
-      "forks": [
-        {
-          "title": "동의 기반 연계형",
-          "type": "보호조항 추가",
-          "body": "긴급상황을 제외하고 당사자 동의 후 기관 간 정보를 연계합니다.",
-          "benefit": "개인정보 자기결정권을 강화합니다.",
-          "risk": "위험군 발견률이 낮아질 수 있습니다."
-        },
-        {
-          "title": "최소정보 신호형",
-          "type": "적용대상 조정",
-          "body": "원자료를 공유하지 않고 위험등급 신호만 복지부서에 전달합니다.",
-          "benefit": "과잉 정보공유를 줄입니다.",
-          "risk": "위험 원인을 충분히 파악하기 어렵습니다."
-        }
-      ]
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219879",
+        "proposer": "안철수의원 등 10인",
+        "lead_proposer": "안철수",
+        "co_proposers": "배준영,이종배,김정재,조은희,안상훈,이달희,이준석,김예지,이성권",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2X6U0S6R2Q2X1W4X4W2U1C5D3C9B3&ageFrom=22&ageTo=22"
+      }
     },
     {
-      "id": "demo-006",
-      "category": "교육·청년",
-      "title": "청년 직무전환 계좌제 법안",
-      "status": "시민 검토 중",
-      "stage": "쟁점 검토",
-      "committee": "교육·노동 관련 위원회",
-      "proposed_date": "2026-07-08",
+      "id": "PRC_M2L6K0R5Q1P8P1V7U4T6S5Y2X3X6F9",
+      "category": "기타",
+      "title": "학교 밖 청소년 지원에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-09",
       "updated_at": "2026-07-15",
-      "review_count": 25,
-      "summary": "청년이 인증 교육과 현장훈련에 사용할 수 있는 개인별 직무전환 지원계좌를 제공하는 가상 정책입니다.",
-      "why_now": "산업전환 속도에 비해 기존 직업훈련이 느리고 실제 취업과 연결되지 않는 문제를 다룹니다.",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 김용만이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
       "beneficiaries": [
-        "구직 청년",
-        "전직 희망자",
-        "훈련기관"
+        "상세 원문 분석 전"
       ],
       "cost_bearers": [
-        "국가 재정",
-        "참여기업"
+        "재정·비용 분석 전"
       ],
       "authority_changes": [
-        "인증기관에 교육과정 승인·성과평가 권한 부여"
+        "권한 변화 분석 전"
       ],
       "strengths": [
-        "개인 선택권 확대",
-        "빠른 직무전환 지원",
-        "현장훈련 연계 가능성"
+        "Democracy 3.0 분석 전"
       ],
       "risks": [
-        "저품질 교육과정 난립",
-        "취업성과 부풀리기",
-        "훈련비만 소진하고 취업으로 이어지지 않을 가능성"
+        "Democracy 3.0 분석 전"
       ],
       "questions": [
-        "어떤 교육기관을 인정할 것인가?",
-        "취업률의 질을 어떻게 측정할 것인가?",
-        "반복 지원 기준은 무엇인가?"
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
       ],
       "scores": {
-        "문제정의": 3,
-        "근거": 2,
-        "재정": 2,
-        "집행": 2,
-        "기본권": 4,
-        "악용방지": 1,
-        "성과지표": 2,
-        "재검토": 2
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
       },
-      "forks": [
-        {
-          "title": "후불 성과지급형",
-          "type": "비용부담 재설계",
-          "body": "교육비 일부를 취업 유지나 자격취득 성과 확인 후 지급합니다.",
-          "benefit": "저품질 교육을 줄일 수 있습니다.",
-          "risk": "취업 취약계층이 배제될 수 있습니다."
-        },
-        {
-          "title": "지역산업 연계형",
-          "type": "적용대상 조정",
-          "body": "지역별 인력수요와 연계된 과정에 우선순위를 부여합니다.",
-          "benefit": "교육과 실제 채용의 간격을 줄입니다.",
-          "risk": "개인의 직업선택 폭이 좁아질 수 있습니다."
-        },
-        {
-          "title": "3년 일몰형",
-          "type": "일몰·사후평가",
-          "body": "3년 후 취업 유지율과 임금개선 효과를 평가해 계속 여부를 결정합니다.",
-          "benefit": "성과 없는 사업의 장기화를 막습니다.",
-          "risk": "단기지표 중심으로 왜곡될 수 있습니다."
-        }
-      ]
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219878",
+        "proposer": "김용만의원 등 14인",
+        "lead_proposer": "김용만",
+        "co_proposers": "허성무,윤후덕,양부남,박민규,한민수,진선미,김남근,이훈기,조승래,권향엽,최혁진,이강일,김태선",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2L6K0R5Q1P8P1V7U4T6S5Y2X3X6F9&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_V2C6B0C7A0A6Z1A5V0W2U5T3T7R6S3",
+      "category": "환경·노동",
+      "title": "산업안전보건법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "기후에너지환경노동위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 김종양이며, 소관위원회는 기후에너지환경노동위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219877",
+        "proposer": "김종양의원 등 11인",
+        "lead_proposer": "김종양",
+        "co_proposers": "고동진,김태호,이달희,김소희,윤상현,배준영,박충권,강대식,김은혜,김위상",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_V2C6B0C7A0A6Z1A5V0W2U5T3T7R6S3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_I2G6H0F7G0C6C1B5Z0Z1Y1Y7G1H2F4",
+      "category": "기타",
+      "title": "건설기계관리법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 김종양이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219876",
+        "proposer": "김종양의원 등 11인",
+        "lead_proposer": "김종양",
+        "co_proposers": "고동진,김태호,이달희,김소희,윤상현,배준영,박충권,강대식,김은혜,김위상",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_I2G6H0F7G0C6C1B5Z0Z1Y1Y7G1H2F4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Z2L6N0W7X0B9Y1H7N2Q2U0B8A1E8P5",
+      "category": "법·사법",
+      "title": "형사소송법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 김한규이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219875",
+        "proposer": "김한규의원 등 22인",
+        "lead_proposer": "김한규",
+        "co_proposers": "천준호,김성회,안도걸,이정헌,송재봉,전용기,김윤,박상혁,김승원,박희승,박균택,박선원,문금주,박정현,김준혁,임미애,한병도,이재관,이주희,이해식,서미화",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2L6N0W7X0B9Y1H7N2Q2U0B8A1E8P5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_M2N6L0J7K0S6T1R5R0Q2O0P2W7Y7W9",
+      "category": "기타",
+      "title": "건설기술 진흥법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 김종양이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219874",
+        "proposer": "김종양의원 등 11인",
+        "lead_proposer": "김종양",
+        "co_proposers": "고동진,김태호,이달희,김소희,윤상현,배준영,박충권,강대식,김은혜,김위상",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2N6L0J7K0S6T1R5R0Q2O0P2W7Y7W9&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_D2Y6D0B7S0C9Q1T7E0V6J5U7I6P1X5",
+      "category": "법·사법",
+      "title": "제9회 전국동시지방선거 투표용지 부족사태 및 선거관리 부실 등 국민참정권 침해 진상규명을 위한 특별검사 임명 등에 관한 법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 한병도이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219873",
+        "proposer": "한병도의원 등 161인",
+        "lead_proposer": "한병도",
+        "co_proposers": "강득구,강준현,고민정,곽상언,권칠승,권향엽,김교흥,김기표,김남국,김남근,김남준,김남희,김동아,김문수,김민석,김병주,김성범,김성환,김성회,김승원,김영배,김영진,김영호,김영환,김용만,김용민,김우영,김원이,김윤,김윤덕,김의겸,김정호,김주영,김준혁,김준환,김태년,김태선,김한규,김현,김현정,남인순,노종면,맹성규,모경종,문금주,문대림,문정복,문진석,민병덕,민홍철,박균택,박민규,박범계,박상혁,박선원,박성준,박용갑,박정,박정현,박주민,박지원,박지원,박지혜,박해철,박홍근,박홍배,박희승,백승아,백혜련,복기왕,부승찬,서미화,서삼석,서영교,서영석,소병훈,손명수,송기헌,송영길,송옥주,송재봉,신정훈,안규백,안도걸,안태준,안호영,양부남,어기구,염태영,오기형,오세희,우원식,유동수,윤건영,윤종군,윤준병,윤호중,윤후덕,이강일,이개호,이건태,이광재,이광희,이기헌,이상식,이성윤,이소영,이수진,이언주,이연희,이용선,이용우,이인영,이재강,이재관,이재정,이정문,이정헌,이주희,이학영,이해식,이훈기,임문영,임미애,임오경,임호선,장종태,장철민,전용기,전은수,전진숙,전현희,정동영,정성호,정일영,정준호,정진욱,정청래,정태호,조계원,조승래,조인철,주철현,진선미,진성준,차지호,채현일,천준호,최기상,최민희,한민수,한정애,한준호,허성무,허영,허종식,홍기원,황명선,황정아,황희",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2Y6D0B7S0C9Q1T7E0V6J5U7I6P1X5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_A2A6I0J7H0I7G1F3F5B2C3A9A8Z5X8",
+      "category": "경제·산업",
+      "title": "상호저축은행법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "정무위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 김상훈이며, 소관위원회는 정무위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219872",
+        "proposer": "김상훈의원 등 16인",
+        "lead_proposer": "김상훈",
+        "co_proposers": "백종헌,권영진,성일종,윤재옥,강대식,박성민,고동진,이헌승,박충권,엄태영,김재섭,김선교,최보윤,최은석,이양수",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2A6I0J7H0I7G1F3F5B2C3A9A8Z5X8&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Q2G6G0E7D0E7C1D7K3L1K0I8I4H5H3",
+      "category": "경제·산업",
+      "title": "청년기본법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "정무위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 문대림이며, 소관위원회는 정무위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219871",
+        "proposer": "문대림의원 등 11인",
+        "lead_proposer": "문대림",
+        "co_proposers": "김승원,민홍철,최민희,권향엽,박지원,노종면,김성범,박정,박해철,문금주",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2G6G0E7D0E7C1D7K3L1K0I8I4H5H3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_P2N6M0M6L2L4T1T4S3Q0R1P7Q8Y8Y5",
+      "category": "법·사법",
+      "title": "국적법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 강명구이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219870",
+        "proposer": "강명구의원 등 13인",
+        "lead_proposer": "강명구",
+        "co_proposers": "안철수,서천호,배준영,권영세,성일종,구자근,조은희,김미애,김정재,박성훈,김승수,이성권",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_P2N6M0M6L2L4T1T4S3Q0R1P7Q8Y8Y5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_S2T6B0B6A1Y9Z1X5Y3U8U2S4T8S2Q5",
+      "category": "기타",
+      "title": "국회법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "국회운영위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 김정재이며, 소관위원회는 국회운영위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219869",
+        "proposer": "김정재의원 등 10인",
+        "lead_proposer": "김정재",
+        "co_proposers": "박덕흠,이달희,최은석,박충권,최수진,강명구,김대식,서천호,서명옥",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2T6B0B6A1Y9Z1X5Y3U8U2S4T8S2Q5&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_D2D6B0X7Y0W8X1V3W0U9C0C3B6B5A0",
+      "category": "기타",
+      "title": "인사청문회법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "국회운영위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 이해식이며, 소관위원회는 국회운영위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219868",
+        "proposer": "이해식의원 등 14인",
+        "lead_proposer": "이해식",
+        "co_proposers": "임미애,송기헌,김영배,박상혁,박균택,박희승,이주희,최혁진,염태영,이기헌,양부남,박정현,윤준병",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2D6B0X7Y0W8X1V3W0U9C0C3B6B5A0&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Q2O6P0L7J0K8I1J3H0I8Q2O8P2N6O3",
+      "category": "기타",
+      "title": "국회법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "국회운영위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 이해식이며, 소관위원회는 국회운영위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219867",
+        "proposer": "이해식의원 등 14인",
+        "lead_proposer": "이해식",
+        "co_proposers": "임미애,송기헌,김영배,박상혁,박균택,박희승,이주희,최혁진,염태영,이기헌,양부남,박정현,윤준병",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2O6P0L7J0K8I1J3H0I8Q2O8P2N6O3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_J2H6F0G6E1F9N1L5M3K6L5J5K4S3Q6",
+      "category": "행정·안전",
+      "title": "공직선거법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 김정재이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219866",
+        "proposer": "김정재의원 등 12인",
+        "lead_proposer": "김정재",
+        "co_proposers": "서천호,임종득,박덕흠,안철수,김대식,이달희,최은석,박충권,최수진,강명구,서명옥",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_J2H6F0G6E1F9N1L5M3K6L5J5K4S3Q6&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_T2P6P0X5W1T8B1B7A4V7E1D8A3I1H1",
+      "category": "기타",
+      "title": "국민건강증진법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 김용만이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219865",
+        "proposer": "김용만의원 등 10인",
+        "lead_proposer": "김용만",
+        "co_proposers": "허성무,윤후덕,양부남,한민수,진선미,이훈기,조승래,권향엽,김태선",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2P6P0X5W1T8B1B7A4V7E1D8A3I1H1&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_C2A6Z0Z6X1Z9G1H5F3E5E5D1D5L0K7",
+      "category": "법·사법",
+      "title": "감사원법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 김정재이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219864",
+        "proposer": "김정재의원 등 11인",
+        "lead_proposer": "김정재",
+        "co_proposers": "박덕흠,안철수,김대식,이달희,최은석,박충권,최수진,강명구,서천호,서명옥",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2A6Z0Z6X1Z9G1H5F3E5E5D1D5L0K7&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_A2A6Z0H7G0G8F0D9E3M0M2K9J2K4I6",
+      "category": "환경·노동",
+      "title": "동물원 및 수족관의 관리에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "기후에너지환경노동위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 이만희이며, 소관위원회는 기후에너지환경노동위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219863",
+        "proposer": "이만희의원 등 16인",
+        "lead_proposer": "이만희",
+        "co_proposers": "강대식,김미애,서천호,이성권,엄태영,윤용근,김기웅,권영진,조배숙,이종배,박준태,조은희,안상훈,구자근,이소희",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2A6Z0H7G0G8F0D9E3M0M2K9J2K4I6&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_U2V6D0B7C0A8B0Z9A3V1W1V9T7T1R1",
+      "category": "경제·산업",
+      "title": "국가보훈 기본법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "정무위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 이만희이며, 소관위원회는 정무위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219862",
+        "proposer": "이만희의원 등 17인",
+        "lead_proposer": "이만희",
+        "co_proposers": "강대식,김미애,서천호,이성권,엄태영,윤용근,김기웅,권영진,조배숙,이종배,박준태,김태규,조은희,안상훈,구자근,이소희",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2V6D0B7C0A8B0Z9A3V1W1V9T7T1R1&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_Z2Z6I0I7G0H8F1E3E0A9A3Y0A9Y8Y1",
+      "category": "행정·안전",
+      "title": "선거관리위원회법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 이해식이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219861",
+        "proposer": "이해식의원 등 14인",
+        "lead_proposer": "이해식",
+        "co_proposers": "임미애,송기헌,김영배,박상혁,박균택,박희승,이주희,최혁진,염태영,이기헌,양부남,박정현,윤준병",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2Z6I0I7G0H8F1E3E0A9A3Y0A9Y8Y1&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_G2F6E0A7B0Z3Y1W8F0F4Y1X6Y0G3D0",
+      "category": "법·사법",
+      "title": "형사소송법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 권향엽이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219860",
+        "proposer": "권향엽의원 등 20인",
+        "lead_proposer": "권향엽",
+        "co_proposers": "이재정,김원이,김성범,박해철,정일영,이건태,최민희,황정아,손명수,이용선,장종태,문대림,임미애,김문수,박용갑,김윤,이수진,이광희,정진욱",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_G2F6E0A7B0Z3Y1W8F0F4Y1X6Y0G3D0&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_N2M6K0J6F2F4E1D8B0C4K3I2H7I9H8",
+      "category": "기타",
+      "title": "항공안전법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 이광희이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219859",
+        "proposer": "이광희의원 등 14인",
+        "lead_proposer": "이광희",
+        "co_proposers": "박해철,이훈기,윤건영,복기왕,김문수,이연희,박정현,양부남,서미화,김우영,송재봉,모경종,박지원",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2M6K0J6F2F4E1D8B0C4K3I2H7I9H8&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_R2Q6O0D6B2C9B2A0H5G0H3G9E4M3L3",
+      "category": "법·사법",
+      "title": "형사소송법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 서영교이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219858",
+        "proposer": "서영교의원 등 10인",
+        "lead_proposer": "서영교",
+        "co_proposers": "이성윤,김승원,김주영,최혁진,박균택,민병덕,한민수,김남희,이해식",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2Q6O0D6B2C9B2A0H5G0H3G9E4M3L3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_S2T6R0R7Z0Y7Y1W7X1V4W0S1Q2R1P4",
+      "category": "기타",
+      "title": "조세특례제한법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "재정경제기획위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 문금주이며, 소관위원회는 재정경제기획위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219857",
+        "proposer": "문금주의원 등 11인",
+        "lead_proposer": "문금주",
+        "co_proposers": "김원이,김남근,정진욱,김준환,최민희,박해철,김성범,오세희,김승원,박정",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2T6R0R7Z0Y7Y1W7X1V4W0S1Q2R1P4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_V2T6T0R7S0R3R2Z0A2Y7W0X3V2W5E4",
+      "category": "법·사법",
+      "title": "감사원법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "법제사법위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 서영교이며, 소관위원회는 법제사법위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219856",
+        "proposer": "서영교의원 등 10인",
+        "lead_proposer": "서영교",
+        "co_proposers": "박지원,박균택,이성윤,민병덕,장경태,김동아,김남희,양부남,박홍배",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_V2T6T0R7S0R3R2Z0A2Y7W0X3V2W5E4&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_U2W6U0U7S0B2B1X1X4U0U3S9T2R1Q3",
+      "category": "행정·안전",
+      "title": "공직선거법 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "행정안전위원회",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 윤재옥이며, 소관위원회는 행정안전위원회입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219855",
+        "proposer": "윤재옥의원 등 11인",
+        "lead_proposer": "윤재옥",
+        "co_proposers": "백종헌,엄태영,서천호,이달희,김건,김기웅,이진숙,안상훈,강대식,김태호",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2W6U0U7S0B2B1X1X4U0U3S9T2R1Q3&ageFrom=22&ageTo=22"
+      }
+    },
+    {
+      "id": "PRC_W2X6V0W6U1T6T1B0C2A0A5Z0X9Y9G7",
+      "category": "기타",
+      "title": "마약류 관리에 관한 법률 일부개정법률안",
+      "status": "공식자료 자동수집",
+      "stage": "심사 진행 중",
+      "committee": "소관위원회 확인 필요",
+      "proposed_date": "2026-07-09",
+      "updated_at": "2026-07-15",
+      "review_count": 0,
+      "summary": "제22대 국회에 2026-07-09 제안된 의안입니다. 대표발의자는 엄태영이며, 소관위원회는 소관위원회 확인 필요입니다.",
+      "why_now": "제안이유와 주요내용은 의안 상세정보를 추가 연동한 뒤 공식 원문에 근거해 표시할 예정입니다.",
+      "beneficiaries": [
+        "상세 원문 분석 전"
+      ],
+      "cost_bearers": [
+        "재정·비용 분석 전"
+      ],
+      "authority_changes": [
+        "권한 변화 분석 전"
+      ],
+      "strengths": [
+        "Democracy 3.0 분석 전"
+      ],
+      "risks": [
+        "Democracy 3.0 분석 전"
+      ],
+      "questions": [
+        "법안이 해결하려는 문제가 명확한가?",
+        "재정과 집행기관이 구체적으로 설계되어 있는가?",
+        "적용대상과 예상 부작용이 충분히 검토되었는가?"
+      ],
+      "scores": {
+        "문제정의": 0,
+        "근거": 0,
+        "재정": 0,
+        "집행": 0,
+        "기본권": 0,
+        "악용방지": 0,
+        "성과지표": 0,
+        "재검토": 0
+      },
+      "forks": [],
+      "official": {
+        "age": "22",
+        "bill_no": "2219854",
+        "proposer": "엄태영의원 등 10인",
+        "lead_proposer": "엄태영",
+        "co_proposers": "권영진,박충권,이만희,안철수,윤한홍,이양수,서천호,이종배,김용태",
+        "result": "",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2X6V0W6U1T6T1B0C2A0A5Z0X9Y9G7&ageFrom=22&ageTo=22"
+      }
     }
   ]
 }
