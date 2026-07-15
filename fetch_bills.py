@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.9
+"""Democracy 3.0 정책포크 v0.10
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -305,7 +305,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.9",
+                    "User-Agent": "Democracy3-Policy-Fork/0.10",
                 },
                 timeout=timeout,
             )
@@ -1646,51 +1646,157 @@ POLICY_PROFILE_RULES: tuple[tuple[str, str, tuple[str, ...]], ...] = (
 )
 
 
-def detect_policy_profile(title: str, text: str) -> dict[str, Any]:
+def score_policy_profiles(title: str, text: str) -> list[dict[str, Any]]:
     context = f"{title} {text}"
-    scored: list[tuple[int, str, str, list[str]]] = []
+    profiles: list[dict[str, Any]] = []
 
     for key, label, keywords in POLICY_PROFILE_RULES:
         matched = [word for word in keywords if word in context]
         score = len(matched)
 
-        # 정책수단 자체가 명확할 때 가중치를 줍니다.
-        if key == "appointment_governance" and contains_any(
-            context, ("임명", "선임", "추천", "동의")
-        ):
-            score += 4
-        if key == "data_security" and contains_any(
-            context, ("개인정보", "보안", "정보시스템")
-        ):
-            score += 3
-        if key == "subsidy_fiscal" and contains_any(
-            context, ("보조금", "급여", "지원", "감면")
-        ):
-            score += 3
-        if key == "punitive_regulation" and contains_any(
-            context, ("벌칙", "과태료", "처벌", "영업정지")
-        ):
-            score += 3
-
-        scored.append((score, key, label, matched))
-
-    scored.sort(key=lambda item: item[0], reverse=True)
-    top_score, key, label, matched = scored[0]
-
-    if top_score <= 0:
-        return {
-            "key": "general_reform",
-            "label": "일반 제도개편",
-            "matched_signals": [],
-            "confidence": "낮음",
+        # 법안의 정책수단을 나타내는 단어에는 더 큰 가중치를 줍니다.
+        weighted_signals: dict[str, tuple[tuple[str, ...], int]] = {
+            "appointment_governance": (
+                ("임명", "선임", "추천", "동의", "해임"),
+                4,
+            ),
+            "data_security": (
+                ("개인정보", "보안", "정보시스템", "해킹"),
+                3,
+            ),
+            "subsidy_fiscal": (
+                ("보조금", "급여", "지원", "감면", "기금"),
+                3,
+            ),
+            "punitive_regulation": (
+                ("벌칙", "과태료", "처벌", "영업정지", "허가취소"),
+                3,
+            ),
+            "labor_safety": (
+                ("산업재해", "근로자", "임금", "휴게", "사업주"),
+                3,
+            ),
+            "housing_property": (
+                ("주택", "임대", "임차", "전세", "재산권"),
+                3,
+            ),
+            "health_care": (
+                ("의료", "환자", "병원", "의사", "약품"),
+                3,
+            ),
+            "education_system": (
+                ("교육", "학교", "학생", "교원", "입학"),
+                2,
+            ),
+            "organization_power": (
+                ("위원회", "기관", "센터", "설치", "지정"),
+                2,
+            ),
         }
 
-    return {
-        "key": key,
-        "label": label,
-        "matched_signals": matched[:8],
-        "confidence": "높음" if top_score >= 6 else "보통",
-    }
+        signals, weight = weighted_signals.get(key, ((), 0))
+        if signals and contains_any(context, signals):
+            score += weight
+
+        profiles.append(
+            {
+                "key": key,
+                "label": label,
+                "score": score,
+                "matched_signals": matched[:10],
+                "confidence": (
+                    "높음" if score >= 6
+                    else "보통" if score >= 3
+                    else "낮음"
+                ),
+            }
+        )
+
+    profiles.sort(key=lambda item: item["score"], reverse=True)
+    return profiles
+
+
+def detect_policy_profiles(
+    title: str,
+    text: str,
+    max_profiles: int = 3,
+) -> list[dict[str, Any]]:
+    scored = score_policy_profiles(title, text)
+    selected: list[dict[str, Any]] = []
+
+    for profile in scored:
+        if profile["score"] <= 0:
+            continue
+
+        # 주유형은 항상 선택합니다. 부유형은 최소한 독립적인 신호가 있어야 합니다.
+        if not selected:
+            selected.append(profile)
+        elif profile["score"] >= 3:
+            selected.append(profile)
+
+        if len(selected) >= max_profiles:
+            break
+
+    if not selected:
+        selected = [
+            {
+                "key": "general_reform",
+                "label": "일반 제도개편",
+                "score": 0,
+                "matched_signals": [],
+                "confidence": "낮음",
+            }
+        ]
+
+    for index, profile in enumerate(selected):
+        profile["role"] = "주유형" if index == 0 else f"부유형 {index}"
+
+    return selected
+
+
+def detect_policy_profile(title: str, text: str) -> dict[str, Any]:
+    """기존 필드와의 호환을 위해 주유형 하나를 반환합니다."""
+    return detect_policy_profiles(title, text, max_profiles=1)[0]
+
+
+def merge_dict_items(
+    groups: list[list[dict[str, Any]]],
+    identity_keys: tuple[str, ...],
+    limit: int | None = None,
+) -> list[dict[str, Any]]:
+    result: list[dict[str, Any]] = []
+    seen: set[tuple[str, ...]] = set()
+
+    for group in groups:
+        for item in group:
+            identity = tuple(
+                normalize_korean_sentence(str(item.get(key, "")))
+                for key in identity_keys
+            )
+            if identity in seen:
+                continue
+            seen.add(identity)
+            result.append(item)
+
+            if limit and len(result) >= limit:
+                return result
+
+    return result
+
+
+def attach_profile(
+    items: list[dict[str, Any]],
+    profile: dict[str, Any],
+) -> list[dict[str, Any]]:
+    enriched: list[dict[str, Any]] = []
+    for item in items:
+        copied = dict(item)
+        copied["profile_key"] = profile["key"]
+        copied["profile_label"] = profile["label"]
+        copied["profile_role"] = profile.get("role", "")
+        enriched.append(copied)
+    return enriched
+
 
 
 def deep_case(
@@ -2479,6 +2585,698 @@ def profile_design_requirements(profile: str) -> list[str]:
     return base + extras.get(profile, [])
 
 
+
+def additional_profile_assumptions(profile: str) -> list[dict[str, str]]:
+    data: dict[str, list[dict[str, str]]] = {
+        "labor_safety": [
+            {
+                "assumption": "법정 의무가 현장의 실제 작업방식과 안전투자로 이어진다.",
+                "why_critical": "서류상 교육과 규정만 늘고 위험한 생산압박은 그대로일 수 있습니다.",
+                "disproof": "교육 이수율은 높지만 사고·아차사고·작업중지 사용률이 개선되지 않는 경우",
+            },
+            {
+                "assumption": "근로자가 불이익 없이 신고·작업중지·권리구제를 사용할 수 있다.",
+                "why_critical": "권리가 있어도 해고·배제 위험이 크면 실제로 작동하지 않습니다.",
+                "disproof": "신고자 인사불이익, 하청교체, 계약종료가 반복되는 경우",
+            },
+            {
+                "assumption": "원청·하청·플랫폼 구조에서도 최종 책임주체를 식별할 수 있다.",
+                "why_critical": "다단계 계약은 위험과 책임을 가장 약한 주체에게 떠넘길 수 있습니다.",
+                "disproof": "사고 뒤 사용자성·지휘감독·비용부담에 대한 책임공방이 장기화되는 경우",
+            },
+        ],
+        "health_care": [
+            {
+                "assumption": "규제나 지원이 환자의 실제 의료접근성과 건강결과를 개선한다.",
+                "why_critical": "기관 수·지급액이 늘어도 대기시간과 치료결과가 나빠질 수 있습니다.",
+                "disproof": "환자 접근성·치료결과는 개선되지 않고 청구량이나 행정부담만 증가하는 경우",
+            },
+            {
+                "assumption": "의료인의 행동유인이 과잉·과소진료로 왜곡되지 않는다.",
+                "why_critical": "수가·책임·규제는 임상결정을 강하게 바꿉니다.",
+                "disproof": "불필요한 검사·회피진료·고위험환자 전원이 증가하는 경우",
+            },
+            {
+                "assumption": "지역·기관 규모에 따른 공급격차를 감당할 수 있다.",
+                "why_critical": "같은 의무라도 인력 부족 지역은 서비스를 중단할 수 있습니다.",
+                "disproof": "지역별 대기시간·휴폐업·전원율 격차가 확대되는 경우",
+            },
+        ],
+        "housing_property": [
+            {
+                "assumption": "규제나 지원의 편익이 가격·임대료 상승으로 흡수되지 않는다.",
+                "why_critical": "공급이 제한된 시장에서는 혜택이 소유자 가격으로 이전될 수 있습니다.",
+                "disproof": "지원 또는 규제 시행 뒤 실질 주거비와 매매·임대가격이 더 빠르게 오르는 경우",
+            },
+            {
+                "assumption": "임대인·임차인·금융기관이 새로운 계약형태로 규제를 우회하지 않는다.",
+                "why_critical": "보증금·관리비·특약·법인명의로 부담이 이동할 수 있습니다.",
+                "disproof": "관리비·단기계약·보증상품·명의분산이 비정상적으로 증가하는 경우",
+            },
+            {
+                "assumption": "재산권 제한과 주거안정 편익 사이의 비례성이 유지된다.",
+                "why_critical": "과도한 제한은 공급축소와 분쟁을 낳고 약한 제한은 보호효과가 없습니다.",
+                "disproof": "퇴거·분쟁·공급감소가 보호받은 가구의 편익보다 크게 증가하는 경우",
+            },
+        ],
+        "education_system": [
+            {
+                "assumption": "제도 변경이 학생의 학습·안전·기회에 실제로 도움이 된다.",
+                "why_critical": "조직과 선발방식 변화가 학생 성과와 무관할 수 있습니다.",
+                "disproof": "행정지표만 개선되고 학습격차·중도탈락·학교만족도는 악화되는 경우",
+            },
+            {
+                "assumption": "지역·가정배경에 따른 교육격차를 확대하지 않는다.",
+                "why_critical": "선택권이나 평가제도는 정보와 자원이 많은 가정에 더 유리할 수 있습니다.",
+                "disproof": "소득·지역·장애·이주배경별 접근성과 성과격차가 커지는 경우",
+            },
+            {
+                "assumption": "교원과 학교가 지표 맞추기보다 교육목적에 맞게 행동한다.",
+                "why_critical": "평가와 책임 강화는 시험교육·학생선별·기록조작을 유발할 수 있습니다.",
+                "disproof": "쉬운 학생 선별, 평가대상 제외, 시험집중과 비교육 업무가 증가하는 경우",
+            },
+        ],
+        "organization_power": [
+            {
+                "assumption": "새 조직이 기존 기관과 다른 고유 기능을 수행한다.",
+                "why_critical": "조직 신설은 쉽게 되지만 중복조직의 폐지는 어렵습니다.",
+                "disproof": "기존 부처·위원회와 업무·예산·보고선이 중복되는 경우",
+            },
+            {
+                "assumption": "권한 확대와 함께 독립적 통제와 책임이 강화된다.",
+                "why_critical": "권한만 집중되고 감사·불복·정보공개가 약하면 행정권력이 비대해집니다.",
+                "disproof": "포괄위임, 비공개 의사결정, 내부 자체평가만 존재하는 경우",
+            },
+        ],
+    }
+    return data.get(profile, [])
+
+
+def additional_profile_attacks(profile: str) -> list[dict[str, str]]:
+    data: dict[str, list[dict[str, str]]] = {
+        "labor_safety": [
+            deep_case(
+                "생산압박에 의한 안전규정 무력화",
+                "경영진·현장관리자·원청",
+                "납기와 비용을 맞추기 위해 안전절차를 축소하려는 유인",
+                "위험성평가와 작업중지는 서류에만 두고 실제 작업에서는 속도와 생산량을 우선",
+                "현장 근로자·하청근로자·인근 시민",
+                "아차사고와 초과근로는 늘지만 공식 위험보고는 감소",
+                "작업중지권, 생산지표와 안전지표 분리, 원청책임, 신고자 보호, 불시점검",
+                "비공식 압박과 계약갱신을 통한 보복은 계속될 수 있음",
+            ),
+            deep_case(
+                "하청·플랫폼 책임전가",
+                "원청·플랫폼·다단계 도급업체",
+                "보험·보상·안전투자 비용을 계약상 약자에게 넘기려는 유인",
+                "직접 지휘는 유지하면서 사용자성·고용관계·시설책임을 부인",
+                "하청·특수고용·이주근로자",
+                "사고 뒤 계약관계와 지휘감독 여부를 두고 장기간 책임공방",
+                "실질지배 기준, 공동책임, 계약정보 공개, 산재보험 사각지대 제거",
+                "실질기준이 넓어질수록 정상적인 전문도급과의 경계분쟁이 남음",
+            ),
+            deep_case(
+                "신고자 제거와 통계 정화",
+                "사업주·관리조직",
+                "사고율과 감독위험을 낮게 보이게 할 유인",
+                "경미사고 미보고, 사적 합의, 신고자 배치전환·계약종료로 공식통계를 낮춤",
+                "신고 근로자와 미래 작업자",
+                "공식 사고율은 낮지만 응급실 이용·결근·퇴사와 익명제보는 증가",
+                "의료·보험자료 교차검증, 익명신고, 불이익 추정규정, 신고 후 고용추적",
+                "사적 합의와 비공식 차별을 완전히 포착하기 어려움",
+            ),
+            deep_case(
+                "일률적 의무의 영세사업장 붕괴",
+                "규제설계자·대형기업",
+                "고정 준수비용을 시장진입 장벽으로 이용할 유인",
+                "대기업 기준의 장비·인력·보고의무를 영세사업장에 동일 적용",
+                "영세사업자와 그 근로자",
+                "안전투자보다 폐업·외주화·무등록 고용이 증가",
+                "위험비례 의무, 공동 안전서비스, 기술·재정지원, 단계시행",
+                "차등기준이 낮은 안전수준을 고착시킬 위험이 남음",
+            ),
+        ],
+        "health_care": [
+            deep_case(
+                "방어진료와 고위험환자 회피",
+                "의료기관·의료인",
+                "법적 책임과 손실위험을 낮추려는 유인",
+                "검사·전원·입원을 과도하게 늘리거나 고위험환자의 진료를 거부",
+                "중증·희귀질환·응급환자와 건강보험 재정",
+                "검사·전원율은 오르고 고위험환자 수용률은 하락",
+                "무과실 보상, 표준진료지침의 합리적 면책, 환자위험 조정평가",
+                "표준지침이 개별 환자의 예외적 필요를 억압할 수 있음",
+            ),
+            deep_case(
+                "수가·지원의 공급자 포획",
+                "의료기관·제약·장비·중개기관",
+                "지급단가와 사용량을 확대하려는 유인",
+                "필요보다 청구가 쉬운 검사·처치·제품을 늘리고 가격을 지원수준에 맞춤",
+                "환자·보험재정·필수의료",
+                "건강결과보다 청구량·고가항목·공급자 매출이 빠르게 증가",
+                "성과·환자결과 연동, 가격·이해충돌 공개, 이상청구 탐지, 독립평가",
+                "성과연동이 위험환자 회피와 지표조작을 만들 수 있음",
+            ),
+            deep_case(
+                "지역의료 공백 심화",
+                "대형병원·의료인력 시장",
+                "수익성과 근무여건이 좋은 지역·기관으로 집중하려는 유인",
+                "새 의무를 감당하지 못하는 지역기관이 서비스 축소 또는 폐쇄",
+                "농어촌·저소득·장애·응급환자",
+                "법 시행 후 지역별 대기·전원·휴폐업 격차가 확대",
+                "지역가산, 공동인력, 원격지원, 단계기준, 필수서비스 유지보상",
+                "보조금만으로 장기 인력정착과 진료품질을 보장하기 어려움",
+            ),
+            deep_case(
+                "환자정보의 목적 외 활용",
+                "의료기관·보험자·플랫폼·연구기관",
+                "위험선별·마케팅·비용통제를 위해 더 많은 정보를 이용할 유인",
+                "치료목적으로 수집한 정보를 보험·고용·광고·가격차별에 재사용",
+                "환자와 가족의 사생활·보험접근",
+                "동의서 범위와 실제 데이터 공유기관 수가 계속 증가",
+                "목적제한, 세분화 동의, 접근기록, 차별금지, 삭제·이의제기",
+                "비식별 자료의 재식별과 집단차별 위험은 남음",
+            ),
+        ],
+        "housing_property": [
+            deep_case(
+                "지원금의 임대료 흡수",
+                "임대인·분양사업자·중개업체",
+                "공급이 제한된 상황에서 공적 지원을 가격으로 흡수할 유인",
+                "지원 대상과 시기에 맞춰 임대료·관리비·분양가를 인상",
+                "임차인·납세자·비수혜 세입자",
+                "지원액 증가와 동시에 유사주택 임대료·관리비가 상승",
+                "가격·관리비 공개, 공급확대, 지역별 상한·환수, 비수혜 시장 비교",
+                "가격통제가 공급감소와 음성계약을 낳을 수 있음",
+            ),
+            deep_case(
+                "계약형태 변형을 통한 보호 회피",
+                "임대인·중개업자·법인",
+                "임차인 보호와 세금·등록의무를 피하려는 유인",
+                "단기계약·관리위탁·사용대차·법인숙소 등 다른 명칭으로 실질 임대를 구성",
+                "임차인과 준법 임대인",
+                "법 시행 뒤 특정 비정형 계약과 관리비 비중이 급증",
+                "실질 임대차 기준, 특약 무효, 표준계약, 중개책임, 익명신고",
+                "실질판단이 사후 분쟁에 의존하고 거래예측성을 낮출 수 있음",
+            ),
+            deep_case(
+                "보호대상 선별과 퇴거 전가",
+                "임대인·금융기관",
+                "규제비용이 낮은 임차인만 선택하려는 유인",
+                "고위험·저소득·다자녀·외국인 신청자를 계약 전 단계에서 배제",
+                "주거취약계층",
+                "공식 퇴거는 줄지만 계약거절·보증요구·비공식 심사가 증가",
+                "차별금지, 거절사유 기록, 공공보증, 표본감사, 피해구제",
+                "입증이 어려운 비공식 선별은 계속될 수 있음",
+            ),
+            deep_case(
+                "공급감소와 시장 양극화",
+                "주택 소유자·개발사업자",
+                "규제된 임대시장보다 매각·고가시장·비주거 전환을 선호할 유인",
+                "임대물량을 회수하거나 규제 밖 고급·단기시장으로 이동",
+                "중저가 임차인과 지역사회",
+                "규제대상 물량 감소, 공실·단기임대·매각 증가",
+                "공급탄력성 분석, 단계시행, 공공공급, 합리적 비용인정",
+                "공급지원이 개발이익 사유화와 지역갈등을 만들 수 있음",
+            ),
+        ],
+        "education_system": [
+            deep_case(
+                "평가지표 맞추기와 학생 선별",
+                "학교·교육행정·교원",
+                "성과평가와 예산·평판을 높이려는 유인",
+                "시험 대비에 집중하고 저성과·특수지원 학생을 제외·전학·결석 처리",
+                "취약학생·특수교육 대상·장기결석 학생",
+                "평균점수는 오르지만 제외학생·전학·중도탈락이 증가",
+                "학생구성 위험조정, 포용지표, 원자료 감사, 장기성과와 학생경험 평가",
+                "지표가 복잡해질수록 교육현장의 행정부담과 조작기회가 증가",
+            ),
+            deep_case(
+                "정보격차에 의한 선택권 포획",
+                "정보와 이동수단이 많은 가정·사교육 시장",
+                "좋은 학교·과정·지원에 먼저 접근하려는 유인",
+                "복잡한 신청과 정보비대칭을 이용해 선택권과 특례를 선점",
+                "저소득·농어촌·이주·장애학생",
+                "선택권 확대 뒤 계층·지역별 참여율과 성과격차가 확대",
+                "자동안내, 단순신청, 교통·돌봄 지원, 무작위·균형배정, 격차공개",
+                "균형배정이 가족의 선택권과 학교 특성화를 제한할 수 있음",
+            ),
+            deep_case(
+                "정치·이념적 교육통제",
+                "임명권자·교육행정·다수 정치세력",
+                "교육과정·인사·예산을 정치적 정체성 강화에 이용할 유인",
+                "인사·교재·평가·지원사업을 통해 비판적 견해와 소수교육을 축소",
+                "학생·교원·학부모의 표현과 교육자율",
+                "정권교체마다 교육과정·인사·지원기준이 급격히 변경",
+                "독립 심의, 다원적 구성, 공개근거, 학문·교육자유, 사법적 불복",
+                "독립기구 역시 특정 전문가집단에 포획될 가능성이 남음",
+            ),
+            deep_case(
+                "학교 현장의 행정업무 폭증",
+                "중앙·지방 교육행정",
+                "새 정책의 이행을 보고서와 시스템 입력으로 확인하려는 유인",
+                "교원과 학교에 계획·실적·증빙업무를 전가",
+                "학생의 수업시간과 교원의 교육역량",
+                "정책사업 수와 보고시간은 늘지만 수업·상담시간은 감소",
+                "업무량 영향평가, 자동연계, 보고 통폐합, 현장 표본검증",
+                "자동화가 새로운 데이터 입력·감시 부담으로 변할 수 있음",
+            ),
+        ],
+        "organization_power": [
+            deep_case(
+                "조직 신설을 통한 예산·정원 고착",
+                "부처·위원회·이해관계집단",
+                "새 조직과 직위·예산을 장기 유지하려는 유인",
+                "한시적 문제를 이유로 상설기구를 만들고 성과와 무관하게 기능 확대",
+                "납세자·기존기관·정책대상",
+                "성과자료 없이 정원·예산·산하기관이 계속 증가",
+                "설치기한, 일몰, 기능중복 심사, 정원·예산 상한, 독립 성과평가",
+                "일몰 직전 형식적 성과와 정치적 연장 가능성이 남음",
+            ),
+            deep_case(
+                "포괄위임을 통한 권한 팽창",
+                "행정부·신설기관",
+                "법률보다 유연하게 권한범위를 확대하려는 유인",
+                "핵심 기준을 시행령·고시·내부지침의 ‘필요한 사항’으로 위임",
+                "국민·기업·지방정부·국회의 통제권",
+                "하위규정 개정으로 적용대상·자료요구·제재범위가 계속 확대",
+                "법률유보, 위임범위 명시, 국회보고, 규제영향평가, 사법심사",
+                "기술·현장변화에 대한 신속 대응은 느려질 수 있음",
+            ),
+            deep_case(
+                "기관 간 책임 떠넘기기",
+                "신설기관·기존부처·지방정부",
+                "실패와 민원책임을 다른 기관에 넘기려는 유인",
+                "공동협의·지원·조정이라는 표현으로 최종결정권과 책임을 불명확하게 함",
+                "민원인·정책대상·현장공무원",
+                "기관 간 이송과 협의가 반복되고 처리기한이 길어짐",
+                "단일 책임기관, 권한표, 법정 처리기한, 공동사건 추적, 책임공개",
+                "복합정책의 협업 필요와 단일책임 사이 긴장은 남음",
+            ),
+            deep_case(
+                "전문가·위원회 포획",
+                "업계·전문직단체·정치권",
+                "위원 구성과 전문기준을 통해 정책결정을 선점할 유인",
+                "동일 네트워크가 추천·심사·평가를 반복 점유하고 이해충돌을 숨김",
+                "소수의견·신규진입자·일반 시민",
+                "위원 경력과 소속이 반복되고 회의록·이해충돌 자료가 비공개",
+                "공개모집, 임기제한, 구성 다양성, 이해충돌 공개, 시민위원·소수의견",
+                "형식적 다양성을 갖춰도 실질 정보와 의제설정 권력은 집중될 수 있음",
+            ),
+        ],
+    }
+    return data.get(profile, [])
+
+
+def additional_second_order_effects(profile: str) -> list[dict[str, str]]:
+    data: dict[str, list[dict[str, str]]] = {
+        "labor_safety": [
+            {
+                "effect": "외주화·무등록 고용 증가",
+                "direction": "위험",
+                "mechanism": "고정 준수비용과 사용자책임을 회피하기 위해 계약구조를 분리",
+                "monitor": "도급단계·특수고용·무등록 사업장·산재 미가입 증가",
+            },
+            {
+                "effect": "안전투자와 생산성 개선 가능성",
+                "direction": "기회",
+                "mechanism": "사고·이직·중단비용 감소가 장기 생산성으로 이어질 수 있음",
+                "monitor": "사고율·이직률·설비가동중단·생산성",
+            },
+        ],
+        "health_care": [
+            {
+                "effect": "의료비와 행정비용 증가",
+                "direction": "위험",
+                "mechanism": "책임회피 검사·보고·인증과 새로운 청구항목이 확대",
+                "monitor": "환자당 검사·청구·행정시간·보험지출",
+            },
+            {
+                "effect": "고위험환자 접근성 변화",
+                "direction": "양면",
+                "mechanism": "안전기준 강화가 보호를 높이거나 수용회피를 만들 수 있음",
+                "monitor": "전원율·수용거절·치료지연·중증도 조정 결과",
+            },
+        ],
+        "housing_property": [
+            {
+                "effect": "임대료·관리비 구성의 변화",
+                "direction": "위험",
+                "mechanism": "규제된 가격 대신 비규제 비용항목으로 부담 이동",
+                "monitor": "총주거비 중 관리비·보증·수수료 비중",
+            },
+            {
+                "effect": "공급구조 변화",
+                "direction": "양면",
+                "mechanism": "보호가 안정성을 높이거나 민간공급을 축소할 수 있음",
+                "monitor": "임대물량·신규공급·공실·단기임대 전환",
+            },
+        ],
+        "education_system": [
+            {
+                "effect": "사교육·정보시장 확대",
+                "direction": "위험",
+                "mechanism": "복잡한 선발·평가·선택제도는 정보구매 능력의 가치를 높임",
+                "monitor": "사교육비·컨설팅 이용·계층별 참여격차",
+            },
+            {
+                "effect": "교원 전문성 또는 행정화",
+                "direction": "양면",
+                "mechanism": "책임성과 지원이 전문성을 높이거나 보고업무를 늘릴 수 있음",
+                "monitor": "수업·상담시간, 행정시간, 교원 이직·만족도",
+            },
+        ],
+        "organization_power": [
+            {
+                "effect": "행정조정 개선 가능성",
+                "direction": "기회",
+                "mechanism": "분산된 업무와 책임을 한 조직이 통합할 수 있음",
+                "monitor": "처리기간·중복예산·기관이송·민원해결률",
+            },
+            {
+                "effect": "관료제와 규제범위 확대",
+                "direction": "위험",
+                "mechanism": "조직 생존을 위해 새로운 업무·자료요구·규제를 계속 발굴",
+                "monitor": "정원·예산·규정·자료요구 건수",
+            },
+        ],
+    }
+    return data.get(profile, [])
+
+
+def additional_evidence_tests(profile: str) -> list[dict[str, str]]:
+    data: dict[str, list[dict[str, str]]] = {
+        "labor_safety": [
+            {
+                "claim": "새 안전의무가 실제 사고와 중대위험을 줄인다.",
+                "required_evidence": "업종·규모·고용형태별 사고율, 아차사고, 작업중지, 원청·하청 비교",
+                "rejection_condition": "교육·서류 실적만 늘고 위험노출·사고·은폐지표는 개선되지 않음",
+            },
+            {
+                "claim": "준수비용이 영세사업장과 고용에 과도한 충격을 주지 않는다.",
+                "required_evidence": "사업장 규모별 비용, 폐업·외주화·고용변화와 지원효과",
+                "rejection_condition": "사고감소보다 무등록·외주화·폐업이 크게 증가",
+            },
+        ],
+        "health_care": [
+            {
+                "claim": "제도 변경이 환자결과와 접근성을 개선한다.",
+                "required_evidence": "위험조정 사망·합병증·대기·전원·미충족의료와 지역별 자료",
+                "rejection_condition": "청구·기관·보고량만 늘고 환자결과·접근성은 개선되지 않음",
+            },
+            {
+                "claim": "수가·책임 구조가 과잉·과소진료를 유발하지 않는다.",
+                "required_evidence": "검사·처치·고위험환자 수용·회피진료와 비교집단 분석",
+                "rejection_condition": "저위험 청구량은 늘고 고위험환자 수용은 줄어듦",
+            },
+        ],
+        "housing_property": [
+            {
+                "claim": "보호·지원의 편익이 실제 임차인에게 귀착된다.",
+                "required_evidence": "총주거비, 임대료·관리비·보증비용, 계약거절과 공급량",
+                "rejection_condition": "지원액이 가격으로 흡수되거나 보호대상 계약거절이 증가",
+            },
+            {
+                "claim": "재산권 제한이 공급감소보다 큰 주거안정 편익을 만든다.",
+                "required_evidence": "퇴거·이동·주거지속성과 임대물량·신규공급·전환 자료",
+                "rejection_condition": "보호효과보다 임대공급 축소와 비정형 계약 증가가 큼",
+            },
+        ],
+        "education_system": [
+            {
+                "claim": "제도 변경이 학생의 학습·기회·안전을 개선한다.",
+                "required_evidence": "학생구성 위험조정 성과, 격차, 중도탈락, 만족도와 장기추적",
+                "rejection_condition": "행정성과만 개선되고 취약학생 격차·배제·사교육비가 증가",
+            },
+            {
+                "claim": "학교와 교원의 행동이 교육목적에 맞게 변화한다.",
+                "required_evidence": "수업·상담·행정시간, 학생선별, 평가대상 제외와 질적 조사",
+                "rejection_condition": "시험교육·학생선별·보고업무가 늘고 수업시간이 감소",
+            },
+        ],
+        "organization_power": [
+            {
+                "claim": "새 조직이 중복을 줄이고 책임성과 처리속도를 높인다.",
+                "required_evidence": "기능맵, 기존기관 대비 업무·예산·인력, 처리기간과 민원이송",
+                "rejection_condition": "기존 조직은 유지된 채 정원·보고·협의절차만 증가",
+            },
+            {
+                "claim": "추가 권한에 상응하는 민주적·사법적 통제가 존재한다.",
+                "required_evidence": "위임범위, 공개·감사·불복·국회보고와 실제 통제 사례",
+                "rejection_condition": "포괄위임과 비공개 의사결정이 늘고 외부통제는 약함",
+            },
+        ],
+    }
+    return data.get(profile, [])
+
+
+def additional_design_requirements(profile: str) -> list[str]:
+    data: dict[str, list[str]] = {
+        "labor_safety": [
+            "원청·플랫폼·다단계 도급의 실질 지배와 공동책임 기준을 명시",
+            "신고·작업중지 이후 해고·배치·계약갱신 불이익을 추적하고 구제",
+            "사고율뿐 아니라 아차사고·위험노출·은폐·외주화 지표를 공개",
+        ],
+        "health_care": [
+            "환자결과·접근성·고위험환자 수용을 위험조정해 평가",
+            "수가·책임 변화에 따른 과잉·과소진료와 방어진료를 함께 추적",
+            "지역·기관 규모별 단계시행과 필수의료 유지비용을 보완",
+        ],
+        "housing_property": [
+            "임대료뿐 아니라 관리비·보증·수수료를 포함한 총주거비를 추적",
+            "명의·특약·단기·위탁 등 실질 임대차 우회를 방지",
+            "임차인 안정성과 공급량·계약거절·비정형시장 변화를 함께 평가",
+        ],
+        "education_system": [
+            "평균성과 외에 취약학생 격차·배제·중도탈락·학생경험을 평가",
+            "교원 수업·상담시간과 행정부담 영향을 사전·사후 측정",
+            "정치·이념적 통제를 막는 독립성·다원성·공개근거와 불복절차를 마련",
+        ],
+        "organization_power": [
+            "신설 전 기존기관 기능·예산·정원과의 중복분석 및 폐지·통합계획을 공개",
+            "핵심 권한·자료요구·제재범위는 법률에서 제한하고 포괄위임을 금지",
+            "설치기한·정원·예산상한·독립평가와 자동폐지 또는 재승인을 결합",
+        ],
+    }
+    return data.get(profile, [])
+
+
+
+CLAIM_TYPE_RULES: tuple[tuple[str, tuple[str, ...]], ...] = (
+    ("수치·규모 주장", ("%", "퍼센트", "건", "명", "억원", "조원", "증가율", "감소율")),
+    ("국제·타제도 비교", ("미국", "일본", "유럽", "해외", "선진국", "외국", "다른 나라")),
+    ("원인 주장", ("때문", "원인", "초래", "야기", "따라", "결국", "인하여")),
+    ("문제 진단", PROBLEM_WORDS),
+    ("효과·편익 주장", ("강화", "개선", "제고", "보호", "확대", "줄일", "높일", "기대")),
+    ("권한·의무 변경", ("임명", "선임", "동의", "의무", "금지", "허가", "지원", "제재", "설치")),
+)
+
+
+def classify_claim(sentence: str) -> str:
+    for label, words in CLAIM_TYPE_RULES:
+        if contains_any(sentence, words):
+            return label
+    return "기타 정책 주장"
+
+
+def claim_evidence_requirement(claim_type: str, sentence: str) -> tuple[str, str]:
+    if claim_type == "수치·규모 주장":
+        return (
+            "원자료, 분모, 산출방식, 기간별 추세와 비교집단",
+            "수치의 분모·기간·출처가 불명확하거나 재현되지 않는 경우",
+        )
+    if claim_type == "국제·타제도 비교":
+        return (
+            "국가별 법령 원문, 제도 차이, 시행성과와 한국 적용가능성",
+            "선택한 국가가 대표성이 없거나 제도맥락과 성과가 서로 다른 경우",
+        )
+    if claim_type == "원인 주장":
+        return (
+            "원인과 결과의 시간순서, 대안원인 통제, 비교집단 또는 자연실험",
+            "다른 요인이 문제를 더 크게 설명하거나 제안된 원인과 결과가 함께 변하지 않는 경우",
+        )
+    if claim_type == "문제 진단":
+        return (
+            "최근 공식 통계, 현행제도 운영자료, 피해·사각지대와 집단별 분포",
+            "문제 규모가 작거나 일시적이며 현행제도 보완으로 해결 가능한 경우",
+        )
+    if claim_type == "효과·편익 주장":
+        return (
+            "유사제도 성과, 시범사업, 비용편익, 부작용과 장기추적 자료",
+            "결과지표가 개선되지 않거나 부작용과 비용이 편익보다 큰 경우",
+        )
+    if claim_type == "권한·의무 변경":
+        return (
+            "현행법·개정안 조문, 권한 흐름, 집행기관·비용·불복절차",
+            "권한은 확대되지만 통제·책임·자원이 불충분하거나 기존제도와 중복되는 경우",
+        )
+    return (
+        "주장을 직접 뒷받침하는 공식자료와 반대자료",
+        "독립자료로 확인되지 않거나 반대증거가 더 강한 경우",
+    )
+
+
+def build_claim_ledger(
+    text: str,
+    sentences: list[str],
+) -> list[dict[str, Any]]:
+    ledger: list[dict[str, Any]] = []
+
+    for index, sentence in enumerate(sentences, start=1):
+        cleaned = normalize_korean_sentence(remove_clause_reference(sentence))
+        if len(cleaned) < 18:
+            continue
+
+        claim_type = classify_claim(cleaned)
+        required, rejection = claim_evidence_requirement(claim_type, cleaned)
+
+        ledger.append(
+            {
+                "id": f"C{index:02d}",
+                "claim": cleaned,
+                "claim_type": claim_type,
+                "source_type": "발의자 제안이유·주요내용",
+                "source_status": "국회 공식 공개문서",
+                "verification_status": "독립 검증 전",
+                "required_evidence": required,
+                "rejection_condition": rejection,
+                "confidence": "낮음" if claim_type == "기타 정책 주장" else "검증 필요",
+            }
+        )
+
+    return ledger[:12]
+
+
+def build_official_document_register(
+    detail_link: str,
+    summary_connected: bool,
+    committee: str,
+    stage: str,
+) -> list[dict[str, str]]:
+    committee_known = committee not in UNKNOWN_COMMITTEE_VALUES
+    review_possible = committee_known and stage not in ("의안 접수", "위원회 회부·심사 대기")
+
+    return [
+        {
+            "document": "제안이유 및 주요내용",
+            "status": "연동 완료" if summary_connected else "자료 없음",
+            "importance": "법안이 주장하는 문제·목적·변경방향",
+            "source_url": detail_link,
+        },
+        {
+            "document": "법률안 조문 전문",
+            "status": "상세페이지·첨부파일 확인 필요",
+            "importance": "실제 권리·의무·예외·위임·제재 확인",
+            "source_url": detail_link,
+        },
+        {
+            "document": "신·구조문 대비표",
+            "status": "존재 여부 확인 필요",
+            "importance": "현행법과 개정안의 문장 단위 차이",
+            "source_url": detail_link,
+        },
+        {
+            "document": "비용추계서·미첨부 사유서",
+            "status": "존재 여부 확인 필요",
+            "importance": "국가·지자체·민간의 재정·인력 부담",
+            "source_url": detail_link,
+        },
+        {
+            "document": "소관위원회 검토보고서",
+            "status": (
+                "심사자료 확인 필요" if review_possible
+                else "위원회 심사 진행 후 확인"
+            ),
+            "importance": "전문위원의 법체계·집행·비용·쟁점 검토",
+            "source_url": detail_link,
+        },
+        {
+            "document": "위원회 회의록·찬반토론",
+            "status": (
+                "회의자료 확인 필요" if review_possible
+                else "회의 개최 후 확인"
+            ),
+            "importance": "질의·반론·정부답변·수정논의",
+            "source_url": detail_link,
+        },
+    ]
+
+
+def map_attack_to_forks(
+    profile_key: str,
+    attack_title: str,
+) -> list[str]:
+    mapping: dict[str, dict[str, list[str]]] = {
+        "appointment_governance": {
+            "추천단계 선점": ["A", "C"],
+            "청문·동의의 거래화": ["A"],
+            "해임·예산을 통한 사후통제": ["A"],
+            "주민책임성 공백": ["B", "C"],
+        },
+        "data_security": {
+            "서류상 보안": ["B", "C"],
+            "사고 은폐·축소": ["B"],
+            "보안 명분의 과잉감시": ["A", "B"],
+            "외주업체 책임회피": ["B"],
+        },
+        "subsidy_fiscal": {
+            "자격기준 맞추기": ["B"],
+            "공급자 포획": ["C"],
+            "사각지대 고착": ["A", "B"],
+            "재정의 영구고착": ["C"],
+        },
+        "punitive_regulation": {
+            "선택적 집행": ["A", "C"],
+            "규제범위 우회": ["B"],
+            "영세주체 퇴출": ["A", "B"],
+            "신고·제재의 경쟁무기화": ["C"],
+        },
+    }
+    return mapping.get(profile_key, {}).get(attack_title, ["A", "B", "C"])
+
+
+def build_evidence_chains(
+    claims: list[dict[str, Any]],
+    attacks: list[dict[str, Any]],
+    forks: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    if not attacks:
+        return []
+
+    claim_ids = [claim["id"] for claim in claims]
+    available_forks = {fork.get("label", "") for fork in forks}
+    chains: list[dict[str, Any]] = []
+
+    for attack in attacks:
+        linked_forks = [
+            label
+            for label in map_attack_to_forks(
+                attack.get("profile_key", ""),
+                attack.get("title", ""),
+            )
+            if label in available_forks
+        ]
+
+        chains.append(
+            {
+                "attack": attack.get("title", ""),
+                "profile": attack.get("profile_label", ""),
+                "claim_ids": claim_ids[:3],
+                "logic": (
+                    "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 "
+                    "법의 형식과 다른 행동을 만들 수 있는지 검토합니다."
+                ),
+                "failure_path": attack.get("path", ""),
+                "guardrail": attack.get("defense", ""),
+                "residual_risk": attack.get("residual", ""),
+                "fork_links": linked_forks,
+                "verification_status": "조문·외부근거 대조 전",
+            }
+        )
+
+    return chains[:10]
+
+
 def build_deep_review(
     title: str,
     text: str,
@@ -2486,78 +3284,183 @@ def build_deep_review(
     easy_change: str,
     actors: list[str],
     generated_at: str,
+    sentences: list[str] | None = None,
+    fork_candidates: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    profile = detect_policy_profile(title, text)
-    profile_key = profile["key"]
+    profiles = detect_policy_profiles(title, text, max_profiles=3)
+    primary = profiles[0]
+    sentences = sentences or split_sentences(text)
+    fork_candidates = fork_candidates or []
 
     mechanism_chain = [
         {
             "step": "문제",
             "content": easy_problem,
-            "failure_question": "문제의 규모와 원인이 독립자료로 확인되는가?",
+            "failure_question": "문제의 규모·원인·대상이 독립자료로 확인되는가?",
         },
         {
             "step": "법적 수단",
             "content": easy_change,
-            "failure_question": "이 수단이 원인에 직접 작용하는가, 절차만 바꾸는가?",
+            "failure_question": "실제 원인에 작용하는가, 보이는 절차와 조직만 바꾸는가?",
         },
         {
-            "step": "집행",
+            "step": "권한·비용 이동",
             "content": (
-                "권한을 가진 기관과 의무를 지는 주체가 실제 행동·예산·조직을 변경해야 합니다."
+                "새 권한·의무·예산·정보접근이 어느 기관과 집단으로 이동하는지 확인해야 합니다."
             ),
-            "failure_question": "집행주체에게 능력과 유인이 있는가?",
+            "failure_question": "편익을 얻는 주체와 비용·위험을 지는 주체가 분리되는가?",
         },
         {
-            "step": "행동반응",
+            "step": "집행과 유인",
             "content": (
-                "정책 대상과 이해관계자는 새 규칙을 준수하거나 비용을 회피하기 위해 행동을 바꿉니다."
+                "집행기관과 정책대상은 법의 취지뿐 아니라 자신에게 유리한 방식으로 적응합니다."
             ),
-            "failure_question": "준수보다 우회·은폐·형식화가 더 유리하지 않은가?",
+            "failure_question": "준수보다 우회·은폐·책임전가·지표조작이 더 유리하지 않은가?",
         },
         {
-            "step": "결과",
+            "step": "직접 결과",
             "content": (
-                "발의자가 기대한 편익과 함께 권력집중·비용전가·사각지대 같은 2차 효과가 발생할 수 있습니다."
+                "정책이 내세운 목표가 실제 결과지표에서 개선되는지 확인해야 합니다."
             ),
-            "failure_question": "편익과 부작용을 동시에 측정하고 되돌릴 수 있는가?",
+            "failure_question": "활동량·보고량이 아니라 국민의 실제 결과가 개선되는가?",
+        },
+        {
+            "step": "2차 효과와 되돌림",
+            "content": (
+                "가격·시장구조·권력·지역격차·기본권에 나타나는 간접효과와 실패 시 되돌림을 검토합니다."
+            ),
+            "failure_question": "부작용을 조기에 발견하고 축소·중단·보상할 수 있는가?",
         },
     ]
 
-    attacks = profile_deep_red_team(profile_key)
+    assumption_groups: list[list[dict[str, Any]]] = []
+    actor_groups: list[list[dict[str, Any]]] = []
+    attack_groups: list[list[dict[str, Any]]] = []
+    effect_groups: list[list[dict[str, Any]]] = []
+    stress_groups: list[list[dict[str, Any]]] = []
+    evidence_groups: list[list[dict[str, Any]]] = []
+    requirements: list[str] = []
+
+    for profile in profiles:
+        key = profile["key"]
+
+        assumptions = (
+            profile_assumptions(key)
+            + additional_profile_assumptions(key)
+        )
+        assumption_groups.append(attach_profile(assumptions, profile))
+
+        actor_groups.append(
+            attach_profile(
+                profile_actor_incentives(key, actors),
+                profile,
+            )
+        )
+
+        attacks = (
+            profile_deep_red_team(key)
+            + additional_profile_attacks(key)
+        )
+        attack_groups.append(attach_profile(attacks, profile))
+
+        effects = (
+            profile_second_order_effects(key)
+            + additional_second_order_effects(key)
+        )
+        effect_groups.append(attach_profile(effects, profile))
+
+        stress_groups.append(
+            attach_profile(profile_stress_tests(key), profile)
+        )
+
+        tests = (
+            profile_evidence_tests(key)
+            + additional_evidence_tests(key)
+        )
+        evidence_groups.append(attach_profile(tests, profile))
+
+        requirements.extend(profile_design_requirements(key))
+        requirements.extend(additional_design_requirements(key))
+
+    critical_assumptions = merge_dict_items(
+        assumption_groups,
+        ("assumption",),
+        limit=14,
+    )
+    actor_incentives = merge_dict_items(
+        actor_groups,
+        ("actor", "gaming_risk"),
+        limit=12,
+    )
+    deep_red_team = merge_dict_items(
+        attack_groups,
+        ("title", "path"),
+        limit=12,
+    )
+    second_order_effects = merge_dict_items(
+        effect_groups,
+        ("effect", "mechanism"),
+        limit=12,
+    )
+    stress_tests = merge_dict_items(
+        stress_groups,
+        ("scenario", "question"),
+        limit=10,
+    )
+    evidence_tests = merge_dict_items(
+        evidence_groups,
+        ("claim",),
+        limit=12,
+    )
+    design_requirements = unique_items(requirements, 16)
+
+    claim_ledger = build_claim_ledger(text, sentences)
+    evidence_chains = build_evidence_chains(
+        claim_ledger,
+        deep_red_team,
+        fork_candidates,
+    )
 
     return {
-        "status": "공식 요약 기반 심층 검토 초안",
+        "status": "복수 위험프로필 증거사슬형 심층 검토 초안",
         "scope": (
-            "현재는 국회 ‘제안이유 및 주요내용’을 중심으로 한 심층 가설입니다. "
-            "조문 전문·비용추계·검토보고서 대조 전에는 확정평가가 아닙니다."
+            "국회 ‘제안이유 및 주요내용’을 바탕으로 복수 위험축을 동시에 공격한 초안입니다. "
+            "조문 전문·비용추계·위원회 자료·외부 통계 대조 전에는 확정평가가 아닙니다."
         ),
         "generated_at": generated_at,
-        "profile": profile,
+        "profile": primary,
+        "profiles": profiles,
         "central_conflict": build_decision_question(text),
         "mechanism_chain": mechanism_chain,
-        "critical_assumptions": profile_assumptions(profile_key),
-        "actor_incentives": profile_actor_incentives(profile_key, actors),
-        "deep_red_team": attacks,
-        "second_order_effects": profile_second_order_effects(profile_key),
-        "stress_tests": profile_stress_tests(profile_key),
-        "evidence_tests": profile_evidence_tests(profile_key),
-        "design_requirements": profile_design_requirements(profile_key),
+        "claim_ledger": claim_ledger,
+        "critical_assumptions": critical_assumptions,
+        "actor_incentives": actor_incentives,
+        "deep_red_team": deep_red_team,
+        "second_order_effects": second_order_effects,
+        "stress_tests": stress_tests,
+        "evidence_tests": evidence_tests,
+        "evidence_chains": evidence_chains,
+        "design_requirements": design_requirements,
         "depth_summary": {
-            "assumptions": len(profile_assumptions(profile_key)),
-            "actors": len(profile_actor_incentives(profile_key, actors)),
-            "attacks": len(attacks),
-            "second_order_effects": len(profile_second_order_effects(profile_key)),
-            "stress_tests": len(profile_stress_tests(profile_key)),
-            "evidence_tests": len(profile_evidence_tests(profile_key)),
+            "profiles": len(profiles),
+            "claims": len(claim_ledger),
+            "assumptions": len(critical_assumptions),
+            "actors": len(actor_incentives),
+            "attacks": len(deep_red_team),
+            "second_order_effects": len(second_order_effects),
+            "stress_tests": len(stress_tests),
+            "evidence_tests": len(evidence_tests),
+            "evidence_chains": len(evidence_chains),
         },
         "residual_uncertainty": [
-            "개정 조문 전문과 현행법 대비표가 아직 반영되지 않았습니다.",
+            "법률안 조문 전문과 현행법 대비표가 아직 자동 대조되지 않았습니다.",
             "비용추계서·미첨부 사유서와 실제 행정인력 자료가 아직 반영되지 않았습니다.",
-            "위원회 검토보고서·회의록과 찬반 이해관계자 의견이 아직 반영되지 않았습니다.",
-            "외부 통계와 유사제도의 시행성과를 독립적으로 대조하지 않았습니다.",
+            "위원회 검토보고서·회의록과 정부·이해관계자 답변이 아직 반영되지 않았습니다.",
+            "외부 통계와 국내외 유사제도의 시행성과를 독립적으로 대조하지 않았습니다.",
+            "주장 원장의 모든 항목은 현재 독립 검증 전 상태입니다.",
         ],
     }
+
 
 
 def build_structured_analysis(
@@ -2685,14 +3588,17 @@ def build_structured_analysis(
                     "matched_signals": [],
                     "confidence": "없음",
                 },
+                "profiles": [],
                 "central_conflict": "확인 불가",
                 "mechanism_chain": [],
+                "claim_ledger": [],
                 "critical_assumptions": [],
                 "actor_incentives": [],
                 "deep_red_team": [],
                 "second_order_effects": [],
                 "stress_tests": [],
                 "evidence_tests": [],
+                "evidence_chains": [],
                 "design_requirements": [],
                 "depth_summary": {},
                 "residual_uncertainty": ["공식 제안이유·주요내용 필요"],
@@ -2767,11 +3673,13 @@ def build_structured_analysis(
         easy_change=easy_change,
         actors=actors,
         generated_at=generated_at,
+        sentences=sentences,
+        fork_candidates=fork_candidates,
     )
 
     return {
         "analysis_status": status,
-        "analysis_method": "정책유형별 심층 위험·레드팀·대안 검토 v0.5",
+        "analysis_method": "복수 위험프로필·주장 원장·증거사슬 검토 v0.6",
         "analysis_confidence": confidence,
         "analysis_visibility": analysis_visibility,
         "analysis_review_state": "사람 검토 전",
@@ -2975,6 +3883,12 @@ def main() -> None:
                 "fork_candidates": analysis["fork_candidates"],
                 "fork_hidden_reason": analysis["fork_hidden_reason"],
                 "deep_review": analysis["deep_review"],
+                "official_documents": build_official_document_register(
+                    detail_link=detail_link,
+                    summary_connected=source_connected,
+                    committee=committee,
+                    stage=stage,
+                ),
                 "fork_readiness": analysis["fork_readiness"],
                 "one_minute_brief": analysis["one_minute_brief"],
                 "questions": analysis["questions"],
@@ -3061,6 +3975,19 @@ def main() -> None:
         len((bill.get("deep_review") or {}).get("deep_red_team") or [])
         for bill in bills
     )
+    claim_ledger_count = sum(
+        len((bill.get("deep_review") or {}).get("claim_ledger") or [])
+        for bill in bills
+    )
+    evidence_chain_count = sum(
+        len((bill.get("deep_review") or {}).get("evidence_chains") or [])
+        for bill in bills
+    )
+    multi_profile_count = sum(
+        1
+        for bill in bills
+        if len((bill.get("deep_review") or {}).get("profiles") or []) >= 2
+    )
 
     if bills and linked_count == 0:
         raise RuntimeError(
@@ -3076,9 +4003,10 @@ def main() -> None:
         "generated_at": generated_at,
         "notice": (
             "대한민국 국회 열린국회정보의 제22대 국회 최신 의안입니다. "
-            f"공식 원문 {linked_count}건, 정책유형별 심층 검토 {deep_review_count}건, "
-            f"심층 레드팀 공격경로 {deep_attack_count}개를 표시합니다. "
-            "현재 심층 검토는 공식 요약 기반 가설이며 조문·비용·위원회 자료 대조 전 단계입니다."
+            f"공식 원문 {linked_count}건, 심층 검토 {deep_review_count}건, "
+            f"복수 위험프로필 법안 {multi_profile_count}건, 주장 원장 {claim_ledger_count}개, "
+            f"증거사슬 {evidence_chain_count}개를 표시합니다. "
+            "현재는 공식 요약 기반 초안이며 조문·비용·위원회 자료 대조 전 단계입니다."
         ),
         "source": {
             "provider": "대한민국 국회 열린국회정보",
@@ -3097,6 +4025,9 @@ def main() -> None:
             "human_reviewed_count": human_reviewed_count,
             "deep_review_count": deep_review_count,
             "deep_attack_count": deep_attack_count,
+            "claim_ledger_count": claim_ledger_count,
+            "evidence_chain_count": evidence_chain_count,
+            "multi_profile_count": multi_profile_count,
             "summary_error_count": len(summary_errors),
             "detail_error_count": len(detail_errors),
         },
@@ -3109,6 +4040,9 @@ def main() -> None:
             "human_reviewed": human_reviewed_count,
             "deep_reviews": deep_review_count,
             "deep_attacks": deep_attack_count,
+            "claim_ledger": claim_ledger_count,
+            "evidence_chains": evidence_chain_count,
+            "multi_profile_bills": multi_profile_count,
             "red_team_cases": red_team_case_count,
             "fork_candidates": fork_candidate_count,
             "ai_drafts": 0,

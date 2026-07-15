@@ -169,6 +169,33 @@
       .actor-row.head{display:none}
       .assumption-grid,.effect-grid{grid-template-columns:1fr}
     }
+
+    /* v0.10 복수 프로필·증거사슬 */
+    .profile-list{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+    .profile-token{background:#fff;color:#0f1f3d;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900}
+    .profile-token.secondary{background:#dbe3ff;color:#243b77}
+    .claim-ledger{display:grid;gap:10px}
+    .claim-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+    .claim-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+    .claim-id{background:#0f1f3d;color:#fff;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:900}
+    .claim-type{font-size:11px;color:#3157d5;font-weight:900}
+    .claim-card p{font-size:13px;line-height:1.65;margin:9px 0}
+    .claim-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:12px}
+    .claim-meta div{background:#f7f8fb;border-radius:10px;padding:9px;line-height:1.55}
+    .chain-list{display:grid;gap:10px}
+    .chain{border-left:4px solid #3157d5;background:#f7f8ff;border-radius:0 13px 13px 0;padding:14px;font-size:13px;line-height:1.65}
+    .chain-flow{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+    .chain-flow span{background:#fff;border:1px solid #dbe3ff;border-radius:999px;padding:5px 8px;font-size:11px}
+    .doc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .doc-card{border:1px solid var(--line);border-radius:13px;padding:13px;background:#fff}
+    .doc-card b{display:block;margin-bottom:5px}
+    .doc-status{display:inline-block;border-radius:999px;padding:4px 8px;background:#fff8e8;color:#8a5b00;font-size:10px;font-weight:900;margin-bottom:7px}
+    .doc-status.done{background:#eaf8f1;color:#067647}
+    .doc-card p{font-size:12px;color:var(--muted);line-height:1.55;margin:5px 0}
+    .profile-label{display:inline-block;background:#eef2ff;color:#3157d5;border-radius:999px;padding:4px 7px;font-size:10px;font-weight:900;margin-left:6px}
+    @media(max-width:800px){
+      .claim-meta,.doc-grid{grid-template-columns:1fr}
+    }
 </style>
 </head>
 <body>
@@ -234,7 +261,7 @@
       <div>
         <span class="tag">평가 원칙</span>
         <h2>자동 분석이 결론을 내리지 않고,<br>시민이 판단할 쟁점을 드러냅니다.</h2>
-        <p style="color:var(--muted);line-height:1.75">법안마다 정책수단과 권력·비용 구조를 판별한 뒤, 이해관계자의 유인, 악용경로, 2차 효과, 최악조건과 반증자료를 별도로 검토합니다. 공통 체크리스트보다 개별 법안의 고유한 붕괴지점을 우선합니다.</p>
+        <p style="color:var(--muted);line-height:1.75">법안마다 최대 세 개의 위험프로필을 동시에 적용하고, 발의자의 주장을 원장으로 분해합니다. 각 주장은 필요한 근거와 기각조건을 가지며, 레드팀 공격·방어장치·정책 포크와 하나의 증거사슬로 연결됩니다.</p>
       </div>
       <div class="principles">
         <div class="principle"><b>원문 우선</b><p>정책 원문에서 확인되는 사실과 분석자의 추론을 명확히 구분합니다.</p></div>
@@ -273,8 +300,8 @@ fetch('bills.json').then(r=>{
 function renderStats(s){
   const items=[
     ['추적 법안',s.tracked||allBills.length],
-    ['공식 원문',s.official_summaries||0],
-    ['심층 검토 초안',s.deep_reviews||0],
+    ['복수 위험분석',s.multi_profile_bills||0],
+    ['주장 원장',s.claim_ledger||0],
     ['사람 검토 완료',s.human_reviewed||0]
   ];
   document.getElementById('stats').innerHTML=items.map(([k,v])=>`<div class="stat"><strong>${esc(v)}</strong><span>${esc(k)}</span></div>`).join('');
@@ -308,7 +335,7 @@ function render(){
         <span class="status">${esc(b.stage)}</span>
       </div>
       <h3>${esc(b.title)}</h3>
-      <div class="meta">${esc((b.official||{}).lead_proposer||'대표발의 확인 필요')} · 제안 ${esc(b.proposed_date)} · ${esc(((b.deep_review||{}).profile||{}).label||'정책유형 분석')}</div>
+      <div class="meta">${esc((b.official||{}).lead_proposer||'대표발의 확인 필요')} · 제안 ${esc(b.proposed_date)} · ${esc((((b.deep_review||{}).profiles||[]).map(x=>x.label).slice(0,2).join(' + '))||'정책유형 분석')}</div>
       <p class="summary">${esc(b.card_summary||b.summary||'쉬운 설명을 준비 중입니다.')}</p>
       <div class="risk-line"><b>주의할 위험:</b> ${esc(b.largest_risk||'추가 검토가 필요합니다.')}</div>
       <div class="card-bottom">
@@ -420,6 +447,49 @@ function deepSummary(summary){
     <span>근거검증 ${esc(summary.evidence_tests||0)}</span>
   </div>`
 }
+function profileTokens(items){
+  return `<div class="profile-list">${(items||[]).map((x,i)=>`
+    <span class="profile-token ${i?'secondary':''}">${esc(x.role||'')} · ${esc(x.label)} · ${esc(x.confidence)}</span>
+  `).join('')}</div>`
+}
+function claimLedger(items){
+  return `<div class="claim-ledger">${(items||[]).map(x=>`
+    <div class="claim-card">
+      <div class="claim-head"><div><span class="claim-id">${esc(x.id)}</span> <span class="claim-type">${esc(x.claim_type)}</span></div><span class="source-badge missing">${esc(x.verification_status)}</span></div>
+      <p>${esc(x.claim)}</p>
+      <div class="claim-meta">
+        <div><b>출처 상태</b><br>${esc(x.source_type)} · ${esc(x.source_status)}</div>
+        <div><b>필요한 근거</b><br>${esc(x.required_evidence)}</div>
+        <div><b>기각 조건</b><br>${esc(x.rejection_condition)}</div>
+        <div><b>현재 판단</b><br>${esc(x.confidence)}</div>
+      </div>
+    </div>`).join('')}</div>`
+}
+function evidenceChains(items){
+  return `<div class="chain-list">${(items||[]).map(x=>`
+    <div class="chain">
+      <b>${esc(x.attack)}</b><span class="profile-label">${esc(x.profile)}</span>
+      <div class="chain-flow">
+        ${(x.claim_ids||[]).map(id=>`<span>주장 ${esc(id)}</span>`).join('')}
+        <span>→ 공격경로</span><span>→ 방어장치</span>
+        ${(x.fork_links||[]).map(id=>`<span>→ 포크 ${esc(id)}</span>`).join('')}
+      </div>
+      <b>논리:</b> ${esc(x.logic)}<br>
+      <b>붕괴경로:</b> ${esc(x.failure_path)}<br>
+      <b>방어장치:</b> ${esc(x.guardrail)}<br>
+      <b>남는 위험:</b> ${esc(x.residual_risk)}<br>
+      <small>${esc(x.verification_status)}</small>
+    </div>`).join('')}</div>`
+}
+function officialDocuments(items){
+  return `<div class="doc-grid">${(items||[]).map(x=>`
+    <div class="doc-card">
+      <span class="doc-status ${x.status==='연동 완료'?'done':''}">${esc(x.status)}</span>
+      <b>${esc(x.document)}</b>
+      <p>${esc(x.importance)}</p>
+      ${x.source_url?`<a class="source-link" href="${esc(x.source_url)}" target="_blank" rel="noopener">국회 상세페이지 확인</a>`:''}
+    </div>`).join('')}</div>`
+}
 function issueUrl(b,kind){
   const repo='https://github.com/edenabworld-architecture/democracy3-policy-fork/issues/new';
   const no=(b.official||{}).bill_no||'';
@@ -474,10 +544,15 @@ function openBill(id){
 
     <details class="public-detail" open><summary>정책유형별 심층 검토 보고서</summary>
       <div class="profile-banner">
-        <div><b>${esc(((b.deep_review||{}).profile||{}).label||'정책유형 분석')}</b><small>${esc((b.deep_review||{}).scope||'')}</small></div>
-        <span class="profile-pill">${esc(((b.deep_review||{}).profile||{}).confidence||'확인 필요')} 분류</span>
+        <div><b>복수 위험프로필 분석</b><small>${esc((b.deep_review||{}).scope||'')}</small>${profileTokens((b.deep_review||{}).profiles||[])}</div>
+        <span class="profile-pill">${esc((((b.deep_review||{}).profiles||[]).length)||0)}개 위험축</span>
       </div>
       ${deepSummary((b.deep_review||{}).depth_summary||{})}
+
+      <div class="modal-section"><h3>발의자의 주장 원장</h3>
+        <p class="fork-intro">제안이유의 문장을 사실로 확정하지 않고, 주장 단위로 분해해 필요한 근거와 기각조건을 기록합니다.</p>
+        ${claimLedger((b.deep_review||{}).claim_ledger)}
+      </div>
 
       <div class="modal-section"><h3>정책이 작동하는 인과경로와 붕괴지점</h3>
         ${mechanismChain((b.deep_review||{}).mechanism_chain)}
@@ -507,6 +582,10 @@ function openBill(id){
         ${evidenceTests((b.deep_review||{}).evidence_tests)}
       </div>
 
+      <div class="modal-section"><h3>주장 → 공격 → 방어 → 포크 증거사슬</h3>
+        ${evidenceChains((b.deep_review||{}).evidence_chains)}
+      </div>
+
       <div class="modal-section"><h3>개선안이 반드시 갖춰야 할 설계조건</h3>
         ${list((b.deep_review||{}).design_requirements)}
       </div>
@@ -533,6 +612,7 @@ function openBill(id){
     </div>
 
     <details class="public-detail"><summary>국회 공식 원문과 진행상황 보기</summary>
+      <div class="modal-section"><h3>공식자료 확보 지도</h3>${officialDocuments(b.official_documents)}</div>
       <div class="modal-section"><h3>공식 진행상황</h3>${timeline(b.progress_timeline)}</div>
       <div class="modal-section"><h3>국회 공식 제안이유 및 주요내용</h3>
         <div class="official-box">
@@ -565,7 +645,7 @@ function openBill(id){
       </div>
     </details>
 
-    <details class="public-detail"><summary>악용되거나 실패할 가능성 보기</summary>
+    <details class="public-detail"><summary>부록: 이전 규칙형 점검 보기</summary>
       <div class="modal-section"><h3>핵심 악용 시나리오 2개</h3>${redTeams(b.red_team_cases)}</div>
       <div class="modal-section"><h3>법의 빈틈·우회 가능성</h3>${list(b.loopholes)}</div>
       <div class="modal-section"><h3>핵심 실패경로 2개</h3>${failures(b.failure_modes)}</div>
