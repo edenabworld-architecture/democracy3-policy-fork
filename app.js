@@ -1,6 +1,6 @@
 let bills=[];const grid=document.querySelector('#grid'),q=document.querySelector('#search'),dlg=document.querySelector('#dialog'),modal=document.querySelector('#modal');
 const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
-fetch('data/bills.json').then(r=>r.json()).then(d=>{bills=d.bills;document.querySelector('#notice').textContent=d.notice;render()});
+fetch('/bills.json').then(r=>r.json()).then(d=>{bills=d.bills;document.querySelector('#notice').textContent=d.notice;render()});
 function render(){const x=q.value.toLowerCase();grid.innerHTML=bills.filter(b=>JSON.stringify(b).toLowerCase().includes(x)).map(b=>`<article class="card">
 <span class="tag">${esc(b.status)}</span><h2>${esc(b.title)}</h2><div class="meta">${esc(b.committee)}</div><p>${esc(b.summary)}</p>
 <div class="pills">${b.strengths.map(v=>`<span class="pill">장점: ${esc(v)}</span>`).join('')}</div>
