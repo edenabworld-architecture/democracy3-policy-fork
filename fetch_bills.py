@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.10
+"""Democracy 3.0 정책포크 v0.10.1
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -305,7 +305,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.10",
+                    "User-Agent": "Democracy3-Policy-Fork/0.10.1",
                 },
                 timeout=timeout,
             )
@@ -3969,7 +3969,7 @@ def main() -> None:
         1
         for bill in bills
         if (bill.get("deep_review") or {}).get("status")
-        == "공식 요약 기반 심층 검토 초안"
+        == "복수 위험프로필 증거사슬형 심층 검토 초안"
     )
     deep_attack_count = sum(
         len((bill.get("deep_review") or {}).get("deep_red_team") or [])

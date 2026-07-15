@@ -439,12 +439,15 @@ function evidenceTests(items){
 }
 function deepSummary(summary){
   return `<div class="deep-summary">
+    <span>위험프로필 ${esc(summary.profiles||0)}</span>
+    <span>발의자 주장 ${esc(summary.claims||0)}</span>
     <span>핵심가정 ${esc(summary.assumptions||0)}</span>
     <span>이해관계자 ${esc(summary.actors||0)}</span>
     <span>공격경로 ${esc(summary.attacks||0)}</span>
     <span>2차효과 ${esc(summary.second_order_effects||0)}</span>
     <span>스트레스테스트 ${esc(summary.stress_tests||0)}</span>
     <span>근거검증 ${esc(summary.evidence_tests||0)}</span>
+    <span>증거사슬 ${esc(summary.evidence_chains||0)}</span>
   </div>`
 }
 function profileTokens(items){
