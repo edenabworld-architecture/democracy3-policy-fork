@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.7
+"""Democracy 3.0 정책포크 v0.8
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -305,7 +305,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.7",
+                    "User-Agent": "Democracy3-Policy-Fork/0.8",
                 },
                 timeout=timeout,
             )
@@ -707,59 +707,99 @@ def build_decision_question(text: str) -> str:
 def build_weaknesses(text: str) -> list[str]:
     weaknesses: list[str] = []
 
-    if not contains_any(text, FINANCE_WORDS):
-        weaknesses.append("공식 요약에 재정·인력 소요와 비용 부담 주체가 드러나지 않음")
-    if not contains_any(text, METRIC_WORDS):
-        weaknesses.append("성과를 무엇으로 측정할지 공식 요약에 명확한 기준이 없음")
-    if not contains_any(text, SAFEGUARD_WORDS):
-        weaknesses.append("감독·이의제기·책임추적 같은 통제장치가 공식 요약에 충분히 드러나지 않음")
-    if not contains_any(text, REVIEW_WORDS):
-        weaknesses.append("시행 후 재검토·일몰·중단 조건이 공식 요약에 보이지 않음")
-    if not re.search(r"\d[\d,.]*\s*(건|명|개|%|퍼센트|억원|조원|년|개월)", text):
-        weaknesses.append("문제 규모와 기대효과를 판단할 정량 근거가 제한적임")
-    if not contains_any(text, ("예외", "제외", "면제", "특례")):
-        weaknesses.append("예외·사각지대·경계사례 처리 방식이 공식 요약에 드러나지 않음")
+    # 분야별 고유 약점을 먼저 제시합니다.
+    if contains_any(text, ("임명", "선임", "추천", "동의")):
+        if not contains_any(text, ("임기", "해임", "독립", "이해충돌")):
+            weaknesses.append(
+                "임명 이후의 임기 보장, 해임 사유, 이해충돌 방지장치가 공식 요약에 드러나지 않습니다."
+            )
+        if not contains_any(text, ("추천위원", "복수후보", "정족수", "소수의견")):
+            weaknesses.append(
+                "후보 추천 방식과 의회 동의요건이 구체적이지 않아 권력집중 위험을 판단하기 어렵습니다."
+            )
 
-    return unique_items(weaknesses, 5) or [
-        "공식 요약만으로는 조문 간 충돌, 비용, 집행 세부를 충분히 판단하기 어려움"
+    if contains_any(text, ("보안", "정보시스템", "개인정보")):
+        if not contains_any(text, ("보유기간", "파기", "접근기록", "사고통지")):
+            weaknesses.append(
+                "정보 접근기록, 보유기간, 사고통지와 피해구제 절차가 공식 요약에 드러나지 않습니다."
+            )
+        if not contains_any(text, ("인력", "전문인력", "예산", "비용")):
+            weaknesses.append(
+                "보안 의무를 실제로 이행할 전문인력과 예산 대책이 공식 요약에 보이지 않습니다."
+            )
+
+    if contains_any(text, ("지원", "보조금", "급여", "감면", "혜택")):
+        if not contains_any(text, ("대상", "소득", "재산", "중복", "환수")):
+            weaknesses.append(
+                "지원대상 선정, 중복수혜 방지와 환수기준이 공식 요약에 충분히 드러나지 않습니다."
+            )
+
+    if contains_any(text, ("벌칙", "과태료", "처벌", "제재", "금지")):
+        if not contains_any(text, ("고의", "반복", "피해규모", "불복", "이의")):
+            weaknesses.append(
+                "위반의 고의성·피해규모에 따른 제재 차등과 불복절차가 공식 요약에 보이지 않습니다."
+            )
+
+    # 공통 누락은 뒤에 배치하며 최대 3개만 보여줍니다.
+    if not contains_any(text, FINANCE_WORDS):
+        weaknesses.append(
+            "재정·인력 소요와 비용 부담 주체가 공식 요약에 드러나지 않습니다."
+        )
+    if not contains_any(text, METRIC_WORDS):
+        weaknesses.append(
+            "정책이 성공했는지 판단할 성과기준이 공식 요약에 명확하지 않습니다."
+        )
+    if not contains_any(text, REVIEW_WORDS):
+        weaknesses.append(
+            "시행 후 재검토·일몰·중단 조건이 공식 요약에 보이지 않습니다."
+        )
+    if not contains_any(text, ("예외", "제외", "면제", "특례")):
+        weaknesses.append(
+            "예외·사각지대·경계사례를 어떻게 처리할지 공식 요약만으로는 알기 어렵습니다."
+        )
+
+    return dedupe_similar(weaknesses, 3) or [
+        "공식 요약만으로는 비용, 집행 세부와 조문 간 충돌을 충분히 판단하기 어렵습니다."
     ]
 
 
 def build_counterarguments(text: str) -> list[str]:
-    arguments: list[str] = [
-        "문제의 존재와 별개로, 제안된 수단이 실제 원인을 해결하는 가장 덜 침해적인 방법인지 검증이 필요함"
-    ]
+    arguments: list[str] = []
 
     if contains_any(text, ("임명", "선임")):
         arguments.append(
-            "직접선거의 문제를 줄일 수 있지만 임명권자에게 권력이 집중되어 정치적 종속이 오히려 커질 수 있음"
+            "직접선거의 문제를 줄이더라도 임명권자에게 권력이 집중되어 정치적 종속이 더 커질 수 있습니다."
         )
     if contains_any(text, ("선거", "투표")):
         arguments.append(
-            "효율성과 전문성을 높이더라도 유권자의 직접 통제와 민주적 정당성을 약화할 수 있음"
-        )
-    if contains_any(text, ("의무", "수립", "시행", "제출", "보고")):
-        arguments.append(
-            "새 의무가 기존 제도와 중복되고 현장에서는 서류 작성만 늘리는 형식적 규제가 될 수 있음"
+            "전문성과 효율성을 높이더라도 유권자의 직접 통제와 민주적 정당성이 약해질 수 있습니다."
         )
     if contains_any(text, ("보안", "정보시스템", "개인정보")):
         arguments.append(
-            "보안 의무를 법에 추가해도 예산·전문인력·사고공개가 없으면 실제 보안수준은 개선되지 않을 수 있음"
+            "법률에 보안 의무만 추가하고 예산·전문인력·사고공개가 빠지면 실제 보안은 개선되지 않을 수 있습니다."
+        )
+    if contains_any(text, ("의무", "수립", "시행", "제출", "보고")):
+        arguments.append(
+            "새 의무가 기존 제도와 겹치고 현장에서는 실제 개선 없이 서류만 늘리는 규제가 될 수 있습니다."
         )
     if contains_any(text, ("지원", "보조금", "급여", "감면")):
         arguments.append(
-            "지원 확대가 필요한 사람을 돕는 대신 대상선정 왜곡·중복수혜·재정의 경직성을 키울 수 있음"
+            "지원 확대가 실제 취약계층보다 신청능력이 높은 집단에 유리하고 재정의 경직성을 키울 수 있습니다."
         )
     if contains_any(text, ("벌칙", "과태료", "처벌", "제재")):
         arguments.append(
-            "제재 강화가 억지력을 높이기보다 영세주체에 불균형한 부담을 주고 음성화를 촉진할 수 있음"
+            "제재 강화가 억지력보다 영세주체의 불균형 부담과 선택적 집행을 키울 수 있습니다."
         )
     if contains_any(text, ("위원회", "기관", "센터", "기구")):
         arguments.append(
-            "새 조직이나 절차가 기존 기관과 중복되어 책임소재를 흐리고 행정비용만 늘릴 수 있음"
+            "새 조직이나 절차가 기존 기관과 겹쳐 책임소재를 흐리고 행정비용만 늘릴 수 있습니다."
         )
 
-    return unique_items(arguments, 5)
+    arguments.append(
+        "법안이 제시한 문제가 실제로 존재하더라도, 제안된 수단이 가장 효과적이고 덜 침해적인 대안인지는 별도로 검증해야 합니다."
+    )
+    return dedupe_similar(arguments, 3)
+
 
 
 def build_loopholes(text: str) -> list[str]:
@@ -1147,14 +1187,44 @@ def extract_clause_reference(text: str) -> str:
     return "관련 개정조문 — 조문 전문 확인 필요"
 
 
+def normalize_korean_sentence(value: str) -> str:
+    value = clean_optional(value)
+    value = re.sub(r"\s+", " ", value)
+    value = re.sub(r"\s+([,.;:!?])", r"\1", value)
+    value = re.sub(r"([,.;:!?])(?=[가-힣A-Za-z0-9])", r"\1 ", value)
+    value = re.sub(r"^\s*[,.;:]+\s*", "", value)
+
+    # 자동 변환에서 자주 생기는 한국어 띄어쓰기 오류를 보정합니다.
+    replacements = (
+        ("하기어려", "하기 어려"),
+        ("하기쉽", "하기 쉽"),
+        ("할수있", "할 수 있"),
+        ("할수없", "할 수 없"),
+        ("될수있", "될 수 있"),
+        ("될수없", "될 수 없"),
+        ("수립ㆍ시행", "수립·시행"),
+        ("청문ㆍ동의", "청문·동의"),
+        ("검토ㆍ평가", "검토·평가"),
+    )
+    for old, new in replacements:
+        value = value.replace(old, new)
+
+    value = re.sub(r"\s{2,}", " ", value)
+    return value.strip()
+
+
 def easy_korean(sentence: str) -> str:
     value = remove_clause_reference(sentence)
-    value = re.sub(r"^(그러나|그런데|이에|이에,|한편|한편,|특히|특히,)\s*", "", value)
-    value = value.strip(" .")
+    value = re.sub(
+        r"^\s*(그러나|그런데|이에|한편|특히)\s*,?\s*",
+        "",
+        value,
+    )
+    value = normalize_korean_sentence(value).strip(" .")
 
     replacements = (
-        ("하도록 하고자 함", "하도록 바꾸려는 내용입니다"),
         ("할 수 있도록 하고자 함", "할 수 있게 바꾸려는 내용입니다"),
+        ("하도록 하고자 함", "하도록 바꾸려는 내용입니다"),
         ("하고자 함", "하려는 내용입니다"),
         ("하려는 것임", "하려는 내용입니다"),
         ("규정하고 있음", "규정하고 있습니다"),
@@ -1176,11 +1246,63 @@ def easy_korean(sentence: str) -> str:
             value = value[: -len(old)].rstrip() + new
             break
 
-    if not re.search(r"(입니다|습니다|합니다|됩니다|내용입니다|상황입니다)$", value):
+    value = normalize_korean_sentence(value)
+    if not re.search(
+        r"(입니다|습니다|합니다|됩니다|있습니다|없습니다|어렵습니다|내용입니다|상황입니다)[.!?]?$",
+        value,
+    ):
+        value += "."
+
+    if not value.endswith((".", "!", "?")):
         value += "."
 
     value = re.sub(r"\.{2,}", ".", value)
-    return value.strip()
+    return normalize_korean_sentence(value)
+
+
+def sentence_without_period(value: str) -> str:
+    return normalize_korean_sentence(value).rstrip(" .!?").strip()
+
+
+def text_tokens(value: str) -> set[str]:
+    return {
+        token
+        for token in re.findall(r"[가-힣A-Za-z0-9]{2,}", value)
+        if token not in {
+            "공식", "요약", "확인", "필요", "검토", "법안",
+            "가능성", "문제", "내용", "제도",
+        }
+    }
+
+
+def dedupe_similar(items: list[str], limit: int = 4) -> list[str]:
+    result: list[str] = []
+    token_sets: list[set[str]] = []
+
+    for item in items:
+        value = normalize_korean_sentence(item)
+        if not value:
+            continue
+        tokens = text_tokens(value)
+        duplicated = False
+
+        for old_tokens in token_sets:
+            if not tokens or not old_tokens:
+                continue
+            similarity = len(tokens & old_tokens) / max(1, len(tokens | old_tokens))
+            if similarity >= 0.42:
+                duplicated = True
+                break
+
+        if not duplicated and value not in result:
+            result.append(value)
+            token_sets.append(tokens)
+
+        if len(result) >= limit:
+            break
+
+    return result
+
 
 
 def build_easy_card_summary(
@@ -1460,20 +1582,34 @@ def build_structured_analysis(
     actors = extract_actors(text)
 
     confidence_points = 0
+    quality_flags: list[str] = []
+
     if len(text) >= 250:
         confidence_points += 1
+    else:
+        quality_flags.append("공식 요약이 짧음")
+
     if problem_sentence:
         confidence_points += 1
+    else:
+        quality_flags.append("문제정의 분리 실패")
+
     if change_sentence:
         confidence_points += 1
+    else:
+        quality_flags.append("변경내용 분리 실패")
+
     if re.search(r"\(안\s*제?\d+조", text):
         confidence_points += 1
+    else:
+        quality_flags.append("관련 조문 단서 없음")
 
     confidence = (
         "보통" if confidence_points >= 3
         else "낮음" if confidence_points >= 1
         else "생성 불가"
     )
+    analysis_visibility = "전체 표시" if confidence_points >= 3 else "제한 표시"
 
     empty_scores = {
         key: 0
@@ -1483,13 +1619,48 @@ def build_structured_analysis(
         )
     }
 
+    review_status = {
+        "official_source": "연동 완료" if text else "자료 없음",
+        "plain_language": "자동 초안" if text else "미작성",
+        "external_evidence": "미연결",
+        "clause_comparison": "미완료",
+        "human_review": "미완료",
+    }
+
+    source_labels = [
+        {
+            "label": "국회 공식 원문",
+            "status": review_status["official_source"],
+            "kind": "official",
+        },
+        {
+            "label": "쉬운 설명·위험",
+            "status": review_status["plain_language"],
+            "kind": "automatic",
+        },
+        {
+            "label": "외부 근거",
+            "status": review_status["external_evidence"],
+            "kind": "missing",
+        },
+        {
+            "label": "사람 검토",
+            "status": review_status["human_review"],
+            "kind": "missing",
+        },
+    ]
+
     if not text:
         return {
             "analysis_status": "미분석",
             "analysis_method": "공식 원문 없음",
             "analysis_confidence": "생성 불가",
+            "analysis_visibility": "숨김",
             "analysis_review_state": "사람 검토 필요",
             "analysis_generated_at": generated_at,
+            "quality_flags": ["공식 원문 없음"],
+            "review_status": review_status,
+            "source_labels": source_labels,
             "card_summary": "공식 제안이유·주요내용이 없어 쉬운 설명을 만들지 못했습니다.",
             "plain_language": "공식 원문을 먼저 확인해야 합니다.",
             "problem_definition": "공식 원문 없음",
@@ -1513,6 +1684,7 @@ def build_structured_analysis(
             "failure_modes": [],
             "fork_levers": [],
             "fork_candidates": [],
+            "fork_hidden_reason": "공식 원문이 없어 자동 수정안을 만들지 않았습니다.",
             "fork_readiness": {
                 "level": "자료 없음",
                 "points": 0,
@@ -1534,44 +1706,64 @@ def build_structured_analysis(
             ),
         }
 
-    strengths = build_strengths(text, change_sentence)
+    strengths = dedupe_similar(build_strengths(text, change_sentence), 3)
     weaknesses = build_weaknesses(text)
     counterarguments = build_counterarguments(text)
-    risks = build_risks(text)
-    loopholes = build_loopholes(text)
+    risks = dedupe_similar(build_risks(text), 3)
+    loopholes = dedupe_similar(build_loopholes(text), 3)
     red_team_cases = build_red_team_cases(text)
     failure_modes = build_failure_modes(text)
     affected = actors or ["공식 요약에서 직접 영향 주체를 찾지 못했습니다."]
     evidence = build_evidence_review(text, problem_sentence, strengths)
 
     easy_problem = easy_korean(
-        problem_sentence or (sentences[0] if sentences else "문제정의 확인 필요")
+        problem_sentence or (sentences[0] if sentences else "문제정의를 확인해야 합니다.")
     )
     easy_change = easy_korean(
-        change_sentence or (sentences[-1] if sentences else "변경방향 확인 필요")
+        change_sentence or (sentences[-1] if sentences else "변경내용을 확인해야 합니다.")
     )
-    claimed_benefit = build_claimed_benefit(text)
-    strongest_objection = (
-        counterarguments[1] if len(counterarguments) > 1 else counterarguments[0]
+
+    claimed_benefit = normalize_korean_sentence(build_claimed_benefit(text))
+    strongest_objection = normalize_korean_sentence(
+        counterarguments[0]
+        if counterarguments
+        else "가장 강한 반대논거를 추가 확인해야 합니다."
     )
-    largest_risk = (
+    largest_risk = normalize_korean_sentence(
         red_team_cases[0]["consequence"]
         if red_team_cases
         else (risks[0] if risks else "구체적인 위험을 추가 확인해야 합니다.")
     )
 
+    all_forks = build_fork_candidates_v07(title, text, change_sentence)
+    if confidence_points >= 3:
+        fork_candidates = all_forks[:3]
+        fork_hidden_reason = ""
+    else:
+        fork_candidates = []
+        fork_hidden_reason = (
+            "공식 요약에서 문제·변경내용·관련 조문이 충분히 분리되지 않아 "
+            "자동 수정안을 숨겼습니다."
+        )
+
+    status = "자동 검토 초안" if confidence_points >= 3 else "제한적 자동 검토"
+
     return {
-        "analysis_status": "자동 검토 초안",
-        "analysis_method": "공식 원문 규칙 기반 국민용 설명·위험검토·포크 v0.3",
+        "analysis_status": status,
+        "analysis_method": "공식 원문 규칙 기반 국민용 설명·위험검토·포크 v0.4",
         "analysis_confidence": confidence,
+        "analysis_visibility": analysis_visibility,
         "analysis_review_state": "사람 검토 전",
         "analysis_generated_at": generated_at,
+        "quality_flags": quality_flags,
+        "review_status": review_status,
+        "source_labels": source_labels,
         "card_summary": build_easy_card_summary(
             title, text, problem_sentence, change_sentence
         ),
         "plain_language": (
-            f"이 법안은 {easy_problem} "
-            f"그래서 {easy_change}"
+            f"법안이 제시한 문제는 {sentence_without_period(easy_problem)}입니다. "
+            f"제안된 변경은 {sentence_without_period(easy_change)}입니다."
         ),
         "problem_definition": easy_problem,
         "proposed_change": easy_change,
@@ -1582,20 +1774,19 @@ def build_structured_analysis(
         "claimed_benefit": claimed_benefit,
         "strongest_objection": strongest_objection,
         "largest_risk": largest_risk,
-        "analysis_clues": evidence["analysis_clues"],
-        "verified_evidence": evidence["verified_evidence"],
-        "unverified_claims": evidence["unverified_claims"],
+        "analysis_clues": dedupe_similar(evidence["analysis_clues"], 3),
+        "verified_evidence": dedupe_similar(evidence["verified_evidence"], 3),
+        "unverified_claims": dedupe_similar(evidence["unverified_claims"], 3),
         "strengths": strengths,
         "weaknesses": weaknesses,
         "risks": risks,
         "counterarguments": counterarguments,
         "loopholes": loopholes,
-        "red_team_cases": red_team_cases,
-        "failure_modes": failure_modes,
+        "red_team_cases": red_team_cases[:2],
+        "failure_modes": failure_modes[:2],
         "fork_levers": build_fork_levers(text),
-        "fork_candidates": build_fork_candidates_v07(
-            title, text, change_sentence
-        ),
+        "fork_candidates": fork_candidates,
+        "fork_hidden_reason": fork_hidden_reason,
         "fork_readiness": build_fork_readiness(
             text,
             problem_sentence,
@@ -1609,7 +1800,7 @@ def build_structured_analysis(
             "who": ", ".join(affected[:4]),
             "decision": build_decision_question(text),
         },
-        "questions": build_questions(text, committee),
+        "questions": dedupe_similar(build_questions(text, committee), 4),
         "scores": build_source_signals(text, problem_sentence),
         "analysis_basis": (
             "국회가 공개한 ‘제안이유 및 주요내용’만 사용한 자동 초안입니다. "
@@ -1730,7 +1921,11 @@ def main() -> None:
                 "analysis_status": analysis["analysis_status"],
                 "analysis_method": analysis["analysis_method"],
                 "analysis_confidence": analysis["analysis_confidence"],
+                "analysis_visibility": analysis["analysis_visibility"],
                 "analysis_review_state": analysis["analysis_review_state"],
+                "quality_flags": analysis["quality_flags"],
+                "review_status": analysis["review_status"],
+                "source_labels": analysis["source_labels"],
                 "analysis_generated_at": analysis["analysis_generated_at"],
                 "analysis_basis": analysis["analysis_basis"],
                 "card_summary": analysis["card_summary"],
@@ -1756,6 +1951,7 @@ def main() -> None:
                 "failure_modes": analysis["failure_modes"],
                 "fork_levers": analysis["fork_levers"],
                 "fork_candidates": analysis["fork_candidates"],
+                "fork_hidden_reason": analysis["fork_hidden_reason"],
                 "fork_readiness": analysis["fork_readiness"],
                 "one_minute_brief": analysis["one_minute_brief"],
                 "questions": analysis["questions"],
@@ -1821,12 +2017,17 @@ def main() -> None:
     structured_count = sum(
         1 for bill in bills if bill.get("analysis_status") == "자동 검토 초안"
     )
+    limited_count = sum(
+        1 for bill in bills if bill.get("analysis_status") == "제한적 자동 검토"
+    )
     red_team_case_count = sum(
         len(bill.get("red_team_cases") or []) for bill in bills
     )
     fork_candidate_count = sum(
         len(bill.get("fork_candidates") or []) for bill in bills
     )
+    clause_compared_count = 0
+    human_reviewed_count = 0
 
     if bills and linked_count == 0:
         raise RuntimeError(
@@ -1842,10 +2043,9 @@ def main() -> None:
         "generated_at": generated_at,
         "notice": (
             "대한민국 국회 열린국회정보의 제22대 국회 최신 의안입니다. "
-            f"기본정보 {len(bills)}건, 공식 제안이유·주요내용 {linked_count}건, "
-            f"상세 진행정보 {detail_count}건, 쉬운 설명과 자동 검토 {structured_count}건, "
-            f"핵심 위험 시나리오 {red_team_case_count}개, 자동 수정안 아이디어 {fork_candidate_count}개를 표시합니다. "
-            "자동 설명과 수정안은 사람이 검토하기 전의 초안입니다."
+            f"공식 원문 {linked_count}건, 자동 검토 초안 {structured_count}건, "
+            f"자료 부족으로 제한 표시한 법안 {limited_count}건입니다. "
+            "조문 대조와 사람 검토는 아직 시작 전이며, 자동 수정안은 법안당 최대 3개만 표시합니다."
         ),
         "source": {
             "provider": "대한민국 국회 열린국회정보",
@@ -1857,8 +2057,11 @@ def main() -> None:
             "official_summary_count": linked_count,
             "official_detail_count": detail_count,
             "structured_draft_count": structured_count,
+            "limited_draft_count": limited_count,
             "red_team_case_count": red_team_case_count,
             "fork_candidate_count": fork_candidate_count,
+            "clause_compared_count": clause_compared_count,
+            "human_reviewed_count": human_reviewed_count,
             "summary_error_count": len(summary_errors),
             "detail_error_count": len(detail_errors),
         },
@@ -1866,6 +2069,9 @@ def main() -> None:
             "tracked": len(bills),
             "official_summaries": linked_count,
             "structured_drafts": structured_count,
+            "limited_drafts": limited_count,
+            "clause_compared": clause_compared_count,
+            "human_reviewed": human_reviewed_count,
             "red_team_cases": red_team_case_count,
             "fork_candidates": fork_candidate_count,
             "ai_drafts": 0,
