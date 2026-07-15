@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.11
+"""Democracy 3.0 정책포크 v0.11.1
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -309,7 +309,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.11",
+                    "User-Agent": "Democracy3-Policy-Fork/0.11.1",
                 },
                 timeout=timeout,
             )
@@ -325,23 +325,35 @@ def request_json(
 
 def load_summary_cache() -> dict[str, str]:
     """이미 수집한 공식 제안이유·주요내용은 다시 호출하지 않습니다."""
-    if not OUTPUT.exists():
-        return {}
-
-    try:
-        old = json.loads(OUTPUT.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return {}
-
     cache: dict[str, str] = {}
-    for bill in old.get("bills") or []:
+
+    def add_bill(bill: Any) -> None:
         if not isinstance(bill, dict):
-            continue
+            return
         official = bill.get("official") or {}
         bill_no = clean_optional(official.get("bill_no"))
         summary = clean_official_text(bill.get("official_summary"))
         if bill_no and summary:
             cache[bill_no] = summary
+
+    # v0.11 이후: 개별 심층보고서에서 캐시를 복원합니다.
+    if REPORTS_DIR.exists():
+        for report_path in REPORTS_DIR.glob("*.json"):
+            try:
+                payload = json.loads(report_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            add_bill(payload.get("bill") if isinstance(payload, dict) else None)
+
+    # 첫 전환 실행 또는 이전 버전 호환: 기존 대형 bills.json도 읽습니다.
+    if LEGACY_OUTPUT.exists():
+        try:
+            legacy = json.loads(LEGACY_OUTPUT.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            legacy = {}
+        for bill in legacy.get("bills") or []:
+            add_bill(bill)
+
     return cache
 
 
