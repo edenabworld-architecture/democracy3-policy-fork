@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.10.1
+"""Democracy 3.0 정책포크 v0.11
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -34,9 +34,13 @@ SUMMARY_API_URL = f"https://open.assembly.go.kr/portal/openapi/{SUMMARY_API_KEY}
 DETAIL_API_KEY = "BILLINFODETAIL"
 DETAIL_API_URL = f"https://open.assembly.go.kr/portal/openapi/{DETAIL_API_KEY}"
 
-OUTPUT = Path(__file__).resolve().parent / "bills.json"
+ROOT = Path(__file__).resolve().parent
+LEGACY_OUTPUT = ROOT / "bills.json"
+INDEX_OUTPUT = ROOT / "bills-index.json"
+REPORTS_DIR = ROOT / "reports"
 KST = timezone(timedelta(hours=9))
 API_WORKERS = 5
+SCHEMA_VERSION = "0.11"
 
 UNKNOWN_COMMITTEE_VALUES = {
     "",
@@ -305,7 +309,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.10.1",
+                    "User-Agent": "Democracy3-Policy-Fork/0.11",
                 },
                 timeout=timeout,
             )
@@ -3742,6 +3746,127 @@ def build_structured_analysis(
 
 
 
+
+def safe_report_filename(bill_id: str) -> str:
+    safe = re.sub(r"[^A-Za-z0-9_-]+", "_", bill_id).strip("_")
+    return safe or "unknown-bill"
+
+
+def compact_bill_record(bill: dict[str, Any]) -> dict[str, Any]:
+    deep = bill.get("deep_review") or {}
+    profiles = [
+        {
+            "key": item.get("key", ""),
+            "label": item.get("label", ""),
+            "role": item.get("role", ""),
+            "confidence": item.get("confidence", ""),
+        }
+        for item in (deep.get("profiles") or [])
+    ]
+
+    report_name = safe_report_filename(str(bill.get("id", ""))) + ".json"
+
+    return {
+        "id": bill.get("id", ""),
+        "title": bill.get("title", ""),
+        "category": bill.get("category", "기타"),
+        "category_basis": bill.get("category_basis", ""),
+        "status": bill.get("status", ""),
+        "stage": bill.get("stage", ""),
+        "committee": bill.get("committee", ""),
+        "proposed_date": bill.get("proposed_date", ""),
+        "updated_at": bill.get("updated_at", ""),
+        "review_count": bill.get("review_count", 0),
+        "card_summary": bill.get("card_summary", ""),
+        "summary": bill.get("summary", ""),
+        "largest_risk": bill.get("largest_risk", ""),
+        "analysis_confidence": bill.get("analysis_confidence", ""),
+        "analysis_review_state": bill.get("analysis_review_state", ""),
+        "fork_count": len(bill.get("fork_candidates") or []),
+        "citizen_fork_count": len(bill.get("forks") or []),
+        "profiles": profiles,
+        "search_terms": " ".join(
+            [
+                str(bill.get("title", "")),
+                str(bill.get("category", "")),
+                str(bill.get("committee", "")),
+                " ".join(item.get("label", "") for item in profiles),
+                str(bill.get("card_summary", "")),
+                str(bill.get("largest_risk", "")),
+            ]
+        ),
+        "official": {
+            "bill_no": (bill.get("official") or {}).get("bill_no", ""),
+            "lead_proposer": (bill.get("official") or {}).get(
+                "lead_proposer", ""
+            ),
+            "source_url": (bill.get("official") or {}).get("source_url", ""),
+        },
+        "report_url": f"reports/{report_name}",
+    }
+
+
+def write_split_outputs(
+    output: dict[str, Any],
+    bills: list[dict[str, Any]],
+) -> None:
+    REPORTS_DIR.mkdir(parents=True, exist_ok=True)
+
+    expected_names: set[str] = set()
+    compact_bills: list[dict[str, Any]] = []
+
+    for bill in bills:
+        report_name = safe_report_filename(str(bill.get("id", ""))) + ".json"
+        expected_names.add(report_name)
+
+        report_payload = {
+            "schema_version": SCHEMA_VERSION,
+            "generated_at": output["generated_at"],
+            "bill": bill,
+        }
+        (REPORTS_DIR / report_name).write_text(
+            json.dumps(report_payload, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        compact_bills.append(compact_bill_record(bill))
+
+    for old_report in REPORTS_DIR.glob("*.json"):
+        if old_report.name not in expected_names:
+            old_report.unlink()
+
+    index_payload = {
+        "schema_version": SCHEMA_VERSION,
+        "generated_at": output["generated_at"],
+        "notice": output["notice"],
+        "source": output["source"],
+        "stats": output["stats"],
+        "collection_warnings": output["collection_warnings"],
+        "coverage": {
+            "mode": "latest_active_window",
+            "active_count": len(compact_bills),
+            "official_total_count": output["source"].get(
+                "official_total_count", 0
+            ),
+            "meaning": (
+                "전체 정책을 담을 수 있는 구조를 유지하되, 현재 첫 화면과 "
+                "자동 심층검토는 최신 활성 법안 창을 우선 처리합니다."
+            ),
+            "next_expansion": (
+                "전체 의안 경량목록과 정부정책·입법예고·지방조례 카탈로그"
+            ),
+        },
+        "bills": compact_bills,
+    }
+
+    INDEX_OUTPUT.write_text(
+        json.dumps(index_payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+    if LEGACY_OUTPUT.exists():
+        LEGACY_OUTPUT.unlink()
+
+
 def main() -> None:
     api_key = os.environ.get(API_KEY_ENV, "").strip()
     if not api_key:
@@ -4053,15 +4178,12 @@ def main() -> None:
         "bills": bills,
     }
 
-    OUTPUT.write_text(
-        json.dumps(output, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    write_split_outputs(output, bills)
 
     print(
         f"최신 {len(bills)}건 수집 / 공식 원문 {linked_count}건 / "
-        f"상세 진행정보 {detail_count}건 / 쉬운 설명 {structured_count}건 / "
-        f"위험 검토 {red_team_case_count}개 / 수정안 아이디어 {fork_candidate_count}개."
+        f"심층 검토 {deep_review_count}건 / 주장 원장 {claim_ledger_count}개 / "
+        f"증거사슬 {evidence_chain_count}개 / 개별 보고서 {len(bills)}개."
     )
     if all_warnings:
         print(f"개별 API 경고 {len(all_warnings)}건은 다음 실행에서 다시 확인합니다.")
