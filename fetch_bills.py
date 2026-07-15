@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.8
+"""Democracy 3.0 정책포크 v0.9
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -305,7 +305,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.8",
+                    "User-Agent": "Democracy3-Policy-Fork/0.9",
                 },
                 timeout=timeout,
             )
@@ -1569,6 +1569,997 @@ def build_fork_candidates_v07(
     return forks
 
 
+
+POLICY_PROFILE_RULES: tuple[tuple[str, str, tuple[str, ...]], ...] = (
+    (
+        "appointment_governance",
+        "인사·권력구조",
+        (
+            "임명", "선임", "추천", "동의", "청문", "해임",
+            "기관장", "교육감", "위원장", "위원",
+        ),
+    ),
+    (
+        "data_security",
+        "개인정보·정보보안",
+        (
+            "개인정보", "정보시스템", "정보통신망", "보안",
+            "데이터", "전산", "해킹", "정보보호",
+        ),
+    ),
+    (
+        "subsidy_fiscal",
+        "재정·지원배분",
+        (
+            "지원", "보조금", "급여", "수당", "감면", "기금",
+            "재정", "예산", "융자", "세액공제",
+        ),
+    ),
+    (
+        "punitive_regulation",
+        "규제·제재",
+        (
+            "벌칙", "과태료", "처벌", "제재", "금지", "허가",
+            "등록", "신고", "취소", "영업정지",
+        ),
+    ),
+    (
+        "organization_power",
+        "행정조직·권한배분",
+        (
+            "위원회", "기관", "센터", "기구", "설치", "지정",
+            "장관", "지방자치단체", "공공기관",
+        ),
+    ),
+    (
+        "labor_safety",
+        "노동·산업안전",
+        (
+            "근로자", "노동자", "사용자", "고용", "산업재해",
+            "안전", "휴게", "임금", "사업주",
+        ),
+    ),
+    (
+        "housing_property",
+        "주거·재산권",
+        (
+            "주택", "임대", "임차", "토지", "건축", "재산권",
+            "분양", "전세", "상가",
+        ),
+    ),
+    (
+        "health_care",
+        "보건·의료",
+        (
+            "환자", "의료", "병원", "의사", "간호", "건강",
+            "질병", "약품", "보건",
+        ),
+    ),
+    (
+        "education_system",
+        "교육제도",
+        (
+            "교육", "학교", "학생", "교원", "대학", "유치원",
+            "학습", "입학",
+        ),
+    ),
+)
+
+
+def detect_policy_profile(title: str, text: str) -> dict[str, Any]:
+    context = f"{title} {text}"
+    scored: list[tuple[int, str, str, list[str]]] = []
+
+    for key, label, keywords in POLICY_PROFILE_RULES:
+        matched = [word for word in keywords if word in context]
+        score = len(matched)
+
+        # 정책수단 자체가 명확할 때 가중치를 줍니다.
+        if key == "appointment_governance" and contains_any(
+            context, ("임명", "선임", "추천", "동의")
+        ):
+            score += 4
+        if key == "data_security" and contains_any(
+            context, ("개인정보", "보안", "정보시스템")
+        ):
+            score += 3
+        if key == "subsidy_fiscal" and contains_any(
+            context, ("보조금", "급여", "지원", "감면")
+        ):
+            score += 3
+        if key == "punitive_regulation" and contains_any(
+            context, ("벌칙", "과태료", "처벌", "영업정지")
+        ):
+            score += 3
+
+        scored.append((score, key, label, matched))
+
+    scored.sort(key=lambda item: item[0], reverse=True)
+    top_score, key, label, matched = scored[0]
+
+    if top_score <= 0:
+        return {
+            "key": "general_reform",
+            "label": "일반 제도개편",
+            "matched_signals": [],
+            "confidence": "낮음",
+        }
+
+    return {
+        "key": key,
+        "label": label,
+        "matched_signals": matched[:8],
+        "confidence": "높음" if top_score >= 6 else "보통",
+    }
+
+
+def deep_case(
+    title: str,
+    attacker: str,
+    incentive: str,
+    path: str,
+    harmed: str,
+    warning: str,
+    defense: str,
+    residual: str,
+    severity: str = "높음",
+) -> dict[str, str]:
+    return {
+        "title": title,
+        "attacker": attacker,
+        "incentive": incentive,
+        "path": path,
+        "harmed": harmed,
+        "warning": warning,
+        "defense": defense,
+        "residual": residual,
+        "severity": severity,
+    }
+
+
+def profile_assumptions(profile: str) -> list[dict[str, str]]:
+    common = [
+        {
+            "assumption": "법안이 지목한 문제가 실제로 제안된 원인 때문에 발생한다.",
+            "why_critical": "원인 진단이 틀리면 제도는 바뀌지만 문제는 남습니다.",
+            "disproof": "독립 통계나 비교집단에서 다른 원인이 더 크게 설명될 경우",
+        },
+        {
+            "assumption": "새 권한이나 의무를 맡을 기관에 인력·예산·전문성이 있다.",
+            "why_critical": "집행역량이 없으면 법률은 서류상 의무로만 남습니다.",
+            "disproof": "담당 인력·예산·처리기간 추계가 없거나 기존 업무도 적체된 경우",
+        },
+    ]
+
+    specific: dict[str, list[dict[str, str]]] = {
+        "appointment_governance": [
+            {
+                "assumption": "임명·동의 절차가 직접선거보다 전문성과 중립성을 더 잘 검증한다.",
+                "why_critical": "절차 변경의 핵심 정당화 근거입니다.",
+                "disproof": "후보 추천과 동의가 정파적 거래로 운영되거나 검증자료가 비공개인 경우",
+            },
+            {
+                "assumption": "임명 이후에도 임명권자로부터 독립적으로 직무를 수행할 수 있다.",
+                "why_critical": "전문성보다 정치적 종속이 커지는 역효과를 막아야 합니다.",
+                "disproof": "해임권·예산권·재임명권이 한 권력에 집중된 경우",
+            },
+            {
+                "assumption": "주민의 직접 통제 상실을 다른 책임성과 공개성 장치가 보완한다.",
+                "why_critical": "민주적 정당성의 손실을 상쇄할 장치가 필요합니다.",
+                "disproof": "청문·평가·해임사유·회의록 공개가 약하거나 없는 경우",
+            },
+        ],
+        "data_security": [
+            {
+                "assumption": "법정 의무가 실제 보안투자와 취약점 개선으로 이어진다.",
+                "why_critical": "계획서 작성만 늘어나는 형식적 준수를 막아야 합니다.",
+                "disproof": "취약점·사고율은 그대로인데 계획서 제출률만 오르는 경우",
+            },
+            {
+                "assumption": "추가 정보 접근권한이 보안 목적을 넘어 사용되지 않는다.",
+                "why_critical": "보안 강화가 과잉감시로 변질될 수 있습니다.",
+                "disproof": "목적 외 조회, 장기보관, 광범위한 내부 접근이 허용되는 경우",
+            },
+            {
+                "assumption": "기관과 외주업체 사이의 책임 경계가 명확하다.",
+                "why_critical": "사고가 나면 책임 공백과 복구 지연이 발생할 수 있습니다.",
+                "disproof": "계약·법률상 사고통지와 손해책임이 서로 전가되는 경우",
+            },
+        ],
+        "subsidy_fiscal": [
+            {
+                "assumption": "지원대상 기준이 실제 필요도를 정확히 구분한다.",
+                "why_critical": "누락과 부정수급을 동시에 줄여야 합니다.",
+                "disproof": "탈락오류·중복수혜·소득역전 현상이 크게 나타나는 경우",
+            },
+            {
+                "assumption": "지원이 목표행동이나 생활개선을 실제로 유발한다.",
+                "why_critical": "현금·보조금 지급 자체가 성과는 아닙니다.",
+                "disproof": "비교집단 대비 핵심 성과가 개선되지 않는 경우",
+            },
+            {
+                "assumption": "재원이 장기간 지속 가능하다.",
+                "why_critical": "중단되면 수혜자의 의존과 행정 혼란이 커질 수 있습니다.",
+                "disproof": "수요 증가율이 재원 증가율을 지속적으로 초과하는 경우",
+            },
+        ],
+        "punitive_regulation": [
+            {
+                "assumption": "위반행위를 명확하고 일관되게 식별할 수 있다.",
+                "why_critical": "모호한 기준은 선택적 집행과 과잉제재를 만듭니다.",
+                "disproof": "기관별 처분 편차와 불복 인용률이 높은 경우",
+            },
+            {
+                "assumption": "제재가 회피·음성화보다 준수를 더 많이 유도한다.",
+                "why_critical": "강한 처벌이 항상 높은 준수율로 이어지지는 않습니다.",
+                "disproof": "명의분산·업종전환·비공식시장 확대가 나타나는 경우",
+            },
+            {
+                "assumption": "영세주체와 대규모 주체에 대한 부담이 비례적이다.",
+                "why_critical": "동일 제재가 실질적으로 불균형한 피해를 줄 수 있습니다.",
+                "disproof": "작은 사업자만 시장에서 퇴출되고 대형주체는 비용으로 흡수하는 경우",
+            },
+        ],
+        "organization_power": [
+            {
+                "assumption": "새 조직이 기존 기관의 기능중복을 줄이고 책임을 명확히 한다.",
+                "why_critical": "조직 신설이 문제해결보다 예산과 절차만 늘릴 수 있습니다.",
+                "disproof": "동일 업무를 여러 기관이 수행하고 실패 책임이 분산되는 경우",
+            },
+            {
+                "assumption": "새 권한의 범위가 법률에서 충분히 제한된다.",
+                "why_critical": "하위법령과 내부지침으로 권한이 계속 확장될 수 있습니다.",
+                "disproof": "핵심 기준이 ‘필요한 사항’ 형태로 광범위하게 위임되는 경우",
+            },
+        ],
+    }
+
+    return common + specific.get(
+        profile,
+        [
+            {
+                "assumption": "제안된 수단이 다른 대안보다 비용 대비 효과가 높다.",
+                "why_critical": "법률 개정이 가장 적합한 수단인지 확인해야 합니다.",
+                "disproof": "기존 제도 보완이나 비규제 대안이 더 낮은 비용으로 같은 효과를 내는 경우",
+            },
+            {
+                "assumption": "예상하지 못한 부작용을 발견하고 수정할 수 있다.",
+                "why_critical": "정책 실패가 고착되는 것을 막아야 합니다.",
+                "disproof": "평가·일몰·재승인·중단 조건이 없는 경우",
+            },
+        ],
+    )
+
+
+def profile_actor_incentives(
+    profile: str,
+    actors: list[str],
+) -> list[dict[str, str]]:
+    templates: dict[str, list[dict[str, str]]] = {
+        "appointment_governance": [
+            {
+                "actor": "임명권자",
+                "formal_role": "후보 지명 또는 임명",
+                "likely_incentive": "정책 방향이 맞는 인사와 책임공유가 쉬운 인사를 선호",
+                "gaming_risk": "전문성 기준을 이용해 사실상 정치적 충성도를 선별",
+            },
+            {
+                "actor": "동의·청문기관",
+                "formal_role": "후보 검증과 견제",
+                "likely_incentive": "정파적 협상, 인사교환 또는 책임 회피",
+                "gaming_risk": "청문을 공개 검증이 아닌 정치적 거래로 형식화",
+            },
+            {
+                "actor": "후보자",
+                "formal_role": "전문성과 독립성 입증",
+                "likely_incentive": "임명권자와 동의권자 모두에게 수용 가능한 태도",
+                "gaming_risk": "선임 전에는 중립을 약속하고 선임 후 특정 세력에 종속",
+            },
+            {
+                "actor": "주민·이용자",
+                "formal_role": "정책의 최종 영향을 받음",
+                "likely_incentive": "독립성·서비스 품질·책임성 확보",
+                "gaming_risk": "직접 선택권은 줄지만 실질적 이의제기 수단도 약할 수 있음",
+            },
+        ],
+        "data_security": [
+            {
+                "actor": "공공기관 경영진",
+                "formal_role": "보안책임과 예산배분",
+                "likely_incentive": "사고 방지와 동시에 비용·평판손실 최소화",
+                "gaming_risk": "실제 취약점보다 서류상 준수와 사고 은폐에 집중",
+            },
+            {
+                "actor": "보안 담당자",
+                "formal_role": "취약점 관리와 사고 대응",
+                "likely_incentive": "권한·인력·예산 확보",
+                "gaming_risk": "과도한 접근권한이나 광범위한 통제를 보안 명분으로 요구",
+            },
+            {
+                "actor": "외주·보안업체",
+                "formal_role": "시스템 구축·점검",
+                "likely_incentive": "계약 확대와 책임 제한",
+                "gaming_risk": "복잡한 기준과 독점적 기술의존을 만들어 장기계약 유도",
+            },
+            {
+                "actor": "국민·정보주체",
+                "formal_role": "정보 제공과 피해 부담",
+                "likely_incentive": "최소수집·안전·신속한 피해구제",
+                "gaming_risk": "사고 사실과 위험을 제때 알지 못할 수 있음",
+            },
+        ],
+        "subsidy_fiscal": [
+            {
+                "actor": "수혜 신청자",
+                "formal_role": "자격 입증과 지원 사용",
+                "likely_incentive": "지원 극대화와 자격 유지",
+                "gaming_risk": "소득·재산·사업구조를 형식적으로 조정",
+            },
+            {
+                "actor": "집행기관",
+                "formal_role": "대상선정·지급·환수",
+                "likely_incentive": "신속 집행과 감사위험 최소화",
+                "gaming_risk": "정교한 판단보다 서류가 완벽한 신청자를 선호",
+            },
+            {
+                "actor": "중개기관·공급자",
+                "formal_role": "지원서비스 제공",
+                "likely_incentive": "지원단가와 이용자 수 확대",
+                "gaming_risk": "필요하지 않은 서비스 공급과 가격 부풀리기",
+            },
+            {
+                "actor": "납세자·비수혜자",
+                "formal_role": "재원 부담",
+                "likely_incentive": "형평성과 재정 지속성",
+                "gaming_risk": "혜택과 부담의 분리가 커지면 제도 신뢰가 약화",
+            },
+        ],
+        "punitive_regulation": [
+            {
+                "actor": "규제기관",
+                "formal_role": "위반 조사와 제재",
+                "likely_incentive": "집행성과와 사고책임 회피",
+                "gaming_risk": "측정하기 쉬운 위반만 집중하거나 특정 집단을 선택적으로 단속",
+            },
+            {
+                "actor": "규제대상",
+                "formal_role": "의무 준수",
+                "likely_incentive": "준수비용과 제재위험 최소화",
+                "gaming_risk": "명의·업종·계약형태를 바꾸어 규제범위 우회",
+            },
+            {
+                "actor": "신고자·피해자",
+                "formal_role": "위반정보 제공과 구제 청구",
+                "likely_incentive": "신속한 보호와 보상",
+                "gaming_risk": "보복 우려나 복잡한 입증책임 때문에 신고 포기",
+            },
+            {
+                "actor": "경쟁사업자",
+                "formal_role": "시장 참여",
+                "likely_incentive": "경쟁자의 규제비용 증가",
+                "gaming_risk": "규제·신고절차를 경쟁자 압박수단으로 활용",
+            },
+        ],
+    }
+
+    base = templates.get(profile, [])
+    if base:
+        return base
+
+    result = [
+        {
+            "actor": actor,
+            "formal_role": "법안의 직접 또는 간접 영향주체",
+            "likely_incentive": "자신의 권리·비용·권한에 유리한 방향으로 제도에 적응",
+            "gaming_risk": "법률상 형식과 실제 행동 사이의 차이를 이용할 가능성",
+        }
+        for actor in actors[:4]
+    ]
+    return result or [
+        {
+            "actor": "집행기관",
+            "formal_role": "법률 집행",
+            "likely_incentive": "업무량과 책임위험 최소화",
+            "gaming_risk": "실질 성과보다 서류상 준수에 집중",
+        },
+        {
+            "actor": "정책 대상",
+            "formal_role": "새 권리·의무의 적용을 받음",
+            "likely_incentive": "혜택 극대화 또는 부담 최소화",
+            "gaming_risk": "정의·예외·경계조건을 이용해 적용을 우회",
+        },
+    ]
+
+
+def profile_deep_red_team(profile: str) -> list[dict[str, str]]:
+    cases: dict[str, list[dict[str, str]]] = {
+        "appointment_governance": [
+            deep_case(
+                "추천단계 선점",
+                "정당·이해관계단체·임명권자 측근",
+                "최종 임명 전에 후보군 자체를 유리하게 좁히려는 유인",
+                "추천위원 구성과 자격기준을 장악해 경쟁 가능한 후보를 사전에 배제",
+                "독립적 후보, 소수 견해, 주민의 선택 가능성",
+                "후보군의 경력·성향이 반복적으로 동일하고 탈락사유가 비공개",
+                "복수기관 추천, 공개모집, 평가표·탈락사유 공개, 이해충돌 회피",
+                "공개 절차가 있어도 비공식 사전조율과 네트워크 포획은 남을 수 있음",
+            ),
+            deep_case(
+                "청문·동의의 거래화",
+                "임명권자와 의회 다수파",
+                "다른 예산·인사·정책과 묶어 인사를 교환하려는 유인",
+                "후보 능력보다 정파 간 협상결과로 동의 여부를 결정",
+                "독립성, 정책 전문성, 야당·소수파의 검증권",
+                "청문질문이 정책검증보다 정쟁에 치우치고 핵심자료가 늦게 제출됨",
+                "자료제출 시한, 독립 검증보고서, 가중정족수, 소수의견 공개",
+                "가중정족수가 오히려 장기 공석과 거래비용을 높일 수 있음",
+            ),
+            deep_case(
+                "해임·예산을 통한 사후통제",
+                "임명권자·예산편성기관",
+                "임명 후에도 정책노선을 통제하려는 유인",
+                "해임 가능성, 재임명, 예산삭감과 조직통제를 이용해 독립성을 약화",
+                "기관장 독립성, 장기정책, 반대 의견을 내는 조직 구성원",
+                "임명권자 교체 뒤 정책·인사·예산이 급격히 변경됨",
+                "법정 임기, 한정된 해임사유, 독립예산, 재임명 제한, 사법적 불복",
+                "법정 독립성이 있어도 인사·정보·조직문화의 비공식 압력은 남음",
+            ),
+            deep_case(
+                "주민책임성 공백",
+                "모든 제도 참여자",
+                "실패 책임을 다른 기관에 넘기려는 유인",
+                "단체장은 의회 동의를, 의회는 단체장 지명을 이유로 책임을 분산",
+                "주민, 학생·학부모, 서비스 이용자",
+                "정책 실패 후 어느 기관도 해임·평가·사과 책임을 지지 않음",
+                "책임기관 단일표시, 공개성과계약, 주민청원·소환·평가절차",
+                "책임명시는 가능하지만 실제 선거에서 책임이 분산될 가능성은 남음",
+            ),
+        ],
+        "data_security": [
+            deep_case(
+                "서류상 보안",
+                "기관 경영진·감사 대응 조직",
+                "실제 개선보다 법적 책임을 피하려는 유인",
+                "계획서·점검표·교육실적을 채우되 취약한 시스템과 인력문제는 방치",
+                "국민정보, 현장 담당자, 필수 공공서비스",
+                "점검점수는 높지만 반복 취약점과 사고가 줄지 않음",
+                "결과지표, 침투시험, 미조치 취약점 공개, 반복 미달 시 책임",
+                "공격기법이 변하므로 결과지표만으로 모든 위험을 포착할 수 없음",
+            ),
+            deep_case(
+                "사고 은폐·축소",
+                "기관 경영진·외주업체",
+                "평판·제재·계약손실을 줄이려는 유인",
+                "사고 범위를 축소 분류하고 신고시점을 늦추며 피해자 통지를 최소화",
+                "정보주체와 연계기관",
+                "사고 최초 발견과 공식 신고 사이의 시간이 길고 사고등급이 반복 하향",
+                "법정 통지시한, 독립 신고채널, 내부고발 보호, 사고등급 사후감사",
+                "초기에는 사고범위를 알기 어려워 과소·과대신고 논란이 남음",
+            ),
+            deep_case(
+                "보안 명분의 과잉감시",
+                "보안부서·수사·관리기관",
+                "더 넓은 데이터와 접근권한을 확보하려는 유인",
+                "최소수집 원칙 없이 행동로그·개인정보를 장기 보관하고 목적 외 이용",
+                "직원·국민의 사생활과 표현의 자유",
+                "접근계정과 보유데이터는 계속 늘지만 삭제·목적제한 기록은 없음",
+                "최소수집, 목적제한, 자동파기, 접근기록, 독립 개인정보 영향평가",
+                "비식별·보안목적이라는 명칭으로 실질적 재식별 위험이 남음",
+            ),
+            deep_case(
+                "외주업체 책임회피",
+                "시스템 구축·클라우드·보안업체",
+                "비용과 손해배상 책임을 기관에 전가하려는 유인",
+                "계약상 책임범위를 좁히고 하도급 구조로 실제 통제주체를 불명확하게 함",
+                "공공기관과 피해 국민",
+                "사고 후 계약당사자·하도급사 간 책임공방이 장기화",
+                "공급망 목록, 공동책임, 하도급 공개, 보안의무 승계, 보험·배상기준",
+                "대형 공급자의 시장지배력 때문에 계약조건 개선이 제한될 수 있음",
+            ),
+        ],
+        "subsidy_fiscal": [
+            deep_case(
+                "자격기준 맞추기",
+                "신청자·대행업체",
+                "실질 필요보다 형식적 자격을 충족하려는 유인",
+                "소득·재산·사업체·가구구성을 일시적으로 조정하거나 명의를 분산",
+                "정직한 신청자, 더 취약하지만 기준 밖에 있는 사람, 납세자",
+                "특정 기준선 바로 아래에 신청자가 비정상적으로 집중",
+                "기간평균, 실질지배 확인, 중복검증, 사후환수와 선의의 오류 구분",
+                "강한 검증은 개인정보 침해와 정당한 수혜자의 위축을 낳을 수 있음",
+            ),
+            deep_case(
+                "공급자 포획",
+                "서비스 제공기관·중개업체",
+                "지원예산을 가격과 이용량 확대로 흡수하려는 유인",
+                "지원금만큼 가격을 올리거나 불필요한 서비스를 묶어 판매",
+                "수혜자와 납세자, 신규 경쟁자",
+                "지원 확대 뒤 실질 이용량보다 단가와 업체매출만 빠르게 증가",
+                "가격공개, 경쟁입찰, 이용자 선택, 성과연동 지급, 부당청구 환수",
+                "가격통제가 품질저하와 공급자 이탈을 만들 수 있음",
+            ),
+            deep_case(
+                "사각지대 고착",
+                "집행기관",
+                "감사위험을 줄이기 위해 증빙이 쉬운 신청만 승인하려는 유인",
+                "서류가 부족한 취약계층을 반복 탈락시키고 미신청자를 방치",
+                "고령자·장애인·이주민·위기가구 등 정보취약계층",
+                "예산 집행률은 높지만 취약집단 수혜율이 낮음",
+                "자동발굴, 찾아가는 신청, 대리신청, 간이증빙, 이의신청 지원",
+                "자동발굴 과정에서 잘못된 낙인과 개인정보 결합위험이 남음",
+            ),
+            deep_case(
+                "재정의 영구고착",
+                "정치권·수혜집단·공급기관",
+                "한번 생긴 혜택과 조직을 유지·확대하려는 유인",
+                "효과가 불분명해도 수혜축소의 정치비용 때문에 사업을 계속 확대",
+                "미래 납세자와 다른 정책분야",
+                "성과자료 없이 대상·단가·조직이 매년 확대",
+                "일몰, 재승인, 대안비교, 자동조정, 재정상한과 종료지원",
+                "일몰 직전 정치적 연장과 단기성과 조작이 가능",
+            ),
+        ],
+        "punitive_regulation": [
+            deep_case(
+                "선택적 집행",
+                "규제기관·정치권",
+                "눈에 띄는 대상이나 불리한 집단을 집중 단속하려는 유인",
+                "모호한 기준과 재량을 이용해 유사 위반을 다르게 처분",
+                "소수사업자, 비판집단, 규제 예측가능성",
+                "기관·지역·대상별 처분률과 제재수준 편차가 큼",
+                "명확한 요건, 처분사유 공개, 무작위 사건배당, 불복통계, 외부감사",
+                "사건 특성 차이 때문에 통계만으로 차별집행을 확정하기 어려움",
+            ),
+            deep_case(
+                "규제범위 우회",
+                "규제대상 사업자",
+                "의무와 제재비용을 피하려는 유인",
+                "명의·법인·고용형태·상품명·계약구조를 바꾸어 법적 정의 밖으로 이동",
+                "준수사업자, 근로자·소비자, 세수",
+                "법 시행 뒤 유사업종·특수고용·위탁계약이 급증",
+                "실질우선 기준, 특수관계인 합산, 우회행위 조항, 정기 정의 갱신",
+                "실질기준이 넓어지면 법적 예측가능성이 낮아질 수 있음",
+            ),
+            deep_case(
+                "영세주체 퇴출",
+                "규제 설계자·대형사업자",
+                "고정 준수비용을 경쟁장벽으로 활용하려는 유인",
+                "대형사업자는 비용을 흡수하지만 영세주체는 시장에서 퇴출",
+                "영세사업자, 지역소비자, 신규진입자",
+                "위반 감소보다 사업자 수 감소와 시장집중도가 빠르게 증가",
+                "규모별 단계, 기술지원, 유예, 위험비례 의무, 간소 준수경로",
+                "차등규제가 영세사업자의 낮은 안전·품질을 고착시킬 수 있음",
+            ),
+            deep_case(
+                "신고·제재의 경쟁무기화",
+                "경쟁사업자·분쟁당사자",
+                "상대의 영업과 평판을 저비용으로 훼손하려는 유인",
+                "반복 신고와 임시조치를 이용해 최종 판단 전 시장에서 배제",
+                "정상 사업자와 행정자원",
+                "동일 신고인의 반복 사건과 기각률이 높음",
+                "악의적 신고 제재, 신속 사전심사, 반론권, 임시조치 비례성",
+                "악의성 판단이 정당한 내부고발과 신고를 위축시킬 수 있음",
+            ),
+        ],
+    }
+
+    return cases.get(
+        profile,
+        [
+            deep_case(
+                "목표와 수단의 불일치",
+                "정책 추진기관",
+                "가시적인 제도 변경으로 성과를 보여주려는 유인",
+                "문제의 근본원인보다 법률로 바꾸기 쉬운 절차·조직·의무만 확대",
+                "정책 대상과 납세자",
+                "제도 변경은 완료됐지만 핵심 결과지표가 개선되지 않음",
+                "원인모형 공개, 대안비교, 시범사업, 기준선·중단조건",
+                "사회문제의 다원적 원인 때문에 단일 성과지표는 한계가 있음",
+            ),
+            deep_case(
+                "책임의 분산",
+                "관련 기관들",
+                "실패 책임을 다른 주체에 전가하려는 유인",
+                "권한은 공유하지만 최종 책임기관과 처리기한은 불명확하게 설계",
+                "민원인과 정책 대상",
+                "기관 간 이송·협의·검토가 반복되고 처리기간이 증가",
+                "단일 책임기관, 역할표, 법정 처리기한, 실패책임 공개",
+                "복합정책에서는 완전한 단일책임 구조가 어려울 수 있음",
+            ),
+            deep_case(
+                "성과지표 조작",
+                "집행기관·수탁기관",
+                "예산과 조직을 유지하기 위해 성과를 높게 보이려는 유인",
+                "쉬운 대상만 선택하거나 측정지표를 실제 목적과 분리",
+                "어려운 대상과 장기적 정책효과",
+                "보고지표는 개선되지만 민원·피해·현장평가는 나빠짐",
+                "복수지표, 부작용지표, 원자료 공개, 독립평가, 표본감사",
+                "평가지표가 많아지면 행정부담과 책임분산이 증가",
+            ),
+        ],
+    )
+
+
+def profile_second_order_effects(profile: str) -> list[dict[str, str]]:
+    effects: dict[str, list[dict[str, str]]] = {
+        "appointment_governance": [
+            {
+                "effect": "정책의 장기성 또는 급격한 정권종속",
+                "direction": "양면",
+                "mechanism": "임기와 임명주기 설계에 따라 장기 전문성이 생기거나 선거주기마다 정책이 급변",
+                "monitor": "임명권자 교체 전후 정책·인사·예산 변경 폭",
+            },
+            {
+                "effect": "후보자 시장의 축소",
+                "direction": "위험",
+                "mechanism": "공개 선거보다 제한된 추천 네트워크가 후보 진입을 좌우",
+                "monitor": "후보군의 직업·지역·성별·경력 다양성",
+            },
+            {
+                "effect": "정당책임의 명확화 가능성",
+                "direction": "기회",
+                "mechanism": "임명 주체가 명확하면 실패에 대한 정치적 책임을 묻기 쉬울 수 있음",
+                "monitor": "성과공개와 선거에서의 책임귀속 여부",
+            },
+            {
+                "effect": "교육·행정의 중앙 또는 지방권력 종속",
+                "direction": "위험",
+                "mechanism": "독립기관이 단체장·의회의 정책연합에 포함",
+                "monitor": "독립적 반대의견, 감사결과, 인사교체 빈도",
+            },
+        ],
+        "data_security": [
+            {
+                "effect": "보안시장과 외주 의존 확대",
+                "direction": "양면",
+                "mechanism": "의무 강화로 전문서비스 수요가 늘지만 특정 업체 종속도 커짐",
+                "monitor": "공급자 집중도·계약기간·교체비용",
+            },
+            {
+                "effect": "서비스 편의성 저하",
+                "direction": "위험",
+                "mechanism": "보안절차가 과도하면 시민과 직원의 접근성이 낮아짐",
+                "monitor": "처리시간·접근실패·민원 증가",
+            },
+            {
+                "effect": "사고공개의 역설",
+                "direction": "양면",
+                "mechanism": "투명한 기관이 사고가 많아 보이고 은폐기관이 안전해 보일 수 있음",
+                "monitor": "신고율과 실제 취약점 점검결과의 차이",
+            },
+            {
+                "effect": "공공데이터 활용 위축",
+                "direction": "위험",
+                "mechanism": "책임회피를 위해 정당한 데이터 공유까지 과도하게 제한",
+                "monitor": "연구·행정 데이터 제공 거절률",
+            },
+        ],
+        "subsidy_fiscal": [
+            {
+                "effect": "가격 인상과 지원금 자본화",
+                "direction": "위험",
+                "mechanism": "공급이 제한된 시장에서 지원금이 가격상승으로 흡수",
+                "monitor": "지원 전후 가격·임대료·서비스단가",
+            },
+            {
+                "effect": "근로·소득 증가의 역유인",
+                "direction": "위험",
+                "mechanism": "자격 기준선에서 추가소득보다 혜택 상실이 더 큼",
+                "monitor": "기준선 주변 소득분포와 수급탈락 후 생활변화",
+            },
+            {
+                "effect": "행정자료 통합의 확대",
+                "direction": "양면",
+                "mechanism": "정밀선별을 위해 개인정보 결합이 증가",
+                "monitor": "연계데이터 항목·오류정정·접근기록",
+            },
+            {
+                "effect": "지역·계층별 공급격차",
+                "direction": "위험",
+                "mechanism": "지원은 같아도 서비스 공급이 부족한 지역은 혜택을 사용하지 못함",
+                "monitor": "지역별 이용률·대기시간·공급자 수",
+            },
+        ],
+        "punitive_regulation": [
+            {
+                "effect": "시장집중",
+                "direction": "위험",
+                "mechanism": "고정 준수비용이 영세주체에 더 크게 작용",
+                "monitor": "사업자 수·진입률·상위기업 점유율",
+            },
+            {
+                "effect": "음성화·비공식화",
+                "direction": "위험",
+                "mechanism": "제재가 높을수록 신고·등록 밖으로 이동할 유인 증가",
+                "monitor": "무등록 거래·현금거래·특수계약 증가",
+            },
+            {
+                "effect": "규제 신뢰 상승 가능성",
+                "direction": "기회",
+                "mechanism": "명확하고 일관된 집행은 피해예방과 시장신뢰를 높임",
+                "monitor": "피해율·재범률·불복률·소비자 신뢰",
+            },
+            {
+                "effect": "과잉준수와 혁신 위축",
+                "direction": "위험",
+                "mechanism": "모호한 제재를 피하기 위해 합법적 신제품·표현·서비스까지 중단",
+                "monitor": "신규사업·허가문의·사전질의 증가",
+            },
+        ],
+    }
+
+    return effects.get(
+        profile,
+        [
+            {
+                "effect": "행정부담 증가",
+                "direction": "위험",
+                "mechanism": "새 의무·보고·협의절차가 기존 업무와 중첩",
+                "monitor": "처리시간·인력·보고서 수·민원 적체",
+            },
+            {
+                "effect": "책임성과 투명성 개선 가능성",
+                "direction": "기회",
+                "mechanism": "권한과 의무가 명확히 규정되면 추적이 쉬워짐",
+                "monitor": "책임기관 표시·성과공개·정정 속도",
+            },
+            {
+                "effect": "지역·기관별 격차",
+                "direction": "위험",
+                "mechanism": "같은 법률도 자원과 역량 차이로 다르게 집행",
+                "monitor": "지역별 처리기간·성과·민원·예산",
+            },
+            {
+                "effect": "법률과 현실의 괴리",
+                "direction": "위험",
+                "mechanism": "현장 유인과 맞지 않는 의무는 형식적 준수로 전환",
+                "monitor": "서류상 준수율과 실제 결과의 차이",
+            },
+        ],
+    )
+
+
+def profile_stress_tests(profile: str) -> list[dict[str, str]]:
+    common = [
+        {
+            "scenario": "예산과 인력이 계획의 절반만 확보되는 경우",
+            "question": "핵심 기능을 유지하려면 무엇을 우선하고 무엇을 중단할 것인가?",
+            "pass_condition": "우선순위·최소서비스·단계시행 기준이 법률 또는 계획에 명시",
+        },
+        {
+            "scenario": "집행기관이 법의 취지에 소극적이거나 반대하는 경우",
+            "question": "의도적 지연·최소이행·책임회피를 어떻게 발견하고 교정하는가?",
+            "pass_condition": "처리기한·공개지표·독립감사·이의제기·시정명령이 존재",
+        },
+        {
+            "scenario": "가장 영리한 이해관계자가 법의 경계조건을 이용하는 경우",
+            "question": "명의·계약·조직·데이터 형식을 바꿔도 실질적으로 적용되는가?",
+            "pass_condition": "실질우선·우회행위·특수관계·정기 정의갱신 규정이 존재",
+        },
+        {
+            "scenario": "정책이 예상과 반대로 피해를 키우는 경우",
+            "question": "피해를 얼마나 빨리 발견하고 중단·축소·보상할 수 있는가?",
+            "pass_condition": "부작용지표·중단조건·일몰·피해구제와 책임주체가 명시",
+        },
+    ]
+
+    extra: dict[str, dict[str, str]] = {
+        "appointment_governance": {
+            "scenario": "임명권자와 의회 다수파가 같은 정치세력인 경우",
+            "question": "실질적 견제가 사라져도 독립성과 후보 다양성이 유지되는가?",
+            "pass_condition": "외부추천·소수의견·가중동의·임기분산·독립해임심사가 존재",
+        },
+        "data_security": {
+            "scenario": "대규모 침해사고가 야간·휴일에 외주업체에서 발생한 경우",
+            "question": "누가 즉시 차단·신고·통지·복구하고 비용을 부담하는가?",
+            "pass_condition": "시간별 대응책임·통지시한·공동책임·피해지원 절차가 존재",
+        },
+        "subsidy_fiscal": {
+            "scenario": "신청자가 예상보다 두 배 늘고 재원은 그대로인 경우",
+            "question": "대상 축소·단가 조정·대기·추가재원 중 어떤 규칙을 적용하는가?",
+            "pass_condition": "자동조정·우선순위·재정상한·의회 재승인 규칙이 존재",
+        },
+        "punitive_regulation": {
+            "scenario": "동일 위반을 대기업과 영세사업자가 저지른 경우",
+            "question": "억지력과 생존영향을 모두 고려한 비례적 제재가 가능한가?",
+            "pass_condition": "피해·매출·고의·반복성에 따른 단계적 제재기준이 존재",
+        },
+    }
+
+    if profile in extra:
+        return common + [extra[profile]]
+    return common
+
+
+def profile_evidence_tests(profile: str) -> list[dict[str, str]]:
+    common = [
+        {
+            "claim": "문제의 규모가 법 개정을 정당화할 만큼 크다.",
+            "required_evidence": "최근 3~5년 공식 통계, 분모가 있는 발생률, 지역·집단별 분포",
+            "rejection_condition": "절대건수만 제시되거나 추세·비교집단에서 문제가 확인되지 않음",
+        },
+        {
+            "claim": "제안된 수단이 문제의 원인에 직접 작용한다.",
+            "required_evidence": "인과경로, 기존 제도 실패자료, 국내외 비교와 대안비교",
+            "rejection_condition": "수단이 원인보다 결과나 행정절차만 바꾸고 대안비교가 없음",
+        },
+        {
+            "claim": "편익이 행정·재정·권리비용보다 크다.",
+            "required_evidence": "비용추계, 인력·시스템 구축비, 권리영향과 기회비용",
+            "rejection_condition": "직접예산만 계산하고 민간·지방·권리비용을 누락",
+        },
+    ]
+
+    specific: dict[str, list[dict[str, str]]] = {
+        "appointment_governance": [
+            {
+                "claim": "임명제가 직선제보다 전문성과 중립성을 높인다.",
+                "required_evidence": "선출·임명 방식별 성과, 부패·정치편향, 후보 다양성, 책임성 비교",
+                "rejection_condition": "국가·지역 맥락을 통제하지 않은 단순 해외사례 나열",
+            },
+            {
+                "claim": "청문과 의회 동의가 실질적 견제가 된다.",
+                "required_evidence": "후보 탈락률, 자료공개, 정파별 표결, 임명 후 독립성 사례",
+                "rejection_condition": "동의율이 거의 100%이고 검증자료·소수의견이 비공개",
+            },
+        ],
+        "data_security": [
+            {
+                "claim": "법정 보안의무가 실제 사고와 취약점을 줄인다.",
+                "required_evidence": "의무 도입 전후 취약점 조치시간, 사고율, 피해규모, 독립점검 결과",
+                "rejection_condition": "교육·계획서 제출률만 개선되고 사고·취약점 결과는 개선되지 않음",
+            },
+            {
+                "claim": "추가 데이터 처리와 접근권한이 필요한 최소범위다.",
+                "required_evidence": "개인정보 영향평가, 대체수단, 보유기간·접근권한 최소화 분석",
+                "rejection_condition": "목적범위가 포괄적이고 삭제·이의제기·감사절차가 없음",
+            },
+        ],
+        "subsidy_fiscal": [
+            {
+                "claim": "지원대상이 실제 필요집단과 일치한다.",
+                "required_evidence": "수혜·탈락자의 소득·재산·위험분포, 누락률·부정수급률",
+                "rejection_condition": "집행률만 제시하고 사각지대·오선정 자료가 없음",
+            },
+            {
+                "claim": "지원이 가격상승이나 공급자 이익이 아닌 수혜자 편익으로 귀착된다.",
+                "required_evidence": "지원 전후 가격·수량·품질·공급자 마진과 비교시장",
+                "rejection_condition": "지원액만큼 가격이 오르거나 공급량·품질이 개선되지 않음",
+            },
+        ],
+        "punitive_regulation": [
+            {
+                "claim": "제재 강화가 위반과 피해를 줄인다.",
+                "required_evidence": "제재 전후 위반률·재범률·피해율과 음성화·우회지표",
+                "rejection_condition": "단속·처분건수만 늘고 실제 피해와 재범은 줄지 않음",
+            },
+            {
+                "claim": "집행기준이 명확하고 차별 없이 적용된다.",
+                "required_evidence": "기관·지역·기업규모별 처분분포, 불복 인용률, 사건배당·감사자료",
+                "rejection_condition": "유사사건의 처분편차가 크고 사유공개·불복구제가 약함",
+            },
+        ],
+    }
+
+    return common + specific.get(profile, [])
+
+
+def profile_design_requirements(profile: str) -> list[str]:
+    base = [
+        "정책 목표와 기준선을 수치 또는 검증 가능한 문장으로 명시",
+        "집행 책임기관, 처리기한, 필요한 인력·예산과 실패 책임을 명시",
+        "권리침해·비용전가·지역격차를 측정할 부작용 지표를 별도 공개",
+        "시행 후 독립평가, 일몰 또는 재승인, 중단·축소 기준을 마련",
+        "이의제기·정정·피해구제와 수정이력 공개절차를 마련",
+    ]
+
+    extras: dict[str, list[str]] = {
+        "appointment_governance": [
+            "추천권·지명권·동의권·해임권을 서로 다른 주체에 분산",
+            "후보 평가표, 이해충돌, 탈락사유, 청문자료와 소수의견을 공개",
+            "임기와 선거주기를 분리하고 제한된 해임사유와 독립심사를 마련",
+        ],
+        "data_security": [
+            "최소수집·목적제한·보유기간·자동파기·접근기록을 법률 또는 기준에 명시",
+            "침해사고 통지시한, 공동책임, 피해지원과 외주 공급망 의무를 명시",
+            "서류 제출이 아니라 취약점·사고·복구시간을 측정하는 결과지표를 사용",
+        ],
+        "subsidy_fiscal": [
+            "대상선정의 누락오류·중복수혜·환수와 선의의 오류를 구분",
+            "가격·공급자 마진·지역별 이용률을 추적해 지원금 자본화를 감시",
+            "재정상한·자동조정·종료지원과 기준선 주변의 역유인을 완화",
+        ],
+        "punitive_regulation": [
+            "고의·피해·반복성·규모에 따른 단계적·비례적 제재",
+            "처분사유·기관별 집행통계·불복결과를 개인정보 보호 범위에서 공개",
+            "실질우선과 우회행위 조항을 두되 법적 명확성과 사전질의 절차를 보장",
+        ],
+    }
+
+    return base + extras.get(profile, [])
+
+
+def build_deep_review(
+    title: str,
+    text: str,
+    easy_problem: str,
+    easy_change: str,
+    actors: list[str],
+    generated_at: str,
+) -> dict[str, Any]:
+    profile = detect_policy_profile(title, text)
+    profile_key = profile["key"]
+
+    mechanism_chain = [
+        {
+            "step": "문제",
+            "content": easy_problem,
+            "failure_question": "문제의 규모와 원인이 독립자료로 확인되는가?",
+        },
+        {
+            "step": "법적 수단",
+            "content": easy_change,
+            "failure_question": "이 수단이 원인에 직접 작용하는가, 절차만 바꾸는가?",
+        },
+        {
+            "step": "집행",
+            "content": (
+                "권한을 가진 기관과 의무를 지는 주체가 실제 행동·예산·조직을 변경해야 합니다."
+            ),
+            "failure_question": "집행주체에게 능력과 유인이 있는가?",
+        },
+        {
+            "step": "행동반응",
+            "content": (
+                "정책 대상과 이해관계자는 새 규칙을 준수하거나 비용을 회피하기 위해 행동을 바꿉니다."
+            ),
+            "failure_question": "준수보다 우회·은폐·형식화가 더 유리하지 않은가?",
+        },
+        {
+            "step": "결과",
+            "content": (
+                "발의자가 기대한 편익과 함께 권력집중·비용전가·사각지대 같은 2차 효과가 발생할 수 있습니다."
+            ),
+            "failure_question": "편익과 부작용을 동시에 측정하고 되돌릴 수 있는가?",
+        },
+    ]
+
+    attacks = profile_deep_red_team(profile_key)
+
+    return {
+        "status": "공식 요약 기반 심층 검토 초안",
+        "scope": (
+            "현재는 국회 ‘제안이유 및 주요내용’을 중심으로 한 심층 가설입니다. "
+            "조문 전문·비용추계·검토보고서 대조 전에는 확정평가가 아닙니다."
+        ),
+        "generated_at": generated_at,
+        "profile": profile,
+        "central_conflict": build_decision_question(text),
+        "mechanism_chain": mechanism_chain,
+        "critical_assumptions": profile_assumptions(profile_key),
+        "actor_incentives": profile_actor_incentives(profile_key, actors),
+        "deep_red_team": attacks,
+        "second_order_effects": profile_second_order_effects(profile_key),
+        "stress_tests": profile_stress_tests(profile_key),
+        "evidence_tests": profile_evidence_tests(profile_key),
+        "design_requirements": profile_design_requirements(profile_key),
+        "depth_summary": {
+            "assumptions": len(profile_assumptions(profile_key)),
+            "actors": len(profile_actor_incentives(profile_key, actors)),
+            "attacks": len(attacks),
+            "second_order_effects": len(profile_second_order_effects(profile_key)),
+            "stress_tests": len(profile_stress_tests(profile_key)),
+            "evidence_tests": len(profile_evidence_tests(profile_key)),
+        },
+        "residual_uncertainty": [
+            "개정 조문 전문과 현행법 대비표가 아직 반영되지 않았습니다.",
+            "비용추계서·미첨부 사유서와 실제 행정인력 자료가 아직 반영되지 않았습니다.",
+            "위원회 검토보고서·회의록과 찬반 이해관계자 의견이 아직 반영되지 않았습니다.",
+            "외부 통계와 유사제도의 시행성과를 독립적으로 대조하지 않았습니다.",
+        ],
+    }
+
+
 def build_structured_analysis(
     title: str,
     official_summary: str,
@@ -1685,6 +2676,27 @@ def build_structured_analysis(
             "fork_levers": [],
             "fork_candidates": [],
             "fork_hidden_reason": "공식 원문이 없어 자동 수정안을 만들지 않았습니다.",
+            "deep_review": {
+                "status": "생성 불가",
+                "scope": "공식 원문 없음",
+                "profile": {
+                    "key": "unknown",
+                    "label": "분류 불가",
+                    "matched_signals": [],
+                    "confidence": "없음",
+                },
+                "central_conflict": "확인 불가",
+                "mechanism_chain": [],
+                "critical_assumptions": [],
+                "actor_incentives": [],
+                "deep_red_team": [],
+                "second_order_effects": [],
+                "stress_tests": [],
+                "evidence_tests": [],
+                "design_requirements": [],
+                "depth_summary": {},
+                "residual_uncertainty": ["공식 제안이유·주요내용 필요"],
+            },
             "fork_readiness": {
                 "level": "자료 없음",
                 "points": 0,
@@ -1748,9 +2760,18 @@ def build_structured_analysis(
 
     status = "자동 검토 초안" if confidence_points >= 3 else "제한적 자동 검토"
 
+    deep_review = build_deep_review(
+        title=title,
+        text=text,
+        easy_problem=easy_problem,
+        easy_change=easy_change,
+        actors=actors,
+        generated_at=generated_at,
+    )
+
     return {
         "analysis_status": status,
-        "analysis_method": "공식 원문 규칙 기반 국민용 설명·위험검토·포크 v0.4",
+        "analysis_method": "정책유형별 심층 위험·레드팀·대안 검토 v0.5",
         "analysis_confidence": confidence,
         "analysis_visibility": analysis_visibility,
         "analysis_review_state": "사람 검토 전",
@@ -1762,8 +2783,8 @@ def build_structured_analysis(
             title, text, problem_sentence, change_sentence
         ),
         "plain_language": (
-            f"법안이 제시한 문제는 {sentence_without_period(easy_problem)}입니다. "
-            f"제안된 변경은 {sentence_without_period(easy_change)}입니다."
+            f"법안이 제시한 문제: {easy_problem} "
+            f"제안된 변경: {easy_change}"
         ),
         "problem_definition": easy_problem,
         "proposed_change": easy_change,
@@ -1787,6 +2808,7 @@ def build_structured_analysis(
         "fork_levers": build_fork_levers(text),
         "fork_candidates": fork_candidates,
         "fork_hidden_reason": fork_hidden_reason,
+        "deep_review": deep_review,
         "fork_readiness": build_fork_readiness(
             text,
             problem_sentence,
@@ -1952,6 +2974,7 @@ def main() -> None:
                 "fork_levers": analysis["fork_levers"],
                 "fork_candidates": analysis["fork_candidates"],
                 "fork_hidden_reason": analysis["fork_hidden_reason"],
+                "deep_review": analysis["deep_review"],
                 "fork_readiness": analysis["fork_readiness"],
                 "one_minute_brief": analysis["one_minute_brief"],
                 "questions": analysis["questions"],
@@ -2028,6 +3051,16 @@ def main() -> None:
     )
     clause_compared_count = 0
     human_reviewed_count = 0
+    deep_review_count = sum(
+        1
+        for bill in bills
+        if (bill.get("deep_review") or {}).get("status")
+        == "공식 요약 기반 심층 검토 초안"
+    )
+    deep_attack_count = sum(
+        len((bill.get("deep_review") or {}).get("deep_red_team") or [])
+        for bill in bills
+    )
 
     if bills and linked_count == 0:
         raise RuntimeError(
@@ -2043,9 +3076,9 @@ def main() -> None:
         "generated_at": generated_at,
         "notice": (
             "대한민국 국회 열린국회정보의 제22대 국회 최신 의안입니다. "
-            f"공식 원문 {linked_count}건, 자동 검토 초안 {structured_count}건, "
-            f"자료 부족으로 제한 표시한 법안 {limited_count}건입니다. "
-            "조문 대조와 사람 검토는 아직 시작 전이며, 자동 수정안은 법안당 최대 3개만 표시합니다."
+            f"공식 원문 {linked_count}건, 정책유형별 심층 검토 {deep_review_count}건, "
+            f"심층 레드팀 공격경로 {deep_attack_count}개를 표시합니다. "
+            "현재 심층 검토는 공식 요약 기반 가설이며 조문·비용·위원회 자료 대조 전 단계입니다."
         ),
         "source": {
             "provider": "대한민국 국회 열린국회정보",
@@ -2062,6 +3095,8 @@ def main() -> None:
             "fork_candidate_count": fork_candidate_count,
             "clause_compared_count": clause_compared_count,
             "human_reviewed_count": human_reviewed_count,
+            "deep_review_count": deep_review_count,
+            "deep_attack_count": deep_attack_count,
             "summary_error_count": len(summary_errors),
             "detail_error_count": len(detail_errors),
         },
@@ -2072,6 +3107,8 @@ def main() -> None:
             "limited_drafts": limited_count,
             "clause_compared": clause_compared_count,
             "human_reviewed": human_reviewed_count,
+            "deep_reviews": deep_review_count,
+            "deep_attacks": deep_attack_count,
             "red_team_cases": red_team_case_count,
             "fork_candidates": fork_candidate_count,
             "ai_drafts": 0,

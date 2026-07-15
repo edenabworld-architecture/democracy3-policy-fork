@@ -132,6 +132,43 @@
     .status-item{display:flex;justify-content:space-between;gap:12px;background:#f7f8fb;border-radius:10px;padding:10px 12px;font-size:12px}
     .status-item b{color:var(--ink)}
     @media(max-width:680px){.status-table{grid-template-columns:1fr}}
+
+    /* v0.9 정책유형별 심층검토 */
+    .profile-banner{display:flex;justify-content:space-between;gap:12px;align-items:center;background:#0f1f3d;color:#fff;border-radius:14px;padding:14px 16px;margin:12px 0}
+    .profile-banner small{display:block;color:#c9d4ed;margin-top:4px}
+    .profile-pill{background:#fff;color:#0f1f3d;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:900;white-space:nowrap}
+    .mechanism{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+    .mechanism-step{position:relative;background:#f7f8fb;border:1px solid var(--line);border-radius:13px;padding:13px;font-size:12px;line-height:1.55}
+    .mechanism-step b{display:block;color:var(--blue);margin-bottom:6px;font-size:13px}
+    .mechanism-step em{display:block;margin-top:8px;color:#8a1c13;font-style:normal}
+    .assumption-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .assumption{border-left:4px solid #7f56d9;background:#f8f5ff;border-radius:0 13px 13px 0;padding:14px;font-size:13px;line-height:1.6}
+    .assumption p{margin:7px 0}
+    .actor-table{display:grid;gap:8px}
+    .actor-row{display:grid;grid-template-columns:130px 1fr 1fr 1fr;gap:8px;background:#f7f8fb;border-radius:12px;padding:11px;font-size:12px;line-height:1.5}
+    .actor-row.head{background:#dfe7ff;font-weight:900;color:#243b77}
+    .deep-attack-grid{display:grid;gap:12px}
+    .deep-attack{border:1px solid #efb7ae;background:#fff7f5;border-radius:15px;padding:16px}
+    .deep-attack-head{display:flex;justify-content:space-between;gap:10px;align-items:center}
+    .deep-attack h4{margin:0;font-size:16px}
+    .deep-attack dl{display:grid;grid-template-columns:120px 1fr;gap:7px 12px;font-size:13px;line-height:1.55;margin:13px 0 0}
+    .deep-attack dt{font-weight:900;color:#8a1c13}.deep-attack dd{margin:0}
+    .effect-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    .effect{border:1px solid var(--line);border-radius:13px;padding:14px;font-size:13px;line-height:1.6}
+    .effect .direction{display:inline-block;border-radius:999px;padding:4px 8px;background:#eef2ff;color:#3157d5;font-size:10px;font-weight:900;margin-bottom:7px}
+    .stress-grid{display:grid;gap:9px}
+    .stress{background:#fff8e8;border-left:4px solid #dc8b08;border-radius:0 12px 12px 0;padding:13px;font-size:13px;line-height:1.6}
+    .evidence-test{border-bottom:1px solid var(--line);padding:13px 0;font-size:13px;line-height:1.65}
+    .evidence-test:last-child{border-bottom:0}
+    .deep-summary{display:flex;gap:8px;flex-wrap:wrap;margin:9px 0}
+    .deep-summary span{background:#eef2ff;color:#3157d5;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900}
+    .uncertainty{background:#f1f4fa;border-radius:13px;padding:14px;color:#46506a;font-size:13px;line-height:1.65}
+    @media(max-width:900px){
+      .mechanism{grid-template-columns:1fr}
+      .actor-row{grid-template-columns:1fr}
+      .actor-row.head{display:none}
+      .assumption-grid,.effect-grid{grid-template-columns:1fr}
+    }
 </style>
 </head>
 <body>
@@ -197,7 +234,7 @@
       <div>
         <span class="tag">평가 원칙</span>
         <h2>자동 분석이 결론을 내리지 않고,<br>시민이 판단할 쟁점을 드러냅니다.</h2>
-        <p style="color:var(--muted);line-height:1.75">공식 원문, 자동 초안, 외부 근거와 사람 검토 상태를 분리해 표시합니다. 자료가 부족한 법안은 수정안을 숨기며, 생성량보다 검증상태를 우선합니다.</p>
+        <p style="color:var(--muted);line-height:1.75">법안마다 정책수단과 권력·비용 구조를 판별한 뒤, 이해관계자의 유인, 악용경로, 2차 효과, 최악조건과 반증자료를 별도로 검토합니다. 공통 체크리스트보다 개별 법안의 고유한 붕괴지점을 우선합니다.</p>
       </div>
       <div class="principles">
         <div class="principle"><b>원문 우선</b><p>정책 원문에서 확인되는 사실과 분석자의 추론을 명확히 구분합니다.</p></div>
@@ -237,7 +274,7 @@ function renderStats(s){
   const items=[
     ['추적 법안',s.tracked||allBills.length],
     ['공식 원문',s.official_summaries||0],
-    ['자동 초안',s.structured_drafts||0],
+    ['심층 검토 초안',s.deep_reviews||0],
     ['사람 검토 완료',s.human_reviewed||0]
   ];
   document.getElementById('stats').innerHTML=items.map(([k,v])=>`<div class="stat"><strong>${esc(v)}</strong><span>${esc(k)}</span></div>`).join('');
@@ -271,7 +308,7 @@ function render(){
         <span class="status">${esc(b.stage)}</span>
       </div>
       <h3>${esc(b.title)}</h3>
-      <div class="meta">${esc((b.official||{}).lead_proposer||'대표발의 확인 필요')} · 제안 ${esc(b.proposed_date)}</div>
+      <div class="meta">${esc((b.official||{}).lead_proposer||'대표발의 확인 필요')} · 제안 ${esc(b.proposed_date)} · ${esc(((b.deep_review||{}).profile||{}).label||'정책유형 분석')}</div>
       <p class="summary">${esc(b.card_summary||b.summary||'쉬운 설명을 준비 중입니다.')}</p>
       <div class="risk-line"><b>주의할 위험:</b> ${esc(b.largest_risk||'추가 검토가 필요합니다.')}</div>
       <div class="card-bottom">
@@ -327,6 +364,62 @@ function reviewStatus(status){
     <div class="status-item"><b>${esc(labels[k]||k)}</b><span>${esc(v)}</span></div>
   `).join('')}</div>`
 }
+function mechanismChain(items){
+  return `<div class="mechanism">${(items||[]).map(x=>`
+    <div class="mechanism-step"><b>${esc(x.step)}</b>${esc(x.content)}<em>${esc(x.failure_question)}</em></div>
+  `).join('')}</div>`
+}
+function assumptions(items){
+  return `<div class="assumption-grid">${(items||[]).map(x=>`
+    <div class="assumption"><b>${esc(x.assumption)}</b><p><b>왜 중요한가:</b> ${esc(x.why_critical)}</p><p><b>반증 조건:</b> ${esc(x.disproof)}</p></div>
+  `).join('')}</div>`
+}
+function actorIncentives(items){
+  return `<div class="actor-table">
+    <div class="actor-row head"><span>주체</span><span>공식 역할</span><span>실제 유인</span><span>악용·회피 위험</span></div>
+    ${(items||[]).map(x=>`<div class="actor-row"><b>${esc(x.actor)}</b><span>${esc(x.formal_role)}</span><span>${esc(x.likely_incentive)}</span><span>${esc(x.gaming_risk)}</span></div>`).join('')}
+  </div>`
+}
+function deepAttacks(items){
+  return `<div class="deep-attack-grid">${(items||[]).map(x=>`
+    <div class="deep-attack">
+      <div class="deep-attack-head"><h4>${esc(x.title)}</h4><span class="severity">${esc(x.severity)}</span></div>
+      <dl>
+        <dt>공격·악용 주체</dt><dd>${esc(x.attacker)}</dd>
+        <dt>그들의 유인</dt><dd>${esc(x.incentive)}</dd>
+        <dt>공격 경로</dt><dd>${esc(x.path)}</dd>
+        <dt>피해 대상</dt><dd>${esc(x.harmed)}</dd>
+        <dt>조기 경보</dt><dd>${esc(x.warning)}</dd>
+        <dt>방어장치</dt><dd>${esc(x.defense)}</dd>
+        <dt>남는 위험</dt><dd>${esc(x.residual)}</dd>
+      </dl>
+    </div>`).join('')}</div>`
+}
+function secondEffects(items){
+  return `<div class="effect-grid">${(items||[]).map(x=>`
+    <div class="effect"><span class="direction">${esc(x.direction)}</span><b>${esc(x.effect)}</b><p>${esc(x.mechanism)}</p><small><b>관찰지표:</b> ${esc(x.monitor)}</small></div>
+  `).join('')}</div>`
+}
+function stressTests(items){
+  return `<div class="stress-grid">${(items||[]).map(x=>`
+    <div class="stress"><b>${esc(x.scenario)}</b><br><b>질문:</b> ${esc(x.question)}<br><b>통과조건:</b> ${esc(x.pass_condition)}</div>
+  `).join('')}</div>`
+}
+function evidenceTests(items){
+  return (items||[]).map(x=>`
+    <div class="evidence-test"><b>검증할 주장: ${esc(x.claim)}</b><br><b>필요 근거:</b> ${esc(x.required_evidence)}<br><b>기각 조건:</b> ${esc(x.rejection_condition)}</div>
+  `).join('')
+}
+function deepSummary(summary){
+  return `<div class="deep-summary">
+    <span>핵심가정 ${esc(summary.assumptions||0)}</span>
+    <span>이해관계자 ${esc(summary.actors||0)}</span>
+    <span>공격경로 ${esc(summary.attacks||0)}</span>
+    <span>2차효과 ${esc(summary.second_order_effects||0)}</span>
+    <span>스트레스테스트 ${esc(summary.stress_tests||0)}</span>
+    <span>근거검증 ${esc(summary.evidence_tests||0)}</span>
+  </div>`
+}
 function issueUrl(b,kind){
   const repo='https://github.com/edenabworld-architecture/democracy3-policy-fork/issues/new';
   const no=(b.official||{}).bill_no||'';
@@ -378,6 +471,48 @@ function openBill(id){
         <div class="core-card risk"><b>가장 큰 위험</b>${esc(b.largest_risk||'확인 필요')}</div>
       </div>
     </div>
+
+    <details class="public-detail" open><summary>정책유형별 심층 검토 보고서</summary>
+      <div class="profile-banner">
+        <div><b>${esc(((b.deep_review||{}).profile||{}).label||'정책유형 분석')}</b><small>${esc((b.deep_review||{}).scope||'')}</small></div>
+        <span class="profile-pill">${esc(((b.deep_review||{}).profile||{}).confidence||'확인 필요')} 분류</span>
+      </div>
+      ${deepSummary((b.deep_review||{}).depth_summary||{})}
+
+      <div class="modal-section"><h3>정책이 작동하는 인과경로와 붕괴지점</h3>
+        ${mechanismChain((b.deep_review||{}).mechanism_chain)}
+      </div>
+
+      <div class="modal-section"><h3>정책이 성립하려면 참이어야 할 핵심 가정</h3>
+        ${assumptions((b.deep_review||{}).critical_assumptions)}
+      </div>
+
+      <div class="modal-section"><h3>이해관계자의 실제 유인과 회피행동</h3>
+        ${actorIncentives((b.deep_review||{}).actor_incentives)}
+      </div>
+
+      <div class="modal-section"><h3>강화된 레드팀 공격</h3>
+        ${deepAttacks((b.deep_review||{}).deep_red_team)}
+      </div>
+
+      <div class="modal-section"><h3>직접 효과 뒤에 나타날 2차·간접 효과</h3>
+        ${secondEffects((b.deep_review||{}).second_order_effects)}
+      </div>
+
+      <div class="modal-section"><h3>최악조건 스트레스 테스트</h3>
+        ${stressTests((b.deep_review||{}).stress_tests)}
+      </div>
+
+      <div class="modal-section"><h3>발의자의 주장을 입증하거나 기각할 근거</h3>
+        ${evidenceTests((b.deep_review||{}).evidence_tests)}
+      </div>
+
+      <div class="modal-section"><h3>개선안이 반드시 갖춰야 할 설계조건</h3>
+        ${list((b.deep_review||{}).design_requirements)}
+      </div>
+
+      <div class="uncertainty"><b>아직 남은 불확실성</b>${list((b.deep_review||{}).residual_uncertainty)}</div>
+    </details>
 
     <div class="modal-section"><h3>정책 포크: A/B/C 수정안 비교</h3>
       <p class="fork-intro">포크는 원안을 그대로 찬성하거나 반대하는 대신, 적용대상·권한·절차·비용·통제장치를 다르게 설계한 수정안입니다. 아래 내용은 조문 전문 확인 전의 자동 아이디어입니다.</p>
