@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.11.2
+"""Democracy 3.0 정책포크 v0.11.3
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -40,7 +40,7 @@ INDEX_OUTPUT = ROOT / "bills-index.json"
 REPORTS_DIR = ROOT / "reports"
 KST = timezone(timedelta(hours=9))
 API_WORKERS = 5
-SCHEMA_VERSION = "0.11.2"
+SCHEMA_VERSION = "0.11.3"
 
 UNKNOWN_COMMITTEE_VALUES = {
     "",
@@ -309,7 +309,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.11.2",
+                    "User-Agent": "Democracy3-Policy-Fork/0.11.3",
                 },
                 timeout=timeout,
             )
@@ -324,24 +324,38 @@ def request_json(
 
 
 def load_summary_cache() -> dict[str, str]:
-    """이미 수집한 공식 제안이유·주요내용은 다시 호출하지 않습니다."""
-    if not OUTPUT.exists():
-        return {}
-
-    try:
-        old = json.loads(OUTPUT.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return {}
-
+    """기존 공식 제안이유·주요내용을 분할 보고서와 이전 파일에서 복원합니다."""
     cache: dict[str, str] = {}
-    for bill in old.get("bills") or []:
+
+    def add_bill(bill: Any) -> None:
         if not isinstance(bill, dict):
-            continue
+            return
         official = bill.get("official") or {}
         bill_no = clean_optional(official.get("bill_no"))
         summary = clean_official_text(bill.get("official_summary"))
         if bill_no and summary:
             cache[bill_no] = summary
+
+    # v0.11 이후의 개별 보고서 캐시
+    if REPORTS_DIR.exists():
+        for report_path in REPORTS_DIR.glob("*.json"):
+            try:
+                payload = json.loads(report_path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            if isinstance(payload, dict):
+                add_bill(payload.get("bill"))
+
+    # 첫 전환 실행 및 이전 버전 호환
+    if LEGACY_OUTPUT.exists():
+        try:
+            legacy = json.loads(LEGACY_OUTPUT.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            legacy = {}
+        if isinstance(legacy, dict):
+            for bill in legacy.get("bills") or []:
+                add_bill(bill)
+
     return cache
 
 
