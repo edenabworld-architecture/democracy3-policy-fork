@@ -1,4 +1,4 @@
-name: Update National Assembly bills
+name: Update and validate policy data
 
 on:
   workflow_dispatch:
@@ -8,32 +8,47 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: democracy3-policy-data
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: macos-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
 
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Fetch National Assembly bills
+      - name: Fetch and build policy data
         env:
           ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
           ASSEMBLY_AGE: "22"
         run: python fetch_bills.py
 
-      - name: Commit updated data
+      - name: Validate public release
+        run: python validate_release.py
+
+      - name: Show validation summary
+        run: python -m json.tool release-status.json
+
+      - name: Commit verified release
         run: |
           git config user.name "democracy3-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add bills.json
-          git diff --cached --quiet || git commit -m "자동 갱신: 국회 의안정보"
+          git add -A
+          git diff --cached --quiet || git commit -m "자동 갱신: 검증된 정책 데이터와 시범보고서"
+          git pull --rebase
           git push
