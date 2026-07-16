@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.11.3
+"""Democracy 3.0 정책포크 v0.11.4
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -40,7 +40,7 @@ INDEX_OUTPUT = ROOT / "bills-index.json"
 REPORTS_DIR = ROOT / "reports"
 KST = timezone(timedelta(hours=9))
 API_WORKERS = 5
-SCHEMA_VERSION = "0.11.3"
+SCHEMA_VERSION = "0.11.4"
 
 UNKNOWN_COMMITTEE_VALUES = {
     "",
@@ -309,7 +309,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.11.3",
+                    "User-Agent": "Democracy3-Policy-Fork/0.11.4",
                 },
                 timeout=timeout,
             )
@@ -3877,8 +3877,13 @@ def write_split_outputs(
         encoding="utf-8",
     )
 
-    if LEGACY_OUTPUT.exists():
-        LEGACY_OUTPUT.unlink()
+    # 하위호환 출력:
+    # 기존 GitHub Actions가 아직 `git add bills.json`을 사용하더라도
+    # 자동갱신과 공개 사이트가 중단되지 않도록 전체 데이터를 함께 기록합니다.
+    LEGACY_OUTPUT.write_text(
+        json.dumps(output, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
 
 def main() -> None:
