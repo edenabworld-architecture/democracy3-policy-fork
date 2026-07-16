@@ -1,0 +1,35 @@
+{
+  "status": "healthy",
+  "checked_at": "2026-07-16T09:58:17.382793+00:00",
+  "generated_at": "2026-07-16T18:58:09+09:00",
+  "schema_version": "legacy-root",
+  "checks": {
+    "collection": "pass",
+    "manifest": "pass",
+    "locked_cases": "pass",
+    "manual_store": "pass",
+    "claim_evidence": "pass",
+    "clause_integrity": "pass",
+    "review_integrity": "pass",
+    "split_outputs": "pass"
+  },
+  "counts": {
+    "bills": 100,
+    "pilot_cases": 10,
+    "verified_claims": 0,
+    "clause_comparisons": 0,
+    "fork_drafts": 0,
+    "operator_reviewed": 0,
+    "expert_reviewed": 0,
+    "corrections": 0,
+    "stages": {
+      "S1": 10
+    }
+  },
+  "hashes": {
+    "bills_json": "a8127f368e0bad697975a870c49806bf87edd345cbeaa378ef2240e9a6a8be98",
+    "pilot_manifest": "04f564184bf61026797ee2454c6f967601f5f4f3ac82551a7dc8ce2b5e66beb0",
+    "review_overrides": "d141df60656009cd15a0c60e79913878e535796c91c5aa92b8d63d54f4c58020"
+  },
+  "authorship": "창안 및 원안 설계: 박찬성"
+}
