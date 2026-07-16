@@ -241,6 +241,24 @@
     .health-panel{margin:0 0 18px;border-radius:13px;padding:11px 14px;font-size:12px;line-height:1.6}
     .health-panel.healthy{background:#eefbf5;color:#075b3b;border:1px solid #b7e4ce}
     .health-panel.degraded{background:#fff3f1;color:#8a1c13;border:1px solid #efb7ae}
+
+    /* v0.12 국가 시범검토 10건 */
+    .pilot-program{padding:54px 0 30px;background:#fff;border-bottom:1px solid var(--line)}
+    .pilot-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:22px}
+    .pilot-head h2{font-size:32px;letter-spacing:-1.2px;margin:8px 0}.pilot-head p{max-width:780px;color:var(--muted);line-height:1.75;margin:0}
+    .pilot-summary{display:flex;gap:8px;flex-wrap:wrap}.pilot-summary span{background:#eef2ff;color:#3157d5;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:900}
+    .pilot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .pilot-card{border:1px solid #cfd8ff;background:linear-gradient(180deg,#fbfcff,#f5f7ff);border-radius:17px;padding:18px;display:flex;flex-direction:column;gap:10px}
+    .pilot-card-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.pilot-rank{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#0f1f3d;color:#fff;font-weight:900}
+    .pilot-score{font-size:12px;font-weight:900;color:#3157d5}.pilot-card h3{margin:0;font-size:18px;line-height:1.4}.pilot-card p{font-size:13px;line-height:1.65;color:var(--muted);margin:0}
+    .pilot-card .metrics{display:flex;gap:6px;flex-wrap:wrap}.pilot-card .metrics span{font-size:10px;background:#fff;border:1px solid #dbe3ff;border-radius:999px;padding:5px 7px}
+    .pilot-card button{align-self:flex-end;margin-top:auto;background:#3157d5;color:#fff;border:0;border-radius:9px;padding:9px 11px;font-weight:900;cursor:pointer}
+    .pilot-banner{border:1px solid #cfd8ff;background:#f4f7ff;border-radius:14px;padding:15px;margin:12px 0}
+    .pilot-banner-head{display:flex;justify-content:space-between;gap:12px}.pilot-banner h3{margin:0}.pilot-banner p{font-size:13px;line-height:1.65;color:#435174}
+    .audit-table{display:grid;gap:8px}.audit-row{display:grid;grid-template-columns:180px 140px 1fr;gap:10px;border:1px solid var(--line);border-radius:11px;padding:10px;font-size:12px;line-height:1.55}
+    .audit-row .ok{color:#067647;font-weight:900}.audit-row .pending{color:#8a5b00;font-weight:900}
+    .pilot-claim{border-left:4px solid #3157d5;background:#f7f8ff;padding:12px;border-radius:0 11px 11px 0;margin:8px 0;font-size:12px;line-height:1.65}
+    @media(max-width:800px){.pilot-grid{grid-template-columns:1fr}.pilot-head{display:block}.audit-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -281,6 +299,20 @@
   </section>
 
   <div class="container notice-wrap"><div id="notice" class="notice"></div><div id="health-panel"></div></div>
+
+  <section id="pilot-program" class="pilot-program">
+    <div class="container">
+      <div class="pilot-head">
+        <div>
+          <span class="tag">국가 시범검토 10건</span>
+          <h2>자동 초안을 넘어,<br>조문과 근거를 끝까지 추적합니다.</h2>
+          <p id="pilot-purpose">대표 정책 10건을 선정해 공식문서, 조문, 비용, 주장, 공격경로와 대체조문을 실제 증거 기반 보고서로 승격합니다.</p>
+        </div>
+        <div id="pilot-summary" class="pilot-summary"></div>
+      </div>
+      <div id="pilot-grid" class="pilot-grid"></div>
+    </div>
+  </section>
 
   <main id="policies" class="container">
     <section id="stats" class="stats"></section>
@@ -383,11 +415,11 @@
     </div>
   </section>
 
-  <footer><div class="container">Democracy 3.0 정책포크 v0.11.2 · 공개 시범판 · 창안 및 원안 설계: 박찬성</div></footer>
+  <footer><div class="container">Democracy 3.0 정책포크 v0.12 · 공개 시범판 · 창안 및 원안 설계: 박찬성</div></footer>
   <dialog id="dialog"><div id="modal" class="modal"></div></dialog>
 
 <script>
-let allBills=[], activeCategory='전체';
+let allBills=[], pilotCases=[], activeCategory='전체';
 const reportCache=new Map();
 const grid=document.getElementById('grid'), search=document.getElementById('search'),
 statusFilter=document.getElementById('status'), sort=document.getElementById('sort'),
@@ -426,7 +458,9 @@ async function loadIndexData(){
 
 loadIndexData().then(data=>{
   allBills=data.bills||[];
+  pilotCases=(data.pilot_program||{}).cases||[];
   document.getElementById('notice').textContent=data.notice||'';
+  renderPilotProgram(data.pilot_program||{});
   renderStats(data.stats||{});
   renderCoverage(data.coverage||{},data.source||{});
   renderChips();
@@ -441,6 +475,46 @@ function renderCoverage(coverage,source){
   const active=coverage.active_count||allBills.length;
   const total=coverage.official_total_count||source.official_total_count||0;
   el.innerHTML=`<b>현재 심층 검토 창: 최신 ${esc(active)}건</b><span>국회 공식 목록 ${esc(total||'확인 중')}건을 향해 확장 가능한 계층형 구조 · ${esc(coverage.meaning||'목록은 가볍게, 상세보고서는 선택할 때 불러옵니다.')}</span>`;
+}
+
+function renderPilotProgram(program){
+  const pilotGrid=document.getElementById('pilot-grid');
+  const summary=document.getElementById('pilot-summary');
+  const purpose=document.getElementById('pilot-purpose');
+  const info=program.summary||{};
+  if(program.purpose)purpose.textContent=program.purpose;
+  summary.innerHTML=[
+    ['선정',info.selected||pilotCases.length],
+    ['상세페이지',info.detail_pages_connected||0],
+    ['발견 문서',info.documents_discovered||0],
+    ['검증할 주장',info.claims_to_verify||0],
+    ['작성할 포크',info.forks_to_draft||0]
+  ].map(([k,v])=>`<span>${esc(k)} ${esc(v)}</span>`).join('');
+  pilotGrid.innerHTML=(pilotCases||[]).map(c=>`
+    <article class="pilot-card">
+      <div class="pilot-card-top"><span class="pilot-rank">${esc(c.rank)}</span><span class="pilot-score">진행도 ${esc(c.completion_score||0)}/${esc(c.completion_ceiling||85)}</span></div>
+      <h3>${esc(c.title)}</h3>
+      <p>${esc((c.selection_reasons||[]).slice(0,2).join(' · '))}</p>
+      <div class="metrics">
+        <span>위험축 ${(c.profiles||[]).length}</span>
+        <span>발견문서 ${((c.page_audit||{}).documents||[]).length}</span>
+        <span>주장 ${(c.claim_audit||[]).length}</span>
+        <span>포크 ${(c.fork_designs||[]).length}</span>
+      </div>
+      <button onclick="openBill('${esc(c.bill_id)}')">시범보고서 보기</button>
+    </article>`).join('')||'<div class="empty">시범검토 대상을 생성하는 중입니다.</div>';
+}
+function pilotSourceAudit(items){
+  return `<div class="audit-table">${(items||[]).map(x=>`
+    <div class="audit-row"><b>${esc(x.source)}</b><span class="${x.status==='연결 완료'||x.status==='위치 발견'||x.status==='상세페이지 연결 완료'?'ok':'pending'}">${esc(x.status)}</span><span>${esc(x.use)}</span></div>
+  `).join('')}</div>`;
+}
+function pilotClaimAudit(items){
+  return (items||[]).map(x=>`<div class="pilot-claim"><b>${esc(x.id)} · ${esc(x.claim_type)}</b><br>${esc(x.claim)}<br><b>필요 근거:</b> ${esc(x.required_evidence)}<br><b>기각 조건:</b> ${esc(x.rejection_condition)}<br><b>현재:</b> ${esc(x.verdict)}</div>`).join('');
+}
+function pilotDocuments(items){
+  return (items||[]).length?`<div class="doc-grid">${items.map(x=>`
+    <div class="doc-card"><span class="doc-status done">${esc(x.type)}</span><b>${esc(x.title)}</b><p>${esc(x.content_status)}</p><a class="source-link" href="${esc(x.url)}" target="_blank" rel="noopener">공식 자료 열기</a></div>`).join('')}</div>`:'<div class="pending">공식 상세페이지에서 자동 식별한 첨부문서가 없습니다. 사람 확인이 필요합니다.</div>';
 }
 
 function renderStats(s){
@@ -669,6 +743,12 @@ function renderBillModal(b){
       <button class="close" onclick="dialog.close()">닫기</button>
     </div>
 
+    ${b.pilot_case?`
+    <div class="pilot-banner">
+      <div class="pilot-banner-head"><div><span class="tag">국가 시범검토 ${esc(b.pilot_case.rank)}위</span><h3>${esc(b.pilot_case.status)}</h3></div><b>진행도 ${esc(b.pilot_case.completion_score)}/${esc(b.pilot_case.completion_ceiling)}</b></div>
+      <p>${esc((b.pilot_case.selection_reasons||[]).join(' · '))}</p>
+    </div>`:''}
+
     ${sourceBadges(b.source_labels)}
     ${qualityWarning(b)}
     <div class="modal-section" style="border-top:0;margin-top:5px"><h3>1분 이해</h3>
@@ -762,7 +842,27 @@ function renderBillModal(b){
     <details class="public-detail"><summary>국회 공식 원문과 진행상황 보기</summary>
       <div class="modal-section"><h3>공식자료 확보 지도</h3>${officialDocuments(b.official_documents)}</div>
       <div class="modal-section"><h3>공식 진행상황</h3>${timeline(b.progress_timeline)}</div>
-      <div class="modal-section"><h3>국회 공식 제안이유 및 주요내용</h3>
+      ${b.pilot_case?`
+    <div class="modal-section"><h3>국가 시범검토 · 공식자료 확보현황</h3>
+      ${pilotSourceAudit(b.pilot_case.source_matrix)}
+    </div>
+    <div class="modal-section"><h3>공식 상세페이지에서 발견한 문서</h3>
+      ${pilotDocuments((b.pilot_case.page_audit||{}).documents)}
+    </div>
+    <div class="modal-section"><h3>조문 대조 상태</h3>
+      <div class="analysis-box"><b>공식 요약의 조문 참조</b>${list((b.pilot_case.clause_audit||{}).references_from_summary)}
+      <p><b>현행법:</b> ${esc((b.pilot_case.clause_audit||{}).current_law_text)}</p>
+      <p><b>개정안:</b> ${esc((b.pilot_case.clause_audit||{}).proposed_clause_text)}</p>
+      <p><b>비교상태:</b> ${esc((b.pilot_case.clause_audit||{}).comparison_status)}</p></div>
+    </div>
+    <div class="modal-section"><h3>주장별 독립 검증 원장</h3>
+      ${pilotClaimAudit(b.pilot_case.claim_audit)}
+    </div>
+    <div class="modal-section"><h3>완성보고서까지 남은 작업</h3>
+      ${list(b.pilot_case.review_tasks)}
+    </div>`:''}
+
+    <div class="modal-section"><h3>국회 공식 제안이유 및 주요내용</h3>
         <div class="official-box">
           <div class="official-text">${esc(b.official_summary||'국회 공식 자료가 아직 연결되지 않았습니다.')}</div>
           <div class="source-row">

@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.11.4
+"""Democracy 3.0 정책포크 v0.12
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -23,6 +23,8 @@ from typing import Any
 
 import requests
 
+from pilot_research import build_pilot_program
+
 API_KEY_ENV = "ASSEMBLY_API_KEY"
 
 LIST_API_KEY = "nzmimeepazxkubdpn"
@@ -40,7 +42,7 @@ INDEX_OUTPUT = ROOT / "bills-index.json"
 REPORTS_DIR = ROOT / "reports"
 KST = timezone(timedelta(hours=9))
 API_WORKERS = 5
-SCHEMA_VERSION = "0.11.4"
+SCHEMA_VERSION = "0.12"
 
 UNKNOWN_COMMITTEE_VALUES = {
     "",
@@ -309,7 +311,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.11.4",
+                    "User-Agent": "Democracy3-Policy-Fork/0.12",
                 },
                 timeout=timeout,
             )
@@ -3798,6 +3800,7 @@ def compact_bill_record(bill: dict[str, Any]) -> dict[str, Any]:
         "analysis_review_state": bill.get("analysis_review_state", ""),
         "fork_count": len(bill.get("fork_candidates") or []),
         "citizen_fork_count": len(bill.get("forks") or []),
+        "pilot_case": bill.get("pilot_case"),
         "profiles": profiles,
         "search_terms": " ".join(
             [
@@ -3855,6 +3858,7 @@ def write_split_outputs(
         "source": output["source"],
         "stats": output["stats"],
         "collection_warnings": output["collection_warnings"],
+        "pilot_program": output.get("pilot_program") or {},
         "coverage": {
             "mode": "latest_active_window",
             "active_count": len(compact_bills),
@@ -4143,6 +4147,8 @@ def main() -> None:
         + [f"DETAIL {item}" for item in detail_errors]
     )
 
+    pilot_program = build_pilot_program(bills, generated_at)
+
     output = {
         "generated_at": generated_at,
         "notice": (
@@ -4174,6 +4180,10 @@ def main() -> None:
             "multi_profile_count": multi_profile_count,
             "summary_error_count": len(summary_errors),
             "detail_error_count": len(detail_errors),
+            "pilot_case_count": len(pilot_program.get("cases") or []),
+            "pilot_document_count": (
+                pilot_program.get("summary") or {}
+            ).get("documents_discovered", 0),
         },
         "stats": {
             "tracked": len(bills),
@@ -4192,8 +4202,13 @@ def main() -> None:
             "ai_drafts": 0,
             "citizen_review": 0,
             "forks": 0,
+            "pilot_cases": len(pilot_program.get("cases") or []),
+            "pilot_documents": (
+                pilot_program.get("summary") or {}
+            ).get("documents_discovered", 0),
         },
         "collection_warnings": all_warnings[:30],
+        "pilot_program": pilot_program,
         "bills": bills,
     }
 
