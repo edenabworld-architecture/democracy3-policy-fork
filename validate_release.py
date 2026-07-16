@@ -16,6 +16,7 @@ from review_store import (
     load_manifest,
     load_overrides,
 )
+from policy_history import main as rebuild_policy_lifecycle
 
 
 ROOT = Path(__file__).resolve().parent
@@ -171,6 +172,41 @@ def validate_case(
     }
 
 
+
+def ensure_lifecycle_coverage(
+    bill_by_id: dict[str, dict[str, Any]],
+) -> tuple[dict[str, Any], bool]:
+    """생애주기 파일이 없거나 현재 법안보다 뒤처졌으면 즉시 재생성합니다."""
+    rebuilt = False
+    try:
+        lifecycle = read_json(LIFECYCLE_PATH)
+    except ReleaseValidationError:
+        rebuild_policy_lifecycle()
+        lifecycle = read_json(LIFECYCLE_PATH)
+        rebuilt = True
+
+    lifecycle_ids = set((lifecycle.get("policies") or {}).keys())
+    missing_ids = sorted(set(bill_by_id) - lifecycle_ids)
+
+    if lifecycle.get("schema_version") != "1.0" or missing_ids:
+        rebuild_policy_lifecycle()
+        lifecycle = read_json(LIFECYCLE_PATH)
+        rebuilt = True
+        lifecycle_ids = set((lifecycle.get("policies") or {}).keys())
+        missing_ids = sorted(set(bill_by_id) - lifecycle_ids)
+
+    require(
+        lifecycle.get("schema_version") == "1.0",
+        "policy-lifecycle.json 스키마 오류",
+    )
+    require(
+        not missing_ids,
+        "시행·버전 추적에서 정책 누락: "
+        + ", ".join(missing_ids[:10])
+        + (f" 외 {len(missing_ids) - 10}건" if len(missing_ids) > 10 else ""),
+    )
+    return lifecycle, rebuilt
+
 def validate() -> dict[str, Any]:
     manifest = load_manifest(MANIFEST_PATH)
     overrides = load_overrides(OVERRIDES_PATH, manifest)
@@ -239,13 +275,11 @@ def validate() -> dict[str, Any]:
                 f"개별 보고서 ID 불일치: {report_path.name}",
             )
 
-    lifecycle = read_json(LIFECYCLE_PATH)
+    lifecycle, lifecycle_rebuilt = ensure_lifecycle_coverage(bill_by_id)
     civic = read_json(CIVIC_PATH)
     registry = read_json(SOURCE_REGISTRY_PATH)
     participation = read_json(PARTICIPATION_CONFIG_PATH)
-    require(lifecycle.get("schema_version") == "1.0", "policy-lifecycle.json 스키마 오류")
     lifecycle_ids = set((lifecycle.get("policies") or {}).keys())
-    require(set(bill_by_id).issubset(lifecycle_ids), "시행·버전 추적에서 정책 누락")
     require(isinstance(civic.get("entries"), list), "civic-log.json entries 오류")
     require(any(source.get("key") == "assembly_bills" and source.get("status") == "active" for source in registry.get("sources") or []), "국회 공식수집원 등록 누락")
     require(participation.get("fallback"), "시민참여 fallback 설정 누락")
@@ -266,7 +300,9 @@ def validate() -> dict[str, Any]:
             "clause_integrity": "pass",
             "review_integrity": "pass",
             "split_outputs": "pass" if INDEX_PATH.exists() and REPORTS_DIR.exists() else "legacy-compatible",
-            "policy_lifecycle": "pass",
+            "policy_lifecycle": (
+                "rebuilt-and-pass" if lifecycle_rebuilt else "pass"
+            ),
             "civic_log": "pass",
             "source_registry": "pass",
             "participation_contract": "pass",
