@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.12
+"""Democracy 3.0 정책포크 v0.12.1
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -23,7 +23,7 @@ from typing import Any
 
 import requests
 
-from pilot_research import build_pilot_program
+from pilot_research import build_pilot_program, validate_pilot_program
 
 API_KEY_ENV = "ASSEMBLY_API_KEY"
 
@@ -42,7 +42,7 @@ INDEX_OUTPUT = ROOT / "bills-index.json"
 REPORTS_DIR = ROOT / "reports"
 KST = timezone(timedelta(hours=9))
 API_WORKERS = 5
-SCHEMA_VERSION = "0.12"
+SCHEMA_VERSION = "0.12.1"
 
 UNKNOWN_COMMITTEE_VALUES = {
     "",
@@ -311,7 +311,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.12",
+                    "User-Agent": "Democracy3-Policy-Fork/0.12.1",
                 },
                 timeout=timeout,
             )
@@ -359,6 +359,43 @@ def load_summary_cache() -> dict[str, str]:
                 add_bill(bill)
 
     return cache
+
+
+def load_locked_pilot_ids() -> list[str]:
+    """직전 공개 데이터에 확정된 국가 시범검토 10건을 다음 실행에도 유지합니다."""
+    if not LEGACY_OUTPUT.exists():
+        return []
+
+    try:
+        legacy = json.loads(LEGACY_OUTPUT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return []
+
+    if not isinstance(legacy, dict):
+        return []
+
+    program = legacy.get("pilot_program") or {}
+    manifest = program.get("manifest") or {}
+    locked_ids = manifest.get("locked_ids") or []
+
+    if not locked_ids:
+        locked_ids = [
+            case.get("bill_id", "")
+            for case in program.get("cases") or []
+            if isinstance(case, dict)
+        ]
+
+    result: list[str] = []
+    seen: set[str] = set()
+    for bill_id in locked_ids:
+        cleaned = str(bill_id or "").strip()
+        if not cleaned or cleaned in seen:
+            continue
+        seen.add(cleaned)
+        result.append(cleaned)
+        if len(result) >= 10:
+            break
+    return result
 
 
 def fetch_official_summary(api_key: str, bill_no: str) -> str:
@@ -4147,7 +4184,13 @@ def main() -> None:
         + [f"DETAIL {item}" for item in detail_errors]
     )
 
-    pilot_program = build_pilot_program(bills, generated_at)
+    locked_pilot_ids = load_locked_pilot_ids()
+    pilot_program = build_pilot_program(
+        bills,
+        generated_at,
+        locked_ids=locked_pilot_ids,
+    )
+    validate_pilot_program(pilot_program)
 
     output = {
         "generated_at": generated_at,
@@ -4156,7 +4199,8 @@ def main() -> None:
             f"공식 원문 {linked_count}건, 심층 검토 {deep_review_count}건, "
             f"복수 위험프로필 법안 {multi_profile_count}건, 주장 원장 {claim_ledger_count}개, "
             f"증거사슬 {evidence_chain_count}개를 표시합니다. "
-            "현재는 공식 요약 기반 초안이며 조문·비용·위원회 자료 대조 전 단계입니다."
+            "국가 시범검토 10건은 직전 확정목록을 유지하며, 구조화 준비도와 "
+            "공식자료·독립근거·사람검토 성숙도를 분리해 표시합니다."
         ),
         "source": {
             "provider": "대한민국 국회 열린국회정보",
@@ -4183,7 +4227,13 @@ def main() -> None:
             "pilot_case_count": len(pilot_program.get("cases") or []),
             "pilot_document_count": (
                 pilot_program.get("summary") or {}
-            ).get("documents_discovered", 0),
+            ).get("case_specific_documents", 0),
+            "pilot_related_link_count": (
+                pilot_program.get("summary") or {}
+            ).get("related_system_links", 0),
+            "pilot_locked_count": (
+                pilot_program.get("summary") or {}
+            ).get("locked", 0),
         },
         "stats": {
             "tracked": len(bills),
@@ -4205,7 +4255,13 @@ def main() -> None:
             "pilot_cases": len(pilot_program.get("cases") or []),
             "pilot_documents": (
                 pilot_program.get("summary") or {}
-            ).get("documents_discovered", 0),
+            ).get("case_specific_documents", 0),
+            "pilot_related_links": (
+                pilot_program.get("summary") or {}
+            ).get("related_system_links", 0),
+            "pilot_locked": (
+                pilot_program.get("summary") or {}
+            ).get("locked", 0),
         },
         "collection_warnings": all_warnings[:30],
         "pilot_program": pilot_program,
