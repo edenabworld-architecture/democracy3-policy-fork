@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-16T20:43:30+09:00",
+  "generated_at": "2026-07-17T07:15:35+09:00",
   "bill": {
-    "id": "PRC_L2T6A0Z6X2F3G1E5D2C6K5L9J8I9H9",
+    "id": "PRC_C2C6B0B1J2K6I1I6H0F6G4O3O6N2N8",
     "policy_type": "국회 법률안",
     "jurisdiction": {
       "country": "대한민국",
@@ -10,18 +10,18 @@
       "name": "대한민국",
       "code": "KR"
     },
-    "category": "기타",
-    "category_basis": "자동분류",
-    "title": "개발제한구역의 지정 및 관리에 관한 특별조치법 일부개정법률안",
+    "category": "법·사법",
+    "category_basis": "법안명 기준 자동분류",
+    "title": "형사소송법 일부개정법률안",
     "status": "자동 검토 초안",
     "stage": "의안 접수",
     "committee": "소관위원회 미정 또는 확인 필요",
-    "proposed_date": "2026-07-13",
-    "updated_at": "2026-07-16",
+    "proposed_date": "2026-07-16",
+    "updated_at": "2026-07-17",
     "review_count": 0,
-    "summary": "쉽게 말해, 개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부과하도록 규정하고 벌칙규정을 상향함으로써 불법 점용으로 취한 부당이득을 환수하고 무단 점유의 재발을 원천 차단하려는 내용입니다.",
-    "official_excerpt": "제안이유 및 주요내용 현행법은 도시의 무질서한 확산을 방지하고 도시 주변의 자연환경을 보전하기 위하여 개발제한구역의 지정과 개발제한구역에서의 행위 제한 등을 규정하고 있으며, 이를 위반할 경우 시정명령 및 이행강제금을 부과하도록 규정하고 있음. 그러나 매년 여름철만 되면 개발제한구역 내 주요 하천과 계곡 일대에서 평상, 천막, 조리시설 등 불법 시설물을 무단으로 설치하고, 미신고 상행위를 일삼는 불법 행위가 고질적으로 반복되고 있음. 이러한 행위는 자연경관을 심각하게 훼손하고 수질 오염과 쓰레기 방치를 유발할 뿐만 아니라, 계곡을 찾는 일반 국민들의 자유로운 이용을 방해하여 공공의 이익을 사유화한다는 거센 비판을 받아옴. 더욱이 현행법상…",
-    "official_summary": "제안이유 및 주요내용\n\n현행법은 도시의 무질서한 확산을 방지하고 도시 주변의 자연환경을 보전하기 위하여 개발제한구역의 지정과 개발제한구역에서의 행위 제한 등을 규정하고 있으며, 이를 위반할 경우 시정명령 및 이행강제금을 부과하도록 규정하고 있음.\n그러나 매년 여름철만 되면 개발제한구역 내 주요 하천과 계곡 일대에서 평상, 천막, 조리시설 등 불법 시설물을 무단으로 설치하고, 미신고 상행위를 일삼는 불법 행위가 고질적으로 반복되고 있음. 이러한 행위는 자연경관을 심각하게 훼손하고 수질 오염과 쓰레기 방치를 유발할 뿐만 아니라, 계곡을 찾는 일반 국민들의 자유로운 이용을 방해하여 공공의 이익을 사유화한다는 거센 비판을 받아옴.\n더욱이 현행법상 부과되는 행정처분이나 과태료, 벌금 수준이 불법 상행위를 통해 얻는 막대한 성수기 부당이득에 비해 턱없이 낮아 사법당국의 단속 및 에 대한 실효성을 제고하여야 할 필요가 있음.\n이에 개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부과하도록 규정하고 벌칙규정을 상향함으로써 불법 점용으로 취한 부당이득을 환수하고 무단 점유의 재발을 원천 차단하려는 것임(안 제30조의2제1항 단서 신설 등).",
+    "summary": "쉽게 말해, 대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는 피해자의 권리 침해 취지의 결정(Views)을 한 때를 형사소송의 재심사유로 신설하여, 대한민국의 국제법 준수의무 이행 및 재판당사자들의 권리…",
+    "official_excerpt": "제안이유 및 주요내용 「형사소송법」 제420조에서는 판결의 증거가 위조된 경우 등을 재심 사유로 정하고 있음. 그런데 헌법(제6조)에 따라 조약은 국내법과 같은 효력을 가지고 「조약법에 관한 비엔나 협약」(제26조)에 따라 대한민국은 비준한 조약을 성실히 준수할 의무를 가지는 것임에도, 현행 「형사소송법」 제420조는 대한민국이 비준한 국제조약에 따른 국제인권조약기구(Treaty-based bodies)에서 대한민국의 확정판결에 대한 재심의 필요성을 인정하는 취지의 결정을 한 경우를 재심사유에 포함시키고 있지 않음. 이는 결국 헌법의 국제법 존중 규정(제6조)에도 위반되고 그 자체로 위 협약 위반에 해당하며 재판당사자의 실질적 권리구제에…",
+    "official_summary": "제안이유 및 주요내용\n\n「형사소송법」 제420조에서는 판결의 증거가 위조된 경우 등을 재심 사유로 정하고 있음.\n그런데 헌법(제6조)에 따라 조약은 국내법과 같은 효력을 가지고 「조약법에 관한 비엔나 협약」(제26조)에 따라 대한민국은 비준한 조약을 성실히 준수할 의무를 가지는 것임에도, 현행 「형사소송법」 제420조는 대한민국이 비준한 국제조약에 따른 국제인권조약기구(Treaty-based bodies)에서 대한민국의 확정판결에 대한 재심의 필요성을 인정하는 취지의 결정을 한 경우를 재심사유에 포함시키고 있지 않음.\n이는 결국 헌법의 국제법 존중 규정(제6조)에도 위반되고 그 자체로 위 협약 위반에 해당하며 재판당사자의 실질적 권리구제에도 불충분함을 가져오게 되는 것인바, 외국인 인신매매피해자들이 제기하여 원고패소 확정된 국가배상청구 사건에 관하여 배상이 인정되어야 한다는 취지의 국제연합 여성차별철폐위원회의 결정이 있었던 사건에서, 국제인권조약기구의 결정이 있었던 경우를 재심사유에 포함시키지 않은 「민사소송법」 제451조에 위헌소지가 있다는 이유로 법원에 의하여 위헌법률심판 제청이 이루어지기도 하였던 것임.\n이에 대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는 피해자의 권리 침해 취지의 결정(Views)을 한 때를 형사소송의 재심사유로 신설하여, 대한민국의 국제법 준수의무 이행 및 재판당사자들의 권리보호를 강화하려는 것임(안 제420조제8호 신설 등).",
     "official_summary_status": "연동 완료",
     "analysis_status": "자동 검토 초안",
     "analysis_method": "주장·논리·근거 분리 및 적대적 정책감사 v1.0",
@@ -58,11 +58,11 @@
         "kind": "missing"
       }
     ],
-    "analysis_generated_at": "2026-07-16T20:43:30+09:00",
+    "analysis_generated_at": "2026-07-17T07:15:35+09:00",
     "analysis_basis": "국회가 공개한 ‘제안이유 및 주요내용’만 사용한 자동 초안입니다. 찬성 논리, 반대 논리, 위험과 수정안은 검토를 시작하기 위한 가설입니다. 법안 조문 전문, 비용추계서, 위원회 검토보고서, 회의록, 외부 통계와 이해관계자 의견을 확인하기 전에는 결론으로 사용해서는 안 됩니다.",
-    "card_summary": "쉽게 말해, 개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부과하도록 규정하고 벌칙규정을 상향함으로써 불법 점용으로 취한 부당이득을 환수하고 무단 점유의 재발을 원천 차단하려는 내용입니다.",
-    "why_now": "법안이 제시한 문제: 매년 여름철만 되면 개발제한구역 내 주요 하천과 계곡 일대에서 평상, 천막, 조리시설 등 불법 시설물을 무단으로 설치하고, 미신고 상행위를 일삼는 불법 행위가 고질적으로 반복되고있습니다. 제안된 변경: 개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부과하도록 규정하고 벌칙규정을 상향함으로써 불법 점용으로 취한 부당이득을 환수하고 무단 점유의 재발을 원천 차단하려는 내용입니다.",
-    "claimed_benefit": "위반을 줄이고 제도의 실효성과 준수율을 높일 수 있다는 주장입니다.",
+    "card_summary": "쉽게 말해, 대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는 피해자의 권리 침해 취지의 결정(Views)을 한 때를 형사소송의 재심사유로 신설하여, 대한민국의 국제법 준수의무 이행 및 재판당사자들의 권리…",
+    "why_now": "법안이 제시한 문제: 헌법(제6조)에 따라 조약은 국내법과 같은 효력을 가지고 「조약법에 관한 비엔나 협약」(제26조)에 따라 대한민국은 비준한 조약을 성실히 준수할 의무를 가지는 것임에도, 현행 「형사소송법」 제420조는 대한민국이 비준한 국제조약에 따른 국제인권조약기구(Treaty-based bodies)에서 대한민국의 확정판결에 대한 재심의 필요성을 인정하는 취지의 결정을 한 경우를 재심사유에 포함시키고 있지 않음. 제안된 변경: 대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는 피해자의 권리 침해 취지의 결정(Views)을 한 때를 형사소송의 재심사유로 신설하여, 대한민국의 국제법 준수의무 이행 및 재판당사자들의 권리보호를 강화하려는 내용입니다.",
+    "claimed_benefit": "담당 기관이나 사업자의 책임을 분명히 하고 실제 집행력을 높일 수 있다는 주장입니다.",
     "strongest_objection": "새 의무가 기존 제도와 겹치고 현장에서는 실제 개선 없이 서류만 늘리는 규제가 될 수 있습니다.",
     "largest_risk": "현장 문제는 남고 행정비용과 허위안심만 증가할 수 있음",
     "analysis_clues": [
@@ -73,26 +73,25 @@
       "현재 연결된 자료만으로 독립적으로 검증이 끝난 외부 근거는 없습니다."
     ],
     "unverified_claims": [
+      "해외 제도 비교는 국가별 제도 차이와 원출처를 아직 확인하지 않았습니다.",
       "법안이 제시한 문제 진단은 발의자의 주장으로서 독립 검증 전입니다.",
       "법안이 예상하는 효과는 시행자료가 없는 사전 주장으로서 검증 전입니다."
     ],
-    "problem_definition": "매년 여름철만 되면 개발제한구역 내 주요 하천과 계곡 일대에서 평상, 천막, 조리시설 등 불법 시설물을 무단으로 설치하고, 미신고 상행위를 일삼는 불법 행위가 고질적으로 반복되고있습니다.",
-    "proposed_change": "개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부과하도록 규정하고 벌칙규정을 상향함으로써 불법 점용으로 취한 부당이득을 환수하고 무단 점유의 재발을 원천 차단하려는 내용입니다.",
+    "problem_definition": "헌법(제6조)에 따라 조약은 국내법과 같은 효력을 가지고 「조약법에 관한 비엔나 협약」(제26조)에 따라 대한민국은 비준한 조약을 성실히 준수할 의무를 가지는 것임에도, 현행 「형사소송법」 제420조는 대한민국이 비준한 국제조약에 따른 국제인권조약기구(Treaty-based bodies)에서 대한민국의 확정판결에 대한 재심의 필요성을 인정하는 취지의 결정을 한 경우를 재심사유에 포함시키고 있지 않음.",
+    "proposed_change": "대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는 피해자의 권리 침해 취지의 결정(Views)을 한 때를 형사소송의 재심사유로 신설하여, 대한민국의 국제법 준수의무 이행 및 재판당사자들의 권리보호를 강화하려는 내용입니다.",
     "affected_groups": [
-      "국민·주민"
+      "여성·임산부"
     ],
     "beneficiaries": [
-      "공식 제안이유만으로 직접 수혜자를 확정하기 어려움",
-      "법안 조문에서 적용대상·예외·자격요건을 추가 확인해야 함"
+      "잠재적 수혜 후보(자동 추출): 여성·임산부",
+      "실제 수혜 범위는 법안 조문과 적용요건을 확인해야 확정할 수 있음"
     ],
     "cost_bearers": [
-      "행정·재정 부담 가능 주체(자동 추정): 국민·주민",
+      "행정·재정 부담 가능 주체(자동 추정): 여성·임산부",
       "비용 규모와 부담 귀속은 비용추계서·하위법령 확인 전에는 확정할 수 없음"
     ],
     "authority_changes": [
-      "기관·사업자·개인에게 새로운 의무를 부과하거나 기존 의무를 확대할 가능성",
-      "행정기관의 허가·등록·지정·승인 권한 범위 변경 가능성",
-      "제재 권한과 법적 책임 범위 변경 가능성"
+      "기관·사업자·개인에게 새로운 의무를 부과하거나 기존 의무를 확대할 가능성"
     ],
     "strengths": [
       "변경하려는 제도 방향이 공식 요약에 제시되어 있음",
@@ -105,15 +104,15 @@
     ],
     "risks": [
       "새 의무의 집행비용, 담당기관 역량, 위반 시 책임기준 검토 필요",
-      "규제 목적과 제재수준의 비례성 및 과잉제재 가능성 검토 필요"
+      "기존 조직과의 기능 중복, 책임소재 분산, 추가 행정비용 검토 필요"
     ],
     "counterarguments": [
       "새 의무가 기존 제도와 겹치고 현장에서는 실제 개선 없이 서류만 늘리는 규제가 될 수 있습니다.",
-      "제재 강화가 억지력보다 영세주체의 불균형 부담과 선택적 집행을 키울 수 있습니다.",
+      "새 조직이나 절차가 기존 기관과 겹쳐 책임소재를 흐리고 행정비용만 늘릴 수 있습니다.",
       "법안이 제시한 문제가 실제로 존재하더라도, 제안된 수단이 가장 효과적이고 덜 침해적인 대안인지는 별도로 검증해야 합니다."
     ],
     "loopholes": [
-      "법적 명의와 실제 운영주체를 분리해 등록·허가 기준을 우회할 가능성을 확인해야 함"
+      "의무는 있으나 검증·공개·제재가 없으면 문서만 만들어 형식적으로 준수할 가능성이 있음"
     ],
     "red_team_cases": [
       {
@@ -124,11 +123,11 @@
         "severity": "높음"
       },
       {
-        "title": "선택적 집행",
-        "attack": "모호한 규정을 이용해 특정 집단에는 엄격히 적용하고 다른 집단에는 느슨하게 적용함",
-        "consequence": "법 집행의 예측가능성과 평등성이 훼손되고 정치적·행정적 보복수단이 될 수 있음",
-        "guardrail": "명확한 요건, 단계별 제재, 처분사유 공개, 불복절차, 집행통계 공개",
-        "severity": "높음"
+        "title": "책임 분산",
+        "attack": "여러 기관이 권한을 나눠 갖되 실패 책임은 서로에게 미룸",
+        "consequence": "결정은 늦어지고 예산은 늘지만 누구도 결과에 책임지지 않는 구조가 될 수 있음",
+        "guardrail": "단일 책임기관, 역할표, 처리기한, 공동성과지표, 실패 시 책임귀속 명시",
+        "severity": "중간"
       }
     ],
     "failure_modes": [
@@ -162,54 +161,54 @@
         "options": "일몰 / 정기 재승인 / 독립평가 / 자동중단 기준"
       },
       {
+        "dimension": "권한 배분",
+        "question": "결정권·추천권·동의권·해임권을 한 주체에 모을지 나눌지 선택해야 함",
+        "options": "단독권한 / 복수기관 교차견제 / 독립추천 / 시민·전문가 참여"
+      },
+      {
         "dimension": "강제수단",
         "question": "권고·공개·시정명령·제재 중 어느 강도를 적용할 것인가?",
         "options": "자율준수 / 공개평가 / 단계별 시정 / 비례적 제재"
-      },
-      {
-        "dimension": "비용 배분",
-        "question": "국가·지자체·기관·사업자·수혜자 중 누가 얼마를 부담할 것인가?",
-        "options": "전액 국비 / 매칭 / 규모별 분담 / 성과연동 / 비용상한"
       }
     ],
     "fork_candidates": [
       {
         "label": "A",
-        "type": "단계제재형",
-        "title": "경고·시정·제재 단계화",
-        "change": "고의성·피해·반복성에 따라 경고, 시정명령, 과태료, 강한 제재를 순차 적용합니다.",
-        "solves": "경미한 위반까지 같은 수준으로 처벌하는 문제",
-        "benefit": "비례성을 높이고 반복 위반에는 억지력을 유지할 수 있습니다.",
-        "risk": "긴급 위험에 대한 대응이 늦어질 수 있습니다.",
-        "cost": "행정비용 중간 — 위반등급 심사 필요",
-        "clause_hint": "안 제30조의2제1항 단서 신설 등",
-        "evidence_needed": "위반유형·재범률·피해규모 통계",
+        "type": "최소개정형",
+        "title": "적용범위를 좁힌 최소 수정",
+        "change": "법안이 겨냥한 핵심 문제에 직접 관련된 대상과 조문만 우선 바꿉니다.",
+        "solves": "불필요하게 넓은 적용과 예측하지 못한 부작용",
+        "benefit": "제도 변화의 충격과 비용을 줄일 수 있습니다.",
+        "risk": "범위가 너무 좁아 문제 해결효과가 작을 수 있습니다.",
+        "cost": "비용 낮음~중간 — 대상 규모 확인 필요",
+        "clause_hint": "안 제420조제8호 신설 등",
+        "evidence_needed": "핵심 원인, 직접 적용대상, 현행제도 대안",
         "status": "자동 수정안 아이디어 · 사람 검토 전"
       },
       {
         "label": "B",
-        "type": "위험집중형",
-        "title": "고위험 행위에 집행력 집중",
-        "change": "위험과 피해가 큰 행위는 강하게 제재하고 경미한 위반은 교육·개선 중심으로 처리합니다.",
-        "solves": "단속자원을 낮은 위험에 낭비하는 문제",
-        "benefit": "한정된 집행자원을 중대한 피해 예방에 집중할 수 있습니다.",
-        "risk": "위험분류가 자의적으로 운영될 수 있습니다.",
-        "cost": "비용 중간 — 위험평가체계 필요",
-        "clause_hint": "안 제30조의2제1항 단서 신설 등",
-        "evidence_needed": "위험등급 기준, 집행편차, 피해감소 효과",
+        "type": "단계시행형",
+        "title": "시범사업 후 조건부 확대",
+        "change": "일부 지역·기관·대상에서 먼저 시행하고 공개된 성과와 부작용 기준을 충족해야 확대합니다.",
+        "solves": "전면 시행 뒤 실패를 되돌리기 어려운 문제",
+        "benefit": "작은 범위에서 오류를 찾고 수정할 수 있습니다.",
+        "risk": "지역·대상별 형평성 논란과 시행 지연이 생길 수 있습니다.",
+        "cost": "초기비용 중간 — 시범평가 비용 필요",
+        "clause_hint": "안 제420조제8호 신설 등",
+        "evidence_needed": "기준선, 성과·부작용 지표, 확대·중단 조건",
         "status": "자동 수정안 아이디어 · 사람 검토 전"
       },
       {
         "label": "C",
-        "type": "투명성형",
-        "title": "집행통계·처분사유·불복 공개",
-        "change": "제재수준뿐 아니라 처분사유, 기관별 집행통계, 이의신청 결과를 공개합니다.",
-        "solves": "선택적 집행과 기관별 들쭉날쭉한 처분",
-        "benefit": "집행의 평등성과 예측가능성을 높일 수 있습니다.",
-        "risk": "개별 사건의 개인정보와 영업비밀 침해 우려가 있습니다.",
-        "cost": "비용 낮음~중간 — 공개시스템 구축 필요",
-        "clause_hint": "안 제30조의2제1항 단서 신설 등",
-        "evidence_needed": "기관별 처분격차, 불복 인용률, 공개범위",
+        "type": "책임추적형",
+        "title": "성과공개·일몰·재승인",
+        "change": "목표, 책임기관, 비용, 부작용 지표를 공개하고 일정 기간 뒤 국회 재승인을 받도록 합니다.",
+        "solves": "성과가 없어도 제도가 관성적으로 유지되는 문제",
+        "benefit": "실패를 확인하고 수정하거나 종료할 수 있습니다.",
+        "risk": "단기 성과에 치우치고 장기정책의 안정성이 낮아질 수 있습니다.",
+        "cost": "비용 중간 — 평가와 공개체계 필요",
+        "clause_hint": "안 제420조제8호 신설 등",
+        "evidence_needed": "장기성과, 평가주체 독립성, 일몰기간",
         "status": "자동 수정안 아이디어 · 사람 검토 전"
       }
     ],
@@ -217,54 +216,41 @@
     "deep_review": {
       "status": "복수 위험프로필 증거사슬형 심층 검토 초안",
       "scope": "국회 ‘제안이유 및 주요내용’을 바탕으로 복수 위험축을 동시에 공격한 초안입니다. 조문 전문·비용추계·위원회 자료·외부 통계 대조 전에는 확정평가가 아닙니다.",
-      "generated_at": "2026-07-16T20:43:30+09:00",
+      "generated_at": "2026-07-17T07:15:35+09:00",
       "profile": {
-        "key": "punitive_regulation",
-        "label": "규제·제재",
-        "score": 6,
+        "key": "organization_power",
+        "label": "행정조직·권한배분",
+        "score": 4,
         "matched_signals": [
-          "벌칙",
-          "과태료",
-          "신고"
+          "위원회",
+          "기구"
         ],
-        "confidence": "높음",
+        "confidence": "보통",
         "role": "주유형"
       },
       "profiles": [
-        {
-          "key": "punitive_regulation",
-          "label": "규제·제재",
-          "score": 6,
-          "matched_signals": [
-            "벌칙",
-            "과태료",
-            "신고"
-          ],
-          "confidence": "높음",
-          "role": "주유형"
-        },
         {
           "key": "organization_power",
           "label": "행정조직·권한배분",
           "score": 4,
           "matched_signals": [
-            "설치",
-            "지정"
+            "위원회",
+            "기구"
           ],
           "confidence": "보통",
-          "role": "부유형 1"
+          "role": "주유형"
         }
       ],
-      "central_conflict": "규제 목적을 달성하면서 과잉제재·선택적 집행·영세주체의 불균형 부담을 어떻게 막을 것인가?",
+      "central_conflict": "새 의무가 실제 문제를 해결하도록 최소 기준·검증 방식·불이행 책임을 어떻게 설계해야 하는가?",
       "mechanism_chain": [
         {
           "step": "문제",
-          "content": "매년 여름철만 되면 개발제한구역 내 주요 하천과 계곡 일대에서 평상, 천막, 조리시설 등 불법 시설물을 무단으로 설치하고, 미신고 상행위를 일삼는 불법 행위가 고질적으로 반복되고있습니다.",
+          "content": "헌법(제6조)에 따라 조약은 국내법과 같은 효력을 가지고 「조약법에 관한 비엔나 협약」(제26조)에 따라 대한민국은 비준한 조약을 성실히 준수할 의무를 가지는 것임에도, 현행 「형사소송법」 제420조는 대한민국이 비준한 국제조약에 따른 국제인권조약기구(Treaty-based bodies)에서 대한민국의 확정판결에 대한 재심의 필요성을 인정하는 취지의 결정을 한 경우를 재심사유에 포함시키고 있지 않음.",
           "failure_question": "문제의 규모·원인·대상이 독립자료로 확인되는가?"
         },
         {
           "step": "법적 수단",
-          "content": "개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부과하도록 규정하고 벌칙규정을 상향함으로써 불법 점용으로 취한 부당이득을 환수하고 무단 점유의 재발을 원천 차단하려는 내용입니다.",
+          "content": "대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는 피해자의 권리 침해 취지의 결정(Views)을 한 때를 형사소송의 재심사유로 신설하여, 대한민국의 국제법 준수의무 이행 및 재판당사자들의 권리보호를 강화하려는 내용입니다.",
           "failure_question": "실제 원인에 작용하는가, 보이는 절차와 조직만 바꾸는가?"
         },
         {
@@ -291,29 +277,7 @@
       "claim_ledger": [
         {
           "id": "C01",
-          "claim": "현행법은 도시의 무질서한 확산을 방지하고 도시 주변의 자연환경을 보전하기 위하여 개발제한구역의 지정과 개발제한구역에서의 행위 제한 등을 규정하고 있으며, 이를 위반할 경우 시정명령 및 이행강제금을 부과하도록 규정하고 있음.",
-          "claim_type": "수치·규모 주장",
-          "source_type": "발의자 제안이유·주요내용",
-          "source_status": "국회 공식 공개문서",
-          "verification_status": "독립 검증 전",
-          "required_evidence": "원자료, 분모, 산출방식, 기간별 추세와 비교집단",
-          "rejection_condition": "수치의 분모·기간·출처가 불명확하거나 재현되지 않는 경우",
-          "confidence": "검증 필요"
-        },
-        {
-          "id": "C02",
-          "claim": "그러나 매년 여름철만 되면 개발제한구역 내 주요 하천과 계곡 일대에서 평상, 천막, 조리시설 등 불법 시설물을 무단으로 설치하고, 미신고 상행위를 일삼는 불법 행위가 고질적으로 반복되고 있음.",
-          "claim_type": "문제 진단",
-          "source_type": "발의자 제안이유·주요내용",
-          "source_status": "국회 공식 공개문서",
-          "verification_status": "독립 검증 전",
-          "required_evidence": "최근 공식 통계, 현행제도 운영자료, 피해·사각지대와 집단별 분포",
-          "rejection_condition": "문제 규모가 작거나 일시적이며 현행제도 보완으로 해결 가능한 경우",
-          "confidence": "검증 필요"
-        },
-        {
-          "id": "C03",
-          "claim": "이러한 행위는 자연경관을 심각하게 훼손하고 수질 오염과 쓰레기 방치를 유발할 뿐만 아니라, 계곡을 찾는 일반 국민들의 자유로운 이용을 방해하여 공공의 이익을 사유화한다는 거센 비판을 받아옴.",
+          "claim": "「형사소송법」 제420조에서는 판결의 증거가 위조된 경우 등을 재심 사유로 정하고 있음.",
           "claim_type": "기타 정책 주장",
           "source_type": "발의자 제안이유·주요내용",
           "source_status": "국회 공식 공개문서",
@@ -323,25 +287,36 @@
           "confidence": "낮음"
         },
         {
+          "id": "C02",
+          "claim": "그런데 헌법(제6조)에 따라 조약은 국내법과 같은 효력을 가지고 「조약법에 관한 비엔나 협약」(제26조)에 따라 대한민국은 비준한 조약을 성실히 준수할 의무를 가지는 것임에도, 현행 「형사소송법」 제420조는 대한민국이 비준한 국제조약에 따른 국제인권조약기구(Treaty-based bodies)에서 대한민국의 확정판결에 대한 재심의 필요성을 인정하는 취지의 결정을 한 경우를 재심사유에 포함시키고 있지 않음.",
+          "claim_type": "원인 주장",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "원인과 결과의 시간순서, 대안원인 통제, 비교집단 또는 자연실험",
+          "rejection_condition": "다른 요인이 문제를 더 크게 설명하거나 제안된 원인과 결과가 함께 변하지 않는 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C03",
+          "claim": "이는 결국 헌법의 국제법 존중 규정(제6조)에도 위반되고 그 자체로 위 협약 위반에 해당하며 재판당사자의 실질적 권리구제에도 불충분함을 가져오게 되는 것인바, 외국인 인신매매피해자들이 제기하여 원고패소 확정된 국가배상청구 사건에 관하여 배상이 인정되어야 한다는 취지의 국제연합 여성차별철폐위원회의 결정이 있었던 사건에서, 국제인권조약기구의 결정이 있었던 경우를 재심사유에 포함시키지 않은 「민사소송법」 제451조에 위헌소지가 있다는 이유로 법원에 의하여 위헌법률심판 제청이 이루어지기도 하였던 것임.",
+          "claim_type": "수치·규모 주장",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "원자료, 분모, 산출방식, 기간별 추세와 비교집단",
+          "rejection_condition": "수치의 분모·기간·출처가 불명확하거나 재현되지 않는 경우",
+          "confidence": "검증 필요"
+        },
+        {
           "id": "C04",
-          "claim": "더욱이 현행법상 부과되는 행정처분이나 과태료, 벌금 수준이 불법 상행위를 통해 얻는 막대한 성수기 부당이득에 비해 턱없이 낮아 사법당국의 단속 및 에 대한 실효성을 제고하여야 할 필요가 있음.",
+          "claim": "이에 대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는 피해자의 권리 침해 취지의 결정(Views)을 한 때를 형사소송의 재심사유로 신설하여, 대한민국의 국제법 준수의무 이행 및 재판당사자들의 권리보호를 강화하려는 것임",
           "claim_type": "문제 진단",
           "source_type": "발의자 제안이유·주요내용",
           "source_status": "국회 공식 공개문서",
           "verification_status": "독립 검증 전",
           "required_evidence": "최근 공식 통계, 현행제도 운영자료, 피해·사각지대와 집단별 분포",
           "rejection_condition": "문제 규모가 작거나 일시적이며 현행제도 보완으로 해결 가능한 경우",
-          "confidence": "검증 필요"
-        },
-        {
-          "id": "C05",
-          "claim": "이에 개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부과하도록 규정하고 벌칙규정을 상향함으로써 불법 점용으로 취한 부당이득을 환수하고 무단 점유의 재발을 원천 차단하려는 것임",
-          "claim_type": "권한·의무 변경",
-          "source_type": "발의자 제안이유·주요내용",
-          "source_status": "국회 공식 공개문서",
-          "verification_status": "독립 검증 전",
-          "required_evidence": "현행법·개정안 조문, 권한 흐름, 집행기관·비용·불복절차",
-          "rejection_condition": "권한은 확대되지만 통제·책임·자원이 불충분하거나 기존제도와 중복되는 경우",
           "confidence": "검증 필요"
         }
       ],
@@ -350,40 +325,16 @@
           "assumption": "법안이 지목한 문제가 실제로 제안된 원인 때문에 발생한다.",
           "why_critical": "원인 진단이 틀리면 제도는 바뀌지만 문제는 남습니다.",
           "disproof": "독립 통계나 비교집단에서 다른 원인이 더 크게 설명될 경우",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
           "profile_role": "주유형"
         },
         {
           "assumption": "새 권한이나 의무를 맡을 기관에 인력·예산·전문성이 있다.",
           "why_critical": "집행역량이 없으면 법률은 서류상 의무로만 남습니다.",
           "disproof": "담당 인력·예산·처리기간 추계가 없거나 기존 업무도 적체된 경우",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "assumption": "위반행위를 명확하고 일관되게 식별할 수 있다.",
-          "why_critical": "모호한 기준은 선택적 집행과 과잉제재를 만듭니다.",
-          "disproof": "기관별 처분 편차와 불복 인용률이 높은 경우",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "assumption": "제재가 회피·음성화보다 준수를 더 많이 유도한다.",
-          "why_critical": "강한 처벌이 항상 높은 준수율로 이어지지는 않습니다.",
-          "disproof": "명의분산·업종전환·비공식시장 확대가 나타나는 경우",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "assumption": "영세주체와 대규모 주체에 대한 부담이 비례적이다.",
-          "why_critical": "동일 제재가 실질적으로 불균형한 피해를 줄 수 있습니다.",
-          "disproof": "작은 사업자만 시장에서 퇴출되고 대형주체는 비용으로 흡수하는 경우",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
           "profile_role": "주유형"
         },
         {
@@ -392,7 +343,7 @@
           "disproof": "동일 업무를 여러 기관이 수행하고 실패 책임이 분산되는 경우",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "assumption": "새 권한의 범위가 법률에서 충분히 제한된다.",
@@ -400,7 +351,7 @@
           "disproof": "핵심 기준이 ‘필요한 사항’ 형태로 광범위하게 위임되는 경우",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "assumption": "새 조직이 기존 기관과 다른 고유 기능을 수행한다.",
@@ -408,7 +359,7 @@
           "disproof": "기존 부처·위원회와 업무·예산·보고선이 중복되는 경우",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "assumption": "권한 확대와 함께 독립적 통제와 책임이 강화된다.",
@@ -416,113 +367,21 @@
           "disproof": "포괄위임, 비공개 의사결정, 내부 자체평가만 존재하는 경우",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         }
       ],
       "actor_incentives": [
         {
-          "actor": "규제기관",
-          "formal_role": "위반 조사와 제재",
-          "likely_incentive": "집행성과와 사고책임 회피",
-          "gaming_risk": "측정하기 쉬운 위반만 집중하거나 특정 집단을 선택적으로 단속",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "actor": "규제대상",
-          "formal_role": "의무 준수",
-          "likely_incentive": "준수비용과 제재위험 최소화",
-          "gaming_risk": "명의·업종·계약형태를 바꾸어 규제범위 우회",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "actor": "신고자·피해자",
-          "formal_role": "위반정보 제공과 구제 청구",
-          "likely_incentive": "신속한 보호와 보상",
-          "gaming_risk": "보복 우려나 복잡한 입증책임 때문에 신고 포기",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "actor": "경쟁사업자",
-          "formal_role": "시장 참여",
-          "likely_incentive": "경쟁자의 규제비용 증가",
-          "gaming_risk": "규제·신고절차를 경쟁자 압박수단으로 활용",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "actor": "국민·주민",
+          "actor": "여성·임산부",
           "formal_role": "법안의 직접 또는 간접 영향주체",
           "likely_incentive": "자신의 권리·비용·권한에 유리한 방향으로 제도에 적응",
           "gaming_risk": "법률상 형식과 실제 행동 사이의 차이를 이용할 가능성",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         }
       ],
       "deep_red_team": [
-        {
-          "title": "선택적 집행",
-          "attacker": "규제기관·정치권",
-          "incentive": "눈에 띄는 대상이나 불리한 집단을 집중 단속하려는 유인",
-          "path": "모호한 기준과 재량을 이용해 유사 위반을 다르게 처분",
-          "harmed": "소수사업자, 비판집단, 규제 예측가능성",
-          "warning": "기관·지역·대상별 처분률과 제재수준 편차가 큼",
-          "defense": "명확한 요건, 처분사유 공개, 무작위 사건배당, 불복통계, 외부감사",
-          "residual": "사건 특성 차이 때문에 통계만으로 차별집행을 확정하기 어려움",
-          "severity": "높음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "title": "규제범위 우회",
-          "attacker": "규제대상 사업자",
-          "incentive": "의무와 제재비용을 피하려는 유인",
-          "path": "명의·법인·고용형태·상품명·계약구조를 바꾸어 법적 정의 밖으로 이동",
-          "harmed": "준수사업자, 근로자·소비자, 세수",
-          "warning": "법 시행 뒤 유사업종·특수고용·위탁계약이 급증",
-          "defense": "실질우선 기준, 특수관계인 합산, 우회행위 조항, 정기 정의 갱신",
-          "residual": "실질기준이 넓어지면 법적 예측가능성이 낮아질 수 있음",
-          "severity": "높음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "title": "영세주체 퇴출",
-          "attacker": "규제 설계자·대형사업자",
-          "incentive": "고정 준수비용을 경쟁장벽으로 활용하려는 유인",
-          "path": "대형사업자는 비용을 흡수하지만 영세주체는 시장에서 퇴출",
-          "harmed": "영세사업자, 지역소비자, 신규진입자",
-          "warning": "위반 감소보다 사업자 수 감소와 시장집중도가 빠르게 증가",
-          "defense": "규모별 단계, 기술지원, 유예, 위험비례 의무, 간소 준수경로",
-          "residual": "차등규제가 영세사업자의 낮은 안전·품질을 고착시킬 수 있음",
-          "severity": "높음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "title": "신고·제재의 경쟁무기화",
-          "attacker": "경쟁사업자·분쟁당사자",
-          "incentive": "상대의 영업과 평판을 저비용으로 훼손하려는 유인",
-          "path": "반복 신고와 임시조치를 이용해 최종 판단 전 시장에서 배제",
-          "harmed": "정상 사업자와 행정자원",
-          "warning": "동일 신고인의 반복 사건과 기각률이 높음",
-          "defense": "악의적 신고 제재, 신속 사전심사, 반론권, 임시조치 비례성",
-          "residual": "악의성 판단이 정당한 내부고발과 신고를 위축시킬 수 있음",
-          "severity": "높음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
         {
           "title": "목표와 수단의 불일치",
           "attacker": "정책 추진기관",
@@ -535,7 +394,7 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "title": "책임의 분산",
@@ -549,7 +408,7 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "title": "성과지표 조작",
@@ -563,7 +422,7 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "title": "조직 신설을 통한 예산·정원 고착",
@@ -577,7 +436,7 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "title": "포괄위임을 통한 권한 팽창",
@@ -591,7 +450,7 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "title": "기관 간 책임 떠넘기기",
@@ -605,7 +464,7 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "title": "전문가·위원회 포획",
@@ -619,46 +478,10 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         }
       ],
       "second_order_effects": [
-        {
-          "effect": "시장집중",
-          "direction": "위험",
-          "mechanism": "고정 준수비용이 영세주체에 더 크게 작용",
-          "monitor": "사업자 수·진입률·상위기업 점유율",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "effect": "음성화·비공식화",
-          "direction": "위험",
-          "mechanism": "제재가 높을수록 신고·등록 밖으로 이동할 유인 증가",
-          "monitor": "무등록 거래·현금거래·특수계약 증가",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "effect": "규제 신뢰 상승 가능성",
-          "direction": "기회",
-          "mechanism": "명확하고 일관된 집행은 피해예방과 시장신뢰를 높임",
-          "monitor": "피해율·재범률·불복률·소비자 신뢰",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "effect": "과잉준수와 혁신 위축",
-          "direction": "위험",
-          "mechanism": "모호한 제재를 피하기 위해 합법적 신제품·표현·서비스까지 중단",
-          "monitor": "신규사업·허가문의·사전질의 증가",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
         {
           "effect": "행정부담 증가",
           "direction": "위험",
@@ -666,7 +489,7 @@
           "monitor": "처리시간·인력·보고서 수·민원 적체",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "effect": "책임성과 투명성 개선 가능성",
@@ -675,7 +498,7 @@
           "monitor": "책임기관 표시·성과공개·정정 속도",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "effect": "지역·기관별 격차",
@@ -684,7 +507,7 @@
           "monitor": "지역별 처리기간·성과·민원·예산",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "effect": "법률과 현실의 괴리",
@@ -693,7 +516,7 @@
           "monitor": "서류상 준수율과 실제 결과의 차이",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "effect": "행정조정 개선 가능성",
@@ -702,7 +525,7 @@
           "monitor": "처리기간·중복예산·기관이송·민원해결률",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "effect": "관료제와 규제범위 확대",
@@ -711,7 +534,7 @@
           "monitor": "정원·예산·규정·자료요구 건수",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         }
       ],
       "stress_tests": [
@@ -719,40 +542,32 @@
           "scenario": "예산과 인력이 계획의 절반만 확보되는 경우",
           "question": "핵심 기능을 유지하려면 무엇을 우선하고 무엇을 중단할 것인가?",
           "pass_condition": "우선순위·최소서비스·단계시행 기준이 법률 또는 계획에 명시",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
           "profile_role": "주유형"
         },
         {
           "scenario": "집행기관이 법의 취지에 소극적이거나 반대하는 경우",
           "question": "의도적 지연·최소이행·책임회피를 어떻게 발견하고 교정하는가?",
           "pass_condition": "처리기한·공개지표·독립감사·이의제기·시정명령이 존재",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
           "profile_role": "주유형"
         },
         {
           "scenario": "가장 영리한 이해관계자가 법의 경계조건을 이용하는 경우",
           "question": "명의·계약·조직·데이터 형식을 바꿔도 실질적으로 적용되는가?",
           "pass_condition": "실질우선·우회행위·특수관계·정기 정의갱신 규정이 존재",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
           "profile_role": "주유형"
         },
         {
           "scenario": "정책이 예상과 반대로 피해를 키우는 경우",
           "question": "피해를 얼마나 빨리 발견하고 중단·축소·보상할 수 있는가?",
           "pass_condition": "부작용지표·중단조건·일몰·피해구제와 책임주체가 명시",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "scenario": "동일 위반을 대기업과 영세사업자가 저지른 경우",
-          "question": "억지력과 생존영향을 모두 고려한 비례적 제재가 가능한가?",
-          "pass_condition": "피해·매출·고의·반복성에 따른 단계적 제재기준이 존재",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
           "profile_role": "주유형"
         }
       ],
@@ -761,40 +576,24 @@
           "claim": "문제의 규모가 법 개정을 정당화할 만큼 크다.",
           "required_evidence": "최근 3~5년 공식 통계, 분모가 있는 발생률, 지역·집단별 분포",
           "rejection_condition": "절대건수만 제시되거나 추세·비교집단에서 문제가 확인되지 않음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
           "profile_role": "주유형"
         },
         {
           "claim": "제안된 수단이 문제의 원인에 직접 작용한다.",
           "required_evidence": "인과경로, 기존 제도 실패자료, 국내외 비교와 대안비교",
           "rejection_condition": "수단이 원인보다 결과나 행정절차만 바꾸고 대안비교가 없음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
           "profile_role": "주유형"
         },
         {
           "claim": "편익이 행정·재정·권리비용보다 크다.",
           "required_evidence": "비용추계, 인력·시스템 구축비, 권리영향과 기회비용",
           "rejection_condition": "직접예산만 계산하고 민간·지방·권리비용을 누락",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "claim": "제재 강화가 위반과 피해를 줄인다.",
-          "required_evidence": "제재 전후 위반률·재범률·피해율과 음성화·우회지표",
-          "rejection_condition": "단속·처분건수만 늘고 실제 피해와 재범은 줄지 않음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "claim": "집행기준이 명확하고 차별 없이 적용된다.",
-          "required_evidence": "기관·지역·기업규모별 처분분포, 불복 인용률, 사건배당·감사자료",
-          "rejection_condition": "유사사건의 처분편차가 크고 사유공개·불복구제가 약함",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
           "profile_role": "주유형"
         },
         {
@@ -803,7 +602,7 @@
           "rejection_condition": "기존 조직은 유지된 채 정원·보고·협의절차만 증가",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "claim": "추가 권한에 상응하는 민주적·사법적 통제가 존재한다.",
@@ -811,80 +610,10 @@
           "rejection_condition": "포괄위임과 비공개 의사결정이 늘고 외부통제는 약함",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         }
       ],
       "evidence_chains": [
-        {
-          "attack": "선택적 집행",
-          "profile": "규제·제재",
-          "claim_ids": [
-            "C01",
-            "C02",
-            "C03"
-          ],
-          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
-          "failure_path": "모호한 기준과 재량을 이용해 유사 위반을 다르게 처분",
-          "guardrail": "명확한 요건, 처분사유 공개, 무작위 사건배당, 불복통계, 외부감사",
-          "residual_risk": "사건 특성 차이 때문에 통계만으로 차별집행을 확정하기 어려움",
-          "fork_links": [
-            "A",
-            "C"
-          ],
-          "verification_status": "조문·외부근거 대조 전"
-        },
-        {
-          "attack": "규제범위 우회",
-          "profile": "규제·제재",
-          "claim_ids": [
-            "C01",
-            "C02",
-            "C03"
-          ],
-          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
-          "failure_path": "명의·법인·고용형태·상품명·계약구조를 바꾸어 법적 정의 밖으로 이동",
-          "guardrail": "실질우선 기준, 특수관계인 합산, 우회행위 조항, 정기 정의 갱신",
-          "residual_risk": "실질기준이 넓어지면 법적 예측가능성이 낮아질 수 있음",
-          "fork_links": [
-            "B"
-          ],
-          "verification_status": "조문·외부근거 대조 전"
-        },
-        {
-          "attack": "영세주체 퇴출",
-          "profile": "규제·제재",
-          "claim_ids": [
-            "C01",
-            "C02",
-            "C03"
-          ],
-          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
-          "failure_path": "대형사업자는 비용을 흡수하지만 영세주체는 시장에서 퇴출",
-          "guardrail": "규모별 단계, 기술지원, 유예, 위험비례 의무, 간소 준수경로",
-          "residual_risk": "차등규제가 영세사업자의 낮은 안전·품질을 고착시킬 수 있음",
-          "fork_links": [
-            "A",
-            "B"
-          ],
-          "verification_status": "조문·외부근거 대조 전"
-        },
-        {
-          "attack": "신고·제재의 경쟁무기화",
-          "profile": "규제·제재",
-          "claim_ids": [
-            "C01",
-            "C02",
-            "C03"
-          ],
-          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
-          "failure_path": "반복 신고와 임시조치를 이용해 최종 판단 전 시장에서 배제",
-          "guardrail": "악의적 신고 제재, 신속 사전심사, 반론권, 임시조치 비례성",
-          "residual_risk": "악의성 판단이 정당한 내부고발과 신고를 위축시킬 수 있음",
-          "fork_links": [
-            "C"
-          ],
-          "verification_status": "조문·외부근거 대조 전"
-        },
         {
           "attack": "목표와 수단의 불일치",
           "profile": "행정조직·권한배분",
@@ -998,6 +727,25 @@
             "C"
           ],
           "verification_status": "조문·외부근거 대조 전"
+        },
+        {
+          "attack": "전문가·위원회 포획",
+          "profile": "행정조직·권한배분",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "동일 네트워크가 추천·심사·평가를 반복 점유하고 이해충돌을 숨김",
+          "guardrail": "공개모집, 임기제한, 구성 다양성, 이해충돌 공개, 시민위원·소수의견",
+          "residual_risk": "형식적 다양성을 갖춰도 실질 정보와 의제설정 권력은 집중될 수 있음",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
         }
       ],
       "design_requirements": [
@@ -1006,23 +754,20 @@
         "권리침해·비용전가·지역격차를 측정할 부작용 지표를 별도 공개",
         "시행 후 독립평가, 일몰 또는 재승인, 중단·축소 기준을 마련",
         "이의제기·정정·피해구제와 수정이력 공개절차를 마련",
-        "고의·피해·반복성·규모에 따른 단계적·비례적 제재",
-        "처분사유·기관별 집행통계·불복결과를 개인정보 보호 범위에서 공개",
-        "실질우선과 우회행위 조항을 두되 법적 명확성과 사전질의 절차를 보장",
         "신설 전 기존기관 기능·예산·정원과의 중복분석 및 폐지·통합계획을 공개",
         "핵심 권한·자료요구·제재범위는 법률에서 제한하고 포괄위임을 금지",
         "설치기한·정원·예산상한·독립평가와 자동폐지 또는 재승인을 결합"
       ],
       "depth_summary": {
-        "profiles": 2,
-        "claims": 5,
-        "assumptions": 9,
-        "actors": 5,
-        "attacks": 11,
-        "second_order_effects": 10,
-        "stress_tests": 5,
-        "evidence_tests": 7,
-        "evidence_chains": 10
+        "profiles": 1,
+        "claims": 4,
+        "assumptions": 6,
+        "actors": 1,
+        "attacks": 7,
+        "second_order_effects": 6,
+        "stress_tests": 4,
+        "evidence_tests": 5,
+        "evidence_chains": 7
       },
       "residual_uncertainty": [
         "법률안 조문 전문과 현행법 대비표가 아직 자동 대조되지 않았습니다.",
@@ -1037,37 +782,37 @@
         "document": "제안이유 및 주요내용",
         "status": "연동 완료",
         "importance": "법안이 주장하는 문제·목적·변경방향",
-        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2T6A0Z6X2F3G1E5D2C6K5L9J8I9H9&ageFrom=22&ageTo=22"
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2C6B0B1J2K6I1I6H0F6G4O3O6N2N8&ageFrom=22&ageTo=22"
       },
       {
         "document": "법률안 조문 전문",
         "status": "상세페이지·첨부파일 확인 필요",
         "importance": "실제 권리·의무·예외·위임·제재 확인",
-        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2T6A0Z6X2F3G1E5D2C6K5L9J8I9H9&ageFrom=22&ageTo=22"
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2C6B0B1J2K6I1I6H0F6G4O3O6N2N8&ageFrom=22&ageTo=22"
       },
       {
         "document": "신·구조문 대비표",
         "status": "존재 여부 확인 필요",
         "importance": "현행법과 개정안의 문장 단위 차이",
-        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2T6A0Z6X2F3G1E5D2C6K5L9J8I9H9&ageFrom=22&ageTo=22"
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2C6B0B1J2K6I1I6H0F6G4O3O6N2N8&ageFrom=22&ageTo=22"
       },
       {
         "document": "비용추계서·미첨부 사유서",
         "status": "존재 여부 확인 필요",
         "importance": "국가·지자체·민간의 재정·인력 부담",
-        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2T6A0Z6X2F3G1E5D2C6K5L9J8I9H9&ageFrom=22&ageTo=22"
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2C6B0B1J2K6I1I6H0F6G4O3O6N2N8&ageFrom=22&ageTo=22"
       },
       {
         "document": "소관위원회 검토보고서",
         "status": "위원회 심사 진행 후 확인",
         "importance": "전문위원의 법체계·집행·비용·쟁점 검토",
-        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2T6A0Z6X2F3G1E5D2C6K5L9J8I9H9&ageFrom=22&ageTo=22"
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2C6B0B1J2K6I1I6H0F6G4O3O6N2N8&ageFrom=22&ageTo=22"
       },
       {
         "document": "위원회 회의록·찬반토론",
         "status": "회의 개최 후 확인",
         "importance": "질의·반론·정부답변·수정논의",
-        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2T6A0Z6X2F3G1E5D2C6K5L9J8I9H9&ageFrom=22&ageTo=22"
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2C6B0B1J2K6I1I6H0F6G4O3O6N2N8&ageFrom=22&ageTo=22"
       }
     ],
     "fork_readiness": {
@@ -1089,18 +834,18 @@
       "meaning": "정책의 우수성 점수가 아니라 수정안을 설계하기 위해 확보된 정보의 준비 정도"
     },
     "thirty_second_brief": {
-      "problem": "매년 여름철만 되면 개발제한구역 내 주요 하천과 계곡 일대에서 평상, 천막, 조리시설 등 불법 시설물을 무단으로 설치하고, 미신고 상행위를 일삼는 불법 행위…",
-      "change": "개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부…",
-      "who": "국민·주민",
-      "proposer_claim": "위반을 줄이고 제도의 실효성과 준수율을 높일 수 있다는 주장입니다.",
+      "problem": "헌법(제6조)에 따라 조약은 국내법과 같은 효력을 가지고 「조약법에 관한 비엔나 협약」(제26조)에 따라 대한민국은 비준한 조약을 성실히 준수할 의무를 가지…",
+      "change": "대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는…",
+      "who": "여성·임산부",
+      "proposer_claim": "담당 기관이나 사업자의 책임을 분명히 하고 실제 집행력을 높일 수 있다는 주장입니다.",
       "largest_risk": "현장 문제는 남고 행정비용과 허위안심만 증가할 수 있음",
-      "decision": "규제 목적을 달성하면서 과잉제재·선택적 집행·영세주체의 불균형 부담을 어떻게 막을 것인가?"
+      "decision": "새 의무가 실제 문제를 해결하도록 최소 기준·검증 방식·불이행 책임을 어떻게 설계해야 하는가?"
     },
     "one_minute_brief": {
-      "problem": "매년 여름철만 되면 개발제한구역 내 주요 하천과 계곡 일대에서 평상, 천막, 조리시설 등 불법 시설물을 무단으로 설치하고, 미신고 상행위를 일삼는 불법 행위…",
-      "change": "개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부…",
-      "who": "국민·주민",
-      "decision": "규제 목적을 달성하면서 과잉제재·선택적 집행·영세주체의 불균형 부담을 어떻게 막을 것인가?"
+      "problem": "헌법(제6조)에 따라 조약은 국내법과 같은 효력을 가지고 「조약법에 관한 비엔나 협약」(제26조)에 따라 대한민국은 비준한 조약을 성실히 준수할 의무를 가지…",
+      "change": "대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는…",
+      "who": "여성·임산부",
+      "decision": "새 의무가 실제 문제를 해결하도록 최소 기준·검증 방식·불이행 책임을 어떻게 설계해야 하는가?"
     },
     "proposer_argument_map": {
       "source_type": "발의자의 제안이유 및 주요내용",
@@ -1108,36 +853,29 @@
       "claims": [
         {
           "id": "C01",
-          "claim": "현행법은 도시의 무질서한 확산을 방지하고 도시 주변의 자연환경을 보전하기 위하여 개발제한구역의 지정과 개발제한구역에서의 행위 제한 등을 규정하고 있으며, 이를 위반할 경우 시정명령 및 이행강제금을 부과하도록 규정하고 있음.",
-          "claim_type": "수치·규모 주장",
-          "speaker": "발의자·제안이유",
-          "status": "독립 검증 전"
-        },
-        {
-          "id": "C02",
-          "claim": "그러나 매년 여름철만 되면 개발제한구역 내 주요 하천과 계곡 일대에서 평상, 천막, 조리시설 등 불법 시설물을 무단으로 설치하고, 미신고 상행위를 일삼는 불법 행위가 고질적으로 반복되고 있음.",
-          "claim_type": "문제 진단",
-          "speaker": "발의자·제안이유",
-          "status": "독립 검증 전"
-        },
-        {
-          "id": "C03",
-          "claim": "이러한 행위는 자연경관을 심각하게 훼손하고 수질 오염과 쓰레기 방치를 유발할 뿐만 아니라, 계곡을 찾는 일반 국민들의 자유로운 이용을 방해하여 공공의 이익을 사유화한다는 거센 비판을 받아옴.",
+          "claim": "「형사소송법」 제420조에서는 판결의 증거가 위조된 경우 등을 재심 사유로 정하고 있음.",
           "claim_type": "기타 정책 주장",
           "speaker": "발의자·제안이유",
           "status": "독립 검증 전"
         },
         {
-          "id": "C04",
-          "claim": "더욱이 현행법상 부과되는 행정처분이나 과태료, 벌금 수준이 불법 상행위를 통해 얻는 막대한 성수기 부당이득에 비해 턱없이 낮아 사법당국의 단속 및 에 대한 실효성을 제고하여야 할 필요가 있음.",
-          "claim_type": "문제 진단",
+          "id": "C02",
+          "claim": "그런데 헌법(제6조)에 따라 조약은 국내법과 같은 효력을 가지고 「조약법에 관한 비엔나 협약」(제26조)에 따라 대한민국은 비준한 조약을 성실히 준수할 의무를 가지는 것임에도, 현행 「형사소송법」 제420조는 대한민국이 비준한 국제조약에 따른 국제인권조약기구(Treaty-based bodies)에서 대한민국의 확정판결에 대한 재심의 필요성을 인정하는 취지의 결정을 한 경우를 재심사유에 포함시키고 있지 않음.",
+          "claim_type": "원인 주장",
           "speaker": "발의자·제안이유",
           "status": "독립 검증 전"
         },
         {
-          "id": "C05",
-          "claim": "이에 개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부과하도록 규정하고 벌칙규정을 상향함으로써 불법 점용으로 취한 부당이득을 환수하고 무단 점유의 재발을 원천 차단하려는 것임",
-          "claim_type": "권한·의무 변경",
+          "id": "C03",
+          "claim": "이는 결국 헌법의 국제법 존중 규정(제6조)에도 위반되고 그 자체로 위 협약 위반에 해당하며 재판당사자의 실질적 권리구제에도 불충분함을 가져오게 되는 것인바, 외국인 인신매매피해자들이 제기하여 원고패소 확정된 국가배상청구 사건에 관하여 배상이 인정되어야 한다는 취지의 국제연합 여성차별철폐위원회의 결정이 있었던 사건에서, 국제인권조약기구의 결정이 있었던 경우를 재심사유에 포함시키지 않은 「민사소송법」 제451조에 위헌소지가 있다는 이유로 법원에 의하여 위헌법률심판 제청이 이루어지기도 하였던 것임.",
+          "claim_type": "수치·규모 주장",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C04",
+          "claim": "이에 대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는 피해자의 권리 침해 취지의 결정(Views)을 한 때를 형사소송의 재심사유로 신설하여, 대한민국의 국제법 준수의무 이행 및 재판당사자들의 권리보호를 강화하려는 것임",
+          "claim_type": "문제 진단",
           "speaker": "발의자·제안이유",
           "status": "독립 검증 전"
         }
@@ -1147,20 +885,21 @@
         {
           "step": 1,
           "label": "문제 주장",
-          "content": "매년 여름철만 되면 개발제한구역 내 주요 하천과 계곡 일대에서 평상, 천막, 조리시설 등 불법 시설물을 무단으로 설치하고, 미신고 상행위를 일삼는 불법 행위가 고질적으로 반복되고있습니다."
+          "content": "헌법(제6조)에 따라 조약은 국내법과 같은 효력을 가지고 「조약법에 관한 비엔나 협약」(제26조)에 따라 대한민국은 비준한 조약을 성실히 준수할 의무를 가지는 것임에도, 현행 「형사소송법」 제420조는 대한민국이 비준한 국제조약에 따른 국제인권조약기구(Treaty-based bodies)에서 대한민국의 확정판결에 대한 재심의 필요성을 인정하는 취지의 결정을 한 경우를 재심사유에 포함시키고 있지 않음."
         },
         {
           "step": 2,
           "label": "정책수단",
-          "content": "개발제한구역 내 하천ㆍ계곡에서의 불법 시설물 설치 등에 대한 원상회복 의무를 이행할 때까지 불법 영업이익을 초과하는 수준의 강력한 ‘징벌적 이행강제금’을 부과하도록 규정하고 벌칙규정을 상향함으로써 불법 점용으로 취한 부당이득을 환수하고 무단 점유의 재발을 원천 차단하려는 내용입니다."
+          "content": "대한민국이 비준한 국제인권조약에 따른 국제인권조약기구에서 피해자의 개인통보(Individual Communications)에 대해 대한민국의 조약 위반 또는 피해자의 권리 침해 취지의 결정(Views)을 한 때를 형사소송의 재심사유로 신설하여, 대한민국의 국제법 준수의무 이행 및 재판당사자들의 권리보호를 강화하려는 내용입니다."
         },
         {
           "step": 3,
           "label": "기대결과",
-          "content": "위반을 줄이고 제도의 실효성과 준수율을 높일 수 있다는 주장입니다."
+          "content": "담당 기관이나 사업자의 책임을 분명히 하고 실제 집행력을 높일 수 있다는 주장입니다."
         }
       ],
       "unproven_links": [
+        "해외 제도 비교는 국가별 제도 차이와 원출처를 아직 확인하지 않았습니다.",
         "법안이 제시한 문제 진단은 발의자의 주장으로서 독립 검증 전입니다.",
         "법안이 예상하는 효과는 시행자료가 없는 사전 주장으로서 검증 전입니다."
       ],
@@ -1168,64 +907,8 @@
     },
     "adversarial_audit": {
       "mission": "정책을 옹호하는 것이 아니라, 실패·악용·부정부패·기관포획·우회 가능성을 가장 강한 조건에서 찾아 무너뜨린 뒤 살아남는 설계만 남깁니다.",
-      "attack_count": 11,
+      "attack_count": 7,
       "top_attacks": [
-        {
-          "title": "선택적 집행",
-          "attacker": "규제기관·정치권",
-          "incentive": "눈에 띄는 대상이나 불리한 집단을 집중 단속하려는 유인",
-          "path": "모호한 기준과 재량을 이용해 유사 위반을 다르게 처분",
-          "harmed": "소수사업자, 비판집단, 규제 예측가능성",
-          "warning": "기관·지역·대상별 처분률과 제재수준 편차가 큼",
-          "defense": "명확한 요건, 처분사유 공개, 무작위 사건배당, 불복통계, 외부감사",
-          "residual": "사건 특성 차이 때문에 통계만으로 차별집행을 확정하기 어려움",
-          "severity": "높음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "title": "규제범위 우회",
-          "attacker": "규제대상 사업자",
-          "incentive": "의무와 제재비용을 피하려는 유인",
-          "path": "명의·법인·고용형태·상품명·계약구조를 바꾸어 법적 정의 밖으로 이동",
-          "harmed": "준수사업자, 근로자·소비자, 세수",
-          "warning": "법 시행 뒤 유사업종·특수고용·위탁계약이 급증",
-          "defense": "실질우선 기준, 특수관계인 합산, 우회행위 조항, 정기 정의 갱신",
-          "residual": "실질기준이 넓어지면 법적 예측가능성이 낮아질 수 있음",
-          "severity": "높음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "title": "영세주체 퇴출",
-          "attacker": "규제 설계자·대형사업자",
-          "incentive": "고정 준수비용을 경쟁장벽으로 활용하려는 유인",
-          "path": "대형사업자는 비용을 흡수하지만 영세주체는 시장에서 퇴출",
-          "harmed": "영세사업자, 지역소비자, 신규진입자",
-          "warning": "위반 감소보다 사업자 수 감소와 시장집중도가 빠르게 증가",
-          "defense": "규모별 단계, 기술지원, 유예, 위험비례 의무, 간소 준수경로",
-          "residual": "차등규제가 영세사업자의 낮은 안전·품질을 고착시킬 수 있음",
-          "severity": "높음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
-        {
-          "title": "신고·제재의 경쟁무기화",
-          "attacker": "경쟁사업자·분쟁당사자",
-          "incentive": "상대의 영업과 평판을 저비용으로 훼손하려는 유인",
-          "path": "반복 신고와 임시조치를 이용해 최종 판단 전 시장에서 배제",
-          "harmed": "정상 사업자와 행정자원",
-          "warning": "동일 신고인의 반복 사건과 기각률이 높음",
-          "defense": "악의적 신고 제재, 신속 사전심사, 반론권, 임시조치 비례성",
-          "residual": "악의성 판단이 정당한 내부고발과 신고를 위축시킬 수 있음",
-          "severity": "높음",
-          "profile_key": "punitive_regulation",
-          "profile_label": "규제·제재",
-          "profile_role": "주유형"
-        },
         {
           "title": "목표와 수단의 불일치",
           "attacker": "정책 추진기관",
@@ -1238,7 +921,7 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "title": "책임의 분산",
@@ -1252,7 +935,7 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "title": "성과지표 조작",
@@ -1266,7 +949,7 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
         },
         {
           "title": "조직 신설을 통한 예산·정원 고착",
@@ -1280,28 +963,72 @@
           "severity": "높음",
           "profile_key": "organization_power",
           "profile_label": "행정조직·권한배분",
-          "profile_role": "부유형 1"
+          "profile_role": "주유형"
+        },
+        {
+          "title": "포괄위임을 통한 권한 팽창",
+          "attacker": "행정부·신설기관",
+          "incentive": "법률보다 유연하게 권한범위를 확대하려는 유인",
+          "path": "핵심 기준을 시행령·고시·내부지침의 ‘필요한 사항’으로 위임",
+          "harmed": "국민·기업·지방정부·국회의 통제권",
+          "warning": "하위규정 개정으로 적용대상·자료요구·제재범위가 계속 확대",
+          "defense": "법률유보, 위임범위 명시, 국회보고, 규제영향평가, 사법심사",
+          "residual": "기술·현장변화에 대한 신속 대응은 느려질 수 있음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "기관 간 책임 떠넘기기",
+          "attacker": "신설기관·기존부처·지방정부",
+          "incentive": "실패와 민원책임을 다른 기관에 넘기려는 유인",
+          "path": "공동협의·지원·조정이라는 표현으로 최종결정권과 책임을 불명확하게 함",
+          "harmed": "민원인·정책대상·현장공무원",
+          "warning": "기관 간 이송과 협의가 반복되고 처리기한이 길어짐",
+          "defense": "단일 책임기관, 권한표, 법정 처리기한, 공동사건 추적, 책임공개",
+          "residual": "복합정책의 협업 필요와 단일책임 사이 긴장은 남음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "전문가·위원회 포획",
+          "attacker": "업계·전문직단체·정치권",
+          "incentive": "위원 구성과 전문기준을 통해 정책결정을 선점할 유인",
+          "path": "동일 네트워크가 추천·심사·평가를 반복 점유하고 이해충돌을 숨김",
+          "harmed": "소수의견·신규진입자·일반 시민",
+          "warning": "위원 경력과 소속이 반복되고 회의록·이해충돌 자료가 비공개",
+          "defense": "공개모집, 임기제한, 구성 다양성, 이해충돌 공개, 시민위원·소수의견",
+          "residual": "형식적 다양성을 갖춰도 실질 정보와 의제설정 권력은 집중될 수 있음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
         }
       ],
       "corruption_and_capture_checks": [
         {
           "vector": "권한집중",
-          "status": "상시 점검",
-          "signals": [],
+          "status": "집중 공격 필요",
+          "signals": [
+            "위원회"
+          ],
           "question": "권한집중이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?"
         },
         {
           "vector": "재량·특혜",
-          "status": "집중 공격 필요",
-          "signals": [
-            "지정"
-          ],
+          "status": "상시 점검",
+          "signals": [],
           "question": "재량·특혜이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?"
         },
         {
           "vector": "부정부패·이해충돌",
-          "status": "상시 점검",
-          "signals": [],
+          "status": "집중 공격 필요",
+          "signals": [
+            "심사"
+          ],
           "question": "부정부패·이해충돌이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?"
         },
         {
@@ -1312,11 +1039,8 @@
         },
         {
           "vector": "처벌·규제남용",
-          "status": "집중 공격 필요",
-          "signals": [
-            "벌칙",
-            "과태료"
-          ],
+          "status": "상시 점검",
+          "signals": [],
           "question": "처벌·규제남용이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?"
         },
         {
@@ -1332,34 +1056,34 @@
     "questions": [
       "법안이 제시한 문제의 규모와 원인이 독립된 통계·연구로 확인되는가?",
       "적용대상, 예외, 권리구제 절차가 조문에 구체적으로 규정되어 있는가?",
-      "재정 소요와 비용 부담 주체가 비용추계서에 제시되어 있는가?",
-      "의무·규제의 범위가 과도하지 않고 예외와 이의제기 절차가 있는가?"
+      "새 제도를 운영하는 데 드는 재정·인력 비용은 누구에게 귀속되는가?",
+      "기본권 제한과 공익 사이의 비례성, 독립적 통제장치가 충분한가?"
     ],
     "scores": {
       "문제정의": 4,
       "근거": 1,
       "재정": 0,
-      "집행": 2,
-      "기본권": 0,
-      "통제장치": 2,
+      "집행": 1,
+      "기본권": 2,
+      "통제장치": 1,
       "성과측정": 0,
       "재검토": 0
     },
     "progress_timeline": [
       {
         "label": "제안",
-        "date": "2026-07-13"
+        "date": "2026-07-16"
       }
     ],
     "forks": [],
     "official": {
       "age": "22",
-      "bill_no": "2219909",
-      "proposer": "윤준병의원 등 12인",
-      "lead_proposer": "윤준병",
-      "co_proposers": "허성무,문대림,김현,박홍배,안호영,박민규,양부남,박범계,이정문,서영석,박희승",
+      "bill_no": "2219998",
+      "proposer": "손솔의원 등 11인",
+      "lead_proposer": "손솔",
+      "co_proposers": "전종덕,전진숙,김종민,조계원,정혜경,임미애,윤종오,정춘생,용혜인,한창민",
       "result": "",
-      "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2T6A0Z6X2F3G1E5D2C6K5L9J8I9H9&ageFrom=22&ageTo=22",
+      "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2C6B0B1J2K6I1I6H0F6G4O3O6N2N8&ageFrom=22&ageTo=22",
       "summary_api": "BPMBILLSUMMARY",
       "detail_api": "BILLINFODETAIL",
       "committee_presented_at": "",

@@ -1,7 +1,7 @@
 {
   "status": "healthy",
-  "checked_at": "2026-07-16T11:43:39.965167+00:00",
-  "generated_at": "2026-07-16T20:43:30+09:00",
+  "checked_at": "2026-07-16T22:15:43.880822+00:00",
+  "generated_at": "2026-07-17T07:15:35+09:00",
   "schema_version": "1.0",
   "checks": {
     "collection": "pass",
@@ -18,7 +18,7 @@
     "participation_contract": "pass"
   },
   "counts": {
-    "bills": 100,
+    "bills": 102,
     "pilot_cases": 10,
     "verified_claims": 0,
     "clause_comparisons": 0,
@@ -29,12 +29,12 @@
     "stages": {
       "S1": 10
     },
-    "lifecycle_policies": 100,
+    "lifecycle_policies": 102,
     "civic_entries": 0,
     "registered_sources": 6
   },
   "hashes": {
-    "bills_json": "f63b1a82ccca5909d08d35b7d72a7fef35b1f280c5c348a6d8eb2e9a8acc5672",
+    "bills_json": "5e9c4dd177c662c9a939e5b4c8dfdb701b72b996792d3fda8fe20202ec6f8e0a",
     "pilot_manifest": "04f564184bf61026797ee2454c6f967601f5f4f3ac82551a7dc8ce2b5e66beb0",
     "review_overrides": "f53627711e05947bb72aa111dea56a460926456ec9fbec0b4aec0d23d70e6fc9"
   },
