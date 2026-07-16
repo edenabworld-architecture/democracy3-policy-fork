@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "selection_version": "pilot-selection-v2",
+  "locked_at": "2026-07-16",
+  "locked_by": "박찬성",
+  "authorship": "창안 및 원안 설계: 박찬성",
+  "scope": "현재 최신 법안 100건 창에서 고정한 국가 시범검토 10건",
+  "replacement_policy": "운영자 명시 승인 없이 자동 교체하지 않는다. 수집창에서 사라진 경우에도 결측으로 표시하고, 대체는 manifest 수정으로만 수행한다.",
+  "locked_ids": [
+    "PRC_E2C6D0B7C1K4K1J0H5H1G5H5O8N7N8",
+    "PRC_R2Z6A0Y7Z1X0X1W6S0S5R0R2P1O1P3",
+    "PRC_K2I6H0I7Q0P1N1M6N3J0I2G3H1G3O6",
+    "PRC_N2O6M0N6V2V5U1S7T3R7S1O6M1N2L5",
+    "PRC_Z2X6Y0X6X2F4D1E1D0D9B4J0K9I5J9",
+    "PRC_I2H6H0F7G0O8O1N0L3M9L5L1T9T7S3",
+    "PRC_Z2V6V0U7S0T7R1S6A3A1Z1X9Y0W7X7",
+    "PRC_M2M6U0V7T0U6S1R5R1Z0A4Y7Z1X0V9",
+    "PRC_S2P6O0X5V2V1E1C3Z3I3H2E7A5Z7J4",
+    "PRC_N2M6L0L6K1G9F1F0E4C2L0J3K5J0H6"
+  ],
+  "cases": [
+    {
+      "bill_id": "PRC_E2C6D0B7C1K4K1J0H5H1G5H5O8N7N8",
+      "status": "locked",
+      "operator_decision": "확정"
+    },
+    {
+      "bill_id": "PRC_R2Z6A0Y7Z1X0X1W6S0S5R0R2P1O1P3",
+      "status": "locked",
+      "operator_decision": "확정"
+    },
+    {
+      "bill_id": "PRC_K2I6H0I7Q0P1N1M6N3J0I2G3H1G3O6",
+      "status": "locked",
+      "operator_decision": "확정"
+    },
+    {
+      "bill_id": "PRC_N2O6M0N6V2V5U1S7T3R7S1O6M1N2L5",
+      "status": "locked",
+      "operator_decision": "확정"
+    },
+    {
+      "bill_id": "PRC_Z2X6Y0X6X2F4D1E1D0D9B4J0K9I5J9",
+      "status": "locked",
+      "operator_decision": "확정"
+    },
+    {
+      "bill_id": "PRC_I2H6H0F7G0O8O1N0L3M9L5L1T9T7S3",
+      "status": "locked",
+      "operator_decision": "확정"
+    },
+    {
+      "bill_id": "PRC_Z2V6V0U7S0T7R1S6A3A1Z1X9Y0W7X7",
+      "status": "locked",
+      "operator_decision": "확정"
+    },
+    {
+      "bill_id": "PRC_M2M6U0V7T0U6S1R5R1Z0A4Y7Z1X0V9",
+      "status": "locked",
+      "operator_decision": "확정"
+    },
+    {
+      "bill_id": "PRC_S2P6O0X5V2V1E1C3Z3I3H2E7A5Z7J4",
+      "status": "locked",
+      "operator_decision": "확정"
+    },
+    {
+      "bill_id": "PRC_N2M6L0L6K1G9F1F0E4C2L0J3K5J0H6",
+      "status": "locked",
+      "operator_decision": "확정"
+    }
+  ]
+}

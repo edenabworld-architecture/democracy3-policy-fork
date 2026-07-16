@@ -797,13 +797,13 @@ def select_pilot_bills(
         selected_ids.add(str(candidate.get("id", "")))
         covered_categories.add(str(candidate.get("category", "")))
 
-    selection_mode = (
-        "고정 유지"
-        if locked_ids and not missing_locked_ids and len(selected) == limit
-        else "고정대상 일부 대체"
-        if locked_ids
-        else "최초 자동선정"
-    )
+    if locked_ids and missing_locked_ids:
+        raise ValueError(
+            "고정 시범검토 대상을 자동 대체할 수 없습니다: "
+            + ", ".join(missing_locked_ids)
+        )
+
+    selection_mode = "고정 유지" if locked_ids else "최초 자동선정"
 
     return selected[:limit], {
         "selection_mode": selection_mode,
@@ -1238,8 +1238,8 @@ def build_pilot_program(
             "selection_mode": selection_meta["selection_mode"],
             "selection_version": SELECTION_VERSION,
             "replacement_policy": (
-                "고정 법안이 최신 수집창에서 사라진 경우에만 자동 후보로 대체하고 "
-                "missing_locked_ids와 replacement_count를 공개"
+                "운영자 명시 승인 없이 자동 대체하지 않으며, 최신 창 밖의 법안은 "
+                "직전 정상 데이터에서 보존"
             ),
             "missing_locked_ids": selection_meta["missing_locked_ids"],
             "replacement_count": selection_meta["replacement_count"],

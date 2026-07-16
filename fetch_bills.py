@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.12.1
+"""Democracy 3.0 정책포크 v0.13
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -24,6 +24,11 @@ from typing import Any
 import requests
 
 from pilot_research import build_pilot_program, validate_pilot_program
+from review_store import (
+    load_manifest,
+    load_overrides,
+    merge_verified_reviews,
+)
 
 API_KEY_ENV = "ASSEMBLY_API_KEY"
 
@@ -40,9 +45,11 @@ ROOT = Path(__file__).resolve().parent
 LEGACY_OUTPUT = ROOT / "bills.json"
 INDEX_OUTPUT = ROOT / "bills-index.json"
 REPORTS_DIR = ROOT / "reports"
+PILOT_MANIFEST_PATH = ROOT / "pilot_manifest.json"
+REVIEW_OVERRIDES_PATH = ROOT / "review_overrides.json"
 KST = timezone(timedelta(hours=9))
 API_WORKERS = 5
-SCHEMA_VERSION = "0.12.1"
+SCHEMA_VERSION = "0.13"
 
 UNKNOWN_COMMITTEE_VALUES = {
     "",
@@ -311,7 +318,7 @@ def request_json(
                 params=params,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Democracy3-Policy-Fork/0.12.1",
+                    "User-Agent": "Democracy3-Policy-Fork/0.13",
                 },
                 timeout=timeout,
             )
@@ -362,7 +369,10 @@ def load_summary_cache() -> dict[str, str]:
 
 
 def load_locked_pilot_ids() -> list[str]:
-    """직전 공개 데이터에 확정된 국가 시범검토 10건을 다음 실행에도 유지합니다."""
+    """정적 manifest를 우선 사용하고 이전 데이터는 전환기 예비수단으로만 사용합니다."""
+    if PILOT_MANIFEST_PATH.exists():
+        return load_manifest(PILOT_MANIFEST_PATH)["locked_ids"]
+
     if not LEGACY_OUTPUT.exists():
         return []
 
@@ -371,31 +381,34 @@ def load_locked_pilot_ids() -> list[str]:
     except (OSError, json.JSONDecodeError):
         return []
 
-    if not isinstance(legacy, dict):
-        return []
-
     program = legacy.get("pilot_program") or {}
     manifest = program.get("manifest") or {}
     locked_ids = manifest.get("locked_ids") or []
+    return unique_items([str(item) for item in locked_ids], 10)
 
-    if not locked_ids:
-        locked_ids = [
-            case.get("bill_id", "")
-            for case in program.get("cases") or []
-            if isinstance(case, dict)
-        ]
 
-    result: list[str] = []
-    seen: set[str] = set()
-    for bill_id in locked_ids:
-        cleaned = str(bill_id or "").strip()
-        if not cleaned or cleaned in seen:
+def load_archived_pilot_bills(locked_ids: list[str]) -> dict[str, dict[str, Any]]:
+    """최신 100건 창 밖으로 밀린 고정 시범법안도 직전 정상 데이터에서 보존합니다."""
+    if not LEGACY_OUTPUT.exists():
+        return {}
+    try:
+        legacy = json.loads(LEGACY_OUTPUT.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+
+    locked = set(locked_ids)
+    archived: dict[str, dict[str, Any]] = {}
+    for bill in legacy.get("bills") or []:
+        if not isinstance(bill, dict):
             continue
-        seen.add(cleaned)
-        result.append(cleaned)
-        if len(result) >= 10:
-            break
-    return result
+        bill_id = str(bill.get("id", "")).strip()
+        if bill_id not in locked:
+            continue
+        restored = dict(bill)
+        restored["active_window_status"] = "최신 100건 창 밖 · 국가 시범검토 보존"
+        restored["archived_pilot_record"] = True
+        archived[bill_id] = restored
+    return archived
 
 
 def fetch_official_summary(api_key: str, bill_no: str) -> str:
@@ -3898,7 +3911,12 @@ def write_split_outputs(
         "pilot_program": output.get("pilot_program") or {},
         "coverage": {
             "mode": "latest_active_window",
-            "active_count": len(compact_bills),
+            "active_count": sum(
+                1 for bill in bills if not bill.get("archived_pilot_record")
+            ),
+            "preserved_pilot_count": sum(
+                1 for bill in bills if bill.get("archived_pilot_record")
+            ),
             "official_total_count": output["source"].get(
                 "official_total_count", 0
             ),
@@ -4129,6 +4147,22 @@ def main() -> None:
             }
         )
 
+    active_bill_count = len(bills)
+    locked_pilot_ids = load_locked_pilot_ids()
+    archived_pilot_bills = load_archived_pilot_bills(locked_pilot_ids)
+    active_ids = {str(bill.get("id", "")) for bill in bills}
+    missing_locked_ids = [
+        bill_id for bill_id in locked_pilot_ids if bill_id not in active_ids
+    ]
+    for bill_id in missing_locked_ids:
+        archived = archived_pilot_bills.get(bill_id)
+        if not archived:
+            raise RuntimeError(
+                "고정 시범검토 법안이 최신 수집창과 직전 정상 데이터 모두에 없습니다: "
+                + bill_id
+            )
+        bills.append(archived)
+
     linked_count = sum(1 for bill in bills if bill.get("official_summary"))
     detail_count = sum(
         1
@@ -4184,11 +4218,19 @@ def main() -> None:
         + [f"DETAIL {item}" for item in detail_errors]
     )
 
-    locked_pilot_ids = load_locked_pilot_ids()
+    manifest = load_manifest(PILOT_MANIFEST_PATH)
+    overrides = load_overrides(REVIEW_OVERRIDES_PATH, manifest)
     pilot_program = build_pilot_program(
         bills,
         generated_at,
-        locked_ids=locked_pilot_ids,
+        locked_ids=manifest["locked_ids"],
+    )
+    pilot_program = merge_verified_reviews(
+        pilot_program,
+        bills,
+        manifest,
+        overrides,
+        generated_at,
     )
     validate_pilot_program(pilot_program)
 
@@ -4196,6 +4238,7 @@ def main() -> None:
         "generated_at": generated_at,
         "notice": (
             "대한민국 국회 열린국회정보의 제22대 국회 최신 의안입니다. "
+            f"활성 법안 {active_bill_count}건, 고정 보존 {len(bills)-active_bill_count}건, "
             f"공식 원문 {linked_count}건, 심층 검토 {deep_review_count}건, "
             f"복수 위험프로필 법안 {multi_profile_count}건, 주장 원장 {claim_ledger_count}개, "
             f"증거사슬 {evidence_chain_count}개를 표시합니다. "
@@ -4208,15 +4251,21 @@ def main() -> None:
             "summary_api": "법률안 제안이유 및 주요내용",
             "detail_api": "의안 상세정보",
             "official_total_count": total_count,
-            "retrieved_count": len(bills),
+            "retrieved_count": active_bill_count,
+            "published_record_count": len(bills),
+            "preserved_pilot_count": len(bills) - active_bill_count,
             "official_summary_count": linked_count,
             "official_detail_count": detail_count,
             "structured_draft_count": structured_count,
             "limited_draft_count": limited_count,
             "red_team_case_count": red_team_case_count,
             "fork_candidate_count": fork_candidate_count,
-            "clause_compared_count": clause_compared_count,
-            "human_reviewed_count": human_reviewed_count,
+            "clause_compared_count": (
+                pilot_program.get("summary") or {}
+            ).get("clause_comparisons", clause_compared_count),
+            "human_reviewed_count": (
+                pilot_program.get("summary") or {}
+            ).get("human_reviewed", human_reviewed_count),
             "deep_review_count": deep_review_count,
             "deep_attack_count": deep_attack_count,
             "claim_ledger_count": claim_ledger_count,
@@ -4237,11 +4286,17 @@ def main() -> None:
         },
         "stats": {
             "tracked": len(bills),
+            "active_tracked": active_bill_count,
+            "preserved_pilot": len(bills) - active_bill_count,
             "official_summaries": linked_count,
             "structured_drafts": structured_count,
             "limited_drafts": limited_count,
-            "clause_compared": clause_compared_count,
-            "human_reviewed": human_reviewed_count,
+            "clause_compared": (
+                pilot_program.get("summary") or {}
+            ).get("clause_comparisons", clause_compared_count),
+            "human_reviewed": (
+                pilot_program.get("summary") or {}
+            ).get("human_reviewed", human_reviewed_count),
             "deep_reviews": deep_review_count,
             "deep_attacks": deep_attack_count,
             "claim_ledger": claim_ledger_count,

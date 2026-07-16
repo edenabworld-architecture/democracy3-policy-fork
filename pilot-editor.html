@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Democracy 3.0 운영자 검토 편집기</title>
+<style>
+:root{--ink:#10203b;--muted:#64748b;--line:#dce3ef;--blue:#3157d5;--bg:#f5f7fb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif}
+header{background:#0f1f3d;color:#fff;padding:20px}.wrap{max-width:1180px;margin:auto;padding:20px}
+h1{font-size:24px;margin:0 0 6px}p{line-height:1.65}.notice{background:#fff8e8;border:1px solid #efd892;padding:12px;border-radius:12px;margin:14px 0}
+.toolbar,.panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px;margin-bottom:14px}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.toolbar select{min-width:320px}
+button,.file-label{border:0;background:var(--blue);color:#fff;padding:9px 12px;border-radius:9px;font-weight:800;cursor:pointer}
+button.secondary,.file-label.secondary{background:#e9eefb;color:#233e8b}.file-label input{display:none}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}
+label{display:block;font-size:12px;font-weight:800;margin:8px 0 5px}input,select,textarea{width:100%;border:1px solid #ccd6e5;border-radius:9px;padding:9px;font:inherit}textarea{min-height:90px}
+.entry{border:1px solid var(--line);border-radius:12px;padding:12px;margin:9px 0}.entry-head{display:flex;justify-content:space-between;gap:10px}.entry button{background:#fff0ee;color:#a52a20;padding:5px 8px}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}.tabs button{background:#e9eefb;color:#233e8b}.tabs button.active{background:var(--blue);color:#fff}
+.hidden{display:none}.status{font-size:12px;color:var(--muted)}.empty{padding:18px;text-align:center;color:var(--muted)}
+pre{white-space:pre-wrap;background:#0f1f3d;color:#eaf0ff;border-radius:10px;padding:12px;max-height:260px;overflow:auto}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.toolbar select{min-width:100%}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>Democracy 3.0 운영자 검토 편집기</h1><div>검증된 자료·조문·포크·검토기록을 작성해 <b>review_overrides.json</b>으로 내보냅니다.</div></div></header>
+<main class="wrap">
+<div class="notice"><b>중요:</b> 이 편집기는 저장소를 직접 수정하지 않습니다. 작성 후 JSON을 내려받아 GitHub의 기존 <code>review_overrides.json</code>을 덮어써야 합니다. 자동생성 파일인 <code>bills.json</code>을 직접 고치지 마십시오.</div>
+<section class="toolbar">
+<select id="caseSelect"></select>
+<label class="file-label secondary">JSON 불러오기<input id="importFile" type="file" accept=".json,application/json"></label>
+<button id="saveLocal" class="secondary">브라우저 임시저장</button>
+<button id="exportJson">review_overrides.json 내려받기</button>
+<button id="resetLocal" class="secondary">임시저장 삭제</button>
+<span id="state" class="status"></span>
+</section>
+<section class="panel">
+<div class="tabs">
+<button data-tab="official" class="active">공식문서</button>
+<button data-tab="evidence">독립근거</button>
+<button data-tab="clauses">조문대조</button>
+<button data-tab="forks">A/B/C 조문</button>
+<button data-tab="reviews">사람검토</button>
+<button data-tab="corrections">정정이력</button>
+<button data-tab="notes">운영자 메모</button>
+</div>
+<div id="editor"></div>
+</section>
+<section class="panel">
+<h3>현재 데이터 검사</h3>
+<div id="validation" class="status"></div>
+<pre id="preview"></pre>
+</section>
+</main>
+<script>
+const CASE_IDS=[
+"PRC_E2C6D0B7C1K4K1J0H5H1G5H5O8N7N8","PRC_R2Z6A0Y7Z1X0X1W6S0S5R0R2P1O1P3",
+"PRC_K2I6H0I7Q0P1N1M6N3J0I2G3H1G3O6","PRC_N2O6M0N6V2V5U1S7T3R7S1O6M1N2L5",
+"PRC_Z2X6Y0X6X2F4D1E1D0D9B4J0K9I5J9","PRC_I2H6H0F7G0O8O1N0L3M9L5L1T9T7S3",
+"PRC_Z2V6V0U7S0T7R1S6A3A1Z1X9Y0W7X7","PRC_M2M6U0V7T0U6S1R5R1Z0A4Y7Z1X0V9",
+"PRC_S2P6O0X5V2V1E1C3Z3I3H2E7A5Z7J4","PRC_N2M6L0L6K1G9F1F0E4C2L0J3K5J0H6"];
+const emptyCase=()=>({official_documents:[],external_evidence:[],claim_verdicts:{},clause_comparisons:[],fork_drafts:[],reviews:[],corrections:[],implementation_tracking:[],operator_notes:""});
+let store={schema_version:"1.0",methodology_version:"verified-review-store-v1",updated_at:"",updated_by:"박찬성",authorship:"창안 및 원안 설계: 박찬성",cases:Object.fromEntries(CASE_IDS.map(id=>[id,emptyCase()]))};
+let bills={};let activeTab="official";
+const $=id=>document.getElementById(id), esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const value=(obj,key)=>esc(obj?.[key]||"");
+function currentId(){return $("caseSelect").value}
+function current(){return store.cases[currentId()]||(store.cases[currentId()]=emptyCase())}
+async function bootstrap(){
+  try{const r=await fetch("bills.json",{cache:"no-store"});if(r.ok){const d=await r.json();for(const b of d.bills||[])bills[b.id]=b}}catch(e){}
+  try{const r=await fetch("review_overrides.json",{cache:"no-store"});if(r.ok)store=normalize(await r.json())}catch(e){}
+  const local=localStorage.getItem("democracy3-review-overrides");if(local)try{store=normalize(JSON.parse(local))}catch(e){}
+  $("caseSelect").innerHTML=CASE_IDS.map((id,i)=>`<option value="${id}">${i+1}. ${esc(bills[id]?.title||id)}</option>`).join("");
+  bind();render();
+}
+function normalize(data){
+  data=data&&typeof data==="object"?data:{};
+  data.schema_version="1.0";data.methodology_version="verified-review-store-v1";data.updated_by=data.updated_by||"박찬성";data.cases=data.cases||{};
+  for(const id of CASE_IDS)data.cases[id]=Object.assign(emptyCase(),data.cases[id]||{});
+  for(const id of Object.keys(data.cases))if(!CASE_IDS.includes(id))delete data.cases[id];
+  return data;
+}
+function bind(){
+  $("caseSelect").onchange=render;
+  document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{activeTab=b.dataset.tab;document.querySelectorAll("[data-tab]").forEach(x=>x.classList.toggle("active",x===b));render()});
+  $("saveLocal").onclick=()=>{syncTextareas();localStorage.setItem("democracy3-review-overrides",JSON.stringify(store));state("브라우저에 임시저장했습니다.")};
+  $("resetLocal").onclick=()=>{localStorage.removeItem("democracy3-review-overrides");state("임시저장을 삭제했습니다.")};
+  $("exportJson").onclick=exportJson;
+  $("importFile").onchange=async e=>{const f=e.target.files[0];if(!f)return;try{store=normalize(JSON.parse(await f.text()));state("JSON을 불러왔습니다.");render()}catch(err){alert("JSON을 읽을 수 없습니다: "+err.message)}};
+}
+function state(s){$("state").textContent=s}
+function syncTextareas(){
+  document.querySelectorAll("[data-json-field]").forEach(el=>{
+    try{current()[el.dataset.jsonField]=JSON.parse(el.value||"[]");el.style.borderColor=""}
+    catch(e){el.style.borderColor="#c00";throw new Error(el.dataset.jsonField+" JSON 오류")}
+  });
+  const note=$("operatorNotes");if(note)current().operator_notes=note.value;
+}
+const templates={
+official_documents:[{title:"",document_type:"법률안 조문 전문",url:"",source_agency:"대한민국 국회",status:"위치 확인",published_at:"",reviewed_at:"",reviewed_by:"",checksum:"",notes:""}],
+external_evidence:[{evidence_id:"E01",title:"",publisher:"",url:"",published_at:"",claim_ids:["C01"],status:"후보",summary:"",limitations:"",reviewed_at:"",reviewed_by:""}],
+clause_comparisons:[{law_name:"",clause_id:"제1조",current_text:"",proposed_text:"",analysis:"",source_url:"",status:"초안",reviewed_at:"",reviewed_by:""}],
+fork_drafts:[{label:"A",title:"",target_clause:"",exact_clause_text:"",rationale:"",status:"설계초안",drafted_by:"박찬성",drafted_at:"",source_links:[]}],
+reviews:[{role:"operator",status:"검토 중",reviewer:"박찬성",affiliation:"",expertise:"",reviewed_at:"",summary:"",limitations:""}],
+corrections:[{correction_id:"COR-001",status:"접수",issue:"",reported_by:"",reported_at:"",decision_reason:"",resolved_at:""}]
+};
+function jsonEditor(field,title,help){
+  const data=current()[field]||[];
+  return `<h3>${esc(title)}</h3><p class="status">${esc(help)}</p><button class="secondary" onclick="addTemplate('${field}')">예시 항목 추가</button><label>JSON 목록</label><textarea data-json-field="${field}" style="min-height:430px">${esc(JSON.stringify(data,null,2))}</textarea>`;
+}
+function render(){
+  const c=current();
+  let html="";
+  if(activeTab==="official")html=jsonEditor("official_documents","법안별 공식문서","공통 홈페이지 주소가 아니라 해당 법안과 직접 연결된 파일·첨부식별자만 입력합니다.");
+  if(activeTab==="evidence")html=jsonEditor("external_evidence","독립근거","claim_ids에 C01 같은 주장 ID를 연결하고, 실제 검토 전에는 상태를 후보 또는 출처 확인으로 둡니다.");
+  if(activeTab==="clauses")html=jsonEditor("clause_comparisons","현행법·개정안 조문 대조","원문 출처 URL과 현행·개정 문장을 그대로 기록합니다.");
+  if(activeTab==="forks")html=jsonEditor("fork_drafts","A/B/C 실제 대체조문","조문초안 이상부터는 target_clause와 exact_clause_text가 반드시 필요합니다.");
+  if(activeTab==="reviews")html=jsonEditor("reviews","운영자·전문가 검토기록","완료 표시는 검토자·일자·요약이 모두 있을 때만 사용합니다.");
+  if(activeTab==="corrections")html=jsonEditor("corrections","오류·반론·정정이력","틀린 분석을 덮어쓰지 않고 접수부터 결정까지 남깁니다.");
+  if(activeTab==="notes")html=`<h3>비공개 작업 메모용 필드</h3><p class="status">현재 JSON에는 포함되므로 공개 저장소에 올릴 내용만 적으십시오.</p><textarea id="operatorNotes">${esc(c.operator_notes||"")}</textarea>`;
+  $("editor").innerHTML=html;validate();
+}
+function addTemplate(field){syncTextareas();current()[field].push(JSON.parse(JSON.stringify(templates[field][0])));render()}
+function validate(){
+  try{syncTextareas();const problems=[];for(const id of CASE_IDS){const c=store.cases[id];if(!c)problems.push(id+" 누락");for(const e of c.external_evidence||[])if(!Array.isArray(e.claim_ids)||!e.claim_ids.length)problems.push(id+" 근거의 claim_ids 누락");}
+    $("validation").textContent=problems.length?problems.join(" / "):"기본 구조 검사 통과. 최종 엄격 검사는 GitHub Actions의 validate_release.py가 수행합니다.";
+    $("preview").textContent=JSON.stringify({case:currentId(),title:bills[currentId()]?.title||"",data:current()},null,2);
+  }catch(e){$("validation").textContent=e.message}
+}
+function exportJson(){
+  try{syncTextareas()}catch(e){alert(e.message);return}
+  store.updated_at=new Date().toISOString();store.updated_by="박찬성";
+  const blob=new Blob([JSON.stringify(store,null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="review_overrides.json";a.click();URL.revokeObjectURL(a.href);
+  state("JSON을 내려받았습니다. GitHub의 review_overrides.json을 덮어쓰십시오.");
+}
+bootstrap();
+</script>
+</body>
+</html>
