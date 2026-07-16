@@ -1,8 +1,8 @@
 {
   "status": "healthy",
-  "checked_at": "2026-07-16T09:58:17.382793+00:00",
-  "generated_at": "2026-07-16T18:58:09+09:00",
-  "schema_version": "legacy-root",
+  "checked_at": "2026-07-16T11:43:39.965167+00:00",
+  "generated_at": "2026-07-16T20:43:30+09:00",
+  "schema_version": "1.0",
   "checks": {
     "collection": "pass",
     "manifest": "pass",
@@ -11,7 +11,11 @@
     "claim_evidence": "pass",
     "clause_integrity": "pass",
     "review_integrity": "pass",
-    "split_outputs": "pass"
+    "split_outputs": "pass",
+    "policy_lifecycle": "pass",
+    "civic_log": "pass",
+    "source_registry": "pass",
+    "participation_contract": "pass"
   },
   "counts": {
     "bills": 100,
@@ -24,12 +28,15 @@
     "corrections": 0,
     "stages": {
       "S1": 10
-    }
+    },
+    "lifecycle_policies": 100,
+    "civic_entries": 0,
+    "registered_sources": 6
   },
   "hashes": {
-    "bills_json": "a8127f368e0bad697975a870c49806bf87edd345cbeaa378ef2240e9a6a8be98",
+    "bills_json": "f63b1a82ccca5909d08d35b7d72a7fef35b1f280c5c348a6d8eb2e9a8acc5672",
     "pilot_manifest": "04f564184bf61026797ee2454c6f967601f5f4f3ac82551a7dc8ce2b5e66beb0",
-    "review_overrides": "d141df60656009cd15a0c60e79913878e535796c91c5aa92b8d63d54f4c58020"
+    "review_overrides": "f53627711e05947bb72aa111dea56a460926456ec9fbec0b4aec0d23d70e6fc9"
   },
   "authorship": "창안 및 원안 설계: 박찬성"
 }
