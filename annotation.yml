@@ -1,0 +1,17 @@
+name: 정책 주석
+description: 특정 문장·조문·분석에 공개 주석을 남깁니다.
+title: "[주석] "
+labels: ["annotation"]
+body:
+  - type: input
+    id: policy
+    attributes: {label: 정책명 또는 정책 ID}
+    validations: {required: true}
+  - type: input
+    id: target
+    attributes: {label: 대상 문장·조문·버전}
+    validations: {required: true}
+  - type: textarea
+    id: content
+    attributes: {label: 주석 내용}
+    validations: {required: true}

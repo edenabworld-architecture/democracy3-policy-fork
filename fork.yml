@@ -1,0 +1,29 @@
+name: 정책포크·대체조문 제안
+description: A/B/C 대안 또는 실제 대체조문을 제안합니다.
+title: "[포크] "
+labels: ["policy-fork"]
+body:
+  - type: input
+    id: bill
+    attributes:
+      label: 법안명 또는 법안 ID
+    validations:
+      required: true
+  - type: input
+    id: clause
+    attributes:
+      label: 대상 조문
+    validations:
+      required: true
+  - type: textarea
+    id: text
+    attributes:
+      label: 제안 조문
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: 막으려는 위험과 새로 생길 수 있는 위험
+    validations:
+      required: true

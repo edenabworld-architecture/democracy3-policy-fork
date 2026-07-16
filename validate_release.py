@@ -25,6 +25,10 @@ REPORTS_DIR = ROOT / "reports"
 MANIFEST_PATH = ROOT / "pilot_manifest.json"
 OVERRIDES_PATH = ROOT / "review_overrides.json"
 STATUS_PATH = ROOT / "release-status.json"
+LIFECYCLE_PATH = ROOT / "policy-lifecycle.json"
+CIVIC_PATH = ROOT / "civic-log.json"
+SOURCE_REGISTRY_PATH = ROOT / "source_registry.json"
+PARTICIPATION_CONFIG_PATH = ROOT / "participation-config.json"
 
 
 class ReleaseValidationError(RuntimeError):
@@ -99,7 +103,7 @@ def validate_case(
 
     store = case.get("verified_review_store") or {}
     require(
-        store.get("methodology_version") == "verified-review-store-v1",
+        store.get("methodology_version") == "verified-review-store-v2",
         f"{bill_id}: 수동검토 원장 병합 누락",
     )
 
@@ -235,6 +239,17 @@ def validate() -> dict[str, Any]:
                 f"개별 보고서 ID 불일치: {report_path.name}",
             )
 
+    lifecycle = read_json(LIFECYCLE_PATH)
+    civic = read_json(CIVIC_PATH)
+    registry = read_json(SOURCE_REGISTRY_PATH)
+    participation = read_json(PARTICIPATION_CONFIG_PATH)
+    require(lifecycle.get("schema_version") == "1.0", "policy-lifecycle.json 스키마 오류")
+    lifecycle_ids = set((lifecycle.get("policies") or {}).keys())
+    require(set(bill_by_id).issubset(lifecycle_ids), "시행·버전 추적에서 정책 누락")
+    require(isinstance(civic.get("entries"), list), "civic-log.json entries 오류")
+    require(any(source.get("key") == "assembly_bills" and source.get("status") == "active" for source in registry.get("sources") or []), "국회 공식수집원 등록 누락")
+    require(participation.get("fallback"), "시민참여 fallback 설정 누락")
+
     generated_at = str(data.get("generated_at", ""))
     require(generated_at, "generated_at 누락")
     status = {
@@ -251,12 +266,19 @@ def validate() -> dict[str, Any]:
             "clause_integrity": "pass",
             "review_integrity": "pass",
             "split_outputs": "pass" if INDEX_PATH.exists() and REPORTS_DIR.exists() else "legacy-compatible",
+            "policy_lifecycle": "pass",
+            "civic_log": "pass",
+            "source_registry": "pass",
+            "participation_contract": "pass",
         },
         "counts": {
             "bills": len(bills),
             "pilot_cases": len(cases),
             **totals,
             "stages": stages,
+            "lifecycle_policies": len(lifecycle_ids),
+            "civic_entries": len(civic.get("entries") or []),
+            "registered_sources": len(registry.get("sources") or []),
         },
         "hashes": {
             "bills_json": sha256(BILLS_PATH),

@@ -1,4 +1,4 @@
-"""Democracy 3.0 정책포크 v0.13
+"""Democracy 3.0 정책포크 v1.0
 
 국회 최신 의안, 공식 제안이유·주요내용, 상세 진행정보를 수집하고
 공식 원문에서 확인되는 단서만으로 규칙 기반 구조화 초안을 생성합니다.
@@ -49,7 +49,7 @@ PILOT_MANIFEST_PATH = ROOT / "pilot_manifest.json"
 REVIEW_OVERRIDES_PATH = ROOT / "review_overrides.json"
 KST = timezone(timedelta(hours=9))
 API_WORKERS = 5
-SCHEMA_VERSION = "0.13"
+SCHEMA_VERSION = "1.0"
 
 UNKNOWN_COMMITTEE_VALUES = {
     "",
@@ -1400,6 +1400,109 @@ def build_easy_card_summary(
         easy_problem = easy_korean(problem_sentence)
         return "이 법안은 " + easy_problem
     return f"{title}의 핵심 변경 내용을 공식 요약에서 쉽게 분리하지 못했습니다."
+
+
+
+def shorten_for_brief(value: str, limit: int = 92) -> str:
+    cleaned = normalize_korean_sentence(value)
+    if len(cleaned) <= limit:
+        return cleaned
+    return cleaned[: limit - 1].rstrip() + "…"
+
+
+def build_thirty_second_brief(
+    problem: str,
+    change: str,
+    affected: list[str],
+    benefit: str,
+    risk: str,
+    decision: str,
+) -> dict[str, str]:
+    return {
+        "problem": shorten_for_brief(problem, 88),
+        "change": shorten_for_brief(change, 88),
+        "who": shorten_for_brief(", ".join(affected[:4]) or "영향대상 확인 필요", 72),
+        "proposer_claim": shorten_for_brief(benefit, 84),
+        "largest_risk": shorten_for_brief(risk, 84),
+        "decision": shorten_for_brief(decision, 92),
+    }
+
+
+def build_proposer_argument_map(
+    text: str,
+    problem: str,
+    change: str,
+    claimed_benefit: str,
+    deep_review: dict[str, Any],
+    unverified_claims: list[str],
+) -> dict[str, Any]:
+    sentences = split_sentences(text)
+    evidence_signals = [
+        sentence for sentence in sentences
+        if re.search(r"\\d[\\d,.]*\\s*(건|명|개|%|억원|조원|년|개월)", sentence)
+        or contains_any(sentence, ("미국", "일본", "유럽", "해외", "통계", "조사", "사례"))
+    ]
+    claims = []
+    for claim in (deep_review.get("claim_ledger") or [])[:12]:
+        claims.append({
+            "id": claim.get("id", ""),
+            "claim": claim.get("claim", ""),
+            "claim_type": claim.get("claim_type", ""),
+            "speaker": "발의자·제안이유",
+            "status": "독립 검증 전",
+        })
+    return {
+        "source_type": "발의자의 제안이유 및 주요내용",
+        "separation_rule": (
+            "정치인의 주장, 주장이 제시한 근거, 그 근거에서 결론으로 이어지는 논리를 "
+            "각각 분리하며 어느 것도 사실로 자동 확정하지 않습니다."
+        ),
+        "claims": claims,
+        "stated_evidence": dedupe_similar(evidence_signals, 8),
+        "logic_chain": [
+            {"step": 1, "label": "문제 주장", "content": problem},
+            {"step": 2, "label": "정책수단", "content": change},
+            {"step": 3, "label": "기대결과", "content": claimed_benefit},
+        ],
+        "unproven_links": dedupe_similar(unverified_claims, 8),
+        "verification_status": "발의자 주장 분리 완료 · 독립 검증 전",
+    }
+
+
+def build_adversarial_audit(
+    text: str,
+    deep_review: dict[str, Any],
+    largest_risk: str,
+) -> dict[str, Any]:
+    checks = [
+        ("권한집중", ("권한", "임명", "위원회", "장관", "지방자치단체장")),
+        ("재량·특혜", ("재량", "선정", "지정", "허가", "지원", "보조금")),
+        ("부정부패·이해충돌", ("계약", "사업자", "위탁", "보조금", "조달", "심사")),
+        ("감시·정보남용", ("개인정보", "정보시스템", "자료", "제출", "공개")),
+        ("처벌·규제남용", ("벌칙", "과태료", "처벌", "제재", "금지")),
+        ("예산누수", ("예산", "비용", "지원", "사업", "재정")),
+    ]
+    vectors = []
+    for label, signals in checks:
+        matched = [signal for signal in signals if signal in text]
+        vectors.append({
+            "vector": label,
+            "status": "집중 공격 필요" if matched else "상시 점검",
+            "signals": matched,
+            "question": f"{label}이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?",
+        })
+    attacks = deep_review.get("deep_red_team") or []
+    return {
+        "mission": (
+            "정책을 옹호하는 것이 아니라, 실패·악용·부정부패·기관포획·우회 가능성을 "
+            "가장 강한 조건에서 찾아 무너뜨린 뒤 살아남는 설계만 남깁니다."
+        ),
+        "attack_count": len(attacks),
+        "top_attacks": attacks[:8],
+        "corruption_and_capture_checks": vectors,
+        "largest_risk": largest_risk,
+        "status": "자동 적대검증 초안 · 조문·사례·감사자료 대조 전",
+    }
 
 
 def build_claimed_benefit(text: str) -> str:
@@ -3681,11 +3784,35 @@ def build_structured_analysis(
                 "missing": ["국회 공식 제안이유·주요내용"],
                 "meaning": "수정안 작성에 필요한 자료가 얼마나 확보됐는지를 뜻합니다.",
             },
+            "thirty_second_brief": {
+                "problem": "공식 원문 없음",
+                "change": "공식 원문 없음",
+                "who": "확인 불가",
+                "proposer_claim": "확인 불가",
+                "largest_risk": "확인 불가",
+                "decision": "국회 원문과 부속자료를 먼저 확보해야 합니다.",
+            },
             "one_minute_brief": {
                 "problem": "공식 원문 없음",
                 "change": "공식 원문 없음",
                 "who": "확인 불가",
                 "decision": "국회 원문과 부속자료를 먼저 확보해야 합니다.",
+            },
+            "proposer_argument_map": {
+                "source_type": "자료 없음",
+                "claims": [],
+                "stated_evidence": [],
+                "logic_chain": [],
+                "unproven_links": [],
+                "verification_status": "생성 불가",
+            },
+            "adversarial_audit": {
+                "mission": "공식 원문 확보 후 적대검증을 시작합니다.",
+                "attack_count": 0,
+                "top_attacks": [],
+                "corruption_and_capture_checks": [],
+                "largest_risk": "확인 불가",
+                "status": "생성 불가",
             },
             "questions": ["국회 원문과 부속자료를 직접 확인해야 합니다."],
             "scores": empty_scores,
@@ -3746,10 +3873,31 @@ def build_structured_analysis(
         sentences=sentences,
         fork_candidates=fork_candidates,
     )
+    thirty_second_brief = build_thirty_second_brief(
+        easy_problem,
+        easy_change,
+        affected,
+        claimed_benefit,
+        largest_risk,
+        build_decision_question(text),
+    )
+    proposer_argument_map = build_proposer_argument_map(
+        text,
+        easy_problem,
+        easy_change,
+        claimed_benefit,
+        deep_review,
+        evidence["unverified_claims"],
+    )
+    adversarial_audit = build_adversarial_audit(
+        text,
+        deep_review,
+        largest_risk,
+    )
 
     return {
         "analysis_status": status,
-        "analysis_method": "복수 위험프로필·주장 원장·증거사슬 검토 v0.6",
+        "analysis_method": "주장·논리·근거 분리 및 적대적 정책감사 v1.0",
         "analysis_confidence": confidence,
         "analysis_visibility": analysis_visibility,
         "analysis_review_state": "사람 검토 전",
@@ -3794,12 +3942,15 @@ def build_structured_analysis(
             actors,
             committee,
         ),
+        "thirty_second_brief": thirty_second_brief,
         "one_minute_brief": {
-            "problem": easy_problem,
-            "change": easy_change,
-            "who": ", ".join(affected[:4]),
-            "decision": build_decision_question(text),
+            "problem": thirty_second_brief["problem"],
+            "change": thirty_second_brief["change"],
+            "who": thirty_second_brief["who"],
+            "decision": thirty_second_brief["decision"],
         },
+        "proposer_argument_map": proposer_argument_map,
+        "adversarial_audit": adversarial_audit,
         "questions": dedupe_similar(build_questions(text, committee), 4),
         "scores": build_source_signals(text, problem_sentence),
         "analysis_basis": (
@@ -3834,6 +3985,10 @@ def compact_bill_record(bill: dict[str, Any]) -> dict[str, Any]:
 
     return {
         "id": bill.get("id", ""),
+        "policy_type": bill.get("policy_type", "국회 법률안"),
+        "jurisdiction": bill.get("jurisdiction") or {
+            "country": "대한민국", "level": "국가", "name": "대한민국", "code": "KR"
+        },
         "title": bill.get("title", ""),
         "category": bill.get("category", "기타"),
         "category_basis": bill.get("category_basis", ""),
@@ -3845,7 +4000,19 @@ def compact_bill_record(bill: dict[str, Any]) -> dict[str, Any]:
         "review_count": bill.get("review_count", 0),
         "card_summary": bill.get("card_summary", ""),
         "summary": bill.get("summary", ""),
+        "thirty_second_brief": bill.get("thirty_second_brief") or {},
         "largest_risk": bill.get("largest_risk", ""),
+        "red_team_count": len(((bill.get("deep_review") or {}).get("deep_red_team") or [])),
+        "claim_count": len(((bill.get("deep_review") or {}).get("claim_ledger") or [])),
+        "fork_preview": [
+            {
+                "label": item.get("label", ""),
+                "title": item.get("title", ""),
+                "change": item.get("change") or item.get("body", ""),
+                "risk": item.get("risk", ""),
+            }
+            for item in (bill.get("fork_candidates") or [])[:3]
+        ],
         "analysis_confidence": bill.get("analysis_confidence", ""),
         "analysis_review_state": bill.get("analysis_review_state", ""),
         "fork_count": len(bill.get("fork_candidates") or []),
@@ -4036,6 +4203,13 @@ def main() -> None:
         bills.append(
             {
                 "id": clean(bill_id or bill_no, title),
+                "policy_type": "국회 법률안",
+                "jurisdiction": {
+                    "country": "대한민국",
+                    "level": "국가",
+                    "name": "대한민국",
+                    "code": "KR",
+                },
                 "category": category_from_context(title, committee)[0],
                 "category_basis": category_from_context(title, committee)[1],
                 "title": title,
@@ -4093,7 +4267,10 @@ def main() -> None:
                     stage=stage,
                 ),
                 "fork_readiness": analysis["fork_readiness"],
+                "thirty_second_brief": analysis["thirty_second_brief"],
                 "one_minute_brief": analysis["one_minute_brief"],
+                "proposer_argument_map": analysis["proposer_argument_map"],
+                "adversarial_audit": analysis["adversarial_audit"],
                 "questions": analysis["questions"],
                 "scores": analysis["scores"],
                 "progress_timeline": build_progress_timeline(
@@ -4235,6 +4412,7 @@ def main() -> None:
     validate_pilot_program(pilot_program)
 
     output = {
+        "schema_version": SCHEMA_VERSION,
         "generated_at": generated_at,
         "notice": (
             "대한민국 국회 열린국회정보의 제22대 국회 최신 의안입니다. "
@@ -4242,8 +4420,9 @@ def main() -> None:
             f"공식 원문 {linked_count}건, 심층 검토 {deep_review_count}건, "
             f"복수 위험프로필 법안 {multi_profile_count}건, 주장 원장 {claim_ledger_count}개, "
             f"증거사슬 {evidence_chain_count}개를 표시합니다. "
-            "국가 시범검토 10건은 직전 확정목록을 유지하며, 구조화 준비도와 "
-            "공식자료·독립근거·사람검토 성숙도를 분리해 표시합니다."
+            "국가 시범검토 10건은 직전 확정목록을 유지합니다. "
+            "30초 이해, 발의자 주장·근거·논리 분리, 적대적 레드팀, 정책 포크, "
+            "버전 로그와 시행·책임추적을 서로 다른 상태로 표시합니다."
         ),
         "source": {
             "provider": "대한민국 국회 열린국회정보",

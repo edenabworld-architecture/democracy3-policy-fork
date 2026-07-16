@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "mode": "hybrid",
+  "repository": "edenabworld-architecture/democracy3-policy-fork",
+  "api_endpoint": "",
+  "public_queue": "civic-log.json",
+  "anonymous_submission": "backend_not_deployed",
+  "fallback": "github_issue_and_json_download",
+  "allowed_types": [
+    "annotation",
+    "correction",
+    "evidence",
+    "red_team",
+    "fork"
+  ],
+  "privacy_notice": "민감한 개인정보는 입력하지 마십시오. 공개 제출은 기록과 검토를 위해 공개될 수 있습니다."
+}

@@ -12,7 +12,7 @@ from urllib.parse import urlparse
 
 
 SCHEMA_VERSION = "1.0"
-METHODOLOGY_VERSION = "verified-review-store-v1"
+METHODOLOGY_VERSION = "verified-review-store-v2"
 
 OFFICIAL_DOCUMENT_STATUSES = {
     "위치 확인",
@@ -40,7 +40,9 @@ REVIEW_ROLES = {"operator", "expert", "legal", "domain", "citizen"}
 REVIEW_STATUSES = {"검토 중", "완료", "재검토 필요"}
 FORK_STATUSES = {"설계초안", "조문초안", "운영자 검토", "전문가 검토", "확정안"}
 CLAUSE_STATUSES = {"초안", "원문 확인", "문장 대조 완료", "운영자 검토", "전문가 검토"}
-CORRECTION_STATUSES = {"접수", "검토 중", "반영", "기각", "보류"}
+CORRECTION_STATUSES = {"접수", "검토 중", "반영", "부분반영", "기각", "보류"}
+CIVIC_STATUSES = {"접수", "검토 중", "근거 확인", "반영", "부분반영", "기각", "보류"}
+IMPLEMENTATION_STATUSES = {"계획", "추진 중", "지연", "완료", "중단", "평가 중", "재검토"}
 
 
 class ReviewStoreError(ValueError):
@@ -112,6 +114,9 @@ def default_case_store() -> dict[str, Any]:
         "fork_drafts": [],
         "reviews": [],
         "corrections": [],
+        "annotations": [],
+        "citizen_forks": [],
+        "decisions": [],
         "implementation_tracking": [],
         "operator_notes": "",
     }
@@ -154,6 +159,9 @@ def load_overrides(path: Path, manifest: dict[str, Any]) -> dict[str, Any]:
             "fork_drafts",
             "reviews",
             "corrections",
+            "annotations",
+            "citizen_forks",
+            "decisions",
             "implementation_tracking",
         ):
             require(isinstance(normalized.get(field), list), f"{bill_id}.{field}는 목록이어야 합니다.")
@@ -244,6 +252,46 @@ def validate_correction(item: dict[str, Any], bill_id: str, index: int) -> None:
         require(tidy(item.get("decision_reason")), f"{prefix}.decision_reason이 필요합니다.")
 
 
+
+def validate_annotation(item: dict[str, Any], bill_id: str, index: int) -> None:
+    prefix = f"{bill_id}.annotations[{index}]"
+    require(tidy(item.get("annotation_id")), f"{prefix}.annotation_id가 필요합니다.")
+    require(tidy(item.get("target")), f"{prefix}.target이 필요합니다.")
+    require(tidy(item.get("content")), f"{prefix}.content가 필요합니다.")
+    require(item.get("status") in CIVIC_STATUSES, f"{prefix}.status가 허용값이 아닙니다.")
+    require(tidy(item.get("created_at")), f"{prefix}.created_at이 필요합니다.")
+
+
+def validate_citizen_fork(item: dict[str, Any], bill_id: str, index: int) -> None:
+    prefix = f"{bill_id}.citizen_forks[{index}]"
+    require(tidy(item.get("fork_id")), f"{prefix}.fork_id가 필요합니다.")
+    require(tidy(item.get("title")), f"{prefix}.title이 필요합니다.")
+    require(tidy(item.get("proposal")), f"{prefix}.proposal이 필요합니다.")
+    require(item.get("status") in CIVIC_STATUSES, f"{prefix}.status가 허용값이 아닙니다.")
+    require(tidy(item.get("created_at")), f"{prefix}.created_at이 필요합니다.")
+
+
+def validate_decision(item: dict[str, Any], bill_id: str, index: int) -> None:
+    prefix = f"{bill_id}.decisions[{index}]"
+    require(tidy(item.get("decision_id")), f"{prefix}.decision_id가 필요합니다.")
+    require(item.get("status") in CIVIC_STATUSES, f"{prefix}.status가 허용값이 아닙니다.")
+    require(tidy(item.get("decision")), f"{prefix}.decision이 필요합니다.")
+    require(tidy(item.get("reason")), f"{prefix}.reason이 필요합니다.")
+    require(tidy(item.get("decided_at")), f"{prefix}.decided_at이 필요합니다.")
+    require(tidy(item.get("decided_by")), f"{prefix}.decided_by가 필요합니다.")
+
+
+def validate_implementation(item: dict[str, Any], bill_id: str, index: int) -> None:
+    prefix = f"{bill_id}.implementation_tracking[{index}]"
+    require(tidy(item.get("event_id")), f"{prefix}.event_id가 필요합니다.")
+    require(tidy(item.get("date")), f"{prefix}.date가 필요합니다.")
+    require(item.get("status") in IMPLEMENTATION_STATUSES, f"{prefix}.status가 허용값이 아닙니다.")
+    progress = item.get("progress_percent", 0)
+    require(isinstance(progress, (int, float)) and 0 <= progress <= 100, f"{prefix}.progress_percent는 0~100이어야 합니다.")
+    if item.get("source_url"):
+        require(valid_http_url(item.get("source_url")), f"{prefix}.source_url이 올바르지 않습니다.")
+
+
 def validate_overrides(store: dict[str, Any], manifest: dict[str, Any]) -> None:
     cases = store["cases"]
     for bill_id in manifest["locked_ids"]:
@@ -269,6 +317,18 @@ def validate_overrides(store: dict[str, Any], manifest: dict[str, Any]) -> None:
         for index, item in enumerate(case["corrections"]):
             require(isinstance(item, dict), f"{bill_id}.corrections[{index}]는 객체여야 합니다.")
             validate_correction(item, bill_id, index)
+        for index, item in enumerate(case["annotations"]):
+            require(isinstance(item, dict), f"{bill_id}.annotations[{index}]는 객체여야 합니다.")
+            validate_annotation(item, bill_id, index)
+        for index, item in enumerate(case["citizen_forks"]):
+            require(isinstance(item, dict), f"{bill_id}.citizen_forks[{index}]는 객체여야 합니다.")
+            validate_citizen_fork(item, bill_id, index)
+        for index, item in enumerate(case["decisions"]):
+            require(isinstance(item, dict), f"{bill_id}.decisions[{index}]는 객체여야 합니다.")
+            validate_decision(item, bill_id, index)
+        for index, item in enumerate(case["implementation_tracking"]):
+            require(isinstance(item, dict), f"{bill_id}.implementation_tracking[{index}]는 객체여야 합니다.")
+            validate_implementation(item, bill_id, index)
 
 
 def evidence_verdict_from_status(status: str) -> str:
@@ -354,6 +414,9 @@ def merge_case(case: dict[str, Any], case_store: dict[str, Any], generated_at: s
         "fork_drafts": deepcopy(case_store.get("fork_drafts") or []),
         "reviews": deepcopy(case_store.get("reviews") or []),
         "corrections": deepcopy(case_store.get("corrections") or []),
+        "annotations": deepcopy(case_store.get("annotations") or []),
+        "citizen_forks": deepcopy(case_store.get("citizen_forks") or []),
+        "decisions": deepcopy(case_store.get("decisions") or []),
         "implementation_tracking": deepcopy(case_store.get("implementation_tracking") or []),
         "operator_notes": tidy(case_store.get("operator_notes")),
     }
@@ -492,6 +555,18 @@ def merge_verified_reviews(
     )
     summary["corrections"] = sum(
         len(((case.get("verified_review_store") or {}).get("corrections") or []))
+        for case in cases
+    )
+    summary["annotations"] = sum(
+        len(((case.get("verified_review_store") or {}).get("annotations") or []))
+        for case in cases
+    )
+    summary["citizen_forks"] = sum(
+        len(((case.get("verified_review_store") or {}).get("citizen_forks") or []))
+        for case in cases
+    )
+    summary["implementation_events"] = sum(
+        len(((case.get("verified_review_store") or {}).get("implementation_tracking") or []))
         for case in cases
     )
 

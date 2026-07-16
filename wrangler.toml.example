@@ -1,0 +1,11 @@
+name = "democracy3-participation-api"
+main = "worker.js"
+compatibility_date = "2026-07-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "democracy3"
+database_id = "REPLACE_ME"
+
+[vars]
+ALLOWED_ORIGIN = "https://edenabworld-architecture.github.io"

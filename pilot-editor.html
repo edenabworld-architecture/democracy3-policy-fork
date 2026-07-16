@@ -41,7 +41,7 @@ pre{white-space:pre-wrap;background:#0f1f3d;color:#eaf0ff;border-radius:10px;pad
 <button data-tab="clauses">조문대조</button>
 <button data-tab="forks">A/B/C 조문</button>
 <button data-tab="reviews">사람검토</button>
-<button data-tab="corrections">정정이력</button>
+<button data-tab="corrections">정정이력</button><button data-tab="annotations">시민 주석</button><button data-tab="citizenForks">시민 포크</button><button data-tab="decisions">처리결정</button><button data-tab="implementation">시행추적</button>
 <button data-tab="notes">운영자 메모</button>
 </div>
 <div id="editor"></div>
@@ -59,8 +59,8 @@ const CASE_IDS=[
 "PRC_Z2X6Y0X6X2F4D1E1D0D9B4J0K9I5J9","PRC_I2H6H0F7G0O8O1N0L3M9L5L1T9T7S3",
 "PRC_Z2V6V0U7S0T7R1S6A3A1Z1X9Y0W7X7","PRC_M2M6U0V7T0U6S1R5R1Z0A4Y7Z1X0V9",
 "PRC_S2P6O0X5V2V1E1C3Z3I3H2E7A5Z7J4","PRC_N2M6L0L6K1G9F1F0E4C2L0J3K5J0H6"];
-const emptyCase=()=>({official_documents:[],external_evidence:[],claim_verdicts:{},clause_comparisons:[],fork_drafts:[],reviews:[],corrections:[],implementation_tracking:[],operator_notes:""});
-let store={schema_version:"1.0",methodology_version:"verified-review-store-v1",updated_at:"",updated_by:"박찬성",authorship:"창안 및 원안 설계: 박찬성",cases:Object.fromEntries(CASE_IDS.map(id=>[id,emptyCase()]))};
+const emptyCase=()=>({official_documents:[],external_evidence:[],claim_verdicts:{},clause_comparisons:[],fork_drafts:[],reviews:[],corrections:[],annotations:[],citizen_forks:[],decisions:[],implementation_tracking:[],operator_notes:""});
+let store={schema_version:"1.0",methodology_version:"verified-review-store-v2",updated_at:"",updated_by:"박찬성",authorship:"창안 및 원안 설계: 박찬성",cases:Object.fromEntries(CASE_IDS.map(id=>[id,emptyCase()]))};
 let bills={};let activeTab="official";
 const $=id=>document.getElementById(id), esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const value=(obj,key)=>esc(obj?.[key]||"");
@@ -75,7 +75,7 @@ async function bootstrap(){
 }
 function normalize(data){
   data=data&&typeof data==="object"?data:{};
-  data.schema_version="1.0";data.methodology_version="verified-review-store-v1";data.updated_by=data.updated_by||"박찬성";data.cases=data.cases||{};
+  data.schema_version="1.0";data.methodology_version="verified-review-store-v2";data.updated_by=data.updated_by||"박찬성";data.cases=data.cases||{};
   for(const id of CASE_IDS)data.cases[id]=Object.assign(emptyCase(),data.cases[id]||{});
   for(const id of Object.keys(data.cases))if(!CASE_IDS.includes(id))delete data.cases[id];
   return data;
@@ -102,7 +102,7 @@ external_evidence:[{evidence_id:"E01",title:"",publisher:"",url:"",published_at:
 clause_comparisons:[{law_name:"",clause_id:"제1조",current_text:"",proposed_text:"",analysis:"",source_url:"",status:"초안",reviewed_at:"",reviewed_by:""}],
 fork_drafts:[{label:"A",title:"",target_clause:"",exact_clause_text:"",rationale:"",status:"설계초안",drafted_by:"박찬성",drafted_at:"",source_links:[]}],
 reviews:[{role:"operator",status:"검토 중",reviewer:"박찬성",affiliation:"",expertise:"",reviewed_at:"",summary:"",limitations:""}],
-corrections:[{correction_id:"COR-001",status:"접수",issue:"",reported_by:"",reported_at:"",decision_reason:"",resolved_at:""}]
+corrections:[{correction_id:"COR-001",status:"접수",issue:"",reported_by:"",reported_at:"",decision_reason:"",resolved_at:""}],annotations:[{annotation_id:"ANN-001",target:"30초 요약",content:"",status:"접수",created_at:"",author:""}],citizen_forks:[{fork_id:"CF-001",title:"",proposal:"",new_risk:"",status:"접수",created_at:"",author:""}],decisions:[{decision_id:"DEC-001",status:"검토 중",decision:"",reason:"",decided_at:"",decided_by:"박찬성"}],implementation_tracking:[{event_id:"IMP-001",date:"",status:"계획",progress_percent:0,summary:"",budget_planned:0,budget_executed:0,metric:"",value:"",issue:"",benefit:"",source_url:""}]
 };
 function jsonEditor(field,title,help){
   const data=current()[field]||[];
@@ -116,7 +116,7 @@ function render(){
   if(activeTab==="clauses")html=jsonEditor("clause_comparisons","현행법·개정안 조문 대조","원문 출처 URL과 현행·개정 문장을 그대로 기록합니다.");
   if(activeTab==="forks")html=jsonEditor("fork_drafts","A/B/C 실제 대체조문","조문초안 이상부터는 target_clause와 exact_clause_text가 반드시 필요합니다.");
   if(activeTab==="reviews")html=jsonEditor("reviews","운영자·전문가 검토기록","완료 표시는 검토자·일자·요약이 모두 있을 때만 사용합니다.");
-  if(activeTab==="corrections")html=jsonEditor("corrections","오류·반론·정정이력","틀린 분석을 덮어쓰지 않고 접수부터 결정까지 남깁니다.");
+  if(activeTab==="corrections")html=jsonEditor("corrections","오류·반론·정정이력","틀린 분석을 덮어쓰지 않고 접수부터 결정까지 남깁니다.");if(activeTab==="annotations")html=jsonEditor("annotations","시민 주석","정책 문장이나 분석 단위에 붙은 공개 주석입니다.");if(activeTab==="citizenForks")html=jsonEditor("citizen_forks","시민 정책포크","시민이 제안한 경쟁 정책과 새 위험을 기록합니다.");if(activeTab==="decisions")html=jsonEditor("decisions","처리결정","반영·부분반영·기각·보류와 이유를 공개합니다.");if(activeTab==="implementation")html=jsonEditor("implementation_tracking","시행·예산·성과 추적","정책 통과 후 실행률·예산·성과·문제·장점을 기록합니다.");
   if(activeTab==="notes")html=`<h3>비공개 작업 메모용 필드</h3><p class="status">현재 JSON에는 포함되므로 공개 저장소에 올릴 내용만 적으십시오.</p><textarea id="operatorNotes">${esc(c.operator_notes||"")}</textarea>`;
   $("editor").innerHTML=html;validate();
 }

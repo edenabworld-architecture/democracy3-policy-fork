@@ -281,6 +281,27 @@
     .provenance{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:10px;font-size:11px;color:#526078;line-height:1.55}
     @media(max-width:800px){.clause-compare{grid-template-columns:1fr}}
     @media print{header,.hero,.notice-wrap,#pilot-program,#policies,#architecture,#cooperation,.governance,#method,footer,.participate,.modal-tools,.close{display:none!important}dialog{position:static!important;display:block!important;width:100%!important;max-width:none!important;border:0!important}.modal{max-height:none!important;overflow:visible!important}}
+
+    /* v1.0 민주주의 순환 워크스페이스 */
+    .workspace-shell{padding:22px 0 64px;background:#f7f8fb}
+    .workspace-tabs{position:sticky;top:58px;z-index:80;display:flex;gap:7px;overflow:auto;padding:10px;background:rgba(247,248,251,.96);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:14px;margin-bottom:18px}
+    .workspace-tab{white-space:nowrap;border:0;background:#fff;color:#33415f;border-radius:10px;padding:10px 13px;font-weight:900;cursor:pointer}
+    .workspace-tab.active{background:#0f1f3d;color:#fff}
+    .workspace-view{display:none}.workspace-view.active{display:block}
+    .view-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:24px 0}.view-head h2{font-size:30px;margin:0 0 8px}.view-head p{color:var(--muted);line-height:1.7;margin:0;max-width:760px}
+    .dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.dashboard-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px}.dashboard-card h3{margin:0 0 7px;font-size:16px}.dashboard-card p{font-size:12px;color:var(--muted);line-height:1.6}.dashboard-card button{border:0;background:#0f1f3d;color:#fff;border-radius:9px;padding:8px 10px;font-weight:800;cursor:pointer}
+    .argument-map{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.argument-step{border:1px solid #dbe3ff;background:#f8f9ff;border-radius:12px;padding:12px}.argument-step b{display:block;color:#3157d5;margin-bottom:6px}
+    .argument-evidence{background:#fff8e8;border:1px solid #f1d99a;border-radius:12px;padding:12px;margin:9px 0;font-size:12px;line-height:1.6}
+    .hostile-banner{background:#2a1010;color:#fff;border-radius:15px;padding:16px;margin:10px 0}.hostile-banner p{color:#f3d6d2;line-height:1.65;margin:6px 0 0}.corruption-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.corruption-check{background:#fff7f5;border:1px solid #efb7ae;border-radius:11px;padding:11px;font-size:12px;line-height:1.55}.corruption-check b{display:block;color:#8a1c13}
+    .civic-form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .full{grid-column:1/-1}.civic-form label{display:block;font-size:12px;font-weight:900;margin:4px 0}.civic-form input,.civic-form select,.civic-form textarea{width:100%;border:1px solid #cbd5e1;border-radius:9px;padding:10px;font:inherit}.civic-form textarea{min-height:115px}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.form-actions button{border:0;border-radius:9px;padding:10px 12px;font-weight:900;cursor:pointer}.form-actions .primary{background:#0f1f3d;color:#fff}.form-actions .light{background:#eef2ff;color:#253d82}
+    .queue-list,.version-list,.implementation-list{display:grid;gap:10px}.queue-item,.version-item,.implementation-item{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px;font-size:12px;line-height:1.6}.queue-item .pill,.version-item .pill,.implementation-item .pill{display:inline-block;border-radius:999px;background:#eef2ff;color:#3157d5;padding:4px 7px;font-size:10px;font-weight:900}
+    .progress-bar{height:9px;background:#e9edf5;border-radius:999px;overflow:hidden;margin:8px 0}.progress-bar span{display:block;height:100%;background:#3157d5}
+    .policy-map{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.map-level{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px}.map-level h3{margin:0 0 8px}.source-row-card{border-top:1px solid var(--line);padding:10px 0;font-size:12px;line-height:1.55}.source-status{display:inline-block;border-radius:999px;padding:3px 6px;font-size:9px;font-weight:900;background:#eef2ff;color:#3157d5}
+    .cycle-strip{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;margin:14px 0}.cycle-node{background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 5px;text-align:center;font-size:10px;font-weight:900}.cycle-node.active{background:#0f1f3d;color:#fff}
+    @media(max-width:900px){.dashboard-grid,.argument-map,.corruption-grid,.policy-map{grid-template-columns:1fr 1fr}.cycle-strip{grid-template-columns:repeat(4,1fr)}}
+    @media(max-width:620px){.dashboard-grid,.argument-map,.corruption-grid,.policy-map,.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.workspace-tabs{top:50px}.cycle-strip{grid-template-columns:repeat(2,1fr)}}
+
+    .inline-civic{border:0;background:#eef2ff;color:#25408f;border-radius:7px;padding:5px 7px;font-size:10px;font-weight:900;cursor:pointer;margin-top:8px}
 </style>
 </head>
 <body><a class="skip-link" href="#policies">정책 목록으로 바로가기</a>
@@ -322,6 +343,21 @@
 
   <div class="container notice-wrap"><div id="notice" class="notice"></div><div id="health-panel"></div></div>
 
+  <section class="workspace-shell" aria-label="Democracy 3.0 정책 워크스페이스">
+    <div class="container">
+      <div class="cycle-strip" aria-label="정책 민주주의 순환">
+        <div class="cycle-node active">공개</div><div class="cycle-node">30초 이해</div><div class="cycle-node">주장 분리</div><div class="cycle-node">레드팀</div><div class="cycle-node">포크</div><div class="cycle-node">결정·버전</div><div class="cycle-node">시행</div><div class="cycle-node">성과·재검토</div>
+      </div>
+      <div class="workspace-tabs" role="tablist" aria-label="정책 메뉴">
+        <button class="workspace-tab active" data-view="discover" role="tab">정책 탐색</button>
+        <button class="workspace-tab" data-view="redteam" role="tab">적대적 검증</button>
+        <button class="workspace-tab" data-view="forks" role="tab">정책 포크</button>
+        <button class="workspace-tab" data-view="participation" role="tab">시민 참여</button>
+        <button class="workspace-tab" data-view="versions" role="tab">버전·로그</button>
+        <button class="workspace-tab" data-view="implementation" role="tab">시행·책임추적</button>
+        <button class="workspace-tab" data-view="map" role="tab">전국 정책지도</button>
+      </div>
+      <div id="view-discover" class="workspace-view active" role="tabpanel">
   <section id="pilot-program" class="pilot-program">
     <div class="container">
       <div class="pilot-head">
@@ -340,7 +376,7 @@
     <section id="stats" class="stats"></section>
     <div id="coverage" class="coverage"></div>
     <div class="section-head">
-      <div><h2>최근 법안, 1분 검토</h2><p>먼저 쉽게 이해하고, 찬성·반대·위험을 비교한 뒤 바꿀 수 있는 수정안을 살펴봅니다.</p></div>
+      <div><h2>최근 정책, 30초 이해</h2><p>먼저 쉽게 이해하고, 찬성·반대·위험을 비교한 뒤 바꿀 수 있는 수정안을 살펴봅니다.</p></div>
     </div>
     <div class="controls">
       <input id="search" placeholder="법안명이나 관심 주제를 검색하세요">
@@ -357,7 +393,48 @@
     <div id="chips" class="chips"></div>
     <section id="grid" class="grid"></section>
   </main>
-
+      </div>
+      <div id="view-redteam" class="workspace-view" role="tabpanel">
+        <div class="view-head"><div><h2>적대적 정책검증</h2><p>정책을 지지하는 설명이 아니라, 권한남용·부정부패·기관포획·예산누수·우회경로를 찾아 가장 강하게 무너뜨립니다.</p></div></div>
+        <div id="redteam-dashboard" class="dashboard-grid"></div>
+      </div>
+      <div id="view-forks" class="workspace-view" role="tabpanel">
+        <div class="view-head"><div><h2>정책 포크</h2><p>원안 찬반에 머물지 않고 권한·대상·비용·절차·통제장치를 다르게 설계한 경쟁 정책과 시민 제안을 비교합니다.</p></div></div>
+        <div id="fork-dashboard" class="dashboard-grid"></div>
+      </div>
+      <div id="view-participation" class="workspace-view" role="tabpanel">
+        <div class="view-head"><div><h2>시민 주석·정정·근거·포크</h2><p>제안은 삭제되지 않고 접수·검토·근거확인·반영·기각 상태와 결정 이유가 로그로 남습니다.</p></div></div>
+        <div class="civic-form">
+          <div class="form-grid">
+            <div><label for="civic-policy">정책</label><select id="civic-policy"></select></div>
+            <div><label for="civic-type">제안 유형</label><select id="civic-type"><option value="annotation">주석</option><option value="correction">정정 요청</option><option value="evidence">근거 제출</option><option value="red_team">새 위험·부패경로</option><option value="fork">정책 포크</option></select></div>
+            <div class="full"><label for="civic-title">제목</label><input id="civic-title" placeholder="무엇을 고치거나 제안합니까?"></div>
+            <div class="full"><label for="civic-content">내용</label><textarea id="civic-content" placeholder="문제, 근거, 제안, 예상효과와 새 위험을 적어주세요."></textarea></div>
+            <div><label for="civic-source">확인 가능한 출처 URL</label><input id="civic-source" type="url" placeholder="https://"></div>
+            <div><label for="civic-clause">대상 조문·문단</label><input id="civic-clause" placeholder="예: 안 제21조 / 30초 요약 2항"></div>
+          </div>
+          <div class="form-actions"><button class="primary" onclick="submitCivicProposal()">공개 접수하기</button><button class="light" onclick="saveCivicDraft()">브라우저 임시저장</button><button class="light" onclick="downloadCivicJson()">제안 JSON 내려받기</button></div>
+          <p id="civic-status" class="deep-note"></p>
+        </div>
+        <div class="view-head"><div><h2 style="font-size:22px">공개 처리 대기열</h2><p>현재 공개 저장소에 접수된 시민 제안과 처리상태입니다.</p></div></div>
+        <div id="civic-queue" class="queue-list"></div>
+      </div>
+      <div id="view-versions" class="workspace-view" role="tabpanel">
+        <div class="view-head"><div><h2>정책 버전과 변경 로그</h2><p>정책 상태·문장·근거·시민제안·운영자 판단이 언제 무엇 때문에 바뀌었는지 삭제하지 않고 누적합니다.</p></div></div>
+        <div id="version-dashboard" class="version-list"></div>
+      </div>
+      <div id="view-implementation" class="workspace-view" role="tabpanel">
+        <div class="view-head"><div><h2>통과 후 시행·예산·성과 책임추적</h2><p>통과 여부, 공포·시행일, 담당기관, 실행률, 예산집행, 성과, 피해와 부작용을 정책 원안의 약속과 비교합니다.</p></div></div>
+        <div id="implementation-dashboard" class="implementation-list"></div>
+      </div>
+      <div id="view-map" class="workspace-view" role="tabpanel">
+        <div class="view-head"><div><h2>국가에서 읍·면·동·리까지</h2><p>모든 정책을 같은 ID·검증·포크·버전·시행추적 규칙으로 연결하는 공공 정책 인프라 지도입니다.</p></div></div>
+        <div id="policy-map" class="policy-map"></div>
+        <div class="view-head"><div><h2 style="font-size:22px">공식 데이터 연결상태</h2></div></div>
+        <div id="source-registry" class="dashboard-grid"></div>
+      </div>
+    </div>
+  </section>
 
   <section id="architecture" class="architecture">
     <div class="container">
@@ -439,11 +516,11 @@
     </div>
   </section>
 
-  <footer><div class="container">Democracy 3.0 정책포크 v0.13 · 공개 시범판 · 창안 및 원안 설계: 박찬성</div></footer>
+  <footer><div class="container">Democracy 3.0 정책포크 v1.0 · 공개 시범판 · 창안 및 원안 설계: 박찬성</div></footer>
   <dialog id="dialog" aria-label="정책 심층보고서"><div id="modal" class="modal"></div></dialog>
 
 <script>
-let allBills=[], pilotCases=[], activeCategory='전체', healthVerified=false;
+let allBills=[], pilotCases=[], activeCategory='전체', healthVerified=false, lifecycleData={policies:{},summary:{}}, civicData={entries:[]}, sourceRegistry={levels:[],sources:[]}, participationConfig={};
 const reportCache=new Map();
 const grid=document.getElementById('grid'), search=document.getElementById('search'),
 statusFilter=document.getElementById('status'), sort=document.getElementById('sort'),
@@ -485,22 +562,23 @@ async function loadIndexData(){
   return response.json();
 }
 
-loadIndexData().then(data=>{
-  allBills=data.bills||[];
-  pilotCases=(data.pilot_program||{}).cases||[];
-  document.getElementById('notice').textContent=data.notice||'';
-  renderDerivedHealth(data);
-  renderPilotProgram(data.pilot_program||{});
-  renderStats(data.stats||{});
-  renderCoverage(data.coverage||{},data.source||{});
-  renderChips();
-  render();
-  const match=location.hash.match(/^#bill=(.+)$/);
-  if(match)setTimeout(()=>openBill(decodeURIComponent(match[1])),0);
-}).catch(err=>{
-  document.getElementById('notice').textContent=err.message;
-  grid.innerHTML='<div class="empty">정책 데이터를 표시할 수 없습니다.</div>';
-});
+async function loadOptionalJson(path,fallback){
+  try{const response=await fetch(path,{cache:'no-store'});return response.ok?await response.json():fallback}catch(error){return fallback}
+}
+async function boot(){
+  try{
+    const [data,lifecycle,civic,registry,config]=await Promise.all([
+      loadIndexData(),loadOptionalJson('policy-lifecycle.json',{policies:{},summary:{}}),
+      loadOptionalJson('civic-log.json',{entries:[]}),loadOptionalJson('source_registry.json',{levels:[],sources:[]}),
+      loadOptionalJson('participation-config.json',{})
+    ]);
+    allBills=data.bills||[];pilotCases=(data.pilot_program||{}).cases||[];
+    lifecycleData=lifecycle;civicData=civic;sourceRegistry=registry;participationConfig=config;
+    document.getElementById('notice').textContent=data.notice||'';renderDerivedHealth(data);renderPilotProgram(data.pilot_program||{});renderStats(data.stats||{});renderCoverage(data.coverage||{},data.source||{});renderChips();render();renderWorkspaceViews();
+    const match=location.hash.match(/^#bill=(.+)$/);if(match)setTimeout(()=>openBill(decodeURIComponent(match[1])),0);
+  }catch(err){document.getElementById('notice').textContent=err.message;grid.innerHTML='<div class="empty">정책 데이터를 표시할 수 없습니다.</div>'}
+}
+boot();
 
 function renderDerivedHealth(data){
   if(healthVerified)return;
@@ -521,6 +599,50 @@ function renderCoverage(coverage,source){
   const total=coverage.official_total_count||source.official_total_count||0;
   el.innerHTML=`<b>현재 심층 검토 창: 최신 ${esc(active)}건</b><span>국회 공식 목록 ${esc(total||'확인 중')}건을 향해 확장 가능한 계층형 구조 · ${esc(coverage.meaning||'목록은 가볍게, 상세보고서는 선택할 때 불러옵니다.')}</span>`;
 }
+
+
+document.querySelectorAll('.workspace-tab').forEach(button=>button.addEventListener('click',()=>setWorkspaceView(button.dataset.view)));
+function setWorkspaceView(name){
+  document.querySelectorAll('.workspace-tab').forEach(x=>x.classList.toggle('active',x.dataset.view===name));
+  document.querySelectorAll('.workspace-view').forEach(x=>x.classList.toggle('active',x.id===`view-${name}`));
+  history.replaceState(null,'',`#view=${name}`);window.scrollTo({top:document.querySelector('.workspace-shell').offsetTop-55,behavior:'smooth'});
+}
+function renderWorkspaceViews(){renderRedTeamDashboard();renderForkDashboard();renderCivicForm();renderCivicQueue();renderVersionDashboard();renderImplementationDashboard();renderPolicyMap();const m=location.hash.match(/^#view=(.+)$/);if(m)setWorkspaceView(m[1]);}
+function renderRedTeamDashboard(){
+  const rows=[...allBills].sort((a,b)=>(b.red_team_count||0)-(a.red_team_count||0)).slice(0,18);
+  document.getElementById('redteam-dashboard').innerHTML=rows.map(b=>`<article class="dashboard-card"><span class="tag">공격 ${esc(b.red_team_count||0)} · 주장 ${esc(b.claim_count||0)}</span><h3>${esc(b.title)}</h3><p><b>최대 위험:</b> ${esc(b.largest_risk||'추가 검토 필요')}</p><p>${esc(((b.profiles||[]).map(x=>x.label).join(' · '))||'위험프로필 확인 필요')}</p><button onclick="openBill('${esc(b.id)}')">적대검증 열기</button></article>`).join('')||'<div class="empty">적대검증 자료가 없습니다.</div>';
+}
+function renderForkDashboard(){
+  const rows=allBills.filter(b=>(b.fork_preview||[]).length).slice(0,18);
+  document.getElementById('fork-dashboard').innerHTML=rows.map(b=>`<article class="dashboard-card"><span class="tag">포크 ${(b.fork_preview||[]).length}</span><h3>${esc(b.title)}</h3>${(b.fork_preview||[]).map(f=>`<p><b>${esc(f.label)} · ${esc(f.title)}</b><br>${esc(f.change)}<br><small>새 위험: ${esc(f.risk||'검토 필요')}</small></p>`).join('')}<button onclick="openBill('${esc(b.id)}')">포크 비교</button></article>`).join('')||'<div class="empty">정책 포크가 없습니다.</div>';
+}
+function renderCivicForm(){
+  const select=document.getElementById('civic-policy');if(!select)return;
+  select.innerHTML=allBills.map(b=>`<option value="${esc(b.id)}">${esc(b.title)}</option>`).join('');
+  try{const draft=JSON.parse(localStorage.getItem('democracy3-civic-draft')||'null');if(draft){select.value=draft.policy_id||select.value;document.getElementById('civic-type').value=draft.type||'annotation';document.getElementById('civic-title').value=draft.title||'';document.getElementById('civic-content').value=draft.content||'';document.getElementById('civic-source').value=draft.source_url||'';document.getElementById('civic-clause').value=draft.target||''}}catch(e){}
+}
+function prefillCivic(policyId,type,target,title){
+  if(dialog.open)dialog.close();setWorkspaceView('participation');
+  const policy=document.getElementById('civic-policy');if(policy)policy.value=policyId;
+  document.getElementById('civic-type').value=type;
+  document.getElementById('civic-clause').value=target||'';
+  document.getElementById('civic-title').value=title||'';
+  document.getElementById('civic-content').focus();
+}
+function civicPayload(){const id=document.getElementById('civic-policy').value,b=allBills.find(x=>x.id===id)||{};return {schema_version:'1.0',submission_id:`LOCAL-${Date.now()}`,policy_id:id,policy_title:b.title||'',type:document.getElementById('civic-type').value,title:document.getElementById('civic-title').value.trim(),content:document.getElementById('civic-content').value.trim(),source_url:document.getElementById('civic-source').value.trim(),target:document.getElementById('civic-clause').value.trim(),created_at:new Date().toISOString(),status:'접수 대기'}}
+function saveCivicDraft(){localStorage.setItem('democracy3-civic-draft',JSON.stringify(civicPayload()));document.getElementById('civic-status').textContent='이 브라우저에 임시저장했습니다.'}
+function downloadCivicJson(){const payload=civicPayload();const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`democracy3-${payload.type}-${payload.policy_id}.json`;a.click();URL.revokeObjectURL(a.href)}
+async function submitCivicProposal(){
+  const payload=civicPayload(),status=document.getElementById('civic-status');if(!payload.title||!payload.content){status.textContent='제목과 내용을 입력해야 합니다.';return}
+  if(participationConfig.api_endpoint){try{const r=await fetch(participationConfig.api_endpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)});if(!r.ok)throw new Error('접수 서버 오류');status.textContent='공개 접수되었습니다. 처리상태가 로그에 표시됩니다.';return}catch(e){status.textContent='접수 서버 연결에 실패해 공개 저장소 접수로 전환합니다.'}}
+  const prefix={annotation:'[주석]',correction:'[정정]',evidence:'[근거]',red_team:'[레드팀]',fork:'[포크]'}[payload.type]||'[시민제안]';
+  const body=`정책 ID: ${payload.policy_id}\n정책명: ${payload.policy_title}\n대상: ${payload.target}\n출처: ${payload.source_url}\n\n${payload.content}`;
+  const url=`https://github.com/${participationConfig.repository||'edenabworld-architecture/democracy3-policy-fork'}/issues/new?title=${encodeURIComponent(prefix+' '+payload.title)}&body=${encodeURIComponent(body)}`;window.open(url,'_blank','noopener');status.textContent='현재 공개 베타는 GitHub 공개접수 창을 사용합니다. 익명 접수 API는 별도 배포가 필요합니다.';
+}
+function renderCivicQueue(){const rows=(civicData.entries||[]).slice().sort((a,b)=>String(b.updated_at).localeCompare(String(a.updated_at))).slice(0,50);document.getElementById('civic-queue').innerHTML=rows.map(x=>`<div class="queue-item"><span class="pill">${esc(x.type)} · ${esc(x.status)}</span> <b>${esc(x.title)}</b><br>${esc(x.policy_title||x.policy_id||'정책 연결 전')} · ${esc(x.author||'익명')} · ${esc(x.updated_at||'')} ${x.public_url?`<a class="source-link" href="${esc(x.public_url)}" target="_blank" rel="noopener">공개 로그</a>`:''}</div>`).join('')||'<div class="empty">아직 공개 처리 대기열이 없습니다.</div>'}
+function renderVersionDashboard(){const policies=Object.values(lifecycleData.policies||{});const rows=policies.flatMap(p=>(p.versions||[]).slice(-2).map(v=>({...v,policy_id:p.policy_id,title:p.title}))).sort((a,b)=>String(b.at).localeCompare(String(a.at))).slice(0,80);document.getElementById('version-dashboard').innerHTML=rows.map(v=>`<div class="version-item"><span class="pill">${esc(v.version_id)}</span> <b>${esc(v.title)}</b><br>${esc(v.at)} · 변경: ${esc((v.changed_fields||[]).join(', ')||'최초 기록')}<br><small>${esc((v.snapshot||{}).stage||'')}</small></div>`).join('')||'<div class="empty">첫 자동실행 후 정책 버전 로그가 생성됩니다.</div>'}
+function renderImplementationDashboard(){const rows=Object.values(lifecycleData.policies||{}).sort((a,b)=>(b.progress_percent||0)-(a.progress_percent||0)).slice(0,50);document.getElementById('implementation-dashboard').innerHTML=rows.map(p=>`<div class="implementation-item"><span class="pill">${esc(p.current_stage)} · ${esc(p.progress_percent)}%</span> <b>${esc(p.title)}</b><div class="progress-bar"><span style="width:${Math.max(0,Math.min(100,p.progress_percent||0))}%"></span></div><span>담당: ${esc(p.responsible_body||'확인 필요')} · 예산집행 ${p.budget&&p.budget.execution_rate!=null?esc(p.budget.execution_rate)+'%':'자료 미연결'} · 문제 ${(p.outcomes&&p.outcomes.issues||[]).length}건</span>${p.official_url?` <a class="source-link" href="${esc(p.official_url)}" target="_blank" rel="noopener">공식 진행</a>`:''}</div>`).join('')||'<div class="empty">첫 자동실행 후 시행·책임추적 자료가 생성됩니다.</div>'}
+function renderPolicyMap(){document.getElementById('policy-map').innerHTML=(sourceRegistry.levels||[]).map(level=>`<div class="map-level"><span class="tag">${esc(level.label)}</span><h3>${esc(level.label)} 정책</h3>${(level.examples||[]).map(x=>`<p>· ${esc(x)}</p>`).join('')}</div>`).join('');document.getElementById('source-registry').innerHTML=(sourceRegistry.sources||[]).map(s=>`<div class="dashboard-card"><span class="source-status">${esc(s.status)}</span><h3>${esc(s.name)}</h3><p>${esc(s.scope)} · ${esc((s.policy_types||[]).join(', '))}</p><p>${esc(s.note)}</p>${s.official_url?`<a class="source-link" href="${esc(s.official_url)}" target="_blank" rel="noopener">공식 출처</a>`:''}</div>`).join('')}
 
 function maturityGrid(m){
   m=m||{};
@@ -657,7 +779,7 @@ function render(){
       <div class="risk-line"><b>주의할 위험:</b> ${esc(b.largest_risk||'추가 검토가 필요합니다.')}</div>
       <div class="card-bottom">
         <span class="review">${esc(b.analysis_confidence||'확인 필요')} 신뢰도 · 수정안 ${Number.isFinite(b.fork_count)?b.fork_count:(b.fork_candidates||[]).length}</span>
-        <button class="detail-btn" onclick="openBill('${esc(b.id)}')">1분 검토</button>
+        <button class="detail-btn" onclick="openBill('${esc(b.id)}')">30초 이해</button>
       </div>
     </article>`).join('')||'<div class="empty">조건에 맞는 법안이 없습니다.</div>';
 }
@@ -673,7 +795,7 @@ function failures(items){
   return top.length?`<div class="failure-grid">${top.map(x=>`<div class="failure"><b>${esc(x.condition)}</b><p><b>실패 모습:</b> ${esc(x.failure)}</p><p><b>미리 보이는 신호:</b> ${esc(x.warning)}</p><p><b>대응:</b> ${esc(x.response)}</p></div>`).join('')}</div>`:'<div class="pending">생성된 실패경로가 없습니다.</div>'
 }
 function levers(items){return (items||[]).length?`<div class="lever-grid">${items.map(x=>`<div class="lever"><b>${esc(x.dimension)}</b><p>${esc(x.question)}</p><p><small>${esc(x.options)}</small></p></div>`).join('')}</div>`:'<div class="pending">바꿀 수 있는 지점을 찾지 못했습니다.</div>'}
-function forkCompare(items){
+function forkCompare(items,billId){
   return (items||[]).length?`<div class="fork-compare">${items.slice(0,3).map(x=>`
     <div class="fork-option">
       <div class="fork-label">${esc(x.label||'')}</div>
@@ -684,6 +806,7 @@ function forkCompare(items){
       <p><b>기대</b><br>${esc(x.benefit||'')}</p>
       <p><b>새 위험</b><br>${esc(x.risk||'')}</p>
       <small><b>비용:</b> ${esc(x.cost||'확인 필요')}<br><b>조문 방향:</b> ${esc(x.clause_hint||'확인 필요')}<br><b>추가 근거:</b> ${esc(x.evidence_needed||'확인 필요')}</small>
+      <button class="inline-civic" onclick="prefillCivic('${esc(billId)}','fork','자동 포크 ${esc(x.label)}','포크 ${esc(x.label)} 수정·대안')">이 포크 수정</button>
     </div>`).join('')}</div>`:'<div class="pending">자동 수정안 아이디어가 없습니다.</div>'
 }
 function sourceBadges(items){
@@ -772,7 +895,7 @@ function profileTokens(items){
     <span class="profile-token ${i?'secondary':''}">${esc(x.role||'')} · ${esc(x.label)} · ${esc(x.confidence)}</span>
   `).join('')}</div>`
 }
-function claimLedger(items){
+function claimLedger(items,billId){
   return `<div class="claim-ledger">${(items||[]).map(x=>`
     <div class="claim-card">
       <div class="claim-head"><div><span class="claim-id">${esc(x.id)}</span> <span class="claim-type">${esc(x.claim_type)}</span></div><span class="source-badge missing">${esc(x.verification_status)}</span></div>
@@ -783,6 +906,7 @@ function claimLedger(items){
         <div><b>기각 조건</b><br>${esc(x.rejection_condition)}</div>
         <div><b>현재 판단</b><br>${esc(x.confidence)}</div>
       </div>
+      <button class="inline-civic" onclick="prefillCivic('${esc(billId)}','evidence','발의자 주장 ${esc(x.id)}','주장 ${esc(x.id)} 근거·반증')">이 주장에 근거·반증</button>
     </div>`).join('')}</div>`
 }
 function evidenceChains(items){
@@ -850,13 +974,15 @@ function renderBillModal(b){
 
     ${sourceBadges(b.source_labels)}
     ${qualityWarning(b)}
-    <div class="modal-section" style="border-top:0;margin-top:5px"><h3>1분 이해</h3>
+    <div class="modal-section" style="border-top:0;margin-top:5px"><h3>30초 이해</h3>
       <div class="analysis-box">
         <div class="brief-grid">
-          <div class="brief"><b>무슨 문제인가</b><p>${esc((b.one_minute_brief||{}).problem||b.problem_definition||'확인 필요')}</p></div>
-          <div class="brief"><b>무엇을 바꾸나</b><p>${esc((b.one_minute_brief||{}).change||b.proposed_change||'확인 필요')}</p></div>
-          <div class="brief"><b>누가 영향을 받나</b><p>${esc((b.one_minute_brief||{}).who||'확인 필요')}</p></div>
-          <div class="brief"><b>가장 중요한 선택</b><p>${esc((b.one_minute_brief||{}).decision||'확인 필요')}</p></div>
+          <div class="brief"><b>문제</b><p>${esc((b.thirty_second_brief||b.one_minute_brief||{}).problem||b.problem_definition||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','correction','30초 이해 · 문제','문제 설명 정정')">주석·정정</button></div>
+          <div class="brief"><b>변경</b><p>${esc((b.thirty_second_brief||b.one_minute_brief||{}).change||b.proposed_change||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','correction','30초 이해 · 변경','변경내용 정정')">주석·정정</button></div>
+          <div class="brief"><b>영향대상</b><p>${esc((b.thirty_second_brief||b.one_minute_brief||{}).who||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','annotation','30초 이해 · 영향대상','누락된 영향대상')">주석 달기</button></div>
+          <div class="brief"><b>발의자의 기대</b><p>${esc((b.thirty_second_brief||{}).proposer_claim||b.claimed_benefit||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','evidence','30초 이해 · 발의자 기대','발의자 주장 근거 제출')">근거·반증</button></div>
+          <div class="brief"><b>최대 위험</b><p>${esc((b.thirty_second_brief||{}).largest_risk||b.largest_risk||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','red_team','30초 이해 · 최대 위험','새 위험·부패경로 제보')">레드팀 추가</button></div>
+          <div class="brief"><b>판단할 질문</b><p>${esc((b.thirty_second_brief||b.one_minute_brief||{}).decision||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','annotation','30초 이해 · 판단질문','추가 판단질문')">질문 추가</button></div>
         </div>
       </div>
     </div>
@@ -869,6 +995,16 @@ function renderBillModal(b){
       </div>
     </div>
 
+    <div class="modal-section"><h3>발의자의 주장·근거·논리 분리</h3>
+      <p class="fork-intro">정치인의 설명을 사실로 받아들이지 않습니다. 주장, 제시한 근거, 근거에서 결론으로 넘어가는 논리를 따로 검증합니다.</p>
+      <div class="argument-map">${((b.proposer_argument_map||{}).logic_chain||[]).map(x=>`<div class="argument-step"><b>${esc(x.step)} · ${esc(x.label)}</b>${esc(x.content)}</div>`).join('')}</div>
+      <div class="argument-evidence"><b>발의자가 제시한 근거 단서</b>${list((b.proposer_argument_map||{}).stated_evidence)}<b>아직 증명되지 않은 연결</b>${list((b.proposer_argument_map||{}).unproven_links)}</div>
+    </div>
+    <div class="modal-section"><h3>레드팀: 정책을 무너뜨리는 공격</h3>
+      <div class="hostile-banner"><b>임무</b><p>${esc((b.adversarial_audit||{}).mission||'정책의 실패·악용·부패경로를 가장 강하게 공격합니다.')}</p></div>
+      <div class="corruption-grid">${((b.adversarial_audit||{}).corruption_and_capture_checks||[]).map(x=>`<div class="corruption-check"><b>${esc(x.vector)} · ${esc(x.status)}</b>${esc(x.question)}<br><small>${esc((x.signals||[]).join(', ')||'상시 점검')}</small></div>`).join('')}</div>
+    </div>
+
     <details class="public-detail" open><summary>정책유형별 심층 검토 보고서</summary>
       <div class="profile-banner">
         <div><b>복수 위험프로필 분석</b><small>${esc((b.deep_review||{}).scope||'')}</small>${profileTokens((b.deep_review||{}).profiles||[])}</div>
@@ -878,7 +1014,7 @@ function renderBillModal(b){
 
       <div class="modal-section"><h3>발의자의 주장 원장</h3>
         <p class="fork-intro">제안이유의 문장을 사실로 확정하지 않고, 주장 단위로 분해해 필요한 근거와 기각조건을 기록합니다.</p>
-        ${claimLedger((b.deep_review||{}).claim_ledger)}
+        ${claimLedger((b.deep_review||{}).claim_ledger,b.id)}
       </div>
 
       <div class="modal-section"><h3>정책이 작동하는 인과경로와 붕괴지점</h3>
@@ -923,18 +1059,18 @@ function renderBillModal(b){
     <div class="modal-section"><h3>정책 포크: A/B/C 수정안 비교</h3>
       <p class="fork-intro">포크는 원안을 그대로 찬성하거나 반대하는 대신, 적용대상·권한·절차·비용·통제장치를 다르게 설계한 수정안입니다. 아래 내용은 조문 전문 확인 전의 자동 아이디어입니다.</p>
       ${(b.fork_candidates||[]).length
-        ? forkCompare(b.fork_candidates)
+        ? forkCompare(b.fork_candidates,b.id)
         : `<div class="hidden-fork"><b>자동 수정안 숨김</b><br>${esc(b.fork_hidden_reason||'공식자료를 더 확인한 뒤 수정안을 표시합니다.')}</div>`}
     </div>
 
     <div class="participate">
       <div class="participate-copy">
         <b>이 법안을 직접 고치거나 설명을 바로잡아주세요.</b>
-        <p>GitHub 의견창이 열립니다. 자동 초안과 시민·전문가 의견은 서로 구분해 기록합니다.</p>
+        <p>사이트의 시민 참여 탭에서 주석·정정·근거·레드팀·포크를 작성할 수 있으며, 공개 접수와 처리상태는 로그로 보존됩니다.</p>
       </div>
       <div class="participate-actions">
-        <button class="action-btn primary" onclick="openIssue(allBills.find(x=>x.id==='${esc(b.id)}'),'fork')">포크 제안하기</button>
-        <button class="action-btn light" onclick="openIssue(allBills.find(x=>x.id==='${esc(b.id)}'),'explain')">설명이 어렵거나 틀렸어요</button>
+        <button class="action-btn primary" onclick="dialog.close();setWorkspaceView('participation');document.getElementById('civic-policy').value='${esc(b.id)}';document.getElementById('civic-type').value='fork'">포크 제안하기</button>
+        <button class="action-btn light" onclick="dialog.close();setWorkspaceView('participation');document.getElementById('civic-policy').value='${esc(b.id)}';document.getElementById('civic-type').value='correction'">설명이 어렵거나 틀렸어요</button>
       </div>
     </div>
 

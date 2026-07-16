@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-16",
+  "authorship": "창안 및 원안 설계: 박찬성",
+  "principle": "국가부터 시·군·구와 읍·면·동 단위까지 동일한 정책 ID·검증·포크·로그·시행추적 구조로 연결합니다.",
+  "levels": [
+    {
+      "key": "national",
+      "label": "국가",
+      "examples": [
+        "국회 법률안",
+        "정부입법",
+        "법령·시행령",
+        "국가예산·국정과제"
+      ]
+    },
+    {
+      "key": "metropolitan",
+      "label": "시·도",
+      "examples": [
+        "시·도 조례",
+        "광역계획",
+        "광역예산"
+      ]
+    },
+    {
+      "key": "municipal",
+      "label": "시·군·구",
+      "examples": [
+        "기초조례",
+        "지역사업",
+        "기초예산"
+      ]
+    },
+    {
+      "key": "local",
+      "label": "읍·면·동·리",
+      "examples": [
+        "생활권 사업",
+        "주민제안",
+        "지역 실행현황"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "assembly_bills",
+      "name": "대한민국 국회 열린국회정보",
+      "scope": "국가",
+      "policy_types": [
+        "국회 법률안"
+      ],
+      "status": "active",
+      "automation": "daily",
+      "official_url": "https://open.assembly.go.kr/",
+      "note": "현재 최신 100건 자동수집·심층검토"
+    },
+    {
+      "key": "government_legislation",
+      "name": "법제처 국민참여입법센터",
+      "scope": "국가·지방",
+      "policy_types": [
+        "부처 입법예고",
+        "행정예고",
+        "지방 입법예고",
+        "정부입법 진행"
+      ],
+      "status": "connector_ready",
+      "automation": "planned",
+      "official_url": "https://opinion.lawmaking.go.kr/",
+      "note": "목록·상세 수집기 연결 예정"
+    },
+    {
+      "key": "law_open_data",
+      "name": "국가법령정보 공동활용",
+      "scope": "국가",
+      "policy_types": [
+        "현행법령",
+        "법령연혁",
+        "시행일"
+      ],
+      "status": "api_key_required",
+      "automation": "planned",
+      "official_url": "https://open.law.go.kr/",
+      "note": "법제처 OPEN API 인증값 연결 후 조문·시행일 자동대조"
+    },
+    {
+      "key": "local_law",
+      "name": "자치법규정보시스템",
+      "scope": "시·도·시군구",
+      "policy_types": [
+        "자치법규",
+        "지방 입법예고"
+      ],
+      "status": "connector_ready",
+      "automation": "planned",
+      "official_url": "https://www.elis.go.kr/",
+      "note": "지역코드 기반 수집 어댑터 예정"
+    },
+    {
+      "key": "local_finance",
+      "name": "지방재정365",
+      "scope": "시·도·시군구",
+      "policy_types": [
+        "예산",
+        "결산",
+        "재정공시",
+        "집행통계"
+      ],
+      "status": "data_mapping_ready",
+      "automation": "planned",
+      "official_url": "https://www.lofin365.go.kr/",
+      "note": "정책 ID와 예산사업 코드 매핑 필요"
+    },
+    {
+      "key": "audit_outcomes",
+      "name": "감사·성과·통계 공식자료",
+      "scope": "전국",
+      "policy_types": [
+        "감사결과",
+        "성과지표",
+        "사업평가"
+      ],
+      "status": "source_discovery",
+      "automation": "planned",
+      "official_url": "",
+      "note": "기관별 이질적 자료를 표준 성과지표로 정규화"
+    }
+  ]
+}

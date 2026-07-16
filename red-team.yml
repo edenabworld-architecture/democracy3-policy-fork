@@ -1,0 +1,19 @@
+name: 레드팀 위험 제보
+description: 정책의 실패·악용·부정부패·우회경로를 제보합니다.
+title: "[레드팀] "
+labels: ["red_team"]
+body:
+  - type: input
+    id: policy
+    attributes: {label: 정책명 또는 정책 ID}
+    validations: {required: true}
+  - type: textarea
+    id: attack
+    attributes: {label: 공격·부패·우회 경로}
+    validations: {required: true}
+  - type: textarea
+    id: evidence
+    attributes: {label: 근거·사례·출처}
+  - type: textarea
+    id: defense
+    attributes: {label: 필요한 방어장치와 남는 위험}

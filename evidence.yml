@@ -1,0 +1,34 @@
+name: 독립근거 제출
+description: 특정 주장에 통계·연구·판례·감사자료를 연결합니다.
+title: "[근거] "
+labels: ["evidence"]
+body:
+  - type: input
+    id: bill
+    attributes:
+      label: 법안명 또는 법안 ID
+    validations:
+      required: true
+  - type: input
+    id: claim
+    attributes:
+      label: 연결할 주장 ID
+      placeholder: C01
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 원문 URL
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: 무엇을 입증하거나 반증합니까?
+    validations:
+      required: true
+  - type: textarea
+    id: limits
+    attributes:
+      label: 자료의 한계·이해충돌

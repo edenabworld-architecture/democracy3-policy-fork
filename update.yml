@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: read
 
 concurrency:
   group: democracy3-policy-data
@@ -37,6 +38,15 @@ jobs:
           ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
           ASSEMBLY_AGE: "22"
         run: python fetch_bills.py
+
+      - name: Sync public civic log
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python sync_civic_log.py
+
+      - name: Build policy versions and implementation tracking
+        run: python policy_history.py
 
       - name: Validate public release
         run: python validate_release.py

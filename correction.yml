@@ -1,0 +1,27 @@
+name: 오류·정정 요청
+description: 설명·주장분류·근거·조문·점수의 오류를 신고합니다.
+title: "[정정] "
+labels: ["correction"]
+body:
+  - type: input
+    id: bill
+    attributes:
+      label: 법안명 또는 법안 ID
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: 잘못된 내용
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: 제안하는 수정과 근거
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 확인 가능한 출처 URL
