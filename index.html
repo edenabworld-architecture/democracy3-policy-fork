@@ -232,12 +232,21 @@
       .tier-grid,.governance-grid{grid-template-columns:1fr}
       .coverage{display:block}.coverage span{display:block;margin-top:6px}
     }
+
+    /* v0.11.2 자동운영 상태 */
+    .system-health{display:inline-flex;align-items:center;margin-left:9px;padding:4px 7px;border-radius:999px;font-size:10px;font-weight:900;vertical-align:middle}
+    .pending-health{background:#fff8e8;color:#8a5b00}
+    .healthy-health{background:#eaf8f1;color:#067647}
+    .degraded-health{background:#fff3f1;color:#b42318}
+    .health-panel{margin:0 0 18px;border-radius:13px;padding:11px 14px;font-size:12px;line-height:1.6}
+    .health-panel.healthy{background:#eefbf5;color:#075b3b;border:1px solid #b7e4ce}
+    .health-panel.degraded{background:#fff3f1;color:#8a1c13;border:1px solid #efb7ae}
 </style>
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">Democracy 3.0 정책포크 <small>PUBLIC BETA</small></div>
+      <div class="brand">Democracy 3.0 정책포크 <small>PUBLIC BETA</small> <span id="system-health" class="system-health pending-health">운영상태 확인 중</span></div>
       <nav class="nav">
         <a href="#policies">정책 보기</a>
         <a href="#architecture">운영 구조</a>
@@ -271,7 +280,7 @@
     </div>
   </section>
 
-  <div class="container notice-wrap"><div id="notice" class="notice"></div></div>
+  <div class="container notice-wrap"><div id="notice" class="notice"></div><div id="health-panel"></div></div>
 
   <main id="policies" class="container">
     <section id="stats" class="stats"></section>
@@ -374,7 +383,7 @@
     </div>
   </section>
 
-  <footer><div class="container">Democracy 3.0 정책포크 v0.11 · 공개 시범판 · 창안 및 원안 설계: 박찬성</div></footer>
+  <footer><div class="container">Democracy 3.0 정책포크 v0.11.2 · 공개 시범판 · 창안 및 원안 설계: 박찬성</div></footer>
   <dialog id="dialog"><div id="modal" class="modal"></div></dialog>
 
 <script>
@@ -385,6 +394,26 @@ statusFilter=document.getElementById('status'), sort=document.getElementById('so
 dialog=document.getElementById('dialog'), modal=document.getElementById('modal');
 
 const esc=(v='')=>String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+
+async function loadHealth(){
+  const badge=document.getElementById('system-health');
+  const panel=document.getElementById('health-panel');
+  try{
+    const response=await fetch('health.json',{cache:'no-store'});
+    if(!response.ok)throw new Error('상태파일 없음');
+    const health=await response.json();
+    const healthy=health.status==='healthy';
+    badge.textContent=healthy?'자동운영 정상':'자동운영 점검 필요';
+    badge.className=`system-health ${healthy?'healthy-health':'degraded-health'}`;
+    panel.innerHTML=`<div class="health-panel ${healthy?'healthy':'degraded'}"><b>${healthy?'데이터 무결성 검사 통과':'데이터 무결성 점검 필요'}</b> · 법안 ${esc(health.counts?.bills||0)}건 · 개별보고서 ${esc(health.counts?.reports||0)}건 · 검사시각 ${esc(health.checked_at||'확인 필요')}</div>`;
+  }catch(error){
+    badge.textContent='운영상태 미확인';
+    badge.className='system-health pending-health';
+    panel.innerHTML='';
+  }
+}
+
+loadHealth();
 
 async function loadIndexData(){
   let response=await fetch('bills-index.json',{cache:'no-store'});
