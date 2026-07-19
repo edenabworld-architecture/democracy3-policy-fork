@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0b1736">
-  <title>D3 Fork Studio AI Beta 1</title>
+  <title>D3 Fork Studio AI Beta 1.2</title>
   <meta name="description" content="시민의 생활문제를 AI 대화, 기존 정책 탐색, Fast-Fail, 복수 정책포크를 거쳐 정책초안으로 발전시키는 Democracy 3.0 Fork Studio AI Beta 1">
   <style>
     :root{
@@ -173,6 +173,27 @@
       width:min(1180px,calc(100% - 24px));margin:-48px auto 24px;
       color:#7a8498;font-size:11px;text-align:center
     }
+
+    .progress-wrap{padding:10px 18px;border-bottom:1px solid var(--line);background:#fff}
+    .progress-track{display:grid;grid-template-columns:repeat(8,1fr);gap:5px}
+    .progress-step{height:6px;border-radius:999px;background:#e8ebf2}
+    .progress-step.done{background:var(--blue)}
+    .progress-label{margin-top:5px;color:var(--muted);font-size:10px;text-align:right}
+    .quick-actions{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}
+    .quick-action,.choice-btn{
+      border:1px solid #cfd8f4;background:#f5f7ff;color:#2949aa;border-radius:10px;
+      padding:7px 10px;font-size:11px;font-weight:900
+    }
+    .quick-action:hover,.choice-btn:hover{background:#e9eeff}
+    .choice-btn{margin-top:7px;width:100%}
+    .draft-tools{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:9px}
+    .draft-editor-box{margin-top:12px;padding:12px;border:1px solid var(--line);border-radius:13px;background:#fbfcff}
+    .draft-editor-box textarea{
+      width:100%;min-height:300px;resize:vertical;border:1px solid #d8deea;
+      border-radius:10px;padding:11px;font-size:12px;line-height:1.65
+    }
+    .coverage-note{margin-top:8px;padding:8px;border-radius:9px;background:#f6f7fa;color:var(--muted);font-size:10px}
+
     .hidden{display:none!important}
     @media(max-width:880px){
       .layout{grid-template-columns:1fr}
@@ -193,7 +214,7 @@
 <header class="topbar">
   <div class="top-inner">
     <div class="brand">Democracy 3.0 · Fork Studio
-      <small>AI Beta 1 · 창안 및 원안 설계 박찬성</small>
+      <small>AI Beta 1.2 · 창안 및 원안 설계 박찬성</small>
     </div>
     <div class="top-actions">
       <div class="status"><span class="dot" id="healthDot"></span><span id="healthText">연결 확인 중</span></div>
@@ -213,7 +234,7 @@
         <label>
           <input type="checkbox" id="consent">
           <span>
-            이 베타는 사용자검증용입니다. 입력내용은 AI 처리를 위해 OpenAI API로 전송됩니다.
+            이 베타는 사용자검증용입니다. 입력내용은 Cloudflare Workers AI에서 처리되며, 관련 정책 후보 확인을 위해 D3가 공개한 국회 법안 자료와 대조됩니다.
             주민등록번호, 계좌번호, 상세 주소, 실명 피해사실 등 민감한 개인정보는 입력하지 않겠습니다.
             AI의 정책·법령 탐색은 제한적이며 전문적인 법률판단이나 기관의 공식답변을 대신하지 않음을 이해합니다.
           </span>
@@ -232,9 +253,14 @@
         </div>
         <div class="turn-count" id="turnCount">0회 대화</div>
       </div>
+      <div class="progress-wrap">
+        <div class="progress-track" id="progressTrack"></div>
+        <div class="progress-label" id="progressLabel">문제를 이해하는 단계입니다.</div>
+      </div>
       <div class="messages" id="messages"></div>
       <div class="composer">
-        <textarea id="input" maxlength="4000" placeholder="겪은 문제, 바라는 변화, 떠오른 아이디어를 편하게 적어주세요."></textarea>
+        <div class="quick-actions" id="quickActions"></div>
+        <textarea id="input" maxlength="5000" placeholder="겪은 문제, 바라는 변화, 떠오른 아이디어를 편하게 적어주세요."></textarea>
         <div class="composer-bottom">
           <div class="helper">Enter 전송 · Shift+Enter 줄바꿈</div>
           <div class="send-actions">
@@ -271,8 +297,21 @@
       <h2>정책 초안</h2>
       <div id="draftPanel" class="empty">상담과 검증이 충분해지면 사용자가 승인할 수 있는 초안이 나타납니다.</div>
       <div class="approve-box hidden" id="approveBox">
-        <p>초안을 검토한 뒤 승인하면 AI가 사용자의 최종 선택을 확인하고 완성본으로 정리합니다.</p>
-        <button class="btn btn-primary" id="approveBtn">이 초안을 승인합니다</button>
+        <p>초안을 검토한 뒤 직접 수정하거나 내려받을 수 있습니다. 승인 전에는 최종 정책으로 확정되지 않습니다.</p>
+        <button class="btn btn-primary" style="width:100%" id="approveBtn">이 초안을 승인합니다</button>
+        <div class="draft-tools">
+          <button class="btn btn-soft" id="editDraftBtn">직접 수정</button>
+          <button class="btn btn-soft" id="downloadDraftBtn">초안 TXT</button>
+        </div>
+      </div>
+      <div class="draft-editor-box hidden" id="draftEditorBox">
+        <h3>정책초안 직접 수정</h3>
+        <p class="empty">내용을 고친 뒤 ‘수정본 반영’을 누르면 AI가 수정 내용을 구조화해 다시 보여줍니다.</p>
+        <textarea id="draftEditor" maxlength="5000"></textarea>
+        <div class="draft-tools">
+          <button class="btn btn-blue" id="applyDraftEditBtn">수정본 반영</button>
+          <button class="btn btn-soft" id="cancelDraftEditBtn">취소</button>
+        </div>
       </div>
     </section>
 
@@ -289,18 +328,30 @@
 </div>
 
 <div class="footer-note">
-  Fork Studio AI Beta 1은 시민 사용자검증용 시제품입니다. 실제 기관 제출·법률판단·정책 채택을 의미하지 않습니다.
+  Fork Studio AI Beta 1.2는 시민 사용자검증용 시제품입니다. 실제 기관 제출·법률판단·정책 채택을 의미하지 않습니다.
 </div>
 
 <script>
   const API_BASE = "https://d3-fork-studio-api-cs.edenabworld.workers.dev";
-  const STORAGE_KEY = "d3-fork-studio-ai-beta1-current";
-  const ARCHIVE_KEY = "d3-fork-studio-ai-beta1-archive";
+  const STORAGE_KEY = "d3-fork-studio-ai-beta1-2-current";
+  const ARCHIVE_KEY = "d3-fork-studio-ai-beta1-2-archive";
 
   const stageNames = {
     understand:"문제 이해", clarify:"핵심 확인", policy_check:"기존 정책 탐색",
     design:"정책수단 설계", fast_fail:"Fast-Fail", forks:"복수 포크",
     draft:"정책 초안", complete:"완료"
+  };
+
+  const stageOrder=["understand","clarify","policy_check","design","fast_fail","forks","draft","complete"];
+  const stageDescriptions={
+    understand:"시민의 경험과 문제를 이해하는 단계입니다.",
+    clarify:"정책화에 필요한 핵심 빈칸을 확인하는 단계입니다.",
+    policy_check:"현재 연결된 공식 정책자료에서 유사 후보를 찾는 단계입니다.",
+    design:"가능한 정책수단을 비교하고 선택·결합하는 단계입니다.",
+    fast_fail:"비용·악용·집행·권리·2차 효과를 미리 검토하는 단계입니다.",
+    forks:"서로 다른 복수 정책안을 비교하는 단계입니다.",
+    draft:"선택한 방향을 정책초안으로 정리하는 단계입니다.",
+    complete:"사용자가 초안을 승인한 상태입니다."
   };
 
   const policyStatusNames = {
@@ -378,7 +429,7 @@
     const box=document.getElementById("messages");
     const row=document.createElement("div");
     row.className="message assistant loading";row.id="loadingRow";
-    row.innerHTML=`<div class="avatar">D3</div><div class="bubble"><span class="typing"><span></span><span></span><span></span></span> 정책을 검토하고 있습니다.</div>`;
+    row.innerHTML=`<div class="avatar">D3</div><div class="bubble"><span class="typing"><span></span><span></span><span></span></span> 말씀을 이해하고 정책자료와 대조하며 다음 단계를 준비하고 있습니다. 잠시만 기다려주세요.</div>`;
     box.appendChild(row);box.scrollTop=box.scrollHeight;
   }
   function removeLoading(){document.getElementById("loadingRow")?.remove()}
@@ -386,10 +437,101 @@
     if(!items?.length)return '<span class="muted">아직 확인되지 않음</span>';
     return `<ul>${items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`;
   }
+  function renderProgress(stage){
+    const index=Math.max(0,stageOrder.indexOf(stage));
+    const track=document.getElementById("progressTrack");
+    track.innerHTML=stageOrder.map((_,i)=>`<span class="progress-step ${i<=index?"done":""}"></span>`).join("");
+    document.getElementById("progressLabel").textContent=stageDescriptions[stage]||"정책설계를 진행하고 있습니다.";
+  }
+
+  function quickActionDefinitions(r){
+    if(!r)return[];
+    const actions=[];
+    const hasPolicies=arr(r.policy_check?.candidates).length>0;
+    const hasForks=arr(r.forks).length>0;
+    const hasDraft=nonempty(r.draft?.title)||nonempty(r.draft?.selected_proposal);
+
+    if(hasPolicies && ["understand","clarify","policy_check"].includes(r.stage)){
+      actions.push(["정책 후보 비교","찾은 기존 정책 후보들이 제 아이디어와 어떻게 같고 다른지 비교해주세요."]);
+    }
+    if(["understand","clarify","policy_check"].includes(r.stage)){
+      actions.push(["정책수단 제안","지금까지의 내용을 바탕으로 가능한 정책수단을 2~4개 제안하고 제가 선택하도록 질문해주세요."]);
+    }
+    if(r.stage==="design"){
+      actions.push(["Fast-Fail 시작","제가 선호하는 정책수단에 대해 가장 치명적인 실패 가능성부터 Fast-Fail 검토를 시작해주세요."]);
+    }
+    if(r.stage==="fast_fail"){
+      actions.push(["복수 포크 생성","지금까지 확인한 위험과 보완책을 반영해 성격이 다른 정책 포크 3개를 만들어주세요."]);
+    }
+    if(hasForks && r.stage==="forks"){
+      actions.push(["포크 결합 도움","세 포크의 장점을 결합하려면 어떤 선택을 해야 하는지 짧게 설명하고 제 선택을 물어주세요."]);
+    }
+    if(hasForks && !hasDraft && ["forks","draft"].includes(r.stage)){
+      actions.push(["정책초안 작성","제가 지금까지 선택한 포크와 보완조건을 반영해 정책초안을 작성해주세요."]);
+    }
+    if(hasDraft && r.stage==="draft"){
+      actions.push(["초안 재검증","현재 초안에서 아직 해결되지 않은 가장 큰 위험 한 가지를 다시 검토해주세요."]);
+    }
+    return actions.slice(0,3);
+  }
+
+  function renderQuickActions(r){
+    const root=document.getElementById("quickActions");
+    const actions=quickActionDefinitions(r);
+    root.innerHTML=actions.map(([label,text])=>`<button class="quick-action" data-text="${esc(text)}">${esc(label)}</button>`).join("");
+    root.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>sendText(btn.dataset.text)));
+  }
+
+  function choosePolicy(index){
+    const c=arr(session.latest?.policy_check?.candidates)[index];
+    if(!c)return;
+    sendText(`기존 정책 후보 ${index+1}번 ‘${c.title}’을 기준으로 검토해주세요. 제 아이디어와 같은 점, 다른 점, 수정하거나 새로 만들어야 할 점을 구분하고 다음 질문을 해주세요.`);
+  }
+
+  function chooseFork(index){
+    const f=arr(session.latest?.forks)[index];
+    if(!f)return;
+    sendText(`‘${f.name}’ 포크를 기본안으로 선택합니다. 다만 제 원래 문제의식을 보존하면서 필요한 보완조건을 확인한 뒤 정책초안으로 발전시켜주세요.`);
+  }
+
+  function draftToText(d){
+    const lines=[];
+    const section=(title,value)=>{
+      if(Array.isArray(value)){
+        if(value.length)lines.push(`\\n[${title}]\\n`+value.map(x=>`- ${x}`).join("\\n"));
+      }else if(nonempty(value)){
+        lines.push(`\\n[${title}]\\n${value}`);
+      }
+    };
+    lines.push(d.title||"D3 정책초안");
+    section("문제 정의",d.problem_definition);
+    section("영향 대상",d.affected_groups);
+    section("현행 제도와 한계",d.current_policy_and_limitations);
+    section("정책 목표",d.policy_goal);
+    section("선택한 제안",d.selected_proposal);
+    section("실행 방식",d.implementation);
+    section("적용 범위와 예외",d.scope_and_exceptions);
+    section("기대 효과",d.expected_effects);
+    section("위험",d.risks);
+    section("보완 장치",d.safeguards);
+    section("담당기관 후보",d.responsible_bodies);
+    section("추가로 필요한 근거",d.evidence_needed);
+    section("중단·재검토 조건",d.stop_or_review_conditions);
+    return lines.join("\\n").trim();
+  }
+
+  function downloadText(text,name){
+    const blob=new Blob([text],{type:"text/plain;charset=utf-8"});
+    const url=URL.createObjectURL(blob);const a=document.createElement("a");
+    a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+  }
+
   function renderLatest(){
     const r=session.latest;
     if(!r)return;
     document.getElementById("stagePill").textContent=stageNames[r.stage]||r.stage;
+    renderProgress(r.stage);
+    renderQuickActions(r);
 
     const s=r.conversation_state||{};
     const stateHtml=[
@@ -406,10 +548,11 @@
     const good=pc.status==="confirmed_related"||pc.status==="similar_candidate";
     let policyHtml=`<span class="policy-status ${good?"good":""}">${esc(policyStatusNames[pc.status]||pc.status||"확인 전")}</span>`;
     if(nonempty(pc.summary))policyHtml+=`<p style="font-size:13px">${esc(pc.summary)}</p>`;
-    arr(pc.candidates).forEach(c=>{
+    arr(pc.candidates).forEach((c,index)=>{
       const safeUrl=/^https:\/\//.test(c.url||"")?c.url:"#";
-      policyHtml+=`<div class="candidate"><a href="${esc(safeUrl)}" target="_blank" rel="noopener noreferrer">${esc(c.title)}</a><p>${esc(c.relevance)}</p><p>${esc(c.verification_note)}</p></div>`;
+      policyHtml+=`<div class="candidate"><a href="${esc(safeUrl)}" target="_blank" rel="noopener noreferrer">${index+1}. ${esc(c.title)}</a><p>${esc(c.relevance)}</p><p>${esc(c.verification_note)}</p><button class="choice-btn" onclick="choosePolicy(${index})">이 후보를 기준으로 검토</button></div>`;
     });
+    policyHtml+=`<div class="coverage-note">현재 검색범위: D3에 연결된 국회 최신 법안. 현행법령·정부사업·자치법규 전체검색은 후속 연결 대상입니다.</div>`;
     document.getElementById("policyPanel").innerHTML=policyHtml;
 
     const risks=arr(r.fast_fail);
@@ -419,11 +562,14 @@
       <p><b>보완 후보:</b> ${esc(x.mitigation_candidate)}</p></div>`).join(""):'<div class="empty">아직 Fast-Fail 단계 전입니다.</div>';
 
     const forks=arr(r.forks);
-    document.getElementById("forkPanel").innerHTML=forks.length?forks.map(f=>`
+    document.getElementById("forkPanel").innerHTML=forks.length?forks.map((f,index)=>`
       <div class="fork"><h3>${esc(f.name)}</h3><p>${esc(f.approach)}</p>
       <strong style="font-size:11px;color:var(--blue)">핵심수단</strong>${renderList(f.key_measures)}
+      <strong style="font-size:11px;color:var(--blue)">기대효과</strong>${renderList(f.expected_benefits)}
+      <strong style="font-size:11px;color:var(--blue)">비용·부담</strong>${renderList(f.costs_and_burdens)}
       <strong style="font-size:11px;color:var(--blue)">주요위험</strong>${renderList(f.risks)}
-      <strong style="font-size:11px;color:var(--blue)">보완장치</strong>${renderList(f.safeguards)}</div>`).join(""):'<div class="empty">복수 포크가 아직 생성되지 않았습니다.</div>';
+      <strong style="font-size:11px;color:var(--blue)">보완장치</strong>${renderList(f.safeguards)}
+      <button class="choice-btn" onclick="chooseFork(${index})">이 포크를 기본안으로 선택</button></div>`).join(""):'<div class="empty">복수 포크가 아직 생성되지 않았습니다.</div>';
 
     const d=r.draft||emptyDraft;
     const hasDraft=nonempty(d.title)||nonempty(d.problem_definition)||nonempty(d.selected_proposal);
@@ -454,9 +600,11 @@
     try{
       const res=await fetch(API_BASE+"/health");
       const j=await res.json();
-      if(j.ok&&j.secretConfigured){
+      if(j.ok&&j.aiBindingConfigured){
         document.getElementById("healthDot").className="dot ok";
-        document.getElementById("healthText").textContent="AI 연결 정상";
+        document.getElementById("healthText").textContent=j.policySearchConnected
+          ?"AI·정책자료 연결 정상"
+          :"AI 연결 정상 · 정책자료 확인 전";
       }else throw new Error();
     }catch(e){
       document.getElementById("healthDot").className="dot bad";
@@ -473,11 +621,23 @@
     renderMessages();addLoading();
     document.getElementById("input").value="";
     try{
-      const res=await fetch(API_BASE+"/chat",{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({sessionId:session.sessionId,messages:session.apiMessages})
-      });
+      const controller=new AbortController();
+      const timeoutId=setTimeout(()=>controller.abort(),90000);
+      let res;
+      try{
+        res=await fetch(API_BASE+"/chat",{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({
+            sessionId:session.sessionId,
+            messages:session.apiMessages,
+            state:session.latest
+          }),
+          signal:controller.signal
+        });
+      }finally{
+        clearTimeout(timeoutId);
+      }
       const data=await res.json().catch(()=>null);
       if(!res.ok||!data?.ok)throw new Error(data?.detail||data?.error||`HTTP ${res.status}`);
       session.latest=data.result;
@@ -487,7 +647,10 @@
       event("assistant_message",{stage:data.result.stage,model:data.model});
       renderMessages();renderLatest();saveSession();
     }catch(e){
-      const msg="AI 연결 중 문제가 발생했습니다.\n\n"+String(e.message||e);
+      const detail=e?.name==="AbortError"
+        ?"응답 시간이 90초를 넘었습니다. 새 Worker 코드가 배포됐는지 확인한 뒤 다시 시도해주세요."
+        :String(e.message||e);
+      const msg="대화를 이어가는 중 문제가 발생했습니다.\n\n"+detail;
       session.displayMessages.push({role:"assistant",content:msg,at:new Date().toISOString(),error:true});
       event("api_error",{message:String(e.message||e).slice(0,500)});
       renderMessages();
@@ -528,7 +691,7 @@
 
   document.getElementById("consent").addEventListener("change",e=>document.getElementById("startBtn").disabled=!e.target.checked);
   document.getElementById("startBtn").addEventListener("click",()=>{
-    session.consented=true;event("consent_given");showChat();
+    session.consented=true;event("consent_given");showChat();renderProgress(session.latest?.stage||"understand");renderQuickActions(session.latest);
     if(!session.displayMessages.length){
       session.displayMessages.push({role:"assistant",content:"안녕하세요. 겪고 계신 문제나 바뀌었으면 하는 일을 평소 말하듯 들려주세요. 개인적인 사건인지, 여러 사람에게 반복되는 제도 문제인지 아직 구분하지 않아도 괜찮습니다.",at:new Date().toISOString()});
     }
@@ -548,6 +711,26 @@
     if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sendText(e.target.value)}
   });
   document.getElementById("approveBtn").addEventListener("click",()=>sendText("현재 정책 초안을 검토했습니다. 이 안을 제 최종 선택으로 승인합니다. 사용자 승인 사실을 반영하여 최종 정책 초안으로 완성해주세요."));
+  document.getElementById("editDraftBtn").addEventListener("click",()=>{
+    const d=session.latest?.draft||emptyDraft;
+    document.getElementById("draftEditor").value=draftToText(d);
+    document.getElementById("draftEditorBox").classList.remove("hidden");
+    document.getElementById("draftEditor").focus();
+  });
+  document.getElementById("cancelDraftEditBtn").addEventListener("click",()=>{
+    document.getElementById("draftEditorBox").classList.add("hidden");
+  });
+  document.getElementById("applyDraftEditBtn").addEventListener("click",()=>{
+    const edited=document.getElementById("draftEditor").value.trim();
+    if(!edited){alert("수정할 초안 내용을 입력해주세요.");return}
+    document.getElementById("draftEditorBox").classList.add("hidden");
+    sendText("다음은 제가 직접 수정한 정책초안입니다. 제 문장을 가능한 한 보존하면서 D3 정책초안 구조에 다시 반영하고, 변경된 점을 짧게 확인해주세요.\\n\\n"+edited);
+  });
+  document.getElementById("downloadDraftBtn").addEventListener("click",()=>{
+    const d=session.latest?.draft||emptyDraft;
+    const safe=(d.title||session.sessionId).replace(/[\\\\/:*?"<>|]+/g,"_").slice(0,70);
+    downloadText(draftToText(d),`${safe||"D3-정책초안"}.txt`);
+  });
   document.getElementById("comment").addEventListener("input",e=>{session.survey.comment=e.target.value;saveSession()});
   document.getElementById("saveSurveyBtn").addEventListener("click",()=>{
     const missing=surveyDefs.filter(([k])=>!session.survey[k]);
@@ -562,7 +745,7 @@
 
   checkHealth();
   if(session.consented){
-    showChat();renderMessages();renderLatest();
+    showChat();renderMessages();renderProgress(session.latest?.stage||"understand");renderQuickActions(session.latest);renderLatest();
     if(!session.displayMessages.length){
       session.displayMessages.push({role:"assistant",content:"안녕하세요. 겪고 계신 문제나 바뀌었으면 하는 일을 평소 말하듯 들려주세요.",at:new Date().toISOString()});
       renderMessages();saveSession();
