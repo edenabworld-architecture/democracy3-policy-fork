@@ -1,7 +1,7 @@
 {
   "status": "healthy",
-  "checked_at": "2026-07-20T03:47:39.224649+00:00",
-  "generated_at": "2026-07-20T12:47:29+09:00",
+  "checked_at": "2026-07-20T04:51:09.291278+00:00",
+  "generated_at": "2026-07-20T13:50:59+09:00",
   "schema_version": "1.0",
   "checks": {
     "collection": "pass",
@@ -34,7 +34,7 @@
     "registered_sources": 6
   },
   "hashes": {
-    "bills_json": "0d9453460c069674d7b3c3d4e0fd56e026c0dd96d8efccd43f92de9fc6f2dc91",
+    "bills_json": "23a09129afc46e4b9901686ec07f18de595ef8779bfb0127083067070edd1cde",
     "pilot_manifest": "04f564184bf61026797ee2454c6f967601f5f4f3ac82551a7dc8ce2b5e66beb0",
     "review_overrides": "f53627711e05947bb72aa111dea56a460926456ec9fbec0b4aec0d23d70e6fc9"
   },
