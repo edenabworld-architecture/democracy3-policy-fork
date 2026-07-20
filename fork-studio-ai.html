@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0b1736">
-  <title>D3 Fork Studio AI Release Candidate 2.0</title>
+  <title>D3 Fork Studio AI Release Candidate 2.1</title>
   <meta name="description" content="새 정책 창안과 기존 정책 포크를 문제정의, 정책검색, 변경설계, Fast-Fail, 복수 포크, 결합, 초안, 승인으로 이어가는 Democracy 3.0 시민 정책설계 시제품">
   <style>
     :root{
@@ -437,12 +437,12 @@
 </main>
 
 <div class="footer-note">
-  Fork Studio AI Release Candidate 2.0은 시민 사용자검증용 시제품입니다. 승인본은 사용자의 최종 선택 기록이며 기관 채택·법률효력·전문가 검증을 의미하지 않습니다.
+  Fork Studio AI Release Candidate 2.1은 시민 사용자검증용 시제품입니다. 시민 검증 전 초안 승인과 기관 제출 준비를 분리하며, 승인본은 기관 채택·법률효력·전문가 검증을 의미하지 않습니다.
 </div>
 
 <script>
 const API_BASE="https://d3-fork-studio-api-cs.edenabworld.workers.dev";
-const STORAGE_KEY="d3-fork-studio-rc20-current";
+const STORAGE_KEY="d3-fork-studio-rc21-current";
 const ARCHIVE_KEY="d3-fork-studio-beta133-archive";
 
 const STAGES=["intake","policy_search","policy_review","change_design","fast_fail","forks","composition","draft","complete"];
@@ -485,7 +485,7 @@ let state=loadState()||createState("consult");
 
 function createState(mode){
   return{
-    schema_version:"2.0",
+    schema_version:"2.1",
     session_id:"D3-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).slice(2,6).toUpperCase(),
     mode,
     stage:"intake",
@@ -773,12 +773,26 @@ function renderDesignSpec(){
 function renderQualityGate(){
   const q=state.quality_scorecard,g=state.approval_gate;
   if(!q)return'<div class="notice">초안 생성 후 최종 승인점검을 실행합니다.</div>';
-  return`<div class="quality-card ${q.approval_ready?"":"warn"}"><h3>최종 승인게이트 · ${q.approval_ready?"통과":"보완 필요"}</h3><div class="quality-score">${esc(q.total_score)}점</div>
-    <p>${esc(g?.rule||"")}</p>
-    <div class="analysis-grid">${arr(q.dimensions).map(x=>`<div class="analysis-cell"><b>${esc(x.label)} · ${esc(x.score)}점</b><span>${esc(x.note||"")}</span></div>`).join("")}</div>
-    ${arr(q.fatal_flags).length?`<div class="notice"><b>승인 차단:</b> ${esc(q.fatal_flags.join(" · "))}</div>`:""}
-    ${arr(q.missing_requirements).length?`<ul>${q.missing_requirements.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:"<p>최소 승인기준을 충족했습니다.</p>"}
-  </div>`
+
+  const provisionalReady=Boolean(g?.provisional_ready??q.approval_ready);
+  const institutionReady=Boolean(g?.institution_ready);
+  const provisionalMissing=arr(g?.provisional_missing);
+  const institutionMissing=arr(g?.institution_missing);
+
+  return`
+    <div class="quality-card ${provisionalReady?"":"warn"}">
+      <h3>시민 검증 전 초안 승인 · ${provisionalReady?"통과":"보완 필요"}</h3>
+      <div class="quality-score">${esc(q.total_score)}점</div>
+      <p>${esc(g?.rule||"")}</p>
+      <div class="analysis-grid">${arr(q.dimensions).map(x=>`<div class="analysis-cell"><b>${esc(x.label)} · ${esc(x.score)}점</b><span>${esc(x.note||"")}</span></div>`).join("")}</div>
+      ${arr(q.fatal_flags).length?`<div class="notice"><b>승인 차단:</b> ${esc(q.fatal_flags.join(" · "))}</div>`:""}
+      ${provisionalMissing.length?`<ul>${provisionalMissing.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:"<p>시민 검증 전 초안의 최소 승인기준을 충족했습니다.</p>"}
+    </div>
+    <div class="quality-card ${institutionReady?"":"warn"}" style="margin-top:10px">
+      <h3>기관 제출 준비 · ${institutionReady?"충족":"별도 검증 필요"}</h3>
+      <p>공식 현행제도 대조, 담당기관·법제·예산·집행 전문가 검토가 완료되어야 기관 제출 준비 상태가 됩니다.</p>
+      ${institutionMissing.length?`<ul>${institutionMissing.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:"<p>기관 제출 준비요건을 충족했습니다.</p>"}
+    </div>`
 }
 function renderQuality(){
   return`<div class="section-title"><div><h2>최종 품질·승인검증</h2><p>정책필요성, 분야, 검색, 작동구조, 수단, 위험, 포크, 근거, 버전을 100점 기준으로 점검합니다.</p></div><button class="btn btn-blue btn-small" id="finalReviewBtn">다시 점검</button></div>
@@ -933,7 +947,7 @@ function renderDraft(){
   return`
     <div class="section-title"><div><h2>정책초안·차이표·승인</h2><p>직접 수정한 뒤 재구조화하거나 현재 버전을 승인합니다.</p></div></div>
     ${renderDraftQuality()}
-    ${state.approval?`<div class="approval"><b>사용자 승인 완료 · ${esc(state.approval.approved_version_id||"")}</b><p>${esc(state.approval.scope||"")}</p><p>미해결 위험 ${arr(state.approval.unresolved_risks).length}건</p></div>`:""}
+    ${state.approval?`<div class="approval"><b>시민 검증 전 초안 승인 완료 · ${esc(state.approval.approved_version_id||"")}</b><p>${esc(state.approval.scope||"")}</p><p>기관 제출 준비: ${state.approval.institution_ready?"충족":"미충족"} · 미해결 위험 ${arr(state.approval.unresolved_risks).length}건</p></div>`:""}
     <div class="subtabs">
       <button class="subtab active" data-draft-view="structured">구조화 초안</button>
       <button class="subtab" data-draft-view="design">작동구조</button>
@@ -969,7 +983,7 @@ function renderDraft(){
     <div id="draftQuality" class="hidden">${renderQualityGate()}</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:11px">
       <button class="btn btn-soft" id="downloadDraftBtn">초안 TXT</button>
-      <button class="btn btn-green" id="approveBtn" ${(state.approval||!state.quality_scorecard?.approval_ready)?"disabled":""}>현재 버전 승인</button>
+      <button class="btn btn-green" id="approveBtn" ${(state.approval||!(state.approval_gate?.provisional_ready??state.quality_scorecard?.approval_ready))?"disabled":""}>시민 검증 전 초안 승인</button>
     </div>
   `
 }
@@ -1061,8 +1075,8 @@ function wireTab(){
   document.getElementById("downloadPackageBtn")?.addEventListener("click",()=>downloadJson({state,deliverables:state.deliverables},`${state.session_id}-policy-package.json`));
   document.getElementById("downloadPackageTxtBtn")?.addEventListener("click",()=>downloadBlob(packageToText(),`${state.session_id}-policy-package.txt`,"text/plain;charset=utf-8"));
   document.getElementById("approveBtn")?.addEventListener("click",()=>{
-    const note=prompt("승인 메모가 있다면 입력하세요. 없으면 확인을 누르세요.","")??"";
-    api("approve",{approval_note:note})
+    const note=prompt("시민 검증 전 초안 승인 메모가 있다면 입력하세요. 기관 제출 준비 완료를 의미하지 않습니다.","")??"";
+    api("approve",{approval_note:note,approval_type:"provisional_citizen"})
   })
 }
 function renderAll(){
@@ -1081,7 +1095,7 @@ async function checkHealth(){
     const data=await response.json();
     if(data.ok&&data.ai_binding_configured&&data.workflow_engine){
       document.getElementById("healthDot").className="dot ok";
-      document.getElementById("healthText").textContent="AI·제도설계·승인게이트 정상"
+      document.getElementById("healthText").textContent="RC 2.1 · 명령실행·제도설계·2단계 승인게이트 정상"
     }else throw new Error()
   }catch(e){
     document.getElementById("healthDot").className="dot bad";
