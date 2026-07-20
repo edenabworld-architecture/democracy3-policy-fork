@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0b1736">
-  <title>D3 Fork Studio AI Release Candidate 2.1</title>
+  <title>D3 Fork Studio AI Release Candidate 2.2</title>
   <meta name="description" content="새 정책 창안과 기존 정책 포크를 문제정의, 정책검색, 변경설계, Fast-Fail, 복수 포크, 결합, 초안, 승인으로 이어가는 Democracy 3.0 시민 정책설계 시제품">
   <style>
     :root{
@@ -343,7 +343,7 @@
   <div class="top-inner">
     <div class="brand">
       Democracy 3.0 · Fork Studio
-      <small>AI Beta 1.4 · 창안 및 원안 설계 박찬성</small>
+      <small>AI Release Candidate 2.2 · 창안 및 원안 설계 박찬성</small>
     </div>
     <div class="top-actions">
       <div class="health"><span class="dot" id="healthDot"></span><span id="healthText">연결 확인 중</span></div>
@@ -437,12 +437,12 @@
 </main>
 
 <div class="footer-note">
-  Fork Studio AI Release Candidate 2.1은 시민 사용자검증용 시제품입니다. 시민 검증 전 초안 승인과 기관 제출 준비를 분리하며, 승인본은 기관 채택·법률효력·전문가 검증을 의미하지 않습니다.
+  Fork Studio AI Release Candidate 2.2은 시민 사용자검증용 시제품입니다. 시민 검증 전 초안 승인과 기관 제출 준비를 분리하며, 승인본은 기관 채택·법률효력·전문가 검증을 의미하지 않습니다.
 </div>
 
 <script>
 const API_BASE="https://d3-fork-studio-api-cs.edenabworld.workers.dev";
-const STORAGE_KEY="d3-fork-studio-rc21-current";
+const STORAGE_KEY="d3-fork-studio-rc22-current";
 const ARCHIVE_KEY="d3-fork-studio-beta133-archive";
 
 const STAGES=["intake","policy_search","policy_review","change_design","fast_fail","forks","composition","draft","complete"];
@@ -476,6 +476,15 @@ const EVIDENCE_STATUS_LABELS={
   official_connected:"공식자료 연결",user_experience:"사용자 경험",
   ai_inference:"AI 추론",verification_needed:"검증 필요",unsupported:"근거 없음"
 };
+const CONTEXT_COMMANDS={
+  continue_new_policy:"원정책 없이 새 정책 설계를 계속합니다.",
+  express_draft:"현재 정보로 검증 전 신속초안을 생성해주세요. 미검토 위험은 그대로 표시해주세요.",
+  run_fast_fail:"Fast-Fail 위험원장만 생성해주세요. 권고 보완책은 아직 자동 반영하지 마세요.",
+  generate_forks:"현재 Fast-Fail 상태를 유지한 채 실질적으로 다른 복수 포크 3개를 생성해주세요.",
+  generate_draft:"선택된 결합안으로 검증 전 정책초안을 생성해주세요.",
+  final_review:"현재 초안의 품질과 시민 검증 전 승인 가능 여부를 최종 점검해주세요.",
+  finalize:"Fast-Fail 권고 보완책을 조건부 반영하고 복수 포크와 검증 전 초안을 갱신한 뒤 시민 검증 전 초안 승인 가능 여부까지 최종 점검해주세요. 기관 제출 준비 상태와는 구분해주세요."
+};
 
 let selectedMode="";
 let activeTab="problem";
@@ -485,7 +494,7 @@ let state=loadState()||createState("consult");
 
 function createState(mode){
   return{
-    schema_version:"2.1",
+    schema_version:"2.2",
     session_id:"D3-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).slice(2,6).toUpperCase(),
     mode,
     stage:"intake",
@@ -650,13 +659,21 @@ function renderContextActions(){
   }
   if(state.stage==="forks")actions.push(["forks","포크 결합 열기"]);
   if(state.stage==="composition")actions.push(["generate_draft","정책초안 생성"]);
-  if(state.stage==="draft"){actions.push(["draft","초안·차이표 열기"]);actions.push(["final_review","최종 승인점검"]);}
-  root.innerHTML=actions.map(([action,label])=>`<button class="context-btn" data-context="${esc(action)}">${esc(label)}</button>`).join("");
+  if(state.stage==="draft"){actions.push(["draft","초안·차이표 열기"]);actions.push(["final_review","현재 상태 점검"]);actions.push(["finalize","보완책 반영·최종점검"]);}
+  root.innerHTML=actions.map(([action,label])=>`<button class="context-btn" data-action="context" data-context="${esc(action)}">${esc(label)}</button>`).join("");
   root.querySelectorAll("[data-context]").forEach(btn=>btn.addEventListener("click",()=>{
     const action=btn.dataset.context;
-    if(["search","change","forks","draft"].includes(action))switchTab(action);
-    else if(action==="continue_new_policy")api("continue_new_policy");
-    else api(action)
+    if(["search","change","forks","draft"].includes(action)){
+      switchTab(action);
+      return;
+    }
+    const command=CONTEXT_COMMANDS[action]||btn.textContent.trim();
+    addMessage("user",command);
+    if(action==="finalize"){
+      api("general_chat",{text:command});
+      return;
+    }
+    api(action,{context_user_text:command});
   }))
 }
 function renderProblem(){
@@ -1095,7 +1112,7 @@ async function checkHealth(){
     const data=await response.json();
     if(data.ok&&data.ai_binding_configured&&data.workflow_engine){
       document.getElementById("healthDot").className="dot ok";
-      document.getElementById("healthText").textContent="RC 2.1 · 명령실행·제도설계·2단계 승인게이트 정상"
+      document.getElementById("healthText").textContent="RC 2.2 · 주제정제·상태무결성·최종 승인게이트 정상"
     }else throw new Error()
   }catch(e){
     document.getElementById("healthDot").className="dot bad";
