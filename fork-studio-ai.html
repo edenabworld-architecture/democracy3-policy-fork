@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0b1736">
-  <title>D3 Fork Studio AI Beta 1.3</title>
+  <title>D3 Fork Studio AI Beta 1.3.3</title>
   <meta name="description" content="새 정책 창안과 기존 정책 포크를 문제정의, 정책검색, 변경설계, Fast-Fail, 복수 포크, 결합, 초안, 승인으로 이어가는 Democracy 3.0 시민 정책설계 시제품">
   <style>
     :root{
@@ -326,7 +326,7 @@
   <div class="top-inner">
     <div class="brand">
       Democracy 3.0 · Fork Studio
-      <small>AI Beta 1.3 · 창안 및 원안 설계 박찬성</small>
+      <small>AI Beta 1.3.3 · 창안 및 원안 설계 박찬성</small>
     </div>
     <div class="top-actions">
       <div class="health"><span class="dot" id="healthDot"></span><span id="healthText">연결 확인 중</span></div>
@@ -419,13 +419,13 @@
 </main>
 
 <div class="footer-note">
-  Fork Studio AI Beta 1.3은 시민 사용자검증용 시제품입니다. 승인본은 사용자의 최종 선택 기록이며 기관 채택·법률효력·전문가 검증을 의미하지 않습니다.
+  Fork Studio AI Beta 1.3.3은 시민 사용자검증용 시제품입니다. 승인본은 사용자의 최종 선택 기록이며 기관 채택·법률효력·전문가 검증을 의미하지 않습니다.
 </div>
 
 <script>
 const API_BASE="https://d3-fork-studio-api-cs.edenabworld.workers.dev";
-const STORAGE_KEY="d3-fork-studio-beta13-current";
-const ARCHIVE_KEY="d3-fork-studio-beta13-archive";
+const STORAGE_KEY="d3-fork-studio-beta133-current";
+const ARCHIVE_KEY="d3-fork-studio-beta133-archive";
 
 const STAGES=["intake","policy_search","policy_review","change_design","fast_fail","forks","composition","draft","complete"];
 const STAGE_LABELS={
@@ -610,10 +610,20 @@ function renderContextActions(){
   if(state.stage==="policy_search"){
     actions.push(["search","정책검색 열기"]);
     actions.push(["continue_new_policy","원정책 없이 새 정책 계속"]);
+    actions.push(["express_draft","검증 전 신속초안"]);
   }
-  if(state.stage==="policy_review")actions.push(["change","변경설계 열기"]);
-  if(state.stage==="change_design")actions.push(["run_fast_fail","Fast-Fail 시작"]);
-  if(state.stage==="fast_fail")actions.push(["generate_forks","복수 포크 생성"]);
+  if(state.stage==="policy_review"){
+    actions.push(["change","변경설계 열기"]);
+    actions.push(["express_draft","AI가 잠정안 작성"]);
+  }
+  if(state.stage==="change_design"){
+    actions.push(["run_fast_fail","Fast-Fail 시작"]);
+    actions.push(["express_draft","현재 내용으로 신속초안"]);
+  }
+  if(state.stage==="fast_fail"){
+    actions.push(["generate_forks","복수 포크 생성"]);
+    actions.push(["express_draft","미해결 위험을 남기고 초안"]);
+  }
   if(state.stage==="forks")actions.push(["forks","포크 결합 열기"]);
   if(state.stage==="composition")actions.push(["generate_draft","정책초안 생성"]);
   if(state.stage==="draft")actions.push(["draft","초안·차이표 열기"]);
