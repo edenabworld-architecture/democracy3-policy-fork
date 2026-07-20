@@ -10,19 +10,19 @@ permissions:
   issues: read
 
 concurrency:
-  group: democracy3-policy-data
+  group: democracy3-policy-data-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   update:
-    runs-on: macos-latest
-    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -33,32 +33,60 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Fetch and build policy data
+      - name: Generate, validate and publish verified release
+        shell: bash
         env:
           ASSEMBLY_API_KEY: ${{ secrets.ASSEMBLY_API_KEY }}
           ASSEMBLY_AGE: "22"
-        run: python fetch_bills.py
-
-      - name: Sync public civic log
-        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python sync_civic_log.py
-
-      - name: Build policy versions and implementation tracking
-        run: python policy_history.py
-
-      - name: Validate public release
-        run: python validate_release.py
-
-      - name: Show validation summary
-        run: python -m json.tool release-status.json
-
-      - name: Commit verified release
         run: |
+          set -Eeuo pipefail
+
           git config user.name "democracy3-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add -A
-          git diff --cached --quiet || git commit -m "자동 갱신: 검증된 정책 데이터와 시범보고서"
-          git pull --rebase
-          git push
+
+          # A concurrent manual commit or another data run can advance main
+          # while generation is in progress. Never rebase generated outputs.
+          # Reset to the newest main, regenerate, and retry the push instead.
+          for attempt in 1 2 3; do
+            echo "=== publish attempt ${attempt}/3 ==="
+
+            git fetch origin main
+            git reset --hard origin/main
+            git clean -fd
+
+            # Remove Python runtime artifacts, including any old tracked cache.
+            find . -type d -name '__pycache__' -prune -exec rm -rf {} +
+            find . -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
+
+            python fetch_bills.py
+            python sync_civic_log.py
+            python policy_history.py
+            python validate_release.py
+            python -m json.tool release-status.json
+
+            # Python execution recreates caches; never publish them.
+            find . -type d -name '__pycache__' -prune -exec rm -rf {} +
+            find . -type f \( -name '*.pyc' -o -name '*.pyo' \) -delete
+
+            git add -A
+
+            if git diff --cached --quiet; then
+              echo "No verified release changes to publish."
+              exit 0
+            fi
+
+            git commit -m "자동 갱신: 검증된 정책 데이터와 시범보고서"
+
+            if git push origin HEAD:main; then
+              echo "Verified release published successfully."
+              exit 0
+            fi
+
+            echo "Remote main advanced during generation. Regenerating from the newest main."
+            sleep $((attempt * 5))
+          done
+
+          echo "Failed to publish after 3 regeneration attempts."
+          exit 1
