@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0b1736">
-  <title>D3 Fork Studio AI Release Candidate 2.2</title>
+  <title>D3 Fork Studio AI Release Candidate 3.0</title>
   <meta name="description" content="새 정책 창안과 기존 정책 포크를 문제정의, 정책검색, 변경설계, Fast-Fail, 복수 포크, 결합, 초안, 승인으로 이어가는 Democracy 3.0 시민 정책설계 시제품">
   <style>
     :root{
@@ -310,6 +310,16 @@
     .profile-card{padding:12px;border:1px solid #cfd9f7;border-radius:13px;background:#f8f9ff;margin-bottom:10px}
     .profile-card h3{margin:0 0 5px;color:var(--blue);font-size:15px}
     .profile-meta{font-size:10px;color:var(--muted);margin-bottom:7px}
+    .semantic-row{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+    .semantic-chip{display:inline-flex;align-items:center;padding:5px 8px;border-radius:999px;background:#fff;border:1px solid #d5def5;color:#334b8f;font-size:10px;font-weight:900}
+    .semantic-chip.high{background:var(--redbg);border-color:#efc3bf;color:var(--red)}
+    .gate-card{padding:14px;border-radius:14px;border:2px solid #efbd76;background:var(--amberbg);margin:10px 0}
+    .gate-card h3{margin:0 0 5px;font-size:15px;color:#8a410b}
+    .gate-card p{margin:5px 0;font-size:12px}
+    .gate-options{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .gate-option{border:1px solid #e5ae63;background:#fff;color:#7c3d0c;border-radius:9px;padding:7px 9px;font-size:11px;font-weight:900}
+    .gate-option:hover{background:#fff4df}
+    .semantic-warning{padding:9px 11px;border-radius:10px;background:var(--redbg);border:1px solid #efc3bf;color:#8f2f27;font-size:11px;font-weight:800;margin-top:8px}
     .profile-axes{display:flex;gap:5px;flex-wrap:wrap}
     .axis-chip{display:inline-flex;padding:4px 7px;border-radius:999px;background:#fff;border:1px solid #d7dff4;font-size:9px;font-weight:850;color:#43577e}
     .assumption-card{border:1px solid var(--line);border-radius:11px;padding:9px;margin-top:7px;background:#fff}
@@ -343,7 +353,7 @@
   <div class="top-inner">
     <div class="brand">
       Democracy 3.0 · Fork Studio
-      <small>AI Release Candidate 2.2 · 창안 및 원안 설계 박찬성</small>
+      <small>AI Release Candidate 3.0 · 창안 및 원안 설계 박찬성</small>
     </div>
     <div class="top-actions">
       <div class="health"><span class="dot" id="healthDot"></span><span id="healthText">연결 확인 중</span></div>
@@ -437,13 +447,13 @@
 </main>
 
 <div class="footer-note">
-  Fork Studio AI Release Candidate 2.2은 시민 사용자검증용 시제품입니다. 시민 검증 전 초안 승인과 기관 제출 준비를 분리하며, 승인본은 기관 채택·법률효력·전문가 검증을 의미하지 않습니다.
+  Fork Studio AI Release Candidate 3.0은 시민 사용자검증용 시제품입니다. 시민 검증 전 초안 승인과 기관 제출 준비를 분리하며, 승인본은 기관 채택·법률효력·전문가 검증을 의미하지 않습니다.
 </div>
 
 <script>
 const API_BASE="https://d3-fork-studio-api-cs.edenabworld.workers.dev";
-const STORAGE_KEY="d3-fork-studio-rc22-current";
-const ARCHIVE_KEY="d3-fork-studio-beta133-archive";
+const STORAGE_KEY="d3-fork-studio-rc30-current";
+const ARCHIVE_KEY="d3-fork-studio-rc30-archive";
 
 const STAGES=["intake","policy_search","policy_review","change_design","fast_fail","forks","composition","draft","complete"];
 const STAGE_LABELS={
@@ -489,12 +499,14 @@ const CONTEXT_COMMANDS={
 let selectedMode="";
 let activeTab="problem";
 let busy=false;
+let requestSeq=0;
+let activeRequestId=0;
 let messages=[];
 let state=loadState()||createState("consult");
 
 function createState(mode){
   return{
-    schema_version:"2.2",
+    schema_version:"3.0",
     session_id:"D3-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).slice(2,6).toUpperCase(),
     mode,
     stage:"intake",
@@ -509,9 +521,10 @@ function createState(mode){
       limitation:"현행법령·정부사업·자치법규 전체검색은 아직 연결 전입니다.",
       candidates:[]
     },
-    selected_policy:null,policy_analysis:null,policy_profile:null,assumption_ledger:[],draft_quality:null,policy_need_assessment:null,instrument_analysis:null,design_spec:null,quality_scorecard:null,deliverables:null,approval_gate:null,change_plan:[],
+    selected_policy:null,policy_analysis:null,policy_profile:null,semantic_profile:null,clarification_gate:null,content_quality:null,assumption_ledger:[],draft_quality:null,policy_need_assessment:null,instrument_analysis:null,design_spec:null,quality_scorecard:null,deliverables:null,approval_gate:null,change_plan:[],
     fast_fail_ledger:[],forks:[],composition:null,draft:null,
     difference_table:[],evidence_ledger:[],versions:[],approval:null,
+    dialogue:{recent_turns:[],pending_action:"",last_assistant_message:"",last_user_message:""},
     recommended_actions:[]
   }
 }
@@ -565,6 +578,8 @@ function removeLoading(){document.getElementById("loading")?.remove()}
 
 async function api(action,payload={}){
   if(busy)return;
+  const requestId=++requestSeq;
+  activeRequestId=requestId;
   setBusy(true);addLoading();
   try{
     const controller=new AbortController();
@@ -574,11 +589,12 @@ async function api(action,payload={}){
       response=await fetch(API_BASE+"/studio",{
         method:"POST",
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({action,payload,state,session_id:state.session_id}),
+        body:JSON.stringify({action,payload,state,session_id:state.session_id,client_request_id:requestId}),
         signal:controller.signal
       })
     }finally{clearTimeout(timeout)}
     const data=await response.json().catch(()=>null);
+    if(requestId!==activeRequestId)return;
     if(!response.ok||!data?.ok)throw new Error(data?.detail||data?.error||`HTTP ${response.status}`);
     state=data.state;
     if(["draft","complete"].includes(state.stage))activeTab="draft";
@@ -586,14 +602,18 @@ async function api(action,payload={}){
     else if(["policy_review","change_design"].includes(state.stage))activeTab="change";
     else if(state.stage==="fast_fail")activeTab="risk";
     else if(["forks","composition"].includes(state.stage))activeTab="forks";
+    else if(state.clarification_gate?.required&&!state.clarification_gate?.resolved)activeTab="problem";
     document.querySelectorAll(".tab").forEach(btn=>btn.classList.toggle("active",btn.dataset.tab===activeTab));
     if(data.assistant_message)addMessage("assistant",data.assistant_message);
     renderAll();saveState()
   }catch(error){
+    if(requestId!==activeRequestId)return;
     const detail=error?.name==="AbortError"?"응답 시간이 120초를 넘었습니다. Worker 배포상태를 확인하고 다시 시도해주세요.":String(error?.message||error);
     addMessage("assistant","작업을 이어가는 중 문제가 발생했습니다.\n\n"+detail,true)
   }finally{
-    removeLoading();setBusy(false);document.getElementById("chatInput")?.focus()
+    if(requestId===activeRequestId){
+      removeLoading();setBusy(false);document.getElementById("chatInput")?.focus()
+    }
   }
 }
 function switchTab(name){
@@ -608,15 +628,18 @@ function showStudio(){
 }
 function resetStudio(){
   if(messages.length&&!confirm("현재 작업을 보관하고 새 작업을 시작할까요?"))return;
+  activeRequestId=++requestSeq;
   if(messages.length)archive();
   localStorage.removeItem(STORAGE_KEY);location.reload()
 }
 
 function renderStage(){
   const index=Math.max(0,STAGES.indexOf(state.stage));
-  document.getElementById("stagePill").textContent=STAGE_LABELS[state.stage]||state.stage;
+  const gate=state.clarification_gate||{};
+  const gateOpen=gate.required&&!gate.resolved;
+  document.getElementById("stagePill").textContent=gateOpen?"고위험 범위 확인":(STAGE_LABELS[state.stage]||state.stage);
   document.getElementById("modePill").textContent=MODE_LABELS[state.mode]||state.mode;
-  document.getElementById("stageCaption").textContent=STAGE_CAPTIONS[state.stage]||"정책설계를 진행하고 있습니다.";
+  document.getElementById("stageCaption").textContent=gateOpen?(gate.question||"정책범위를 먼저 확인해야 합니다."):(STAGE_CAPTIONS[state.stage]||"정책설계를 진행하고 있습니다.");
   document.getElementById("stageTrack").innerHTML=STAGES.map((stage,i)=>`<span class="stage-node ${i<=index?"done":""} ${i===index?"active":""}" title="${esc(STAGE_LABELS[stage])}"></span>`).join("");
   document.getElementById("turnCount").textContent=`${messages.filter(m=>m.role==="user").length}회 대화`;
   const anchor=document.getElementById("policyAnchor");
@@ -639,66 +662,99 @@ function renderMessages(){
 }
 function renderContextActions(){
   const root=document.getElementById("contextActions");
+  const gate=state.clarification_gate||{};
+  if(gate.required&&!gate.resolved){
+    const options=arr(gate.options);
+    root.innerHTML=`<button class="context-btn" data-context-tab="search">정책검색 열기</button>${options.map((option,index)=>`<button class="context-btn" data-gate-option="${esc(option)}">${index+1}. ${esc(option)}</button>`).join("")}<button class="context-btn" data-gate-default="true">가장 보수적인 잠정안</button>`;
+    root.querySelector("[data-context-tab]")?.addEventListener("click",()=>switchTab("search"));
+    root.querySelectorAll("[data-gate-option]").forEach(btn=>btn.addEventListener("click",()=>{
+      const text=`검토 범위를 ‘${btn.dataset.gateOption}’ 중심으로 한정해주세요. 안전기준과 공식 제도대조는 유지해주세요.`;
+      addMessage("user",text);api("general_chat",{text})
+    }));
+    root.querySelector("[data-gate-default]")?.addEventListener("click",()=>{
+      const text="세부 범위는 잘 모르겠습니다. 가장 보수적인 기본안으로 한정하되, 무제한 완화는 제외하고 안전기준과 공식 제도대조를 유지해주세요.";
+      addMessage("user",text);api("general_chat",{text})
+    });
+    return
+  }
   const actions=[];
   if(state.stage==="policy_search"){
     actions.push(["search","정책검색 열기"]);
     actions.push(["continue_new_policy","원정책 없이 새 정책 계속"]);
-    actions.push(["express_draft","검증 전 신속초안"]);
+    actions.push(["express_draft","검증 전 신속초안"])
   }
   if(state.stage==="policy_review"){
     actions.push(["change","변경설계 열기"]);
-    actions.push(["express_draft","AI가 잠정안 작성"]);
+    actions.push(["express_draft","AI가 잠정안 작성"])
   }
   if(state.stage==="change_design"){
     actions.push(["run_fast_fail","Fast-Fail 시작"]);
-    actions.push(["express_draft","현재 내용으로 신속초안"]);
+    actions.push(["express_draft","현재 내용으로 신속초안"])
   }
   if(state.stage==="fast_fail"){
     actions.push(["generate_forks","복수 포크 생성"]);
-    actions.push(["express_draft","미해결 위험을 남기고 초안"]);
+    actions.push(["express_draft","미해결 위험을 남기고 초안"])
   }
   if(state.stage==="forks")actions.push(["forks","포크 결합 열기"]);
   if(state.stage==="composition")actions.push(["generate_draft","정책초안 생성"]);
-  if(state.stage==="draft"){actions.push(["draft","초안·차이표 열기"]);actions.push(["final_review","현재 상태 점검"]);actions.push(["finalize","보완책 반영·최종점검"]);}
+  if(state.stage==="draft"){
+    actions.push(["draft","초안·차이표 열기"]);
+    actions.push(["final_review","현재 상태 점검"]);
+    actions.push(["finalize","보완책 반영·최종점검"])
+  }
   root.innerHTML=actions.map(([action,label])=>`<button class="context-btn" data-action="context" data-context="${esc(action)}">${esc(label)}</button>`).join("");
   root.querySelectorAll("[data-context]").forEach(btn=>btn.addEventListener("click",()=>{
     const action=btn.dataset.context;
-    if(["search","change","forks","draft"].includes(action)){
-      switchTab(action);
-      return;
-    }
+    if(["search","change","forks","draft"].includes(action)){switchTab(action);return}
     const command=CONTEXT_COMMANDS[action]||btn.textContent.trim();
     addMessage("user",command);
-    if(action==="finalize"){
-      api("general_chat",{text:command});
-      return;
-    }
-    api(action,{context_user_text:command});
+    if(action==="finalize"){api("general_chat",{text:command});return}
+    api(action,{context_user_text:command})
   }))
 }
 function renderProblem(){
   const p=state.problem||{};
-  const profile=state.policy_profile||{};
+  const profile=state.semantic_profile||state.policy_profile||{};
+  const gate=state.clarification_gate||{};
   const assumptions=arr(state.assumption_ledger);
   const item=(label,value)=>{
     if(Array.isArray(value))value=value.join(", ");
     return nonempty(value)?`<div class="analysis-cell"><b>${esc(label)}</b><span>${esc(value)}</span></div>`:""
   };
+  const secondaryDomains=arr(profile.secondary_domains);
+  const entities=arr(profile.entities);
   const profileHtml=profile.label?`
     <div class="profile-card">
-      <h3>정책분야 · ${esc(profile.label)}</h3>
-      <div class="profile-meta">분류 확신도 ${esc(profile.confidence||"확인 필요")} · 일치어 ${esc(arr(profile.matched_terms).join(", ")||"없음")} ${profile.secondary?`· 보조분야 ${esc(profile.secondary.label)}`:""}</div>
+      <h3>주분야 · ${esc(profile.label)}</h3>
+      <div class="profile-meta">분류 확신도 ${esc(profile.confidence||"확인 필요")} · 위험등급 ${esc(profile.risk_tier||"standard")} · 일치어 ${esc(arr(profile.matched_terms).join(", ")||"없음")}</div>
       <p style="font-size:11px;margin:5px 0">${esc(profile.problem_frame||"")}</p>
+      <div class="semantic-row">
+        ${secondaryDomains.map(x=>`<span class="semantic-chip">보조분야 · ${esc(x.label||x.id)}</span>`).join("")}
+        ${entities.map(x=>`<span class="semantic-chip ${x.risk==="high"?"high":""}">${esc(x.surface||x.canonical||x.topic)} → ${esc(x.canonical||x.topic||x.type)}</span>`).join("")}
+      </div>
       <div class="profile-axes">${arr(profile.design_axes).map(x=>`<span class="axis-chip">${esc(x)}</span>`).join("")}</div>
+      ${profile.fallback_used&&profile.recognized_entity?'<div class="semantic-warning">의미개체가 확인됐지만 일반분야로 떨어졌습니다. 초안 생성 전에 분류 재검증이 필요합니다.</div>':""}
+    </div>`:"";
+  const gateHtml=gate.required&&!gate.resolved?`
+    <div class="gate-card">
+      <h3>초안 생성 전 고위험 범위 확인</h3>
+      <p>${esc(gate.reason||"")}</p>
+      <p><b>${esc(gate.question||"")}</b></p>
+      <div class="gate-options">
+        ${arr(gate.options).map((option,index)=>`<button class="gate-option clarification-option" data-option="${esc(option)}">${index+1}. ${esc(option)}</button>`).join("")}
+        <button class="gate-option clarification-default">가장 보수적인 잠정안</button>
+      </div>
+      <p style="font-size:10px;color:#7d4d21;margin-top:8px">이 범위를 정하기 전에는 Fast-Fail·포크·정책초안·승인 작업을 실행하지 않습니다.</p>
     </div>`:"";
   const assumptionsHtml=assumptions.length?`
     <div class="section-title" style="margin-top:13px"><div><h2 style="font-size:15px">잠정 가정표</h2><p>사용자가 세부사항을 맡긴 부분도 사실처럼 확정하지 않고 검증과제로 남깁니다.</p></div></div>
     ${assumptions.map(a=>`<div class="assumption-card"><b>${esc(a.id)} · ${esc(a.status)}</b><span>${esc(a.assumption)}</span><small>근거: ${esc(a.basis)} · 확인: ${esc(a.verification)}</small></div>`).join("")}`:"";
   return`
-    <div class="section-title"><div><h2>문제정의·분야·가정</h2><p>제도명을 반복하지 않고 해결할 구조적 문제와 설계축을 분리합니다.</p></div></div>
+    <div class="section-title"><div><h2>문제정의·의미분석·가정</h2><p>브랜드·제품·질환·법률용어를 일반 개념으로 해석하고 주분야와 보조분야를 함께 판정합니다.</p></div></div>
     ${profileHtml}
+    ${gateHtml}
     ${state.policy_need_assessment?`<div class="notice ${state.policy_need_assessment.status==="provisional"||state.policy_need_assessment.status==="confirmed"?"good-notice":""}"><b>정책개입 판단 · ${esc(state.policy_need_assessment.status)}</b><br>${esc(state.policy_need_assessment.public_interest||"")}<br><small>${esc(state.policy_need_assessment.proportionality_note||"")}</small></div>`:""}
-    ${!p.issue_summary?'<div class="empty">왼쪽 대화창에 문제나 아이디어를 입력하면 분야와 문제틀을 함께 구조화합니다.</div>':`
+    ${!p.issue_summary?'<div class="empty">왼쪽 대화창에 문제나 아이디어를 입력하면 의미개체·주분야·보조분야와 정책범위를 함께 구조화합니다.</div>':`
       <div class="analysis-grid">
         ${item("핵심 공공문제",p.issue_summary)}
         ${item("영향 대상",arr(p.affected_groups))}
@@ -1045,6 +1101,14 @@ function packageToText(){
   add("최종 품질검증",state.quality_scorecard||{});add("승인기록",state.approval||{});return out.join("\n").trim()
 }
 function wireTab(){
+  document.querySelectorAll(".clarification-option").forEach(btn=>btn.addEventListener("click",()=>{
+    const text=`검토 범위를 ‘${btn.dataset.option}’ 중심으로 한정해주세요. 안전기준과 공식 제도대조는 유지해주세요.`;
+    addMessage("user",text);api("general_chat",{text})
+  }));
+  document.querySelector(".clarification-default")?.addEventListener("click",()=>{
+    const text="세부 범위는 잘 모르겠습니다. 가장 보수적인 기본안으로 한정하되, 무제한 완화는 제외하고 안전기준과 공식 제도대조를 유지해주세요.";
+    addMessage("user",text);api("general_chat",{text})
+  });
   document.getElementById("policySearchBtn")?.addEventListener("click",()=>{
     const query=document.getElementById("policyQuery").value.trim();
     api("search_policy",{query})
@@ -1103,16 +1167,17 @@ async function sendChat(){
   const input=document.getElementById("chatInput");
   const text=input.value.trim();if(!text||busy)return;
   addMessage("user",text);input.value="";
-  if(state.stage==="intake")await api("analyze_problem",{text});
+  const isFirstIntake=state.stage==="intake"&&!state.problem?.raw_input&&!state.dialogue?.pending_action;
+  if(isFirstIntake)await api("analyze_problem",{text});
   else await api("general_chat",{text})
 }
 async function checkHealth(){
   try{
     const response=await fetch(API_BASE+"/health",{cache:"no-store"});
     const data=await response.json();
-    if(data.ok&&data.ai_binding_configured&&data.workflow_engine){
+    if(data.ok&&data.ai_binding_configured&&data.workflow_engine&&data.semantic_entity_resolver&&data.high_risk_ambiguity_gate&&data.domain_required_concept_validator&&data.cross_domain_semantic_acceptance_suite){
       document.getElementById("healthDot").className="dot ok";
-      document.getElementById("healthText").textContent="RC 2.2 · 주제정제·상태무결성·최종 승인게이트 정상"
+      document.getElementById("healthText").textContent="RC 3.0 · 의미개체·고위험 관문·교차분야 품질검증 정상"
     }else throw new Error()
   }catch(e){
     document.getElementById("healthDot").className="dot bad";
