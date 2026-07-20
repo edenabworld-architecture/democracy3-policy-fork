@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#0b1736">
-  <title>D3 Fork Studio AI Beta 1.4</title>
+  <title>D3 Fork Studio AI Release Candidate 2.0</title>
   <meta name="description" content="새 정책 창안과 기존 정책 포크를 문제정의, 정책검색, 변경설계, Fast-Fail, 복수 포크, 결합, 초안, 승인으로 이어가는 Democracy 3.0 시민 정책설계 시제품">
   <style>
     :root{
@@ -429,6 +429,7 @@
       <button class="tab" data-tab="risk">Fast-Fail</button>
       <button class="tab" data-tab="forks">포크·결합</button>
       <button class="tab" data-tab="draft">초안·승인</button>
+      <button class="tab" data-tab="quality">최종검증</button>
       <button class="tab" data-tab="versions">버전</button>
     </nav>
     <div class="tab-body" id="tabBody"></div>
@@ -436,12 +437,12 @@
 </main>
 
 <div class="footer-note">
-  Fork Studio AI Beta 1.3.4은 시민 사용자검증용 시제품입니다. 승인본은 사용자의 최종 선택 기록이며 기관 채택·법률효력·전문가 검증을 의미하지 않습니다.
+  Fork Studio AI Release Candidate 2.0은 시민 사용자검증용 시제품입니다. 승인본은 사용자의 최종 선택 기록이며 기관 채택·법률효력·전문가 검증을 의미하지 않습니다.
 </div>
 
 <script>
 const API_BASE="https://d3-fork-studio-api-cs.edenabworld.workers.dev";
-const STORAGE_KEY="d3-fork-studio-beta14-current";
+const STORAGE_KEY="d3-fork-studio-rc20-current";
 const ARCHIVE_KEY="d3-fork-studio-beta133-archive";
 
 const STAGES=["intake","policy_search","policy_review","change_design","fast_fail","forks","composition","draft","complete"];
@@ -469,7 +470,7 @@ const RISK_LABELS={
   rights_fairness:"권리·형평성",second_order_effect:"2차 효과",evidence:"근거"
 };
 const RISK_STATUS_LABELS={
-  open:"미검토",answered:"답변 반영",conditional:"조건부 통과",passed:"통과",blocked:"차단"
+  open:"미검토",answered:"답변 반영",conditional:"조건부 통과",passed:"통과",blocked:"차단",accepted:"사용자 위험수용"
 };
 const EVIDENCE_STATUS_LABELS={
   official_connected:"공식자료 연결",user_experience:"사용자 경험",
@@ -484,7 +485,7 @@ let state=loadState()||createState("consult");
 
 function createState(mode){
   return{
-    schema_version:"1.4",
+    schema_version:"2.0",
     session_id:"D3-"+Date.now().toString(36).toUpperCase()+"-"+Math.random().toString(36).slice(2,6).toUpperCase(),
     mode,
     stage:"intake",
@@ -499,7 +500,7 @@ function createState(mode){
       limitation:"현행법령·정부사업·자치법규 전체검색은 아직 연결 전입니다.",
       candidates:[]
     },
-    selected_policy:null,policy_analysis:null,policy_profile:null,assumption_ledger:[],draft_quality:null,change_plan:[],
+    selected_policy:null,policy_analysis:null,policy_profile:null,assumption_ledger:[],draft_quality:null,policy_need_assessment:null,instrument_analysis:null,design_spec:null,quality_scorecard:null,deliverables:null,approval_gate:null,change_plan:[],
     fast_fail_ledger:[],forks:[],composition:null,draft:null,
     difference_table:[],evidence_ledger:[],versions:[],approval:null,
     recommended_actions:[]
@@ -649,7 +650,7 @@ function renderContextActions(){
   }
   if(state.stage==="forks")actions.push(["forks","포크 결합 열기"]);
   if(state.stage==="composition")actions.push(["generate_draft","정책초안 생성"]);
-  if(state.stage==="draft")actions.push(["draft","초안·차이표 열기"]);
+  if(state.stage==="draft"){actions.push(["draft","초안·차이표 열기"]);actions.push(["final_review","최종 승인점검"]);}
   root.innerHTML=actions.map(([action,label])=>`<button class="context-btn" data-context="${esc(action)}">${esc(label)}</button>`).join("");
   root.querySelectorAll("[data-context]").forEach(btn=>btn.addEventListener("click",()=>{
     const action=btn.dataset.context;
@@ -679,6 +680,7 @@ function renderProblem(){
   return`
     <div class="section-title"><div><h2>문제정의·분야·가정</h2><p>제도명을 반복하지 않고 해결할 구조적 문제와 설계축을 분리합니다.</p></div></div>
     ${profileHtml}
+    ${state.policy_need_assessment?`<div class="notice ${state.policy_need_assessment.status==="provisional"||state.policy_need_assessment.status==="confirmed"?"good-notice":""}"><b>정책개입 판단 · ${esc(state.policy_need_assessment.status)}</b><br>${esc(state.policy_need_assessment.public_interest||"")}<br><small>${esc(state.policy_need_assessment.proportionality_note||"")}</small></div>`:""}
     ${!p.issue_summary?'<div class="empty">왼쪽 대화창에 문제나 아이디어를 입력하면 분야와 문제틀을 함께 구조화합니다.</div>':`
       <div class="analysis-grid">
         ${item("핵심 공공문제",p.issue_summary)}
@@ -748,11 +750,49 @@ function policyAnalysisBlock(){
     </div>
   `
 }
+
+function renderInstrumentAnalysis(){
+  const a=state.instrument_analysis;
+  if(!a)return'<div class="notice">정책수단 비교는 문제정의 후 생성됩니다.</div>';
+  return`<div class="policy-detail"><h3>권장 정책형태 · ${esc(a.recommended_label||a.recommended_type)}</h3><p>${esc(a.recommendation_reason||"")}</p>
+    <div class="analysis-grid">${arr(a.comparison).map(x=>`<div class="analysis-cell"><b>${esc(x.label)} · ${esc(x.fit)}</b><span>${esc(x.role)}<br>${esc(arr(x.risks).join(" · "))}</span></div>`).join("")}</div>
+    <div class="notice"><b>법률 필요성:</b> ${esc(a.law_needed_status||"미확인")}<br>${esc(arr(a.legal_trigger_flags).join(" · ")||"권리·의무·제재·조직·재정의 법적 근거를 추가 검토")}</div></div>`
+}
+function renderDesignSpec(){
+  const d=state.design_spec;if(!d)return'<div class="empty">작동구조가 아직 없습니다.</div>';
+  const section=(title,value)=>`<div class="draft-section"><b>${esc(title)}</b>${Array.isArray(value)?listView(value):esc(value||"")}</div>`;
+  return`<div class="draft-view">
+    ${section("목적",d.purpose)}${section("공공문제",d.public_problem)}${section("대상",d.beneficiaries)}${section("범위",d.scope)}
+    ${section("자격·선정기준",d.eligibility_and_selection)}${section("핵심 정책수단",d.core_mechanisms)}${section("신청·이용·집행절차",d.access_and_process)}
+    ${section("판단·심사기준",d.decision_standards)}${section("기관·주체별 역할",d.implementation_roles)}${section("권리·의무",d.rights_and_duties)}
+    ${section("보호장치",d.safeguards)}${section("예외·이의·재심",d.exceptions_and_appeals)}${section("데이터·개인정보",d.data_and_privacy)}
+    ${section("재원·비용·행정부담",d.finance_and_burden)}${section("단계·일정",d.timeline_and_phases)}${section("성과지표",d.monitoring_metrics)}
+    ${section("중단·재검토",d.stop_review_conditions)}${section("기존제도 관계",d.existing_system_relationship)}${section("미해결 질문",d.unresolved_questions)}
+  </div>`
+}
+function renderQualityGate(){
+  const q=state.quality_scorecard,g=state.approval_gate;
+  if(!q)return'<div class="notice">초안 생성 후 최종 승인점검을 실행합니다.</div>';
+  return`<div class="quality-card ${q.approval_ready?"":"warn"}"><h3>최종 승인게이트 · ${q.approval_ready?"통과":"보완 필요"}</h3><div class="quality-score">${esc(q.total_score)}점</div>
+    <p>${esc(g?.rule||"")}</p>
+    <div class="analysis-grid">${arr(q.dimensions).map(x=>`<div class="analysis-cell"><b>${esc(x.label)} · ${esc(x.score)}점</b><span>${esc(x.note||"")}</span></div>`).join("")}</div>
+    ${arr(q.fatal_flags).length?`<div class="notice"><b>승인 차단:</b> ${esc(q.fatal_flags.join(" · "))}</div>`:""}
+    ${arr(q.missing_requirements).length?`<ul>${q.missing_requirements.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:"<p>최소 승인기준을 충족했습니다.</p>"}
+  </div>`
+}
+function renderQuality(){
+  return`<div class="section-title"><div><h2>최종 품질·승인검증</h2><p>정책필요성, 분야, 검색, 작동구조, 수단, 위험, 포크, 근거, 버전을 100점 기준으로 점검합니다.</p></div><button class="btn btn-blue btn-small" id="finalReviewBtn">다시 점검</button></div>
+    ${renderQualityGate()}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px"><button class="btn btn-soft" id="downloadPackageBtn">전체 패키지 JSON</button><button class="btn btn-soft" id="downloadPackageTxtBtn">정책설계 패키지 TXT</button></div>`
+}
 function renderChange(){
   const plan=arr(state.change_plan);
   return`
     <div class="section-title"><div><h2>유지·수정·삭제·추가</h2><p>이 표가 포크의 기준선입니다. 단순한 AI 대화가 아니라 변경원장으로 저장됩니다.</p></div><button class="btn btn-soft btn-small" id="addChangeBtn">항목 추가</button></div>
     ${policyAnalysisBlock()}
+    ${renderInstrumentAnalysis()}
+    <div class="section-title" style="margin-top:14px"><div><h2 style="font-size:16px">작동 가능한 제도설계</h2><p>대상·절차·기준·역할·권리·비용·성과·중단조건입니다.</p></div></div>
+    ${renderDesignSpec()}
     <div style="margin-top:12px" id="changeRows">
       ${plan.length?plan.map((item,index)=>`
         <div class="change-row decision-${esc(item.decision)}" data-change-index="${index}">
@@ -788,7 +828,7 @@ function renderRisk(){
       <article class="risk-card" data-risk-index="${index}">
         <div class="risk-head">
           <b>${esc(RISK_LABELS[risk.category]||risk.category)} · ${esc(risk.risk)}</b>
-          <span class="risk-status">${esc(RISK_STATUS_LABELS[risk.status]||risk.status)}</span>
+          <span class="risk-status">${esc(RISK_STATUS_LABELS[risk.status]||risk.status)} · ${esc(risk.severity||"high")}/${esc(risk.likelihood||"medium")}</span>
         </div>
         <p><b>실패기제:</b> ${esc(risk.mechanism||"추가 분석 필요")}</p>
         <p><b>확인질문:</b> ${esc(risk.question||"")}</p>
@@ -798,10 +838,10 @@ function renderRisk(){
           <textarea class="risk-mitigation" placeholder="채택하거나 수정할 보완책">${esc(risk.chosen_mitigation||risk.mitigation_candidate||"")}</textarea>
         </div>
         ${risk.residual_risk?`<div class="risk-result"><b>잔여위험:</b> ${esc(risk.residual_risk)}<br><b>통과조건:</b> ${esc(risk.pass_condition||"")}</div>`:""}
-        <button class="btn btn-red btn-small assess-risk" data-risk-id="${esc(risk.id)}" data-index="${index}" style="margin-top:8px">이 위험 평가</button>
+        <div style="display:flex;gap:6px;margin-top:8px"><button class="btn btn-red btn-small assess-risk" data-risk-id="${esc(risk.id)}" data-index="${index}">이 위험 평가</button><button class="btn btn-soft btn-small accept-risk" data-risk-id="${esc(risk.id)}" data-index="${index}">잔여위험 수용</button></div>
       </article>
     `).join(""):'<div class="empty">변경설계를 저장한 뒤 Fast-Fail을 시작합니다.</div>'}
-    ${risks.length?'<button class="btn btn-blue" style="width:100%" id="generateForksBtn">현재 원장으로 복수 포크 생성</button>':""}
+    ${risks.length?'<div style="display:grid;grid-template-columns:1fr 1fr;gap:7px"><button class="btn btn-soft" id="applySafeguardsBtn">권고 보완책 일괄 조건부 반영</button><button class="btn btn-blue" id="generateForksBtn">복수 포크 생성</button></div>':""}
   `
 }
 function renderComposition(){
@@ -858,6 +898,9 @@ function draftToText(d){
   add("적용 범위와 예외",d.scope_and_exceptions);add("기대 효과",d.expected_effects);
   add("위험",d.risks);add("보완 장치",d.safeguards);add("담당기관 후보",d.responsible_bodies);
   add("필요 근거",d.evidence_needed);add("중단·재검토 조건",d.stop_or_review_conditions);
+  if(state.instrument_analysis)lines.push(`\n[권장 정책형태]\n${state.instrument_analysis.recommended_label}\n${state.instrument_analysis.recommendation_reason}`);
+  if(state.design_spec)lines.push(`\n[작동 가능한 제도설계]\n${JSON.stringify(state.design_spec,null,2)}`);
+  if(state.quality_scorecard)lines.push(`\n[최종 품질검증]\n${JSON.stringify(state.quality_scorecard,null,2)}`);
   return lines.join("\n").trim()
 }
 function renderDifference(){
@@ -893,9 +936,11 @@ function renderDraft(){
     ${state.approval?`<div class="approval"><b>사용자 승인 완료 · ${esc(state.approval.approved_version_id||"")}</b><p>${esc(state.approval.scope||"")}</p><p>미해결 위험 ${arr(state.approval.unresolved_risks).length}건</p></div>`:""}
     <div class="subtabs">
       <button class="subtab active" data-draft-view="structured">구조화 초안</button>
+      <button class="subtab" data-draft-view="design">작동구조</button>
       <button class="subtab" data-draft-view="edit">직접 수정</button>
       <button class="subtab" data-draft-view="diff">원정책 차이</button>
       <button class="subtab" data-draft-view="evidence">근거상태</button>
+      <button class="subtab" data-draft-view="quality">승인검증</button>
     </div>
     <div id="draftStructured">
       <div class="draft-view">
@@ -914,15 +959,17 @@ function renderDraft(){
         <div class="draft-section"><b>중단·재검토 조건</b>${listView(d.stop_or_review_conditions)}</div>
       </div>
     </div>
+    <div id="draftDesign" class="hidden">${renderInstrumentAnalysis()}${renderDesignSpec()}</div>
     <div id="draftEdit" class="hidden">
       <textarea class="draft-editor" id="draftEditor">${esc(draftToText(d))}</textarea>
       <button class="btn btn-blue" style="width:100%;margin-top:8px" id="reviseDraftBtn">수정본 반영</button>
     </div>
     <div id="draftDiff" class="hidden">${renderDifference()}</div>
     <div id="draftEvidence" class="hidden">${renderEvidence()}</div>
+    <div id="draftQuality" class="hidden">${renderQualityGate()}</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:11px">
       <button class="btn btn-soft" id="downloadDraftBtn">초안 TXT</button>
-      <button class="btn btn-green" id="approveBtn" ${state.approval?"disabled":""}>현재 버전 승인</button>
+      <button class="btn btn-green" id="approveBtn" ${(state.approval||!state.quality_scorecard?.approval_ready)?"disabled":""}>현재 버전 승인</button>
     </div>
   `
 }
@@ -935,7 +982,7 @@ function renderVersions(){
 }
 function renderTab(){
   const root=document.getElementById("tabBody");
-  const renderers={problem:renderProblem,search:renderSearch,change:renderChange,risk:renderRisk,forks:renderForks,draft:renderDraft,versions:renderVersions};
+  const renderers={problem:renderProblem,search:renderSearch,change:renderChange,risk:renderRisk,forks:renderForks,draft:renderDraft,quality:renderQuality,versions:renderVersions};
   root.innerHTML=(renderers[activeTab]||renderProblem)();
   wireTab()
 }
@@ -953,10 +1000,18 @@ function collectChangePlan(){
 function wireDraftSubtabs(){
   document.querySelectorAll("[data-draft-view]").forEach(btn=>btn.addEventListener("click",()=>{
     document.querySelectorAll("[data-draft-view]").forEach(x=>x.classList.toggle("active",x===btn));
-    ["Structured","Edit","Diff","Evidence"].forEach(name=>document.getElementById("draft"+name)?.classList.add("hidden"));
-    const map={structured:"Structured",edit:"Edit",diff:"Diff",evidence:"Evidence"};
+    ["Structured","Design","Edit","Diff","Evidence","Quality"].forEach(name=>document.getElementById("draft"+name)?.classList.add("hidden"));
+    const map={structured:"Structured",design:"Design",edit:"Edit",diff:"Diff",evidence:"Evidence",quality:"Quality"};
     document.getElementById("draft"+map[btn.dataset.draftView])?.classList.remove("hidden")
   }))
+}
+
+function packageToText(){
+  const out=[];const add=(t,v)=>{out.push(`\n# ${t}\n`);out.push(typeof v==="string"?v:JSON.stringify(v,null,2))};
+  add("문제정의",state.deliverables?.problem_definition||state.problem);
+  add("정책수단 비교",state.instrument_analysis||{});add("작동 가능한 제도설계",state.design_spec||{});
+  add("복수 포크",state.forks||[]);add("Fast-Fail",state.fast_fail_ledger||[]);add("근거상태",state.evidence_ledger||[]);
+  add("최종 품질검증",state.quality_scorecard||{});add("승인기록",state.approval||{});return out.join("\n").trim()
 }
 function wireTab(){
   document.getElementById("policySearchBtn")?.addEventListener("click",()=>{
@@ -981,12 +1036,14 @@ function wireTab(){
   document.getElementById("runRiskBtn")?.addEventListener("click",()=>api("run_fast_fail"));
   document.querySelectorAll(".assess-risk").forEach(btn=>btn.addEventListener("click",()=>{
     const card=btn.closest("[data-risk-index]");
-    api("assess_risk",{
-      risk_id:btn.dataset.riskId,
-      user_response:card.querySelector(".risk-response").value.trim(),
-      chosen_mitigation:card.querySelector(".risk-mitigation").value.trim()
-    })
+    api("assess_risk",{risk_id:btn.dataset.riskId,user_response:card.querySelector(".risk-response").value.trim(),chosen_mitigation:card.querySelector(".risk-mitigation").value.trim()})
   }));
+  document.querySelectorAll(".accept-risk").forEach(btn=>btn.addEventListener("click",()=>{
+    const card=btn.closest("[data-risk-index]");
+    const note=card.querySelector(".risk-response").value.trim()||prompt("이 잔여위험을 수용하는 이유를 기록하세요.","")||"";
+    api("assess_risk",{risk_id:btn.dataset.riskId,user_response:note,chosen_mitigation:card.querySelector(".risk-mitigation").value.trim(),accept_risk:true})
+  }));
+  document.getElementById("applySafeguardsBtn")?.addEventListener("click",()=>api("apply_recommended_safeguards"));
   document.querySelectorAll("#generateForksBtn").forEach(btn=>btn.addEventListener("click",()=>api("generate_forks")));
   document.querySelectorAll(".choose-fork").forEach(btn=>btn.addEventListener("click",()=>api("choose_fork",{fork_id:btn.dataset.fork})));
   document.getElementById("combineForksBtn")?.addEventListener("click",()=>{
@@ -1000,6 +1057,9 @@ function wireTab(){
     const safe=(state.draft?.title||state.session_id).replace(/[\\/:*?"<>|]+/g,"_").slice(0,70);
     downloadBlob(draftToText(state.draft),`${safe}.txt`,"text/plain;charset=utf-8")
   });
+  document.getElementById("finalReviewBtn")?.addEventListener("click",()=>api("final_review"));
+  document.getElementById("downloadPackageBtn")?.addEventListener("click",()=>downloadJson({state,deliverables:state.deliverables},`${state.session_id}-policy-package.json`));
+  document.getElementById("downloadPackageTxtBtn")?.addEventListener("click",()=>downloadBlob(packageToText(),`${state.session_id}-policy-package.txt`,"text/plain;charset=utf-8"));
   document.getElementById("approveBtn")?.addEventListener("click",()=>{
     const note=prompt("승인 메모가 있다면 입력하세요. 없으면 확인을 누르세요.","")??"";
     api("approve",{approval_note:note})
@@ -1021,7 +1081,7 @@ async function checkHealth(){
     const data=await response.json();
     if(data.ok&&data.ai_binding_configured&&data.workflow_engine){
       document.getElementById("healthDot").className="dot ok";
-      document.getElementById("healthText").textContent="AI·분야검증 워크플로 정상"
+      document.getElementById("healthText").textContent="AI·제도설계·승인게이트 정상"
     }else throw new Error()
   }catch(e){
     document.getElementById("healthDot").className="dot bad";
