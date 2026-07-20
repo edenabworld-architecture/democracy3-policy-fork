@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-20T20:02:51+09:00",
+  "generated_at": "2026-07-20T21:27:03+09:00",
   "notice": "대한민국 국회 열린국회정보의 제22대 국회 최신 의안입니다. 활성 법안 100건, 고정 보존 2건, 공식 원문 102건, 심층 검토 102건, 복수 위험프로필 법안 47건, 주장 원장 498개, 증거사슬 757개를 표시합니다. 국가 시범검토 10건은 직전 확정목록을 유지합니다. 30초 이해, 발의자 주장·근거·논리 분리, 적대적 레드팀, 정책 포크, 버전 로그와 시행·책임추적을 서로 다른 상태로 표시합니다.",
   "source": {
     "provider": "대한민국 국회 열린국회정보",
@@ -58,7 +58,7 @@
   "collection_warnings": [],
   "pilot_program": {
     "title": "Democracy 3.0 국가 시범검토 10건",
-    "generated_at": "2026-07-20T20:02:51+09:00",
+    "generated_at": "2026-07-20T21:27:03+09:00",
     "status": "공식자료 조사 및 조문·근거 검증 진행",
     "purpose": "현재 최신 법안 100건의 자동 검토 창에서 고영향 정책 10건을 고정해, 공식문서·조문·비용·주장·공격경로·대체조문을 실제 증거 기반 완성보고서로 승격하기 위한 시범운영 묶음입니다.",
     "selection_method": "최초 선정 시 복수 위험프로필, 국민영향, 기본권·권력·재정 신호, 레드팀 공격 수와 분야 다양성을 합산합니다. 확정 후에는 법안이 수집창에서 사라지지 않는 한 같은 10건을 유지합니다.",
@@ -636,7 +636,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -651,7 +651,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -665,7 +665,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -1185,7 +1185,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -1200,7 +1200,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -1214,7 +1214,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -1706,7 +1706,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -1721,7 +1721,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -1735,7 +1735,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -2148,7 +2148,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -2163,7 +2163,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -2177,7 +2177,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -2629,7 +2629,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -2644,7 +2644,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -2658,7 +2658,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -3161,7 +3161,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -3176,7 +3176,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -3190,7 +3190,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -3568,7 +3568,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -3583,7 +3583,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -3597,7 +3597,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -4128,7 +4128,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -4143,7 +4143,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -4157,7 +4157,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -4592,7 +4592,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -4607,7 +4607,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -4621,7 +4621,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -5042,7 +5042,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -5057,7 +5057,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -5071,7 +5071,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -8058,7 +8058,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -8073,7 +8073,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -8087,7 +8087,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -9750,7 +9750,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -9765,7 +9765,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -9779,7 +9779,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -11176,7 +11176,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -11191,7 +11191,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -11205,7 +11205,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -12184,7 +12184,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -12199,7 +12199,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -12213,7 +12213,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -12888,7 +12888,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -12903,7 +12903,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -12917,7 +12917,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -13522,7 +13522,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -13537,7 +13537,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -13551,7 +13551,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -14507,7 +14507,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -14522,7 +14522,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -14536,7 +14536,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -15524,7 +15524,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -15539,7 +15539,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -15553,7 +15553,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -17135,7 +17135,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -17150,7 +17150,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -17164,7 +17164,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
@@ -17662,7 +17662,7 @@
         ],
         "review_log": [
           {
-            "at": "2026-07-20T20:02:51+09:00",
+            "at": "2026-07-20T21:27:03+09:00",
             "actor": "자동 조사 모듈",
             "action": "공식자료 위치·주장유형·성숙도 재평가",
             "result": "구조화·자료확보 준비",
@@ -17677,7 +17677,7 @@
         "verified_review_store": {
           "schema_version": "1.0",
           "methodology_version": "verified-review-store-v2",
-          "merged_at": "2026-07-20T20:02:51+09:00",
+          "merged_at": "2026-07-20T21:27:03+09:00",
           "official_documents": [],
           "external_evidence": [],
           "clause_comparisons": [],
@@ -17691,7 +17691,7 @@
           "operator_notes": ""
         },
         "provenance": {
-          "automatic_generated_at": "2026-07-20T20:02:51+09:00",
+          "automatic_generated_at": "2026-07-20T21:27:03+09:00",
           "manual_store_methodology": "verified-review-store-v2",
           "manual_updated_at": "",
           "authorship": "창안 및 원안 설계: 박찬성"
