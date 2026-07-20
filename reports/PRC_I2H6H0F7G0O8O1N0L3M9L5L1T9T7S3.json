@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-20T18:28:18+09:00",
+  "generated_at": "2026-07-20T19:49:47+09:00",
   "bill": {
     "id": "PRC_I2H6H0F7G0O8O1N0L3M9L5L1T9T7S3",
     "policy_type": "국회 법률안",
@@ -60,7 +60,7 @@
         "kind": "missing"
       }
     ],
-    "analysis_generated_at": "2026-07-20T18:28:18+09:00",
+    "analysis_generated_at": "2026-07-20T19:49:47+09:00",
     "analysis_basis": "국회가 공개한 ‘제안이유 및 주요내용’만 사용한 자동 초안입니다. 찬성 논리, 반대 논리, 위험과 수정안은 검토를 시작하기 위한 가설입니다. 법안 조문 전문, 비용추계서, 위원회 검토보고서, 회의록, 외부 통계와 이해관계자 의견을 확인하기 전에는 결론으로 사용해서는 안 됩니다.",
     "card_summary": "쉽게 말해, 기업이 요청할 경우 산업통상부에서 해당 기업이 국가첨단전략산업등을 영위하는 기업인지 여부를 확인할 수 있게 바꾸려는 내용입니다.",
     "why_now": "법안이 제시한 문제: 주요 경쟁국가와 기업들이 미래시장 선점을 위해 대규모 팹 건설에 속도를 내고있는 상황으로 우리도 경쟁에 뒤처지지 않기 위해서는 더 빠른 팹 건설이필요하다는 내용입니다. 제안된 변경: 기업이 요청할 경우 산업통상부에서 해당 기업이 국가첨단전략산업등을 영위하는 기업인지 여부를 확인할 수 있게 바꾸려는 내용입니다.",
@@ -222,7 +222,7 @@
     "deep_review": {
       "status": "복수 위험프로필 증거사슬형 심층 검토 초안",
       "scope": "국회 ‘제안이유 및 주요내용’을 바탕으로 복수 위험축을 동시에 공격한 초안입니다. 조문 전문·비용추계·위원회 자료·외부 통계 대조 전에는 확정평가가 아닙니다.",
-      "generated_at": "2026-07-20T18:28:18+09:00",
+      "generated_at": "2026-07-20T19:49:47+09:00",
       "profile": {
         "key": "housing_property",
         "label": "주거·재산권",
@@ -2059,7 +2059,7 @@
       ],
       "review_log": [
         {
-          "at": "2026-07-20T18:28:18+09:00",
+          "at": "2026-07-20T19:49:47+09:00",
           "actor": "자동 조사 모듈",
           "action": "공식자료 위치·주장유형·성숙도 재평가",
           "result": "구조화·자료확보 준비",
@@ -2074,7 +2074,7 @@
       "verified_review_store": {
         "schema_version": "1.0",
         "methodology_version": "verified-review-store-v2",
-        "merged_at": "2026-07-20T18:28:18+09:00",
+        "merged_at": "2026-07-20T19:49:47+09:00",
         "official_documents": [],
         "external_evidence": [],
         "clause_comparisons": [],
@@ -2088,7 +2088,7 @@
         "operator_notes": ""
       },
       "provenance": {
-        "automatic_generated_at": "2026-07-20T18:28:18+09:00",
+        "automatic_generated_at": "2026-07-20T19:49:47+09:00",
         "manual_store_methodology": "verified-review-store-v2",
         "manual_updated_at": "",
         "authorship": "창안 및 원안 설계: 박찬성"
