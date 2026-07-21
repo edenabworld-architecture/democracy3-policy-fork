@@ -3,1236 +3,402 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Democracy 3.0 정책포크</title>
-  <meta name="description" content="국회 법안과 공공정책을 수집하고, 국민용 설명·복수 위험프로필·레드팀 검토·증거사슬·대안 포크를 공개하는 Democracy 3.0 정책 플랫폼">
+  <meta name="theme-color" content="#0b1736">
+  <title>Democracy 3.0 · 정책 광장</title>
+  <meta name="description" content="국회 법안과 공공정책을 탐색하고, 근거·위험·대안을 확인한 뒤 D3 Fork Studio에서 분석과 포크를 이어가는 Democracy 3.0 통합 정책 플랫폼">
   <meta name="robots" content="index,follow">
-  <meta property="og:title" content="Democracy 3.0 정책포크">
-  <meta property="og:description" content="정책을 읽는 곳을 넘어, 근거와 위험을 검증하고 더 나은 수정안을 함께 만드는 공개 플랫폼">
+  <meta property="og:title" content="Democracy 3.0 · 정책 광장">
+  <meta property="og:description" content="정책을 읽고, 검증하고, 더 나은 포크로 발전시키는 공개 정책 플랫폼">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://edenabworld-architecture.github.io/democracy3-policy-fork/">
   <style>
     :root{
-      --navy:#0b1736;--blue:#3157d5;--blue2:#6e8bff;--ink:#172033;--muted:#667085;
-      --line:#e5e9f2;--bg:#f5f7fb;--card:#fff;--soft:#eef2ff;--warn:#fff7e6;
-      --green:#067647;--red:#b42318;--shadow:0 10px 30px rgba(21,33,62,.08)
+      --navy:#0b1736;--navy2:#172d62;--blue:#3157d5;--blue2:#6f89ee;
+      --ink:#172033;--muted:#667085;--line:#e2e7f0;--bg:#f4f6fa;--card:#fff;
+      --soft:#eef2ff;--green:#087647;--greenbg:#ecfdf3;--amber:#9a4a08;
+      --amberbg:#fff7e8;--red:#b42318;--redbg:#fff2f0;--purple:#6941c6;
+      --shadow:0 14px 42px rgba(21,33,62,.10)
     }
     *{box-sizing:border-box}html{scroll-behavior:smooth}
-    body{margin:0;font-family:Arial,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;background:var(--bg);color:var(--ink)}
-    button,input,select{font:inherit}.container{width:min(1180px,calc(100% - 32px));margin:auto}
-    .topbar{background:var(--navy);color:white;position:sticky;top:0;z-index:20;border-bottom:1px solid rgba(255,255,255,.08)}
-    .topbar-inner{height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{font-weight:900;font-size:20px;letter-spacing:-.5px}.brand small{font-size:11px;color:#b9c5e7;margin-left:8px;font-weight:700}
-    .nav{display:flex;gap:18px;font-size:14px;color:#d5dcf1}.nav a{color:inherit;text-decoration:none}
-    .hero{background:linear-gradient(135deg,#0b1736 0%,#172b61 60%,#3157d5 100%);color:white;padding:58px 0 50px}
-    .hero-grid{display:grid;grid-template-columns:1.45fr .8fr;gap:36px;align-items:center}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);padding:7px 11px;border-radius:999px;font-size:12px;font-weight:800}
-    h1{font-size:clamp(34px,5vw,60px);line-height:1.07;letter-spacing:-2.4px;margin:18px 0 18px}
-    .hero p{color:#d8e0f6;font-size:18px;line-height:1.75;max-width:760px;margin:0}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.6}
+    button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}
+    .hidden{display:none!important}.container{width:min(1220px,calc(100% - 28px));margin:auto}
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(11,23,54,.985);color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
+    .top-inner{min-height:69px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .brand-link{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none;min-width:225px}
+    .brand-mark{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#fff,#cdd8ff);color:var(--navy);display:grid;place-items:center;font-weight:1000;box-shadow:0 5px 14px rgba(0,0,0,.16)}
+    .brand{font-weight:950;letter-spacing:-.55px;line-height:1.15}.brand small{display:block;color:#bac6e8;font-size:10px;margin-top:4px;font-weight:800}
+    .nav{display:flex;align-items:center;gap:5px}
+    .nav a{color:#d7def2;text-decoration:none;font-size:12px;font-weight:900;padding:8px 10px;border-radius:9px}
+    .nav a:hover,.nav a.active{background:rgba(255,255,255,.11);color:#fff}
+    .nav .nav-cta{background:#fff;color:var(--navy)}
+    .mobile-menu{display:none;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;border-radius:9px;padding:8px 10px}
+    .hero{background:linear-gradient(135deg,#0b1736,#172d62 62%,#3157d5);color:#fff;padding:62px 0 55px}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:38px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.19);background:rgba(255,255,255,.08);padding:7px 11px;border-radius:999px;font-size:11px;font-weight:900}
+    h1{font-size:clamp(37px,5.4vw,64px);line-height:1.07;letter-spacing:-2.4px;margin:18px 0}
+    .hero p{font-size:17px;line-height:1.78;color:#d9e2f8;max-width:760px;margin:0}
     .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
-    .btn{border:0;border-radius:11px;padding:12px 16px;font-weight:800;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
-    .btn-primary{background:white;color:var(--navy)}.btn-secondary{background:rgba(255,255,255,.1);color:white;border:1px solid rgba(255,255,255,.22)}
-    .hero-panel{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:20px;backdrop-filter:blur(6px)}
-    .hero-panel h3{margin:0 0 12px;font-size:16px}.flow{display:grid;gap:9px}
-    .flow-item{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.07);padding:12px;border-radius:12px;color:#e8edfb;font-size:13px;line-height:1.5}
-    .flow-num{width:25px;height:25px;display:grid;place-items:center;border-radius:50%;background:white;color:var(--navy);font-weight:900;flex:0 0 auto}
-    .notice-wrap{margin-top:-19px}.notice{background:var(--warn);border:1px solid #f2d89a;border-radius:14px;padding:13px 15px;box-shadow:var(--shadow);font-size:13px;line-height:1.55}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0}
-    .stat{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:17px;box-shadow:0 4px 18px rgba(21,33,62,.04)}
-    .stat strong{display:block;font-size:27px;letter-spacing:-1px}.stat span{font-size:13px;color:var(--muted)}
-    .section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:34px 0 16px}
-    .section-head h2{margin:0;font-size:27px;letter-spacing:-1px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:14px}
-    .controls{background:white;border:1px solid var(--line);border-radius:16px;padding:14px;display:grid;grid-template-columns:1fr 190px 170px;gap:10px;box-shadow:0 5px 18px rgba(21,33,62,.04)}
-    input,select{width:100%;border:1px solid #d7dce7;border-radius:10px;padding:12px 13px;background:white;color:var(--ink)}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
-    .chip{border:1px solid var(--line);background:white;color:#46506a;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:700;cursor:pointer}
-    .chip.active{background:var(--navy);color:white;border-color:var(--navy)}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-bottom:35px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 5px 22px rgba(21,33,62,.05);display:flex;flex-direction:column;min-height:348px}
-    .card:hover{transform:translateY(-2px);transition:.18s;box-shadow:var(--shadow)}
-    .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-    .tag{display:inline-flex;align-items:center;background:var(--soft);color:var(--blue);font-size:12px;font-weight:900;padding:6px 9px;border-radius:999px}
-    .status{font-size:12px;color:var(--muted);white-space:nowrap}
-    .card h3{font-size:21px;line-height:1.38;letter-spacing:-.6px;margin:14px 0 7px}
-    .meta{color:var(--muted);font-size:12px}.summary{font-size:15px;line-height:1.65;color:#38435b;margin:14px 0}.card .summary{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}.official-box{background:#f7f9fc;border:1px solid var(--line);border-radius:14px;padding:16px}.official-text{white-space:pre-wrap;line-height:1.75;color:#2f3a52;font-size:14px;max-height:380px;overflow:auto}.source-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:13px}.source-link{display:inline-flex;text-decoration:none;background:var(--navy);color:white;border-radius:9px;padding:9px 12px;font-size:12px;font-weight:800}.pending{background:#fff8e8;border:1px solid #f1d99a;border-radius:13px;padding:14px;line-height:1.65;color:#70510a}.analysis-box{background:#f4f7ff;border:1px solid #dbe3ff;border-radius:14px;padding:16px}.analysis-box p{white-space:pre-wrap;line-height:1.75;margin:9px 0;color:#2d3b63}.badges{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.badge{display:inline-flex;border-radius:999px;padding:6px 9px;background:#eef2ff;color:#3157d5;font-size:11px;font-weight:900}.basis{font-size:12px;line-height:1.65;color:#667085;background:#f7f8fb;border-radius:10px;padding:11px;margin-top:12px}.timeline{display:grid;gap:8px}.timeline-row{display:grid;grid-template-columns:145px 1fr;gap:12px;border-left:3px solid #3157d5;padding:8px 10px;background:#f7f8fb;border-radius:0 10px 10px 0;font-size:13px}.signal-note{font-size:12px;color:#667085;line-height:1.6;margin-top:12px}.brief-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.brief{border:1px solid var(--line);border-radius:13px;padding:14px;background:#fff}.brief b{display:block;font-size:12px;color:var(--blue);margin-bottom:6px}.brief p{margin:0;line-height:1.65;font-size:14px}.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.review-box{border-radius:13px;padding:14px;line-height:1.6;font-size:13px}.review-box.good{background:#eefbf5;color:#075b3b}.review-box.weak{background:#fff8e8;color:#70510a}.review-box.oppose{background:#fff3f1;color:#8a1c13}.review-box.gap{background:#f1f4fa;color:#38435b}.rt-grid{display:grid;gap:10px}.rt-card{border:1px solid #f3c7c1;background:#fff7f5;border-radius:14px;padding:15px}.rt-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.severity{font-size:11px;font-weight:900;border-radius:999px;padding:5px 8px;background:#b42318;color:white}.rt-card p{margin:8px 0;line-height:1.6;font-size:13px}.failure-grid{display:grid;gap:10px}.failure{border-left:4px solid #b54708;background:#fff9ed;padding:14px;border-radius:0 12px 12px 0}.failure p{margin:6px 0;line-height:1.6;font-size:13px}.lever-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.lever{border:1px solid #dbe3ff;background:#f7f8ff;border-radius:13px;padding:13px}.lever b{display:block;color:var(--blue);margin-bottom:6px}.lever p{margin:5px 0;line-height:1.55;font-size:13px}.auto-fork{border:1px solid #cfd8ff;background:#f7f8ff;border-radius:14px;padding:15px;margin:10px 0}.auto-fork-head{display:flex;justify-content:space-between;gap:10px}.auto-fork small{color:var(--muted)}.readiness{background:#eef2ff;border:1px solid #dbe3ff;border-radius:13px;padding:14px;line-height:1.6}details.deep{border-top:1px solid var(--line);margin-top:18px;padding-top:14px}details.deep>summary{cursor:pointer;font-weight:900;font-size:18px;list-style:none}details.deep>summary::-webkit-details-marker{display:none}
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 15px}
-    .mini{border-radius:12px;padding:11px;font-size:12px;line-height:1.55}.mini.good{background:#eefbf5;color:#075b3b}.mini.bad{background:#fff3f1;color:#8a1c13}
-    .mini b{display:block;margin-bottom:3px}.card-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .review{font-size:12px;color:var(--muted)}.detail-btn{background:var(--navy);color:white;border:0;border-radius:10px;padding:10px 13px;font-weight:800;cursor:pointer}
-    .empty{grid-column:1/-1;background:white;border:1px solid var(--line);border-radius:16px;padding:30px;text-align:center;color:var(--muted)}
-    .method{background:white;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:48px 0;margin-top:15px}
-    .method-grid{display:grid;grid-template-columns:.85fr 1.4fr;gap:40px}.method h2{font-size:30px;margin-top:0}
-    .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.principle{border:1px solid var(--line);border-radius:14px;padding:15px}
-    .principle b{display:block;margin-bottom:6px}.principle p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
-    footer{background:var(--navy);color:#b9c5e7;padding:32px 0;margin-top:0;font-size:13px}
-    dialog{width:min(900px,95vw);max-height:91vh;border:0;border-radius:20px;padding:0;box-shadow:0 25px 80px rgba(0,0,0,.28)}
-    dialog::backdrop{background:rgba(7,15,35,.62)}.modal{padding:24px}.modal-head{display:flex;justify-content:space-between;gap:15px}
-    .close{background:#eef1f7;border:0;border-radius:9px;padding:9px 12px;cursor:pointer;height:fit-content}
-    .modal h2{font-size:29px;line-height:1.3;margin:13px 0 7px;letter-spacing:-1px}
-    .modal-section{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}.modal-section h3{margin:0 0 11px;font-size:18px}
-    .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.impact{background:#f7f8fb;border-radius:12px;padding:13px;font-size:13px;line-height:1.6}
-    ul{padding-left:20px}.modal li{margin:6px 0;line-height:1.55}
-    .score-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px}.score{display:grid;grid-template-columns:100px 1fr 25px;align-items:center;gap:8px;font-size:12px}
-    .bar{height:8px;background:#ebedf3;border-radius:999px;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--blue2))}
-    .fork{border-left:4px solid var(--blue);background:#f7f8ff;padding:14px;margin:10px 0;border-radius:0 12px 12px 0}
-    .fork-head{display:flex;justify-content:space-between;gap:10px}.fork-type{font-size:11px;color:var(--blue);font-weight:900}
-    .fork p{margin:8px 0;line-height:1.6}.fork small{display:block;color:var(--muted);line-height:1.6}
-    @media(max-width:820px){
-      .nav{display:none}.hero-grid,.method-grid{grid-template-columns:1fr}.hero-panel{display:none}
-      .stats{grid-template-columns:repeat(2,1fr)}.controls{grid-template-columns:1fr}.grid{grid-template-columns:1fr}
-      .impact-grid,.principles,.brief-grid,.review-grid,.lever-grid{grid-template-columns:1fr}.score-grid{grid-template-columns:1fr}
-      h1{letter-spacing:-1.6px}.hero{padding:42px 0 45px}.section-head{align-items:flex-start;flex-direction:column}
-    }
-  
-    /* v0.7 국민 눈높이 화면 */
-    .card .summary{-webkit-line-clamp:4;font-size:15px;line-height:1.72}
-    .card-decision{background:#f7f8fb;border-radius:11px;padding:10px 12px;font-size:12px;line-height:1.55;color:#46506a;margin:2px 0 13px}
-    .core-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .core-card{border-radius:14px;padding:15px;line-height:1.65;font-size:13px}
-    .core-card b{display:block;margin-bottom:7px;font-size:13px}
-    .core-card.pro{background:#eefbf5;color:#075b3b}
-    .core-card.con{background:#fff8e8;color:#70510a}
-    .core-card.risk{background:#fff3f1;color:#8a1c13}
-    .fork-intro{font-size:13px;color:var(--muted);line-height:1.65;margin:0 0 12px}
-    .fork-compare{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .fork-option{border:1px solid #dbe3ff;background:#f8f9ff;border-radius:15px;padding:15px;display:flex;flex-direction:column}
-    .fork-label{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-weight:900;margin-bottom:9px}
-    .fork-option h4{font-size:16px;line-height:1.4;margin:0 0 5px}
-    .fork-option .kind{font-size:11px;color:var(--blue);font-weight:900;margin-bottom:10px}
-    .fork-option p{font-size:13px;line-height:1.6;margin:6px 0}
-    .fork-option small{display:block;margin-top:auto;padding-top:10px;color:var(--muted);line-height:1.55}
-    .participate{display:flex;gap:10px;flex-wrap:wrap;background:#eef2ff;border:1px solid #dbe3ff;border-radius:15px;padding:15px;margin-top:18px}
-    .participate-copy{flex:1 1 320px}
-    .participate-copy b{display:block;margin-bottom:5px}
-    .participate-copy p{font-size:12px;color:var(--muted);line-height:1.55;margin:0}
-    .participate-actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-    .action-btn{border:0;border-radius:10px;padding:10px 13px;font-weight:900;cursor:pointer}
-    .action-btn.primary{background:var(--navy);color:#fff}
-    .action-btn.light{background:#fff;color:var(--navy);border:1px solid #cfd8ff}
-    .compact-official{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 3px}
-    .compact-official span{font-size:11px;background:#f1f4fa;color:#46506a;border-radius:999px;padding:6px 9px}
-    details.public-detail{border-top:1px solid var(--line);margin-top:18px;padding-top:14px}
-    details.public-detail>summary{cursor:pointer;font-weight:900;font-size:17px;list-style:none}
-    details.public-detail>summary::-webkit-details-marker{display:none}
-    .evidence-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    .evidence-box{border-radius:13px;padding:14px;font-size:13px;line-height:1.6}
-    .evidence-box.clue{background:#eefbf5;color:#075b3b}
-    .evidence-box.verified{background:#f1f4fa;color:#38435b}
-    .evidence-box.unverified{background:#fff8e8;color:#70510a}
-    .deep-note{font-size:12px;color:var(--muted);line-height:1.6;margin-top:10px}
-    @media(max-width:820px){
-      .core-grid,.fork-compare,.evidence-grid{grid-template-columns:1fr}
-    }
-
-    /* v0.8 신뢰·품질 표시 */
-    .source-badges{display:flex;gap:7px;flex-wrap:wrap;margin:9px 0 14px}
-    .source-badge{border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;border:1px solid transparent}
-    .source-badge.official{background:#eaf8f1;color:#067647;border-color:#b7e4ce}
-    .source-badge.automatic{background:#eef2ff;color:#3157d5;border-color:#dbe3ff}
-    .source-badge.missing{background:#fff8e8;color:#8a5b00;border-color:#f1d99a}
-    .quality-warning{background:#fff4e5;border:1px solid #f4c278;border-radius:13px;padding:13px 14px;color:#7a4600;font-size:13px;line-height:1.65;margin:12px 0}
-    .risk-line{background:#fff3f1;color:#8a1c13;border-radius:11px;padding:10px 12px;font-size:12px;line-height:1.55;margin:2px 0 13px}
-    .trust-note{font-size:12px;color:var(--muted);line-height:1.6;margin-top:8px}
-    .hidden-fork{background:#f1f4fa;border:1px solid var(--line);border-radius:13px;padding:15px;color:#46506a;line-height:1.65}
-    .status-table{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-    .status-item{display:flex;justify-content:space-between;gap:12px;background:#f7f8fb;border-radius:10px;padding:10px 12px;font-size:12px}
-    .status-item b{color:var(--ink)}
-    @media(max-width:680px){.status-table{grid-template-columns:1fr}}
-
-    /* v0.9 정책유형별 심층검토 */
-    .profile-banner{display:flex;justify-content:space-between;gap:12px;align-items:center;background:#0f1f3d;color:#fff;border-radius:14px;padding:14px 16px;margin:12px 0}
-    .profile-banner small{display:block;color:#c9d4ed;margin-top:4px}
-    .profile-pill{background:#fff;color:#0f1f3d;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:900;white-space:nowrap}
-    .mechanism{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-    .mechanism-step{position:relative;background:#f7f8fb;border:1px solid var(--line);border-radius:13px;padding:13px;font-size:12px;line-height:1.55}
-    .mechanism-step b{display:block;color:var(--blue);margin-bottom:6px;font-size:13px}
-    .mechanism-step em{display:block;margin-top:8px;color:#8a1c13;font-style:normal}
-    .assumption-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    .assumption{border-left:4px solid #7f56d9;background:#f8f5ff;border-radius:0 13px 13px 0;padding:14px;font-size:13px;line-height:1.6}
-    .assumption p{margin:7px 0}
-    .actor-table{display:grid;gap:8px}
-    .actor-row{display:grid;grid-template-columns:130px 1fr 1fr 1fr;gap:8px;background:#f7f8fb;border-radius:12px;padding:11px;font-size:12px;line-height:1.5}
-    .actor-row.head{background:#dfe7ff;font-weight:900;color:#243b77}
-    .deep-attack-grid{display:grid;gap:12px}
-    .deep-attack{border:1px solid #efb7ae;background:#fff7f5;border-radius:15px;padding:16px}
-    .deep-attack-head{display:flex;justify-content:space-between;gap:10px;align-items:center}
-    .deep-attack h4{margin:0;font-size:16px}
-    .deep-attack dl{display:grid;grid-template-columns:120px 1fr;gap:7px 12px;font-size:13px;line-height:1.55;margin:13px 0 0}
-    .deep-attack dt{font-weight:900;color:#8a1c13}.deep-attack dd{margin:0}
-    .effect-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    .effect{border:1px solid var(--line);border-radius:13px;padding:14px;font-size:13px;line-height:1.6}
-    .effect .direction{display:inline-block;border-radius:999px;padding:4px 8px;background:#eef2ff;color:#3157d5;font-size:10px;font-weight:900;margin-bottom:7px}
-    .stress-grid{display:grid;gap:9px}
-    .stress{background:#fff8e8;border-left:4px solid #dc8b08;border-radius:0 12px 12px 0;padding:13px;font-size:13px;line-height:1.6}
-    .evidence-test{border-bottom:1px solid var(--line);padding:13px 0;font-size:13px;line-height:1.65}
-    .evidence-test:last-child{border-bottom:0}
-    .deep-summary{display:flex;gap:8px;flex-wrap:wrap;margin:9px 0}
-    .deep-summary span{background:#eef2ff;color:#3157d5;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900}
-    .uncertainty{background:#f1f4fa;border-radius:13px;padding:14px;color:#46506a;font-size:13px;line-height:1.65}
+    .btn{border:0;border-radius:11px;min-height:42px;padding:10px 14px;font-weight:900;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+    .btn-primary{background:#fff;color:var(--navy)}.btn-ghost{background:rgba(255,255,255,.09);color:#fff;border:1px solid rgba(255,255,255,.2)}
+    .btn-blue{background:var(--blue);color:#fff}.btn-navy{background:var(--navy);color:#fff}.btn-soft{background:#eef1f7;color:#33405a;border:1px solid #dce2ec}
+    .btn-small{min-height:35px;padding:7px 10px;font-size:11px;border-radius:9px}
+    .hero-panel{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:20px;backdrop-filter:blur(7px)}
+    .hero-panel h2{font-size:16px;margin:0 0 12px}.service-flow{display:grid;gap:9px}
+    .flow-row{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:flex-start;background:rgba(255,255,255,.075);border-radius:12px;padding:11px;font-size:12px;color:#ebeffb}
+    .flow-num{width:27px;height:27px;border-radius:50%;background:#fff;color:var(--navy);display:grid;place-items:center;font-weight:950}
+    .unity-strip{margin-top:-20px}.unity-card{display:grid;grid-template-columns:auto 1fr auto;gap:13px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:var(--shadow)}
+    .unity-icon{width:42px;height:42px;border-radius:13px;background:var(--soft);color:var(--blue);display:grid;place-items:center;font-weight:950}
+    .unity-card b{display:block;font-size:14px}.unity-card span{font-size:12px;color:var(--muted)}
+    .health-panel{margin-top:20px}.health-card{border-radius:13px;padding:12px 14px;border:1px solid #d8e0ec;background:#fff;font-size:12px;color:#526078}
+    .health-card.good{background:var(--greenbg);border-color:#b9e4ca;color:#175e3d}.health-card.warn{background:var(--amberbg);border-color:#efd5ad;color:#754009}
+    .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin:22px 0 5px}
+    .stat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px;box-shadow:0 5px 18px rgba(21,33,62,.04)}
+    .stat strong{display:block;font-size:25px;letter-spacing:-1px}.stat span{font-size:11px;color:var(--muted)}
+    .section{padding:35px 0}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:15px}
+    .section-head h2{font-size:28px;letter-spacing:-1px;margin:0}.section-head p{font-size:13px;color:var(--muted);margin:5px 0 0}
+    .controls{display:grid;grid-template-columns:minmax(0,1fr) 190px 170px;gap:9px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px;box-shadow:0 5px 18px rgba(21,33,62,.04)}
+    input,select{width:100%;border:1px solid #d6ddea;background:#fff;border-radius:10px;padding:11px 12px;color:var(--ink);outline:none}
+    input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(49,87,213,.08)}
+    .chips{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0 17px}
+    .chip{border:1px solid var(--line);background:#fff;color:#47536a;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:900}
+    .chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 5px 21px rgba(21,33,62,.05);display:flex;flex-direction:column;min-height:354px;transition:.18s}
+    .card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#cfd8ed}
+    .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:9px}.tag{display:inline-flex;background:var(--soft);color:var(--blue);font-size:10px;font-weight:950;padding:5px 8px;border-radius:999px}
+    .status{font-size:10px;color:var(--muted);text-align:right}.card h3{font-size:20px;line-height:1.38;letter-spacing:-.55px;margin:13px 0 6px}
+    .meta{font-size:10px;color:var(--muted)}.summary{font-size:13px;line-height:1.72;color:#39445c;margin:13px 0;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+    .risk-box{background:var(--redbg);border:1px solid #f1cfca;border-radius:12px;padding:10px 11px;margin-top:1px;font-size:11px;color:#713832;line-height:1.55}
+    .risk-box b{color:var(--red)}.metric-row{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+    .metric{display:inline-flex;border-radius:999px;padding:5px 8px;background:#f4f6fa;color:#536078;font-size:9px;font-weight:900}
+    .card-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto;padding-top:12px;border-top:1px solid #edf0f5}
+    .empty{grid-column:1/-1;padding:34px;text-align:center;background:#fff;border:1px dashed #cbd3df;border-radius:16px;color:var(--muted)}
+    .pilot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.pilot-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px}
+    .pilot-card b{font-size:13px;display:block}.pilot-card p{font-size:11px;color:var(--muted);margin:6px 0 0;line-height:1.55}
+    .method{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .principles{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.principle{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fbfcff}
+    .principle b{font-size:13px}.principle p{font-size:11px;color:var(--muted);line-height:1.6;margin:6px 0 0}
+    footer{background:var(--navy);color:#bac5e4;padding:31px 0;font-size:11px}.footer-grid{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    dialog{width:min(980px,96vw);max-height:92vh;border:0;border-radius:21px;padding:0;box-shadow:0 25px 90px rgba(0,0,0,.3)}
+    dialog::backdrop{background:rgba(7,15,35,.64)}.modal{padding:23px}.modal-head{display:flex;justify-content:space-between;gap:15px}
+    .modal h2{font-size:28px;line-height:1.33;letter-spacing:-1px;margin:11px 0 6px}.close{border:0;border-radius:9px;background:#eef1f7;padding:8px 11px;height:fit-content}
+    .modal-section{border-top:1px solid var(--line);padding-top:16px;margin-top:17px}.modal-section h3{font-size:17px;margin:0 0 10px}
+    .official-box,.analysis-box{border-radius:13px;padding:13px;line-height:1.72;font-size:12px;white-space:pre-wrap}
+    .official-box{background:#f7f9fc;border:1px solid var(--line)}.analysis-box{background:#f4f7ff;border:1px solid #dbe3ff}
+    .brief-grid,.detail-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.brief,.detail-cell{border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff;font-size:11px}
+    .brief b,.detail-cell b{display:block;color:var(--blue);font-size:10px;margin-bottom:4px}
+    .profile-row,.source-row{display:flex;gap:7px;flex-wrap:wrap}.profile{background:var(--soft);color:var(--blue);padding:5px 8px;border-radius:999px;font-size:9px;font-weight:900}
+    .list-stack{display:grid;gap:8px}.list-card{border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff;font-size:11px;line-height:1.6}
+    .list-card.red{border-color:#efcbc6;background:var(--redbg)}.list-card.blue{border-color:#ccd8f7;background:#f8f9ff}.list-card.green{border-color:#bce4cb;background:var(--greenbg)}
+    .list-card b{display:block;margin-bottom:4px}.fork-card{border-left:4px solid var(--blue);border-radius:0 12px 12px 0;background:#f7f8ff;padding:12px;margin:8px 0}
+    .fork-card b{font-size:12px}.fork-card p{font-size:11px;margin:5px 0;color:#4e5970}
+    .modal-actions{position:sticky;bottom:-23px;margin:20px -23px -23px;padding:13px 23px;background:rgba(255,255,255,.96);border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap;backdrop-filter:blur(8px)}
+    .loading{padding:28px;text-align:center;color:var(--muted)}
     @media(max-width:900px){
-      .mechanism{grid-template-columns:1fr}
-      .actor-row{grid-template-columns:1fr}
-      .actor-row.head{display:none}
-      .assumption-grid,.effect-grid{grid-template-columns:1fr}
+      .hero-grid{grid-template-columns:1fr}.hero-panel{display:none}.stats{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}
+      .principles{grid-template-columns:repeat(2,1fr)}.pilot-grid{grid-template-columns:1fr}.nav{display:none}.mobile-menu{display:block}
+      .controls{grid-template-columns:1fr}.unity-card{grid-template-columns:auto 1fr}.unity-card .btn{display:none}
     }
-
-    /* v0.10 복수 프로필·증거사슬 */
-    .profile-list{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
-    .profile-token{background:#fff;color:#0f1f3d;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900}
-    .profile-token.secondary{background:#dbe3ff;color:#243b77}
-    .claim-ledger{display:grid;gap:10px}
-    .claim-card{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
-    .claim-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
-    .claim-id{background:#0f1f3d;color:#fff;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:900}
-    .claim-type{font-size:11px;color:#3157d5;font-weight:900}
-    .claim-card p{font-size:13px;line-height:1.65;margin:9px 0}
-    .claim-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:12px}
-    .claim-meta div{background:#f7f8fb;border-radius:10px;padding:9px;line-height:1.55}
-    .chain-list{display:grid;gap:10px}
-    .chain{border-left:4px solid #3157d5;background:#f7f8ff;border-radius:0 13px 13px 0;padding:14px;font-size:13px;line-height:1.65}
-    .chain-flow{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
-    .chain-flow span{background:#fff;border:1px solid #dbe3ff;border-radius:999px;padding:5px 8px;font-size:11px}
-    .doc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    .doc-card{border:1px solid var(--line);border-radius:13px;padding:13px;background:#fff}
-    .doc-card b{display:block;margin-bottom:5px}
-    .doc-status{display:inline-block;border-radius:999px;padding:4px 8px;background:#fff8e8;color:#8a5b00;font-size:10px;font-weight:900;margin-bottom:7px}
-    .doc-status.done{background:#eaf8f1;color:#067647}
-    .doc-card p{font-size:12px;color:var(--muted);line-height:1.55;margin:5px 0}
-    .profile-label{display:inline-block;background:#eef2ff;color:#3157d5;border-radius:999px;padding:4px 7px;font-size:10px;font-weight:900;margin-left:6px}
-    @media(max-width:800px){
-      .claim-meta,.doc-grid{grid-template-columns:1fr}
+    @media(max-width:560px){
+      .container{width:min(100% - 18px,1220px)}.hero{padding:43px 0}.hero h1{letter-spacing:-1.4px}.stats{grid-template-columns:1fr 1fr}
+      .principles,.brief-grid,.detail-grid{grid-template-columns:1fr}.section-head{align-items:flex-start;flex-direction:column}.card-actions .btn{flex:1}
+      .footer-grid{align-items:flex-start;flex-direction:column}
     }
-
-    /* v0.11 국가규모 확장·외부 협력 */
-    .coverage{margin:0 0 24px;padding:14px 16px;border:1px solid #cbd7ef;background:#f7f9ff;border-radius:14px;display:flex;justify-content:space-between;gap:16px;align-items:center;font-size:13px;line-height:1.6}
-    .coverage b{color:#183b82}.coverage span{color:var(--muted)}
-    .architecture,.cooperation,.governance{padding:72px 0}
-    .architecture{background:#f7f8fb}.cooperation{background:#0f1f3d;color:#fff}
-    .section-intro{max-width:800px;margin-bottom:30px}
-    .section-intro h2{font-size:34px;margin:10px 0 14px}.section-intro p{line-height:1.8;color:var(--muted)}
-    .cooperation .section-intro p{color:#c9d4ed}
-    .tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .tier-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(26,42,80,.05)}
-    .tier-card .num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#0f1f3d;color:#fff;font-weight:900;margin-bottom:12px}
-    .tier-card h3{margin:0 0 8px;font-size:17px}.tier-card p{font-size:13px;line-height:1.65;color:var(--muted)}
-    .pilot-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
-    .pilot-box{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:22px}
-    .pilot-box h3{margin-top:0}.pilot-box p,.pilot-box li{color:#d7dfef;line-height:1.7}
-    .pilot-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
-    .pilot-actions a{display:inline-block;border-radius:10px;padding:12px 15px;text-decoration:none;font-weight:900;font-size:13px}
-    .pilot-actions .white{background:#fff;color:#0f1f3d}.pilot-actions .outline{border:1px solid #8fa6d2;color:#fff}
-    .governance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .governance-card{border:1px solid var(--line);border-radius:16px;padding:18px}
-    .governance-card h3{margin-top:0}.governance-card p{font-size:13px;line-height:1.7;color:var(--muted)}
-    .loading-report{padding:48px;text-align:center;color:var(--muted)}
-    @media(max-width:900px){
-      .tier-grid,.governance-grid{grid-template-columns:repeat(2,1fr)}
-      .pilot-grid{grid-template-columns:1fr}
-    }
-    @media(max-width:600px){
-      .tier-grid,.governance-grid{grid-template-columns:1fr}
-      .coverage{display:block}.coverage span{display:block;margin-top:6px}
-    }
-
-    /* v0.11.2 자동운영 상태 */
-    .system-health{display:inline-flex;align-items:center;margin-left:9px;padding:4px 7px;border-radius:999px;font-size:10px;font-weight:900;vertical-align:middle}
-    .pending-health{background:#fff8e8;color:#8a5b00}
-    .healthy-health{background:#eaf8f1;color:#067647}
-    .degraded-health{background:#fff3f1;color:#b42318}
-    .health-panel{margin:0 0 18px;border-radius:13px;padding:11px 14px;font-size:12px;line-height:1.6}
-    .health-panel.healthy{background:#eefbf5;color:#075b3b;border:1px solid #b7e4ce}
-    .health-panel.degraded{background:#fff3f1;color:#8a1c13;border:1px solid #efb7ae}
-
-    /* v0.12 국가 시범검토 10건 */
-    .pilot-program{padding:54px 0 30px;background:#fff;border-bottom:1px solid var(--line)}
-    .pilot-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:22px}
-    .pilot-head h2{font-size:32px;letter-spacing:-1.2px;margin:8px 0}.pilot-head p{max-width:780px;color:var(--muted);line-height:1.75;margin:0}
-    .pilot-summary{display:flex;gap:8px;flex-wrap:wrap}.pilot-summary span{background:#eef2ff;color:#3157d5;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:900}
-    .pilot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .pilot-card{border:1px solid #cfd8ff;background:linear-gradient(180deg,#fbfcff,#f5f7ff);border-radius:17px;padding:18px;display:flex;flex-direction:column;gap:10px}
-    .pilot-card-top{display:flex;justify-content:space-between;gap:10px;align-items:center}.pilot-rank{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#0f1f3d;color:#fff;font-weight:900}
-    .pilot-score{font-size:12px;font-weight:900;color:#3157d5}.pilot-card h3{margin:0;font-size:18px;line-height:1.4}.pilot-card p{font-size:13px;line-height:1.65;color:var(--muted);margin:0}
-    .pilot-card .metrics{display:flex;gap:6px;flex-wrap:wrap}.pilot-card .metrics span{font-size:10px;background:#fff;border:1px solid #dbe3ff;border-radius:999px;padding:5px 7px}
-    .pilot-card button{align-self:flex-end;margin-top:auto;background:#3157d5;color:#fff;border:0;border-radius:9px;padding:9px 11px;font-weight:900;cursor:pointer}
-    .pilot-banner{border:1px solid #cfd8ff;background:#f4f7ff;border-radius:14px;padding:15px;margin:12px 0}
-    .pilot-banner-head{display:flex;justify-content:space-between;gap:12px}.pilot-banner h3{margin:0}.pilot-banner p{font-size:13px;line-height:1.65;color:#435174}
-    .audit-table{display:grid;gap:8px}.audit-row{display:grid;grid-template-columns:180px 140px 1fr;gap:10px;border:1px solid var(--line);border-radius:11px;padding:10px;font-size:12px;line-height:1.55}
-    .audit-row .ok{color:#067647;font-weight:900}.audit-row .pending{color:#8a5b00;font-weight:900}
-    .pilot-claim{border-left:4px solid #3157d5;background:#f7f8ff;padding:12px;border-radius:0 11px 11px 0;margin:8px 0;font-size:12px;line-height:1.65}
-    @media(max-width:800px){.pilot-grid{grid-template-columns:1fr}.pilot-head{display:block}.audit-row{grid-template-columns:1fr}}
-
-    /* v0.12.1 증거 성숙도·고정 시범목록 */
-    .maturity-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
-    .maturity-cell{background:#fff;border:1px solid #dbe3ff;border-radius:11px;padding:9px}
-    .maturity-cell b{display:block;font-size:18px;color:#183b82}.maturity-cell span{font-size:10px;color:var(--muted)}
-    .stage-badge{display:inline-flex;padding:5px 8px;border-radius:999px;background:#eaf0ff;color:#183b82;font-size:10px;font-weight:900}
-    .manifest-line{font-size:11px;color:#53617b;margin-top:7px}
-    .related-links{display:grid;gap:7px}.related-link{border:1px dashed #cbd5e1;border-radius:9px;padding:8px;font-size:12px}
-    .claim-types{display:flex;gap:5px;flex-wrap:wrap;margin:5px 0}.claim-types span{background:#eef2ff;border-radius:999px;padding:3px 6px;font-size:10px;font-weight:800}
-    @media(max-width:800px){.maturity-grid{grid-template-columns:repeat(2,1fr)}}
-
-    .skip-link{position:fixed;left:12px;top:-80px;z-index:9999;background:#fff;color:#10203b;padding:10px;border-radius:8px;font-weight:900}
-    .skip-link:focus{top:12px}
-    .verified-panel{border:1px solid #b9dfca;background:#f0fbf5;border-radius:13px;padding:13px;margin:10px 0}
-    .verified-panel h4{margin:0 0 7px}.verified-record{background:#fff;border:1px solid #cfe8d9;border-radius:10px;padding:10px;margin:8px 0;font-size:12px;line-height:1.65}
-    .verified-record .status-pill{display:inline-block;background:#e1f5e9;color:#087245;padding:3px 6px;border-radius:999px;font-size:10px;font-weight:900}
-    .clause-compare{display:grid;grid-template-columns:1fr 1fr;gap:9px}.clause-text{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;font-size:12px;line-height:1.65}
-    .review-log{border-left:3px solid #3157d5;padding:8px 11px;margin:8px 0;background:#f7f8ff;border-radius:0 9px 9px 0;font-size:12px;line-height:1.6}
-    .modal-tools{display:flex;gap:6px;flex-wrap:wrap}.modal-tools button{border:0;border-radius:8px;padding:7px 9px;font-weight:800;cursor:pointer;background:#edf1fb;color:#23418e}
-    .provenance{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:10px;font-size:11px;color:#526078;line-height:1.55}
-    @media(max-width:800px){.clause-compare{grid-template-columns:1fr}}
-    @media print{header,.hero,.notice-wrap,#pilot-program,#policies,#architecture,#cooperation,.governance,#method,footer,.participate,.modal-tools,.close{display:none!important}dialog{position:static!important;display:block!important;width:100%!important;max-width:none!important;border:0!important}.modal{max-height:none!important;overflow:visible!important}}
-
-    /* v1.0 민주주의 순환 워크스페이스 */
-    .workspace-shell{padding:22px 0 64px;background:#f7f8fb}
-    .workspace-tabs{position:sticky;top:58px;z-index:80;display:flex;gap:7px;overflow:auto;padding:10px;background:rgba(247,248,251,.96);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:14px;margin-bottom:18px}
-    .workspace-tab{white-space:nowrap;border:0;background:#fff;color:#33415f;border-radius:10px;padding:10px 13px;font-weight:900;cursor:pointer}
-    .workspace-tab.active{background:#0f1f3d;color:#fff}
-    .workspace-view{display:none}.workspace-view.active{display:block}
-    .view-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:24px 0}.view-head h2{font-size:30px;margin:0 0 8px}.view-head p{color:var(--muted);line-height:1.7;margin:0;max-width:760px}
-    .dashboard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.dashboard-card{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px}.dashboard-card h3{margin:0 0 7px;font-size:16px}.dashboard-card p{font-size:12px;color:var(--muted);line-height:1.6}.dashboard-card button{border:0;background:#0f1f3d;color:#fff;border-radius:9px;padding:8px 10px;font-weight:800;cursor:pointer}
-    .argument-map{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.argument-step{border:1px solid #dbe3ff;background:#f8f9ff;border-radius:12px;padding:12px}.argument-step b{display:block;color:#3157d5;margin-bottom:6px}
-    .argument-evidence{background:#fff8e8;border:1px solid #f1d99a;border-radius:12px;padding:12px;margin:9px 0;font-size:12px;line-height:1.6}
-    .hostile-banner{background:#2a1010;color:#fff;border-radius:15px;padding:16px;margin:10px 0}.hostile-banner p{color:#f3d6d2;line-height:1.65;margin:6px 0 0}.corruption-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.corruption-check{background:#fff7f5;border:1px solid #efb7ae;border-radius:11px;padding:11px;font-size:12px;line-height:1.55}.corruption-check b{display:block;color:#8a1c13}
-    .civic-form{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .full{grid-column:1/-1}.civic-form label{display:block;font-size:12px;font-weight:900;margin:4px 0}.civic-form input,.civic-form select,.civic-form textarea{width:100%;border:1px solid #cbd5e1;border-radius:9px;padding:10px;font:inherit}.civic-form textarea{min-height:115px}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.form-actions button{border:0;border-radius:9px;padding:10px 12px;font-weight:900;cursor:pointer}.form-actions .primary{background:#0f1f3d;color:#fff}.form-actions .light{background:#eef2ff;color:#253d82}
-    .queue-list,.version-list,.implementation-list{display:grid;gap:10px}.queue-item,.version-item,.implementation-item{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px;font-size:12px;line-height:1.6}.queue-item .pill,.version-item .pill,.implementation-item .pill{display:inline-block;border-radius:999px;background:#eef2ff;color:#3157d5;padding:4px 7px;font-size:10px;font-weight:900}
-    .progress-bar{height:9px;background:#e9edf5;border-radius:999px;overflow:hidden;margin:8px 0}.progress-bar span{display:block;height:100%;background:#3157d5}
-    .policy-map{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.map-level{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px}.map-level h3{margin:0 0 8px}.source-row-card{border-top:1px solid var(--line);padding:10px 0;font-size:12px;line-height:1.55}.source-status{display:inline-block;border-radius:999px;padding:3px 6px;font-size:9px;font-weight:900;background:#eef2ff;color:#3157d5}
-    .cycle-strip{display:grid;grid-template-columns:repeat(8,1fr);gap:5px;margin:14px 0}.cycle-node{background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 5px;text-align:center;font-size:10px;font-weight:900}.cycle-node.active{background:#0f1f3d;color:#fff}
-    @media(max-width:900px){.dashboard-grid,.argument-map,.corruption-grid,.policy-map{grid-template-columns:1fr 1fr}.cycle-strip{grid-template-columns:repeat(4,1fr)}}
-    @media(max-width:620px){.dashboard-grid,.argument-map,.corruption-grid,.policy-map,.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.workspace-tabs{top:50px}.cycle-strip{grid-template-columns:repeat(2,1fr)}}
-
-    .inline-civic{border:0;background:#eef2ff;color:#25408f;border-radius:7px;padding:5px 7px;font-size:10px;font-weight:900;cursor:pointer;margin-top:8px}
-</style>
+  </style>
 </head>
-<body><a class="skip-link" href="#policies">정책 목록으로 바로가기</a>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">Democracy 3.0 정책포크 <small>PUBLIC BETA</small> <span id="system-health" class="system-health pending-health">운영상태 확인 중</span></div>
-      <nav class="nav">
-        <a href="#policies">정책 보기</a>
-        <a href="#architecture">운영 구조</a>
-        <a href="#cooperation">국가 협력</a>
-        <a href="#method">평가 원칙</a>
-        <a href="https://github.com/edenabworld-architecture/democracy3-policy-fork" target="_blank" rel="noopener">공개 저장소</a>
-      </nav>
-    </div>
-  </header>
+<body>
+<header class="topbar">
+  <div class="container top-inner">
+    <a class="brand-link" href="./" aria-label="Democracy 3.0 정책 광장 홈">
+      <span class="brand-mark">D3</span>
+      <span class="brand">Democracy 3.0<small>정책 광장 · Fork Studio 통합 서비스</small></span>
+    </a>
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="active" href="./">정책 광장</a>
+      <a href="#policies">정책 탐색</a>
+      <a href="fork-studio-ai.html?mode=new">새 정책 제안</a>
+      <a href="fork-studio-ai.html">Fork Studio</a>
+      <a href="#principles">운영 원칙</a>
+      <a class="nav-cta" href="fork-studio-ai.html?mode=new">아이디어 시작</a>
+    </nav>
+    <button class="mobile-menu" id="mobileMenu" aria-label="메뉴 열기">메뉴</button>
+  </div>
+</header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow">정책 원문 · 공개 검증 · 대안 포크 · 시행 추적</span>
-        <h1>정책은 통과되기 전에<br>더 많이 검증되어야 합니다.</h1>
-        <p>국회와 정부의 정책을 누구나 이해할 수 있는 언어로 풀고, 장점과 위험을 함께 살펴보며, 단순 찬반을 넘어 더 나은 수정안과 대체안을 제안하는 공개 플랫폼입니다.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#policies">정책 살펴보기</a>
-          <a class="btn btn-secondary" href="#method">평가 방식 보기</a>
-        </div>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">정책 탐색 · 근거상태 · 사전 취약성 검토 · 시민 포크</span>
+      <h1>정책을 읽는 곳에서,<br>고치고 검증하는 곳까지.</h1>
+      <p>정책 광장에서 법안과 공공정책을 찾고 원문·근거·위험을 확인한 뒤, 같은 서비스의 Fork Studio에서 원안을 분석하고 Fast-Fail과 복수 포크를 거쳐 더 나은 대안을 만듭니다.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#policies">정책 찾아보기</a>
+        <a class="btn btn-ghost" href="fork-studio-ai.html?mode=new">새 정책 아이디어 제안</a>
       </div>
-      <aside class="hero-panel">
-        <h3>Democracy 3.0의 정책 흐름</h3>
-        <div class="flow">
-          <div class="flow-item"><span class="flow-num">1</span><span>정책 원문과 공식 근거를 자동으로 수집합니다.</span></div>
-          <div class="flow-item"><span class="flow-num">2</span><span>자동 분석 엔진이 국민용 설명과 1차 쟁점 분석을 작성합니다.</span></div>
-          <div class="flow-item"><span class="flow-num">3</span><span>시민과 전문가가 오류를 고치고 대안 포크를 제안합니다.</span></div>
-          <div class="flow-item"><span class="flow-num">4</span><span>정책 처리와 실제 시행결과를 장기적으로 추적합니다.</span></div>
-        </div>
-      </aside>
     </div>
-  </section>
+    <aside class="hero-panel" aria-label="통합 서비스 흐름">
+      <h2>하나의 정책 순환</h2>
+      <div class="service-flow">
+        <div class="flow-row"><span class="flow-num">1</span><span><b>정책 광장</b><br>정책·법안·근거·위험을 탐색합니다.</span></div>
+        <div class="flow-row"><span class="flow-num">2</span><span><b>Fork Studio</b><br>원안 분석, Fast-Fail, 복수 포크를 진행합니다.</span></div>
+        <div class="flow-row"><span class="flow-num">3</span><span><b>공개 환류</b><br>승인된 시민 초안을 원정책의 포크로 되돌립니다.</span></div>
+      </div>
+    </aside>
+  </div>
+</section>
 
-  <div class="container notice-wrap"><div id="notice" class="notice"></div><div id="health-panel"></div></div>
+<div class="container unity-strip">
+  <div class="unity-card">
+    <span class="unity-icon">↔</span>
+    <div><b>정책 광장과 Fork Studio는 하나의 Democracy 3.0입니다.</b><span>정책 ID와 출처를 그대로 이어받아 페이지가 이동하며, 원정책과 포크의 관계를 보존합니다.</span></div>
+    <a class="btn btn-blue btn-small" href="fork-studio-ai.html?mode=new">새 정책 시작</a>
+  </div>
+</div>
 
-  <section class="workspace-shell" aria-label="Democracy 3.0 정책 워크스페이스">
+<main>
+  <div class="container health-panel" id="healthPanel"></div>
+  <div class="container stats" id="stats"></div>
+
+  <section class="section" id="policies">
     <div class="container">
-      <div class="cycle-strip" aria-label="정책 민주주의 순환">
-        <div class="cycle-node active">공개</div><div class="cycle-node">30초 이해</div><div class="cycle-node">주장 분리</div><div class="cycle-node">레드팀</div><div class="cycle-node">포크</div><div class="cycle-node">결정·버전</div><div class="cycle-node">시행</div><div class="cycle-node">성과·재검토</div>
+      <div class="section-head">
+        <div><h2>정책 탐색</h2><p>현재 연결된 정책을 읽고, 상세보고서에서 바로 AI 분석·포크 작업으로 이동합니다.</p></div>
+        <span id="resultCount" class="meta">불러오는 중</span>
       </div>
-      <div class="workspace-tabs" role="tablist" aria-label="정책 메뉴">
-        <button class="workspace-tab active" data-view="discover" role="tab">정책 탐색</button>
-        <button class="workspace-tab" data-view="redteam" role="tab">적대적 검증</button>
-        <button class="workspace-tab" data-view="forks" role="tab">정책 포크</button>
-        <button class="workspace-tab" data-view="participation" role="tab">시민 참여</button>
-        <button class="workspace-tab" data-view="versions" role="tab">버전·로그</button>
-        <button class="workspace-tab" data-view="implementation" role="tab">시행·책임추적</button>
-        <button class="workspace-tab" data-view="map" role="tab">전국 정책지도</button>
+      <div class="controls">
+        <input id="search" type="search" placeholder="정책명, 분야, 위원회, 제안자, 위험을 검색하세요" aria-label="정책 검색">
+        <select id="statusFilter" aria-label="상태 필터">
+          <option value="">모든 진행상태</option>
+        </select>
+        <select id="sort" aria-label="정렬">
+          <option value="recent">최신 제안순</option>
+          <option value="title">정책명순</option>
+          <option value="risk">위험정보 우선</option>
+          <option value="fork">포크후보 우선</option>
+        </select>
       </div>
-      <div id="view-discover" class="workspace-view active" role="tabpanel">
-  <section id="pilot-program" class="pilot-program">
+      <div class="chips" id="chips"></div>
+      <div class="grid" id="grid"><div class="empty">정책 데이터를 불러오고 있습니다.</div></div>
+    </div>
+  </section>
+
+  <section class="section hidden" id="pilotSection">
     <div class="container">
-      <div class="pilot-head">
-        <div>
-          <span class="tag">국가 시범검토 10건</span>
-          <h2>자동 초안을 넘어,<br>조문과 근거를 끝까지 추적합니다.</h2>
-          <p id="pilot-purpose">대표 정책 10건을 선정해 공식문서, 조문, 비용, 주장, 공격경로와 대체조문을 실제 증거 기반 보고서로 승격합니다.</p>
-        </div>
-        <div id="pilot-summary" class="pilot-summary"></div>
-      </div>
-      <div id="pilot-grid" class="pilot-grid"></div>
+      <div class="section-head"><div><h2>시범 심층검토</h2><p>자동수집과 별도로 원문·주장·근거·포크를 깊게 대조하는 고정 검토창입니다.</p></div></div>
+      <div class="pilot-grid" id="pilotGrid"></div>
     </div>
   </section>
 
-  <main id="policies" class="container">
-    <section id="stats" class="stats"></section>
-    <div id="coverage" class="coverage"></div>
-    <div class="section-head">
-      <div><h2>최근 정책, 30초 이해</h2><p>먼저 쉽게 이해하고, 찬성·반대·위험을 비교한 뒤 바꿀 수 있는 수정안을 살펴봅니다.</p></div>
-    </div>
-    <div class="controls">
-      <input id="search" placeholder="법안명이나 관심 주제를 검색하세요">
-      <select id="status">
-        <option value="">모든 검토 상태</option>
-        <option>자동 검토 초안</option><option>제한적 자동 검토</option><option>미분석</option><option>AI 초안</option><option>규칙검사 완료</option><option>시민 검토 중</option><option>전문가 검토</option>
-      </select>
-      <select id="sort">
-        <option value="recent">최근 업데이트순</option>
-        <option value="reviews">검토 참여순</option>
-        <option value="forks">수정안 많은 순</option>
-      </select>
-    </div>
-    <div id="chips" class="chips"></div>
-    <section id="grid" class="grid"></section>
-  </main>
-      </div>
-      <div id="view-redteam" class="workspace-view" role="tabpanel">
-        <div class="view-head"><div><h2>적대적 정책검증</h2><p>정책을 지지하는 설명이 아니라, 권한남용·부정부패·기관포획·예산누수·우회경로를 찾아 가장 강하게 무너뜨립니다.</p></div></div>
-        <div id="redteam-dashboard" class="dashboard-grid"></div>
-      </div>
-      <div id="view-forks" class="workspace-view" role="tabpanel">
-        <div class="view-head"><div><h2>정책 포크</h2><p>원안 찬반에 머물지 않고 권한·대상·비용·절차·통제장치를 다르게 설계한 경쟁 정책과 시민 제안을 비교합니다.</p></div></div>
-        <div id="fork-dashboard" class="dashboard-grid"></div>
-      </div>
-      <div id="view-participation" class="workspace-view" role="tabpanel">
-        <div class="view-head"><div><h2>시민 주석·정정·근거·포크</h2><p>제안은 삭제되지 않고 접수·검토·근거확인·반영·기각 상태와 결정 이유가 로그로 남습니다.</p></div></div>
-        <div class="civic-form">
-          <div class="form-grid">
-            <div><label for="civic-policy">정책</label><select id="civic-policy"></select></div>
-            <div><label for="civic-type">제안 유형</label><select id="civic-type"><option value="annotation">주석</option><option value="correction">정정 요청</option><option value="evidence">근거 제출</option><option value="red_team">새 위험·부패경로</option><option value="fork">정책 포크</option></select></div>
-            <div class="full"><label for="civic-title">제목</label><input id="civic-title" placeholder="무엇을 고치거나 제안합니까?"></div>
-            <div class="full"><label for="civic-content">내용</label><textarea id="civic-content" placeholder="문제, 근거, 제안, 예상효과와 새 위험을 적어주세요."></textarea></div>
-            <div><label for="civic-source">확인 가능한 출처 URL</label><input id="civic-source" type="url" placeholder="https://"></div>
-            <div><label for="civic-clause">대상 조문·문단</label><input id="civic-clause" placeholder="예: 안 제21조 / 30초 요약 2항"></div>
-          </div>
-          <div class="form-actions"><button class="primary" onclick="submitCivicProposal()">공개 접수하기</button><button class="light" onclick="saveCivicDraft()">브라우저 임시저장</button><button class="light" onclick="downloadCivicJson()">제안 JSON 내려받기</button></div>
-          <p id="civic-status" class="deep-note"></p>
-        </div>
-        <div class="view-head"><div><h2 style="font-size:22px">공개 처리 대기열</h2><p>현재 공개 저장소에 접수된 시민 제안과 처리상태입니다.</p></div></div>
-        <div id="civic-queue" class="queue-list"></div>
-      </div>
-      <div id="view-versions" class="workspace-view" role="tabpanel">
-        <div class="view-head"><div><h2>정책 버전과 변경 로그</h2><p>정책 상태·문장·근거·시민제안·운영자 판단이 언제 무엇 때문에 바뀌었는지 삭제하지 않고 누적합니다.</p></div></div>
-        <div id="version-dashboard" class="version-list"></div>
-      </div>
-      <div id="view-implementation" class="workspace-view" role="tabpanel">
-        <div class="view-head"><div><h2>통과 후 시행·예산·성과 책임추적</h2><p>통과 여부, 공포·시행일, 담당기관, 실행률, 예산집행, 성과, 피해와 부작용을 정책 원안의 약속과 비교합니다.</p></div></div>
-        <div id="implementation-dashboard" class="implementation-list"></div>
-      </div>
-      <div id="view-map" class="workspace-view" role="tabpanel">
-        <div class="view-head"><div><h2>국가에서 읍·면·동·리까지</h2><p>모든 정책을 같은 ID·검증·포크·버전·시행추적 규칙으로 연결하는 공공 정책 인프라 지도입니다.</p></div></div>
-        <div id="policy-map" class="policy-map"></div>
-        <div class="view-head"><div><h2 style="font-size:22px">공식 데이터 연결상태</h2></div></div>
-        <div id="source-registry" class="dashboard-grid"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="architecture" class="architecture">
+  <section class="section method" id="principles">
     <div class="container">
-      <div class="section-intro">
-        <span class="tag">국가 규모 운영 구조</span>
-        <h2>모든 정책을 담되,<br>검토의 깊이는 단계적으로 높입니다.</h2>
-        <p>전체 정책을 빠짐없이 기록하는 것과 모든 정책을 즉시 논문 수준으로 검증하는 것은 다릅니다. Democracy 3.0은 모든 정책이 같은 검토 경로에 들어오도록 하면서, 중요도·자료·참여 수준에 따라 심층도를 높이는 계층형 구조를 지향합니다.</p>
-      </div>
-      <div class="tier-grid">
-        <div class="tier-card"><span class="num">0</span><h3>전 정책 수집</h3><p>법안·정부정책·입법예고·지방조례의 존재, 공식 출처와 진행상태를 기록합니다.</p></div>
-        <div class="tier-card"><span class="num">1</span><h3>국민용 이해</h3><p>무엇이 왜 바뀌고 누가 영향을 받는지 짧고 명확하게 정리합니다.</p></div>
-        <div class="tier-card"><span class="num">2</span><h3>위험·레드팀 검토</h3><p>권한·비용·유인·우회·포획·2차 효과와 최악조건을 공격적으로 검토합니다.</p></div>
-        <div class="tier-card"><span class="num">3</span><h3>증거·조문·포크</h3><p>대표 정책부터 조문·비용·통계·회의자료를 대조하고 실제 대체 조문을 작성합니다.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="cooperation" class="cooperation">
-    <div class="container">
-      <div class="section-intro">
-        <span class="eyebrow">국가·국회·연구기관 협력 제안</span>
-        <h2>작은 시범사업으로 검증하고,<br>공공 정책 인프라로 확장합니다.</h2>
-        <p>완성된 국가시스템을 즉시 요구하는 것이 아니라, 대표 정책을 대상으로 실제 조문·근거·위험·대안을 공개 검증하는 3~6개월 시범운영을 제안합니다.</p>
-      </div>
-      <div class="pilot-grid">
-        <div class="pilot-box">
-          <h3>제안하는 국가 시범운영</h3>
-          <ul>
-            <li>대표 법안·정책 10건 선정</li>
-            <li>공식 조문·비용추계·위원회 자료 연계</li>
-            <li>정책별 강화된 레드팀과 반증 검토</li>
-            <li>A/B/C 대안과 조문 수정안 작성</li>
-            <li>시민·전문가 반론과 수정이력 공개</li>
-            <li>시행 후 성과·부작용 추적 설계</li>
-          </ul>
-        </div>
-        <div class="pilot-box">
-          <h3>협력 요청의 범위</h3>
-          <p>공식 정책자료 연계, 대표 정책 선정, 법제·행정·분야전문가 검토, 시민참여 실험과 공공 시범사업 가능성을 함께 논의하고자 합니다.</p>
-          <p><b>창안 및 원안 설계:</b> 박찬성<br><b>운영 상태:</b> 공개 시범판<br><b>검증 원칙:</b> 공식자료와 자동추론 분리, 반론·정정·변경이력 공개</p>
-          <div class="pilot-actions">
-            <a class="white" href="https://github.com/edenabworld-architecture/democracy3-policy-fork/issues/new?title=%5B%ED%98%91%EB%A0%A5%20%EC%A0%9C%EC%95%88%5D%20Democracy%203.0%20%EC%A0%95%EC%B1%85%ED%8F%AC%ED%81%AC&body=%ED%98%91%EB%A0%A5%20%EA%B8%B0%EA%B4%80%20%EB%98%90%EB%8A%94%20%EC%A0%9C%EC%95%88%EC%9E%90%3A%0A%0A%EA%B4%80%EC%8B%AC%20%EB%B6%84%EC%95%BC%3A%0A%0A%ED%98%91%EB%A0%A5%20%EC%A0%9C%EC%95%88%3A%0A" target="_blank" rel="noopener">협력 제안 남기기</a>
-            <a class="outline" href="PILOT_REVIEW_PROTOCOL.md" target="_blank" rel="noopener">검토 프로토콜</a>
-            <a class="outline" href="pilot-editor.html" target="_blank" rel="noopener">운영자 검토 편집기</a>
-            <a class="outline" href="https://github.com/edenabworld-architecture/democracy3-policy-fork" target="_blank" rel="noopener">공개 코드·변경이력</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="governance">
-    <div class="container">
-      <div class="section-intro">
-        <span class="tag">공개 운영 원칙</span>
-        <h2>정책 분석의 권력도<br>검증받아야 합니다.</h2>
-      </div>
-      <div class="governance-grid">
-        <div class="governance-card"><h3>자동 초안과 사실의 분리</h3><p>발의자의 주장, 공식 원문, 자동분석, 시민 의견과 사람 검토를 서로 다른 상태로 표시합니다.</p></div>
-        <div class="governance-card"><h3>반론과 정정의 보존</h3><p>틀린 분석을 조용히 덮지 않고, 무엇이 왜 수정됐는지 공개 변경이력으로 남기는 것을 목표로 합니다.</p></div>
-        <div class="governance-card"><h3>인기투표보다 근거</h3><p>찬반 숫자보다 주장·근거·반증조건·잔여위험과 대체조문의 품질을 우선합니다.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="method" class="method">
-    <div class="container method-grid">
-      <div>
-        <span class="tag">평가 원칙</span>
-        <h2>자동 분석이 결론을 내리지 않고,<br>시민이 판단할 쟁점을 드러냅니다.</h2>
-        <p style="color:var(--muted);line-height:1.75">법안마다 최대 세 개의 위험프로필을 동시에 적용하고, 발의자의 주장을 원장으로 분해합니다. 각 주장은 필요한 근거와 기각조건을 가지며, 레드팀 공격·방어장치·정책 포크와 하나의 증거사슬로 연결됩니다.</p>
-      </div>
+      <div class="section-head"><div><h2>운영 원칙</h2><p>AI의 설명과 공식자료, 시민 선택과 기관 검토를 섞지 않습니다.</p></div></div>
       <div class="principles">
-        <div class="principle"><b>원문 우선</b><p>정책 원문에서 확인되는 사실과 분석자의 추론을 명확히 구분합니다.</p></div>
-        <div class="principle"><b>찬성과 반대 동시 공개</b><p>법안이 주장하는 기대와 가장 강한 반대논거를 함께 보여줍니다.</p></div>
-        <div class="principle"><b>정책 포크 중심</b><p>단순 찬반을 넘어 적용대상, 권한, 비용과 통제장치를 바꾼 수정안을 비교합니다.</p></div>
-        <div class="principle"><b>수정이력 보존</b><p>AI 오류, 시민 반론, 전문가 정정과 정책의 변경 과정을 기록합니다.</p></div>
+        <article class="principle"><b>원문과 추론 분리</b><p>공식 원문·출처, 자동 구조화, AI 추론, 사람 검토를 서로 다른 상태로 표시합니다.</p></article>
+        <article class="principle"><b>후보 없음 ≠ 정책 없음</b><p>현재 연결자료에서 찾지 못한 결과를 제도 부재라고 단정하지 않습니다.</p></article>
+        <article class="principle"><b>사전 취약성 검토</b><p>비용·악용·집행·권리·안전·2차 효과·근거 부족을 승인 전에 원장으로 점검합니다.</p></article>
+        <article class="principle"><b>되돌릴 수 있는 포크</b><p>원정책과 변경점을 보존하고 최소수정·구조수정·단계실증 대안을 비교합니다.</p></article>
       </div>
     </div>
   </section>
+</main>
 
-  <footer><div class="container">Democracy 3.0 정책포크 v1.0 · 공개 시범판 · 창안 및 원안 설계: 박찬성</div></footer>
-  <dialog id="dialog" aria-label="정책 심층보고서"><div id="modal" class="modal"></div></dialog>
+<footer>
+  <div class="container footer-grid">
+    <span>Democracy 3.0 정책포크 · 통합 공개 시범판 · 창안 및 원안 설계: 박찬성</span>
+    <span>시민 검증 전 초안은 기관 채택·법률효력·전문가 검토를 의미하지 않습니다.</span>
+  </div>
+</footer>
+
+<dialog id="dialog" aria-label="정책 상세보고서">
+  <div class="modal" id="modal"></div>
+</dialog>
 
 <script>
-let allBills=[], pilotCases=[], activeCategory='전체', healthVerified=false, lifecycleData={policies:{},summary:{}}, civicData={entries:[]}, sourceRegistry={levels:[],sources:[]}, participationConfig={};
+const STUDIO_URL="fork-studio-ai.html";
+let allBills=[],activeCategory="전체",indexData={},lifecycleData={policies:{},summary:{}},civicData={entries:[]},sourceRegistry={levels:[],sources:[]};
 const reportCache=new Map();
-const grid=document.getElementById('grid'), search=document.getElementById('search'),
-statusFilter=document.getElementById('status'), sort=document.getElementById('sort'),
-dialog=document.getElementById('dialog'), modal=document.getElementById('modal');
-dialog.addEventListener('close',()=>{if(location.hash.startsWith('#bill='))history.replaceState(null,'',location.pathname+location.search)});
+const grid=document.getElementById("grid"),searchInput=document.getElementById("search"),statusFilter=document.getElementById("statusFilter"),sortSelect=document.getElementById("sort");
+const dialog=document.getElementById("dialog"),modal=document.getElementById("modal");
 
-const esc=(v='')=>String(v).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+const esc=(value="")=>String(value??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+const arr=value=>Array.isArray(value)?value:[];
+const text=(...values)=>values.find(v=>typeof v==="string"&&v.trim())||"";
+const cleanUrl=value=>/^https?:\/\//.test(String(value||""))?String(value):"";
+const safeDate=value=>{const d=new Date(value);return Number.isNaN(d.getTime())?String(value||"확인 필요"):d.toLocaleDateString("ko-KR")};
+const studioLink=(id,from="square")=>`${STUDIO_URL}?mode=existing&policy_id=${encodeURIComponent(id)}&from=${encodeURIComponent(from)}&return=${encodeURIComponent(`./#bill=${id}`)}`;
 
-async function loadHealth(){
-  const badge=document.getElementById('system-health');
-  const panel=document.getElementById('health-panel');
-  try{
-    let response=await fetch('release-status.json',{cache:'no-store'});
-    if(!response.ok)response=await fetch('health.json',{cache:'no-store'});
-    if(!response.ok)throw new Error('상태파일 없음');
-    const health=await response.json();
-    healthVerified=true;
-    const healthy=health.status==='healthy';
-    const counts=health.counts||{};
-    badge.textContent=healthy?'검증배포 정상':'검증배포 점검 필요';
-    badge.className=`system-health ${healthy?'healthy-health':'degraded-health'}`;
-    panel.innerHTML=`<div class="health-panel ${healthy?'healthy':'degraded'}"><b>${healthy?'공개 배포 전 무결성 검사 통과':'배포검사 실패'}</b> · 법안 ${esc(counts.bills||0)}건 · 시범검토 ${esc(counts.pilot_cases||0)}건 · 독립검증 주장 ${esc(counts.verified_claims||0)}건 · 검사시각 ${esc(health.checked_at||'확인 필요')}</div>`;
-  }catch(error){
-    if(badge.dataset.derived==='true')return;
-    badge.textContent='운영상태 미확인';
-    badge.className='system-health pending-health';
-    panel.innerHTML='';
-  }
+async function loadJson(path,fallback){
+  try{const response=await fetch(path,{cache:"no-store"});return response.ok?await response.json():fallback}catch(error){return fallback}
 }
-
-loadHealth();
-
-async function loadIndexData(){
-  let response=await fetch('bills-index.json',{cache:'no-store'});
-  if(!response.ok){
-    response=await fetch('bills.json',{cache:'no-store'});
-  }
-  if(!response.ok) throw new Error('정책 목록을 불러오지 못했습니다.');
-  return response.json();
-}
-
-async function loadOptionalJson(path,fallback){
-  try{const response=await fetch(path,{cache:'no-store'});return response.ok?await response.json():fallback}catch(error){return fallback}
+async function loadIndex(){
+  let response=await fetch("bills-index.json",{cache:"no-store"});
+  if(!response.ok)response=await fetch("bills.json",{cache:"no-store"});
+  if(!response.ok)throw new Error("정책 목록을 불러오지 못했습니다.");
+  return response.json()
 }
 async function boot(){
   try{
-    const [data,lifecycle,civic,registry,config]=await Promise.all([
-      loadIndexData(),loadOptionalJson('policy-lifecycle.json',{policies:{},summary:{}}),
-      loadOptionalJson('civic-log.json',{entries:[]}),loadOptionalJson('source_registry.json',{levels:[],sources:[]}),
-      loadOptionalJson('participation-config.json',{})
+    const [data,lifecycle,civic,registry,release]=await Promise.all([
+      loadIndex(),loadJson("policy-lifecycle.json",{policies:{},summary:{}}),
+      loadJson("civic-log.json",{entries:[]}),loadJson("source_registry.json",{levels:[],sources:[]}),
+      loadJson("release-status.json",null)
     ]);
-    allBills=data.bills||[];pilotCases=(data.pilot_program||{}).cases||[];
-    lifecycleData=lifecycle;civicData=civic;sourceRegistry=registry;participationConfig=config;
-    document.getElementById('notice').textContent=data.notice||'';renderDerivedHealth(data);renderPilotProgram(data.pilot_program||{});renderStats(data.stats||{});renderCoverage(data.coverage||{},data.source||{});renderChips();render();renderWorkspaceViews();
-    const match=location.hash.match(/^#bill=(.+)$/);if(match)setTimeout(()=>openBill(decodeURIComponent(match[1])),0);
-  }catch(err){document.getElementById('notice').textContent=err.message;grid.innerHTML='<div class="empty">정책 데이터를 표시할 수 없습니다.</div>'}
-}
-boot();
-
-function renderDerivedHealth(data){
-  if(healthVerified)return;
-  const badge=document.getElementById('system-health');
-  const panel=document.getElementById('health-panel');
-  const warnings=data.collection_warnings||[];
-  const generated=data.generated_at||'확인 필요';
-  const healthy=(data.bills||[]).length>0&&warnings.length===0;
-  badge.dataset.derived='true';
-  badge.textContent=healthy?'자동수집 정상':'자동수집 점검 필요';
-  badge.className=`system-health ${healthy?'healthy-health':'degraded-health'}`;
-  panel.innerHTML=`<div class="health-panel ${healthy?'healthy':'degraded'}"><b>${healthy?'최신 공개 데이터 정상':'수집 경고 존재'}</b> · 법안 ${esc((data.bills||[]).length)}건 · 생성시각 ${esc(generated)} · 분할 무결성 검사파일은 워크플로 전환 후 표시</div>`;
-}
-
-function renderCoverage(coverage,source){
-  const el=document.getElementById('coverage');
-  const active=coverage.active_count||allBills.length;
-  const total=coverage.official_total_count||source.official_total_count||0;
-  el.innerHTML=`<b>현재 심층 검토 창: 최신 ${esc(active)}건</b><span>국회 공식 목록 ${esc(total||'확인 중')}건을 향해 확장 가능한 계층형 구조 · ${esc(coverage.meaning||'목록은 가볍게, 상세보고서는 선택할 때 불러옵니다.')}</span>`;
-}
-
-
-document.querySelectorAll('.workspace-tab').forEach(button=>button.addEventListener('click',()=>setWorkspaceView(button.dataset.view)));
-function setWorkspaceView(name){
-  document.querySelectorAll('.workspace-tab').forEach(x=>x.classList.toggle('active',x.dataset.view===name));
-  document.querySelectorAll('.workspace-view').forEach(x=>x.classList.toggle('active',x.id===`view-${name}`));
-  history.replaceState(null,'',`#view=${name}`);window.scrollTo({top:document.querySelector('.workspace-shell').offsetTop-55,behavior:'smooth'});
-}
-function renderWorkspaceViews(){renderRedTeamDashboard();renderForkDashboard();renderCivicForm();renderCivicQueue();renderVersionDashboard();renderImplementationDashboard();renderPolicyMap();const m=location.hash.match(/^#view=(.+)$/);if(m)setWorkspaceView(m[1]);}
-function renderRedTeamDashboard(){
-  const rows=[...allBills].sort((a,b)=>(b.red_team_count||0)-(a.red_team_count||0)).slice(0,18);
-  document.getElementById('redteam-dashboard').innerHTML=rows.map(b=>`<article class="dashboard-card"><span class="tag">공격 ${esc(b.red_team_count||0)} · 주장 ${esc(b.claim_count||0)}</span><h3>${esc(b.title)}</h3><p><b>최대 위험:</b> ${esc(b.largest_risk||'추가 검토 필요')}</p><p>${esc(((b.profiles||[]).map(x=>x.label).join(' · '))||'위험프로필 확인 필요')}</p><button onclick="openBill('${esc(b.id)}')">적대검증 열기</button></article>`).join('')||'<div class="empty">적대검증 자료가 없습니다.</div>';
-}
-function renderForkDashboard(){
-  const rows=allBills.filter(b=>(b.fork_preview||[]).length).slice(0,18);
-  document.getElementById('fork-dashboard').innerHTML=rows.map(b=>`<article class="dashboard-card"><span class="tag">포크 ${(b.fork_preview||[]).length}</span><h3>${esc(b.title)}</h3>${(b.fork_preview||[]).map(f=>`<p><b>${esc(f.label)} · ${esc(f.title)}</b><br>${esc(f.change)}<br><small>새 위험: ${esc(f.risk||'검토 필요')}</small></p>`).join('')}<button onclick="openBill('${esc(b.id)}')">포크 비교</button></article>`).join('')||'<div class="empty">정책 포크가 없습니다.</div>';
-}
-function renderCivicForm(){
-  const select=document.getElementById('civic-policy');if(!select)return;
-  select.innerHTML=allBills.map(b=>`<option value="${esc(b.id)}">${esc(b.title)}</option>`).join('');
-  try{const draft=JSON.parse(localStorage.getItem('democracy3-civic-draft')||'null');if(draft){select.value=draft.policy_id||select.value;document.getElementById('civic-type').value=draft.type||'annotation';document.getElementById('civic-title').value=draft.title||'';document.getElementById('civic-content').value=draft.content||'';document.getElementById('civic-source').value=draft.source_url||'';document.getElementById('civic-clause').value=draft.target||''}}catch(e){}
-}
-function prefillCivic(policyId,type,target,title){
-  if(dialog.open)dialog.close();setWorkspaceView('participation');
-  const policy=document.getElementById('civic-policy');if(policy)policy.value=policyId;
-  document.getElementById('civic-type').value=type;
-  document.getElementById('civic-clause').value=target||'';
-  document.getElementById('civic-title').value=title||'';
-  document.getElementById('civic-content').focus();
-}
-function civicPayload(){const id=document.getElementById('civic-policy').value,b=allBills.find(x=>x.id===id)||{};return {schema_version:'1.0',submission_id:`LOCAL-${Date.now()}`,policy_id:id,policy_title:b.title||'',type:document.getElementById('civic-type').value,title:document.getElementById('civic-title').value.trim(),content:document.getElementById('civic-content').value.trim(),source_url:document.getElementById('civic-source').value.trim(),target:document.getElementById('civic-clause').value.trim(),created_at:new Date().toISOString(),status:'접수 대기'}}
-function saveCivicDraft(){localStorage.setItem('democracy3-civic-draft',JSON.stringify(civicPayload()));document.getElementById('civic-status').textContent='이 브라우저에 임시저장했습니다.'}
-function downloadCivicJson(){const payload=civicPayload();const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`democracy3-${payload.type}-${payload.policy_id}.json`;a.click();URL.revokeObjectURL(a.href)}
-async function submitCivicProposal(){
-  const payload=civicPayload(),status=document.getElementById('civic-status');if(!payload.title||!payload.content){status.textContent='제목과 내용을 입력해야 합니다.';return}
-  if(participationConfig.api_endpoint){try{const r=await fetch(participationConfig.api_endpoint,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)});if(!r.ok)throw new Error('접수 서버 오류');status.textContent='공개 접수되었습니다. 처리상태가 로그에 표시됩니다.';return}catch(e){status.textContent='접수 서버 연결에 실패해 공개 저장소 접수로 전환합니다.'}}
-  const prefix={annotation:'[주석]',correction:'[정정]',evidence:'[근거]',red_team:'[레드팀]',fork:'[포크]'}[payload.type]||'[시민제안]';
-  const body=`정책 ID: ${payload.policy_id}\n정책명: ${payload.policy_title}\n대상: ${payload.target}\n출처: ${payload.source_url}\n\n${payload.content}`;
-  const url=`https://github.com/${participationConfig.repository||'edenabworld-architecture/democracy3-policy-fork'}/issues/new?title=${encodeURIComponent(prefix+' '+payload.title)}&body=${encodeURIComponent(body)}`;window.open(url,'_blank','noopener');status.textContent='현재 공개 베타는 GitHub 공개접수 창을 사용합니다. 익명 접수 API는 별도 배포가 필요합니다.';
-}
-function renderCivicQueue(){const rows=(civicData.entries||[]).slice().sort((a,b)=>String(b.updated_at).localeCompare(String(a.updated_at))).slice(0,50);document.getElementById('civic-queue').innerHTML=rows.map(x=>`<div class="queue-item"><span class="pill">${esc(x.type)} · ${esc(x.status)}</span> <b>${esc(x.title)}</b><br>${esc(x.policy_title||x.policy_id||'정책 연결 전')} · ${esc(x.author||'익명')} · ${esc(x.updated_at||'')} ${x.public_url?`<a class="source-link" href="${esc(x.public_url)}" target="_blank" rel="noopener">공개 로그</a>`:''}</div>`).join('')||'<div class="empty">아직 공개 처리 대기열이 없습니다.</div>'}
-function renderVersionDashboard(){const policies=Object.values(lifecycleData.policies||{});const rows=policies.flatMap(p=>(p.versions||[]).slice(-2).map(v=>({...v,policy_id:p.policy_id,title:p.title}))).sort((a,b)=>String(b.at).localeCompare(String(a.at))).slice(0,80);document.getElementById('version-dashboard').innerHTML=rows.map(v=>`<div class="version-item"><span class="pill">${esc(v.version_id)}</span> <b>${esc(v.title)}</b><br>${esc(v.at)} · 변경: ${esc((v.changed_fields||[]).join(', ')||'최초 기록')}<br><small>${esc((v.snapshot||{}).stage||'')}</small></div>`).join('')||'<div class="empty">첫 자동실행 후 정책 버전 로그가 생성됩니다.</div>'}
-function renderImplementationDashboard(){const rows=Object.values(lifecycleData.policies||{}).sort((a,b)=>(b.progress_percent||0)-(a.progress_percent||0)).slice(0,50);document.getElementById('implementation-dashboard').innerHTML=rows.map(p=>`<div class="implementation-item"><span class="pill">${esc(p.current_stage)} · ${esc(p.progress_percent)}%</span> <b>${esc(p.title)}</b><div class="progress-bar"><span style="width:${Math.max(0,Math.min(100,p.progress_percent||0))}%"></span></div><span>담당: ${esc(p.responsible_body||'확인 필요')} · 예산집행 ${p.budget&&p.budget.execution_rate!=null?esc(p.budget.execution_rate)+'%':'자료 미연결'} · 문제 ${(p.outcomes&&p.outcomes.issues||[]).length}건</span>${p.official_url?` <a class="source-link" href="${esc(p.official_url)}" target="_blank" rel="noopener">공식 진행</a>`:''}</div>`).join('')||'<div class="empty">첫 자동실행 후 시행·책임추적 자료가 생성됩니다.</div>'}
-function renderPolicyMap(){document.getElementById('policy-map').innerHTML=(sourceRegistry.levels||[]).map(level=>`<div class="map-level"><span class="tag">${esc(level.label)}</span><h3>${esc(level.label)} 정책</h3>${(level.examples||[]).map(x=>`<p>· ${esc(x)}</p>`).join('')}</div>`).join('');document.getElementById('source-registry').innerHTML=(sourceRegistry.sources||[]).map(s=>`<div class="dashboard-card"><span class="source-status">${esc(s.status)}</span><h3>${esc(s.name)}</h3><p>${esc(s.scope)} · ${esc((s.policy_types||[]).join(', '))}</p><p>${esc(s.note)}</p>${s.official_url?`<a class="source-link" href="${esc(s.official_url)}" target="_blank" rel="noopener">공식 출처</a>`:''}</div>`).join('')}
-
-function maturityGrid(m){
-  m=m||{};
-  const rows=[
-    ['구조화',m.structure_readiness||0],
-    ['공식자료',m.official_source_coverage||0],
-    ['독립근거',m.independent_evidence_validation||0],
-    ['사람검토',m.human_review||0]
-  ];
-  return `<div class="maturity-grid">${rows.map(([label,value])=>`<div class="maturity-cell"><b>${esc(value)}</b><span>${esc(label)} / 100</span></div>`).join('')}</div>`;
-}
-function renderPilotProgram(program){
-  const pilotGrid=document.getElementById('pilot-grid');
-  const summary=document.getElementById('pilot-summary');
-  const purpose=document.getElementById('pilot-purpose');
-  const info=program.summary||{}, manifest=program.manifest||{};
-  if(program.purpose)purpose.textContent=program.purpose;
-  summary.innerHTML=[
-    ['고정',info.locked||0],
-    ['대체',info.replacements||0],
-    ['법안별 공식문서',info.case_specific_documents||0],
-    ['관련시스템 링크',info.related_system_links||0],
-    ['독립검증',info.verified_claims||0],
-    ['사람검토',info.human_reviewed||0]
-  ].map(([k,v])=>`<span>${esc(k)} ${esc(v)}</span>`).join('');
-  pilotGrid.innerHTML=(pilotCases||[]).map(c=>`
-    <article class="pilot-card">
-      <div class="pilot-card-top"><span class="pilot-rank">${esc(c.rank)}</span><span class="stage-badge">${esc((c.maturity||{}).stage||'S1')} · ${esc((c.maturity||{}).stage_label||'구조화 준비')}</span></div>
-      <h3>${esc(c.title)}</h3>
-      <p>${esc((c.selection_reasons||[]).slice(0,2).join(' · '))}</p>
-      ${maturityGrid(c.maturity)}
-      <div class="metrics">
-        <span>법안별 문서 ${((c.page_audit||{}).documents||[]).length}</span>
-        <span>검증할 주장 ${(c.claim_audit||[]).length}</span>
-        <span>포크 ${(c.fork_designs||[]).length}</span>
-        <span>${esc(c.selection_status||manifest.selection_mode||'고정대상')}</span>
-      </div>
-      <button onclick="openBill('${esc(c.bill_id)}')">시범보고서 보기</button>
-    </article>`).join('')||'<div class="empty">시범검토 대상을 생성하는 중입니다.</div>';
-}
-function pilotSourceAudit(items){
-  return `<div class="audit-table">${(items||[]).map(x=>`
-    <div class="audit-row"><b>${esc(x.source)}</b><span class="${x.status==='연결 완료'||x.status==='법안별 문서 위치 발견'||x.status==='상세페이지 연결 완료'?'ok':'pending'}">${esc(x.status)}</span><span>${esc(x.use)}</span></div>
-  `).join('')}</div>`;
-}
-function pilotClaimAudit(items){
-  return (items||[]).map(x=>`<div class="pilot-claim">
-    <b>${esc(x.id)} · ${esc(x.primary_claim_type||x.claim_type||'주장')}</b>
-    <div class="claim-types">${(x.secondary_claim_types||[]).map(t=>`<span>${esc(t)}</span>`).join('')}</div>
-    ${esc(x.claim)}
-    <br><b>필요 근거:</b> ${esc(x.required_evidence)}
-    <br><b>기각 조건:</b> ${esc(x.rejection_condition)}
-    <br><b>현재:</b> ${esc(x.verdict)}
-  </div>`).join('');
-}
-function pilotDocuments(items){
-  return (items||[]).length?`<div class="doc-grid">${items.map(x=>`
-    <div class="doc-card"><span class="doc-status done">${esc(x.type)}</span><b>${esc(x.title)}</b><p>${esc(x.content_status)}</p><a class="source-link" href="${esc(x.url)}" target="_blank" rel="noopener">법안별 공식자료 열기</a></div>`).join('')}</div>`:'<div class="pending">법안 ID·의안번호·첨부식별자로 연결된 공식문서를 아직 자동 식별하지 못했습니다.</div>';
-}
-function pilotRelatedLinks(items){
-  return (items||[]).length?`<div class="related-links">${items.map(x=>`
-    <div class="related-link"><b>${esc(x.title)}</b> · ${esc(x.status)} <a class="source-link" href="${esc(x.url)}" target="_blank" rel="noopener">관련 시스템 열기</a></div>`).join('')}</div>`:'<div class="pending">별도로 분류된 공통 관련 시스템 링크가 없습니다.</div>';
-}
-
-function verifiedStore(caseData){return (caseData||{}).verified_review_store||{}}
-function verifiedDocuments(items){
-  return (items||[]).length?(items||[]).map(x=>`<div class="verified-record"><span class="status-pill">${esc(x.status)}</span> <b>${esc(x.document_type)}</b> · ${esc(x.title)}<br><span>${esc(x.source_agency)}</span> · <a class="source-link" href="${esc(x.url)}" target="_blank" rel="noopener">원문</a>${x.notes?`<p>${esc(x.notes)}</p>`:''}</div>`).join(''):'<div class="pending">운영자가 확인한 공식문서가 아직 없습니다.</div>';
-}
-function verifiedEvidence(items){
-  return (items||[]).length?(items||[]).map(x=>`<div class="verified-record"><span class="status-pill">${esc(x.status)}</span> <b>${esc(x.title)}</b><br>${esc(x.publisher)}${x.published_at?` · ${esc(x.published_at)}`:''}<p>${esc(x.summary)}</p><b>연결 주장:</b> ${esc((x.claim_ids||[]).join(', '))}${x.limitations?`<p><b>한계:</b> ${esc(x.limitations)}</p>`:''}<a class="source-link" href="${esc(x.url)}" target="_blank" rel="noopener">독립근거 열기</a></div>`).join(''):'<div class="pending">독립적으로 검토·연결한 외부 근거가 아직 없습니다.</div>';
-}
-function verifiedClauses(items){
-  return (items||[]).length?(items||[]).map(x=>`<div class="verified-record"><span class="status-pill">${esc(x.status)}</span> <b>${esc(x.law_name)} ${esc(x.clause_id)}</b><div class="clause-compare"><div><b>현행</b><div class="clause-text">${esc(x.current_text)}</div></div><div><b>개정안</b><div class="clause-text">${esc(x.proposed_text)}</div></div></div>${x.analysis?`<p><b>대조 판단:</b> ${esc(x.analysis)}</p>`:''}<a class="source-link" href="${esc(x.source_url)}" target="_blank" rel="noopener">조문 출처</a></div>`).join(''):'<div class="pending">사람이 원문을 확인한 신·구조문 대조가 아직 없습니다.</div>';
-}
-function verifiedForks(items){
-  return (items||[]).length?(items||[]).map(x=>`<div class="verified-record"><span class="status-pill">${esc(x.status)}</span> <b>포크 ${esc(x.label)} · ${esc(x.title)}</b><p><b>대상:</b> ${esc(x.target_clause||'확인 전')}</p>${x.exact_clause_text?`<div class="clause-text">${esc(x.exact_clause_text)}</div>`:''}${x.rationale?`<p><b>설계 이유:</b> ${esc(x.rationale)}</p>`:''}</div>`).join(''):'<div class="pending">사람이 작성한 실제 A/B/C 대체조문이 아직 없습니다.</div>';
-}
-function verifiedReviews(items){
-  return (items||[]).length?(items||[]).map(x=>`<div class="review-log"><b>${esc(x.role)} · ${esc(x.reviewer)} · ${esc(x.status)}</b>${x.affiliation?` · ${esc(x.affiliation)}`:''}<br>${esc(x.reviewed_at)}<br>${esc(x.summary)}</div>`).join(''):'<div class="pending">완료 또는 진행 중인 사람 검토기록이 없습니다.</div>';
-}
-function verifiedCorrections(items){
-  return (items||[]).length?(items||[]).map(x=>`<div class="review-log"><b>${esc(x.correction_id)} · ${esc(x.status)}</b><br>${esc(x.issue)}${x.decision_reason?`<br><b>결정:</b> ${esc(x.decision_reason)}`:''}</div>`).join(''):'<div class="pending">접수된 정정·반론 기록이 없습니다.</div>';
-}
-function shareBill(id,title){
-  const url=new URL(location.href);url.hash=`bill=${encodeURIComponent(id)}`;
-  if(navigator.share)navigator.share({title, url:url.toString()});
-  else navigator.clipboard.writeText(url.toString()).then(()=>alert('보고서 링크를 복사했습니다.'));
-}
-
-function renderStats(s){
-  const items=[
-    ['추적 법안',s.tracked||allBills.length],
-    ['복수 위험분석',s.multi_profile_bills||0],
-    ['주장 원장',s.claim_ledger||0],
-    ['사람 검토 완료',s.human_reviewed||0]
-  ];
-  document.getElementById('stats').innerHTML=items.map(([k,v])=>`<div class="stat"><strong>${esc(v)}</strong><span>${esc(k)}</span></div>`).join('');
-}
-
-function renderChips(){
-  const cats=['전체',...new Set(allBills.map(b=>b.category).filter(Boolean))];
-  document.getElementById('chips').innerHTML=cats.map(c=>`<button class="chip ${c===activeCategory?'active':''}" onclick="setCategory('${esc(c)}')">${esc(c)}</button>`).join('');
-}
-
-function setCategory(c){activeCategory=c;renderChips();render()}
-
-function filtered(){
-  const q=search.value.trim().toLowerCase(), st=statusFilter.value;
-  let rows=allBills.filter(b=>{
-    const profiles=((b.deep_review||{}).profiles||[]).map(x=>x.label).join(' ');
-    const hay=[
-      b.title,b.category,b.committee,b.card_summary,b.summary,b.largest_risk,
-      profiles,(b.official||{}).lead_proposer
-    ].filter(Boolean).join(' ').toLowerCase();
-    return (!q||hay.includes(q))&&(!st||b.status===st)&&(activeCategory==='전체'||b.category===activeCategory);
-  });
-  if(sort.value==='reviews') rows.sort((a,b)=>(b.review_count||0)-(a.review_count||0));
-  else if(sort.value==='forks') rows.sort((a,b)=>(b.fork_candidates||[]).length-(a.fork_candidates||[]).length);
-  else rows.sort((a,b)=>String(b.proposed_date||b.updated_at||'').localeCompare(String(a.proposed_date||a.updated_at||'')));
-  return rows;
-}
-
-function render(){
-  const rows=filtered();
-  grid.innerHTML=rows.map(b=>`
-    <article class="card">
-      <div class="card-top">
-        <span class="tag">${esc(b.category)}</span>
-        <span class="status">${esc(b.stage)}</span>
-      </div>
-      <h3>${esc(b.title)}</h3>
-      <div class="meta">${esc((b.official||{}).lead_proposer||'대표발의 확인 필요')} · 제안 ${esc(b.proposed_date)} · ${esc(((b.profiles||((b.deep_review||{}).profiles)||[]).map(x=>x.label).slice(0,2).join(' + '))||'정책유형 분석')}</div>
-      <p class="summary">${esc(b.card_summary||b.summary||'쉬운 설명을 준비 중입니다.')}</p>
-      <div class="risk-line"><b>주의할 위험:</b> ${esc(b.largest_risk||'추가 검토가 필요합니다.')}</div>
-      <div class="card-bottom">
-        <span class="review">${esc(b.analysis_confidence||'확인 필요')} 신뢰도 · 수정안 ${Number.isFinite(b.fork_count)?b.fork_count:(b.fork_candidates||[]).length}</span>
-        <button class="detail-btn" onclick="openBill('${esc(b.id)}')">30초 이해</button>
-      </div>
-    </article>`).join('')||'<div class="empty">조건에 맞는 법안이 없습니다.</div>';
-}
-
-function list(items){return `<ul>${(items||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`}
-function timeline(items){return (items||[]).length?`<div class="timeline">${items.map(x=>`<div class="timeline-row"><b>${esc(x.label)}</b><span>${esc(x.date)}</span></div>`).join('')}</div>`:'<div class="pending">공식 진행일정이 아직 제공되지 않았습니다.</div>'}
-function redTeams(items){
-  const top=(items||[]).slice(0,2);
-  return top.length?`<div class="rt-grid">${top.map(x=>`<div class="rt-card"><div class="rt-head"><b>${esc(x.title)}</b><span class="severity">${esc(x.severity)}</span></div><p><b>어떻게 악용되나:</b> ${esc(x.attack)}</p><p><b>무슨 문제가 생기나:</b> ${esc(x.consequence)}</p><p><b>필요한 방어장치:</b> ${esc(x.guardrail)}</p></div>`).join('')}</div>`:'<div class="pending">생성된 위험 시나리오가 없습니다.</div>'
-}
-function failures(items){
-  const top=(items||[]).slice(0,2);
-  return top.length?`<div class="failure-grid">${top.map(x=>`<div class="failure"><b>${esc(x.condition)}</b><p><b>실패 모습:</b> ${esc(x.failure)}</p><p><b>미리 보이는 신호:</b> ${esc(x.warning)}</p><p><b>대응:</b> ${esc(x.response)}</p></div>`).join('')}</div>`:'<div class="pending">생성된 실패경로가 없습니다.</div>'
-}
-function levers(items){return (items||[]).length?`<div class="lever-grid">${items.map(x=>`<div class="lever"><b>${esc(x.dimension)}</b><p>${esc(x.question)}</p><p><small>${esc(x.options)}</small></p></div>`).join('')}</div>`:'<div class="pending">바꿀 수 있는 지점을 찾지 못했습니다.</div>'}
-function forkCompare(items,billId){
-  return (items||[]).length?`<div class="fork-compare">${items.slice(0,3).map(x=>`
-    <div class="fork-option">
-      <div class="fork-label">${esc(x.label||'')}</div>
-      <h4>${esc(x.title)}</h4>
-      <div class="kind">${esc(x.type)}</div>
-      <p><b>어떻게 바꾸나</b><br>${esc(x.change||x.body||'')}</p>
-      <p><b>해결하려는 약점</b><br>${esc(x.solves||'')}</p>
-      <p><b>기대</b><br>${esc(x.benefit||'')}</p>
-      <p><b>새 위험</b><br>${esc(x.risk||'')}</p>
-      <small><b>비용:</b> ${esc(x.cost||'확인 필요')}<br><b>조문 방향:</b> ${esc(x.clause_hint||'확인 필요')}<br><b>추가 근거:</b> ${esc(x.evidence_needed||'확인 필요')}</small>
-      <button class="inline-civic" onclick="prefillCivic('${esc(billId)}','fork','자동 포크 ${esc(x.label)}','포크 ${esc(x.label)} 수정·대안')">이 포크 수정</button>
-    </div>`).join('')}</div>`:'<div class="pending">자동 수정안 아이디어가 없습니다.</div>'
-}
-function sourceBadges(items){
-  return `<div class="source-badges">${(items||[]).map(x=>`
-    <span class="source-badge ${esc(x.kind||'missing')}">${esc(x.label)} · ${esc(x.status)}</span>
-  `).join('')}</div>`
-}
-function qualityWarning(b){
-  if(b.analysis_visibility!=='제한 표시') return '';
-  const flags=(b.quality_flags||[]).join(' · ');
-  return `<div class="quality-warning"><b>자료가 충분하지 않아 제한적으로 표시합니다.</b><br>${esc(flags||'문제·변경내용·조문 단서를 추가 확인해야 합니다.')}</div>`
-}
-function reviewStatus(status){
-  const labels={
-    official_source:'공식 원문',
-    plain_language:'쉬운 설명',
-    external_evidence:'외부 근거',
-    clause_comparison:'조문 대조',
-    human_review:'사람 검토'
-  };
-  return `<div class="status-table">${Object.entries(status||{}).map(([k,v])=>`
-    <div class="status-item"><b>${esc(labels[k]||k)}</b><span>${esc(v)}</span></div>
-  `).join('')}</div>`
-}
-function mechanismChain(items){
-  return `<div class="mechanism">${(items||[]).map(x=>`
-    <div class="mechanism-step"><b>${esc(x.step)}</b>${esc(x.content)}<em>${esc(x.failure_question)}</em></div>
-  `).join('')}</div>`
-}
-function assumptions(items){
-  return `<div class="assumption-grid">${(items||[]).map(x=>`
-    <div class="assumption"><b>${esc(x.assumption)}</b><p><b>왜 중요한가:</b> ${esc(x.why_critical)}</p><p><b>반증 조건:</b> ${esc(x.disproof)}</p></div>
-  `).join('')}</div>`
-}
-function actorIncentives(items){
-  return `<div class="actor-table">
-    <div class="actor-row head"><span>주체</span><span>공식 역할</span><span>실제 유인</span><span>악용·회피 위험</span></div>
-    ${(items||[]).map(x=>`<div class="actor-row"><b>${esc(x.actor)}</b><span>${esc(x.formal_role)}</span><span>${esc(x.likely_incentive)}</span><span>${esc(x.gaming_risk)}</span></div>`).join('')}
-  </div>`
-}
-function deepAttacks(items){
-  return `<div class="deep-attack-grid">${(items||[]).map(x=>`
-    <div class="deep-attack">
-      <div class="deep-attack-head"><h4>${esc(x.title)}</h4><span class="severity">${esc(x.severity)}</span></div>
-      <dl>
-        <dt>공격·악용 주체</dt><dd>${esc(x.attacker)}</dd>
-        <dt>그들의 유인</dt><dd>${esc(x.incentive)}</dd>
-        <dt>공격 경로</dt><dd>${esc(x.path)}</dd>
-        <dt>피해 대상</dt><dd>${esc(x.harmed)}</dd>
-        <dt>조기 경보</dt><dd>${esc(x.warning)}</dd>
-        <dt>방어장치</dt><dd>${esc(x.defense)}</dd>
-        <dt>남는 위험</dt><dd>${esc(x.residual)}</dd>
-      </dl>
-    </div>`).join('')}</div>`
-}
-function secondEffects(items){
-  return `<div class="effect-grid">${(items||[]).map(x=>`
-    <div class="effect"><span class="direction">${esc(x.direction)}</span><b>${esc(x.effect)}</b><p>${esc(x.mechanism)}</p><small><b>관찰지표:</b> ${esc(x.monitor)}</small></div>
-  `).join('')}</div>`
-}
-function stressTests(items){
-  return `<div class="stress-grid">${(items||[]).map(x=>`
-    <div class="stress"><b>${esc(x.scenario)}</b><br><b>질문:</b> ${esc(x.question)}<br><b>통과조건:</b> ${esc(x.pass_condition)}</div>
-  `).join('')}</div>`
-}
-function evidenceTests(items){
-  return (items||[]).map(x=>`
-    <div class="evidence-test"><b>검증할 주장: ${esc(x.claim)}</b><br><b>필요 근거:</b> ${esc(x.required_evidence)}<br><b>기각 조건:</b> ${esc(x.rejection_condition)}</div>
-  `).join('')
-}
-function deepSummary(summary){
-  return `<div class="deep-summary">
-    <span>위험프로필 ${esc(summary.profiles||0)}</span>
-    <span>발의자 주장 ${esc(summary.claims||0)}</span>
-    <span>핵심가정 ${esc(summary.assumptions||0)}</span>
-    <span>이해관계자 ${esc(summary.actors||0)}</span>
-    <span>공격경로 ${esc(summary.attacks||0)}</span>
-    <span>2차효과 ${esc(summary.second_order_effects||0)}</span>
-    <span>스트레스테스트 ${esc(summary.stress_tests||0)}</span>
-    <span>근거검증 ${esc(summary.evidence_tests||0)}</span>
-    <span>증거사슬 ${esc(summary.evidence_chains||0)}</span>
-  </div>`
-}
-function profileTokens(items){
-  return `<div class="profile-list">${(items||[]).map((x,i)=>`
-    <span class="profile-token ${i?'secondary':''}">${esc(x.role||'')} · ${esc(x.label)} · ${esc(x.confidence)}</span>
-  `).join('')}</div>`
-}
-function claimLedger(items,billId){
-  return `<div class="claim-ledger">${(items||[]).map(x=>`
-    <div class="claim-card">
-      <div class="claim-head"><div><span class="claim-id">${esc(x.id)}</span> <span class="claim-type">${esc(x.claim_type)}</span></div><span class="source-badge missing">${esc(x.verification_status)}</span></div>
-      <p>${esc(x.claim)}</p>
-      <div class="claim-meta">
-        <div><b>출처 상태</b><br>${esc(x.source_type)} · ${esc(x.source_status)}</div>
-        <div><b>필요한 근거</b><br>${esc(x.required_evidence)}</div>
-        <div><b>기각 조건</b><br>${esc(x.rejection_condition)}</div>
-        <div><b>현재 판단</b><br>${esc(x.confidence)}</div>
-      </div>
-      <button class="inline-civic" onclick="prefillCivic('${esc(billId)}','evidence','발의자 주장 ${esc(x.id)}','주장 ${esc(x.id)} 근거·반증')">이 주장에 근거·반증</button>
-    </div>`).join('')}</div>`
-}
-function evidenceChains(items){
-  return `<div class="chain-list">${(items||[]).map(x=>`
-    <div class="chain">
-      <b>${esc(x.attack)}</b><span class="profile-label">${esc(x.profile)}</span>
-      <div class="chain-flow">
-        ${(x.claim_ids||[]).map(id=>`<span>주장 ${esc(id)}</span>`).join('')}
-        <span>→ 공격경로</span><span>→ 방어장치</span>
-        ${(x.fork_links||[]).map(id=>`<span>→ 포크 ${esc(id)}</span>`).join('')}
-      </div>
-      <b>논리:</b> ${esc(x.logic)}<br>
-      <b>붕괴경로:</b> ${esc(x.failure_path)}<br>
-      <b>방어장치:</b> ${esc(x.guardrail)}<br>
-      <b>남는 위험:</b> ${esc(x.residual_risk)}<br>
-      <small>${esc(x.verification_status)}</small>
-    </div>`).join('')}</div>`
-}
-function officialDocuments(items){
-  return `<div class="doc-grid">${(items||[]).map(x=>`
-    <div class="doc-card">
-      <span class="doc-status ${x.status==='연동 완료'?'done':''}">${esc(x.status)}</span>
-      <b>${esc(x.document)}</b>
-      <p>${esc(x.importance)}</p>
-      ${x.source_url?`<a class="source-link" href="${esc(x.source_url)}" target="_blank" rel="noopener">국회 상세페이지 확인</a>`:''}
-    </div>`).join('')}</div>`
-}
-function issueUrl(b,kind){
-  const repo='https://github.com/edenabworld-architecture/democracy3-policy-fork/issues/new';
-  const no=(b.official||{}).bill_no||'';
-  const source=(b.official||{}).source_url||'';
-  if(kind==='fork'){
-    const title=`[정책 포크 제안] ${b.title}`;
-    const body=`법안명: ${b.title}\n의안번호: ${no}\n국회 원문: ${source}\n\n1. 어느 부분을 바꾸고 싶나요?\n\n2. 제안하는 수정안은 무엇인가요?\n\n3. 기대효과는 무엇인가요?\n\n4. 새로 생길 수 있는 위험은 무엇인가요?\n\n5. 참고자료가 있다면 적어주세요.`;
-    return `${repo}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
-  }
-  const title=`[설명 정정·개선] ${b.title}`;
-  const body=`법안명: ${b.title}\n의안번호: ${no}\n국회 원문: ${source}\n\n1. 어렵거나 틀렸다고 느낀 부분은 어디인가요?\n\n2. 더 쉬운 설명 또는 정정 내용은 무엇인가요?\n\n3. 확인할 수 있는 근거가 있다면 적어주세요.`;
-  return `${repo}?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
-}
-function openIssue(b,kind){window.open(issueUrl(b,kind),'_blank','noopener')}
-
-function renderBillModal(b){
-  modal.innerHTML=`
-    <div class="modal-head">
-      <div>
-        <span class="tag">${esc(b.category)}</span>
-        <h2>${esc(b.title)}</h2>
-        <div class="compact-official">
-          <span>의안 ${esc((b.official||{}).bill_no||'확인 필요')}</span>
-          <span>대표발의 ${esc((b.official||{}).lead_proposer||'확인 필요')}</span>
-          <span>${esc(b.stage||'진행상태 확인 필요')}</span>
-        </div>
-      </div>
-      <div class="modal-tools"><button onclick="shareBill('${esc(b.id)}','${esc(b.title)}')">링크 공유</button><button onclick="window.print()">인쇄</button><button class="close" onclick="dialog.close()">닫기</button></div>
-    </div>
-
-    ${b.pilot_case?`
-    <div class="pilot-banner">
-      <div class="pilot-banner-head"><div><span class="tag">국가 시범검토 ${esc(b.pilot_case.rank)}위</span><h3>${esc(b.pilot_case.status)}</h3></div><span class="stage-badge">${esc((b.pilot_case.maturity||{}).stage)} · ${esc((b.pilot_case.maturity||{}).stage_label)}</span></div>
-      <p>${esc((b.pilot_case.selection_reasons||[]).join(' · '))}</p>
-      ${maturityGrid(b.pilot_case.maturity)}
-      <div class="manifest-line">선정상태: ${esc(b.pilot_case.selection_status||'고정대상')} · 구조화 점수가 높아도 공식자료·독립근거·사람검토 점수가 낮으면 검증 완료가 아닙니다.</div>
-    </div>`:''}
-
-    ${sourceBadges(b.source_labels)}
-    ${qualityWarning(b)}
-    <div class="modal-section" style="border-top:0;margin-top:5px"><h3>30초 이해</h3>
-      <div class="analysis-box">
-        <div class="brief-grid">
-          <div class="brief"><b>문제</b><p>${esc((b.thirty_second_brief||b.one_minute_brief||{}).problem||b.problem_definition||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','correction','30초 이해 · 문제','문제 설명 정정')">주석·정정</button></div>
-          <div class="brief"><b>변경</b><p>${esc((b.thirty_second_brief||b.one_minute_brief||{}).change||b.proposed_change||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','correction','30초 이해 · 변경','변경내용 정정')">주석·정정</button></div>
-          <div class="brief"><b>영향대상</b><p>${esc((b.thirty_second_brief||b.one_minute_brief||{}).who||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','annotation','30초 이해 · 영향대상','누락된 영향대상')">주석 달기</button></div>
-          <div class="brief"><b>발의자의 기대</b><p>${esc((b.thirty_second_brief||{}).proposer_claim||b.claimed_benefit||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','evidence','30초 이해 · 발의자 기대','발의자 주장 근거 제출')">근거·반증</button></div>
-          <div class="brief"><b>최대 위험</b><p>${esc((b.thirty_second_brief||{}).largest_risk||b.largest_risk||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','red_team','30초 이해 · 최대 위험','새 위험·부패경로 제보')">레드팀 추가</button></div>
-          <div class="brief"><b>판단할 질문</b><p>${esc((b.thirty_second_brief||b.one_minute_brief||{}).decision||'확인 필요')}</p><button class="inline-civic" onclick="prefillCivic('${esc(b.id)}','annotation','30초 이해 · 판단질문','추가 판단질문')">질문 추가</button></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="modal-section"><h3>핵심 찬반과 최대 위험</h3>
-      <div class="core-grid">
-        <div class="core-card pro"><b>찬성 측 핵심</b>${esc(b.claimed_benefit||'확인 필요')}</div>
-        <div class="core-card con"><b>반대 측 핵심</b>${esc(b.strongest_objection||'확인 필요')}</div>
-        <div class="core-card risk"><b>가장 큰 위험</b>${esc(b.largest_risk||'확인 필요')}</div>
-      </div>
-    </div>
-
-    <div class="modal-section"><h3>발의자의 주장·근거·논리 분리</h3>
-      <p class="fork-intro">정치인의 설명을 사실로 받아들이지 않습니다. 주장, 제시한 근거, 근거에서 결론으로 넘어가는 논리를 따로 검증합니다.</p>
-      <div class="argument-map">${((b.proposer_argument_map||{}).logic_chain||[]).map(x=>`<div class="argument-step"><b>${esc(x.step)} · ${esc(x.label)}</b>${esc(x.content)}</div>`).join('')}</div>
-      <div class="argument-evidence"><b>발의자가 제시한 근거 단서</b>${list((b.proposer_argument_map||{}).stated_evidence)}<b>아직 증명되지 않은 연결</b>${list((b.proposer_argument_map||{}).unproven_links)}</div>
-    </div>
-    <div class="modal-section"><h3>레드팀: 정책을 무너뜨리는 공격</h3>
-      <div class="hostile-banner"><b>임무</b><p>${esc((b.adversarial_audit||{}).mission||'정책의 실패·악용·부패경로를 가장 강하게 공격합니다.')}</p></div>
-      <div class="corruption-grid">${((b.adversarial_audit||{}).corruption_and_capture_checks||[]).map(x=>`<div class="corruption-check"><b>${esc(x.vector)} · ${esc(x.status)}</b>${esc(x.question)}<br><small>${esc((x.signals||[]).join(', ')||'상시 점검')}</small></div>`).join('')}</div>
-    </div>
-
-    <details class="public-detail" open><summary>정책유형별 심층 검토 보고서</summary>
-      <div class="profile-banner">
-        <div><b>복수 위험프로필 분석</b><small>${esc((b.deep_review||{}).scope||'')}</small>${profileTokens((b.deep_review||{}).profiles||[])}</div>
-        <span class="profile-pill">${esc((((b.deep_review||{}).profiles||[]).length)||0)}개 위험축</span>
-      </div>
-      ${deepSummary((b.deep_review||{}).depth_summary||{})}
-
-      <div class="modal-section"><h3>발의자의 주장 원장</h3>
-        <p class="fork-intro">제안이유의 문장을 사실로 확정하지 않고, 주장 단위로 분해해 필요한 근거와 기각조건을 기록합니다.</p>
-        ${claimLedger((b.deep_review||{}).claim_ledger,b.id)}
-      </div>
-
-      <div class="modal-section"><h3>정책이 작동하는 인과경로와 붕괴지점</h3>
-        ${mechanismChain((b.deep_review||{}).mechanism_chain)}
-      </div>
-
-      <div class="modal-section"><h3>정책이 성립하려면 참이어야 할 핵심 가정</h3>
-        ${assumptions((b.deep_review||{}).critical_assumptions)}
-      </div>
-
-      <div class="modal-section"><h3>이해관계자의 실제 유인과 회피행동</h3>
-        ${actorIncentives((b.deep_review||{}).actor_incentives)}
-      </div>
-
-      <div class="modal-section"><h3>강화된 레드팀 공격</h3>
-        ${deepAttacks((b.deep_review||{}).deep_red_team)}
-      </div>
-
-      <div class="modal-section"><h3>직접 효과 뒤에 나타날 2차·간접 효과</h3>
-        ${secondEffects((b.deep_review||{}).second_order_effects)}
-      </div>
-
-      <div class="modal-section"><h3>최악조건 스트레스 테스트</h3>
-        ${stressTests((b.deep_review||{}).stress_tests)}
-      </div>
-
-      <div class="modal-section"><h3>발의자의 주장을 입증하거나 기각할 근거</h3>
-        ${evidenceTests((b.deep_review||{}).evidence_tests)}
-      </div>
-
-      <div class="modal-section"><h3>주장 → 공격 → 방어 → 포크 증거사슬</h3>
-        ${evidenceChains((b.deep_review||{}).evidence_chains)}
-      </div>
-
-      <div class="modal-section"><h3>개선안이 반드시 갖춰야 할 설계조건</h3>
-        ${list((b.deep_review||{}).design_requirements)}
-      </div>
-
-      <div class="uncertainty"><b>아직 남은 불확실성</b>${list((b.deep_review||{}).residual_uncertainty)}</div>
-    </details>
-
-    <div class="modal-section"><h3>정책 포크: A/B/C 수정안 비교</h3>
-      <p class="fork-intro">포크는 원안을 그대로 찬성하거나 반대하는 대신, 적용대상·권한·절차·비용·통제장치를 다르게 설계한 수정안입니다. 아래 내용은 조문 전문 확인 전의 자동 아이디어입니다.</p>
-      ${(b.fork_candidates||[]).length
-        ? forkCompare(b.fork_candidates,b.id)
-        : `<div class="hidden-fork"><b>자동 수정안 숨김</b><br>${esc(b.fork_hidden_reason||'공식자료를 더 확인한 뒤 수정안을 표시합니다.')}</div>`}
-    </div>
-
-    <div class="participate">
-      <div class="participate-copy">
-        <b>이 법안을 직접 고치거나 설명을 바로잡아주세요.</b>
-        <p>사이트의 시민 참여 탭에서 주석·정정·근거·레드팀·포크를 작성할 수 있으며, 공개 접수와 처리상태는 로그로 보존됩니다.</p>
-      </div>
-      <div class="participate-actions">
-        <button class="action-btn primary" onclick="dialog.close();setWorkspaceView('participation');document.getElementById('civic-policy').value='${esc(b.id)}';document.getElementById('civic-type').value='fork'">포크 제안하기</button>
-        <button class="action-btn light" onclick="dialog.close();setWorkspaceView('participation');document.getElementById('civic-policy').value='${esc(b.id)}';document.getElementById('civic-type').value='correction'">설명이 어렵거나 틀렸어요</button>
-      </div>
-    </div>
-
-    <details class="public-detail"><summary>국회 공식 원문과 진행상황 보기</summary>
-      <div class="modal-section"><h3>공식자료 확보 지도</h3>${officialDocuments(b.official_documents)}</div>
-      <div class="modal-section"><h3>공식 진행상황</h3>${timeline(b.progress_timeline)}</div>
-      ${b.pilot_case?`
-    <div class="modal-section"><h3>국가 시범검토 · 공식자료 확보현황</h3>
-      ${pilotSourceAudit(b.pilot_case.source_matrix)}
-    </div>
-    <div class="modal-section"><h3>법안별로 확인된 공식문서</h3>
-      <p class="fork-intro">${esc((b.pilot_case.document_audit||{}).counting_rule||'법안별 연결 근거가 있는 문서만 집계합니다.')}</p>
-      ${pilotDocuments((b.pilot_case.page_audit||{}).documents)}
-    </div>
-    <div class="modal-section"><h3>공통 관련 시스템 링크</h3>
-      <p class="fork-intro">회의록 홈페이지 같은 공통 메뉴는 공식문서 수에서 제외하고 별도로 표시합니다.</p>
-      ${pilotRelatedLinks((b.pilot_case.page_audit||{}).related_system_links)}
-    </div>
-    <div class="modal-section"><h3>조문 대조 상태</h3>
-      <div class="analysis-box"><b>공식 요약의 조문 참조</b>${list((b.pilot_case.clause_audit||{}).references_from_summary)}
-      <p><b>현행법:</b> ${esc((b.pilot_case.clause_audit||{}).current_law_text)}</p>
-      <p><b>개정안:</b> ${esc((b.pilot_case.clause_audit||{}).proposed_clause_text)}</p>
-      <p><b>비교상태:</b> ${esc((b.pilot_case.clause_audit||{}).comparison_status)}</p></div>
-    </div>
-    <div class="modal-section"><h3>주장별 독립 검증 원장</h3>
-      ${pilotClaimAudit(b.pilot_case.claim_audit)}
-    </div>
-    <div class="modal-section"><h3>운영자가 확인한 공식문서</h3>
-      <div class="verified-panel">${verifiedDocuments(verifiedStore(b.pilot_case).official_documents)}</div>
-    </div>
-    <div class="modal-section"><h3>독립근거 검증</h3>
-      <div class="verified-panel">${verifiedEvidence(verifiedStore(b.pilot_case).external_evidence)}</div>
-    </div>
-    <div class="modal-section"><h3>현행법·개정안 문장 대조</h3>
-      <div class="verified-panel">${verifiedClauses(verifiedStore(b.pilot_case).clause_comparisons)}</div>
-    </div>
-    <div class="modal-section"><h3>사람이 작성한 실제 A/B/C 조문</h3>
-      <div class="verified-panel">${verifiedForks(verifiedStore(b.pilot_case).fork_drafts)}</div>
-    </div>
-    <div class="modal-section"><h3>운영자·전문가 검토이력</h3>
-      ${verifiedReviews(verifiedStore(b.pilot_case).reviews)}
-    </div>
-    <div class="modal-section"><h3>오류·반론·정정이력</h3>
-      ${verifiedCorrections(verifiedStore(b.pilot_case).corrections)}
-    </div>
-    <div class="provenance"><b>출처 계보</b><br>자동 분석 생성: ${esc((b.pilot_case.provenance||{}).automatic_generated_at||'확인 필요')} · 수동 검증 원장: ${esc((b.pilot_case.provenance||{}).manual_store_methodology||'미병합')}<br>${esc((b.pilot_case.provenance||{}).authorship||'창안 및 원안 설계: 박찬성')}</div>
-    <div class="modal-section"><h3>완성보고서까지 남은 작업</h3>
-      ${list(b.pilot_case.review_tasks)}
-    </div>`:''}
-
-    <div class="modal-section"><h3>국회 공식 제안이유 및 주요내용</h3>
-        <div class="official-box">
-          <div class="official-text">${esc(b.official_summary||'국회 공식 자료가 아직 연결되지 않았습니다.')}</div>
-          <div class="source-row">
-            <span class="meta">출처: 대한민국 국회 열린국회정보 · ${esc(b.official_summary_status||'확인 중')}</span>
-            ${(b.official||{}).source_url?`<a class="source-link" href="${esc(b.official.source_url)}" target="_blank" rel="noopener">국회 원문 열기</a>`:''}
-          </div>
-        </div>
-      </div>
-    </details>
-
-    <details class="public-detail"><summary>누가 이익·비용·권한의 영향을 받는지 보기</summary>
-      <div class="modal-section">
-        <div class="impact-grid">
-          <div class="impact"><b>수혜 가능 주체</b>${list(b.beneficiaries)}</div>
-          <div class="impact"><b>비용 부담 가능 주체</b>${list(b.cost_bearers)}</div>
-          <div class="impact"><b>권한이 바뀔 수 있는 부분</b>${list(b.authority_changes)}</div>
-        </div>
-      </div>
-    </details>
-
-    <details class="public-detail"><summary>주장과 근거가 얼마나 확인됐는지 보기</summary>
-      <div class="modal-section">
-        <div class="evidence-grid">
-          <div class="evidence-box clue"><b>자료에서 확인되는 점</b>${list(b.analysis_clues)}</div>
-          <div class="evidence-box verified"><b>독립 검증이 끝난 근거</b>${list(b.verified_evidence)}</div>
-          <div class="evidence-box unverified"><b>아직 검증되지 않은 주장</b>${list(b.unverified_claims)}</div>
-        </div>
-      </div>
-    </details>
-
-    <details class="public-detail"><summary>부록: 이전 규칙형 점검 보기</summary>
-      <div class="modal-section"><h3>핵심 악용 시나리오 2개</h3>${redTeams(b.red_team_cases)}</div>
-      <div class="modal-section"><h3>법의 빈틈·우회 가능성</h3>${list(b.loopholes)}</div>
-      <div class="modal-section"><h3>핵심 실패경로 2개</h3>${failures(b.failure_modes)}</div>
-      <div class="modal-section"><h3>추가 반대논거와 확인질문</h3>
-        <div class="review-grid">
-          <div class="review-box oppose"><b>반대논거</b>${list(b.counterarguments)}</div>
-          <div class="review-box gap"><b>확인질문</b>${list(b.questions)}</div>
-        </div>
-      </div>
-    </details>
-
-    <details class="public-detail"><summary>어디를 바꾸면 다른 법안이 되는지 더 보기</summary>
-      <div class="modal-section"><h3>바꿀 수 있는 지점</h3>${levers(b.fork_levers)}</div>
-      <div class="readiness">
-        <b>수정안 작성 자료: ${esc((b.fork_readiness||{}).level||'확인 필요')} (${esc((b.fork_readiness||{}).points||0)}/${esc((b.fork_readiness||{}).max_points||5)})</b><br>
-        ${esc((b.fork_readiness||{}).meaning||'')}<br>
-        <b>아직 필요한 자료:</b> ${esc(((b.fork_readiness||{}).missing||[]).join(' · '))}
-      </div>
-    </details>
-
-    <details class="public-detail"><summary>자동 분석 방식과 원문 단서 지표 보기</summary>
-      <div class="modal-section">
-        <div class="badges">
-          <span class="badge">${esc(b.analysis_method||'분석 방식 확인 필요')}</span>
-          <span class="badge">신뢰도 ${esc(b.analysis_confidence||'확인 필요')}</span>
-          <span class="badge">${esc(b.analysis_review_state||'검토 상태 확인 필요')}</span>
-        </div>
-        <div class="basis">${esc(b.analysis_basis||'분석 근거 정보가 없습니다.')}</div>
-        <div class="modal-section"><h3>현재 검토 상태</h3>${reviewStatus(b.review_status)}</div>
-      </div>
-      <div class="modal-section"><h3>공식 요약에 나타난 검토 단서</h3>
-        <div class="score-grid">${Object.entries(b.scores||{}).map(([k,v])=>`
-          <div class="score"><span>${esc(k)}</span><div class="bar"><span style="width:${Number(v)*25}%"></span></div><b>${esc(v)}</b></div>`).join('')}
-        </div>
-        <p class="signal-note">이 값은 법안의 품질점수가 아닙니다. 공식 요약에 해당 검토 단서가 얼마나 드러나는지만 보여줍니다.</p>
-      </div>
-    </details>
-
-    <details class="public-detail"><summary>등록된 시민·전문가 포크 보기</summary>
-      <div class="modal-section">
-        ${(b.forks||[]).length?(b.forks||[]).map(f=>`<div class="fork"><div class="fork-head"><b>${esc(f.title)}</b><span class="fork-type">${esc(f.type)}</span></div>
-        <p>${esc(f.body)}</p><small><b>기대:</b> ${esc(f.benefit)}<br><b>새 위험:</b> ${esc(f.risk)}</small></div>`).join(''):'<div class="pending">아직 등록된 시민·전문가 수정안이 없습니다.</div>'}
-      </div>
-    </details>`;
-}
-
-async function openBill(id){
-  const summary=allBills.find(x=>x.id===id);
-  if(!summary)return;
-
-  if(reportCache.has(id)){
-    renderBillModal(reportCache.get(id));
-    dialog.showModal();
-    return;
-  }
-
-  modal.innerHTML=`<div class="modal-head"><div><span class="tag">${esc(summary.category)}</span><h2>${esc(summary.title)}</h2></div><button class="close" onclick="dialog.close()">닫기</button></div><div class="loading-report">개별 심층보고서를 불러오는 중입니다.</div>`;
-  dialog.showModal();
-
-  try{
-    if(!summary.report_url){
-      reportCache.set(id,summary);
-      renderBillModal(summary);
-      return;
-    }
-    const response=await fetch(summary.report_url,{cache:'no-store'});
-    if(!response.ok)throw new Error('개별 심층보고서를 불러오지 못했습니다.');
-    const payload=await response.json();
-    const bill=payload.bill||payload;
-    reportCache.set(id,bill);
-    renderBillModal(bill);
+    indexData=data||{};allBills=arr(data.bills);lifecycleData=lifecycle||{policies:{}};civicData=civic||{entries:[]};sourceRegistry=registry||{sources:[]};
+    renderHealth(release,data);renderStats(data.stats||{},release);renderFilters();renderPilot(data.pilot_program||{});render();
+    const match=location.hash.match(/^#bill=(.+)$/);if(match)setTimeout(()=>openBill(decodeURIComponent(match[1])),0)
   }catch(error){
-    modal.innerHTML=`<div class="modal-head"><div><h2>${esc(summary.title)}</h2></div><button class="close" onclick="dialog.close()">닫기</button></div><div class="quality-warning"><b>보고서 로딩 오류</b><br>${esc(error.message)}</div>`;
+    document.getElementById("healthPanel").innerHTML=`<div class="health-card warn">${esc(error.message)}</div>`;
+    grid.innerHTML='<div class="empty">정책 데이터를 표시할 수 없습니다.</div>'
   }
 }
-
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&dialog.open)dialog.close()});
-search.addEventListener('input',render);
-statusFilter.addEventListener('change',render);
-sort.addEventListener('change',render);
+function renderHealth(release,data){
+  const counts=release?.counts||{};
+  const healthy=release?.status==="healthy";
+  const generated=data?.generated_at||release?.checked_at||"";
+  document.getElementById("healthPanel").innerHTML=`<div class="health-card ${healthy?"good":"warn"}"><b>${healthy?"공개 배포 무결성 검사 통과":"운영상태 확인 필요"}</b> · 정책 ${esc(counts.bills||allBills.length)}건 · 시범검토 ${esc(counts.pilot_cases||arr(data?.pilot_program?.cases).length)}건 · 사람 검토완료 ${esc(counts.operator_reviewed||0)}건 · 데이터 기준 ${esc(safeDate(generated))}</div>`
+}
+function renderStats(stats,release){
+  const counts=release?.counts||{};
+  const items=[
+    ["추적 정책",stats.tracked||counts.bills||allBills.length],
+    ["시범 심층검토",counts.pilot_cases||arr(indexData?.pilot_program?.cases).length],
+    ["주장 원장",stats.claim_ledger||counts.claims||0],
+    ["사람 검토 완료",stats.human_reviewed||counts.operator_reviewed||0],
+    ["등록 출처",counts.registered_sources||arr(sourceRegistry.sources).length]
+  ];
+  document.getElementById("stats").innerHTML=items.map(([label,value])=>`<div class="stat"><strong>${esc(value)}</strong><span>${esc(label)}</span></div>`).join("")
+}
+function renderFilters(){
+  const categories=["전체",...new Set(allBills.map(b=>b.category).filter(Boolean))];
+  document.getElementById("chips").innerHTML=categories.map(c=>`<button class="chip ${c===activeCategory?"active":""}" data-category="${esc(c)}">${esc(c)}</button>`).join("");
+  document.querySelectorAll("[data-category]").forEach(btn=>btn.addEventListener("click",()=>{activeCategory=btn.dataset.category;renderFilters();render()}));
+  const statuses=[...new Set(allBills.flatMap(b=>[b.stage,b.status]).filter(Boolean))];
+  statusFilter.innerHTML='<option value="">모든 진행상태</option>'+statuses.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join("")
+}
+function searchable(bill){
+  return [bill.search_terms,bill.title,bill.category,bill.committee,bill.card_summary,bill.summary,bill.largest_risk,bill.official?.lead_proposer].filter(Boolean).join(" ").toLowerCase()
+}
+function filteredBills(){
+  const q=searchInput.value.trim().toLowerCase();const status=statusFilter.value;
+  let rows=allBills.filter(b=>(activeCategory==="전체"||b.category===activeCategory)&&(!status||b.stage===status||b.status===status)&&(!q||searchable(b).includes(q)));
+  if(sortSelect.value==="title")rows.sort((a,b)=>String(a.title).localeCompare(String(b.title),"ko"));
+  else if(sortSelect.value==="risk")rows.sort((a,b)=>Number(Boolean(b.largest_risk))-Number(Boolean(a.largest_risk)));
+  else if(sortSelect.value==="fork")rows.sort((a,b)=>(b.fork_count||0)-(a.fork_count||0));
+  else rows.sort((a,b)=>String(b.proposed_date||b.updated_at||"").localeCompare(String(a.proposed_date||a.updated_at||"")));
+  return rows
+}
+function render(){
+  const rows=filteredBills();
+  document.getElementById("resultCount").textContent=`${rows.length}건 표시 · 전체 ${allBills.length}건`;
+  grid.innerHTML=rows.length?rows.map(cardHtml).join(""):'<div class="empty">조건에 맞는 정책이 없습니다.</div>';
+  document.querySelectorAll(".detail-btn").forEach(btn=>btn.addEventListener("click",()=>openBill(btn.dataset.id)));
+  document.querySelectorAll(".fork-btn").forEach(btn=>btn.addEventListener("click",()=>location.href=studioLink(btn.dataset.id,"policy-card")))
+}
+function cardHtml(b){
+  const official=b.official||{};const profiles=arr(b.profiles);
+  return `<article class="card">
+    <div class="card-top"><span class="tag">${esc(b.category||"분류 확인")}</span><span class="status">${esc(b.stage||b.status||"진행상태 확인")}</span></div>
+    <h3>${esc(b.title)}</h3>
+    <div class="meta">${esc(b.committee||"소관위원회 확인 필요")} · ${esc(safeDate(b.proposed_date))}${official.lead_proposer?` · ${esc(official.lead_proposer)}`:""}</div>
+    <p class="summary">${esc(b.card_summary||b.summary||"국민용 설명을 준비 중입니다.")}</p>
+    <div class="risk-box"><b>현재 가장 큰 위험</b><br>${esc(b.largest_risk||"심층 검토에서 확인이 필요합니다.")}</div>
+    <div class="metric-row">
+      <span class="metric">레드팀 ${esc(b.red_team_count||0)}</span>
+      <span class="metric">주장 ${esc(b.claim_count||0)}</span>
+      <span class="metric">자동 포크 ${esc(b.fork_count||0)}</span>
+      <span class="metric">시민 포크 ${esc(b.citizen_fork_count||0)}</span>
+      ${profiles.slice(0,2).map(p=>`<span class="metric">${esc(p.label||p)}</span>`).join("")}
+    </div>
+    <div class="card-actions">
+      <button class="btn btn-soft btn-small detail-btn" data-id="${esc(b.id)}">상세·근거 보기</button>
+      <button class="btn btn-navy btn-small fork-btn" data-id="${esc(b.id)}">AI 분석·포크</button>
+    </div>
+  </article>`
+}
+function renderPilot(program){
+  const cases=arr(program.cases);if(!cases.length)return;
+  document.getElementById("pilotSection").classList.remove("hidden");
+  document.getElementById("pilotGrid").innerHTML=cases.slice(0,9).map((c,index)=>`<article class="pilot-card"><b>${esc(c.title||c.policy_title||c.id||`시범검토 ${index+1}`)}</b><p>${esc(c.reason||c.summary||c.selection_reason||"원문·근거·포크의 심층 대조 대상입니다.")}</p></article>`).join("")
+}
+async function loadReport(summary){
+  if(reportCache.has(summary.id))return reportCache.get(summary.id);
+  const path=summary.report_url||`reports/${encodeURIComponent(summary.id)}.json`;
+  const response=await fetch(path,{cache:"no-store"});
+  if(!response.ok)throw new Error("개별 심층보고서를 불러오지 못했습니다.");
+  const payload=await response.json();const bill=payload.bill||payload;
+  reportCache.set(summary.id,bill);return bill
+}
+function profileHtml(profiles){
+  return arr(profiles).map(p=>`<span class="profile">${esc(p.label||p.key||p)}</span>`).join("")||'<span class="meta">프로필 확인 필요</span>'
+}
+function briefHtml(brief){
+  if(!brief||typeof brief!=="object")return "";
+  const labels={what_changes:"무엇이 달라지나",who_affected:"누가 영향받나",why_now:"왜 지금인가",largest_risk:"가장 큰 위험",citizen_question:"시민이 물을 질문"};
+  const rows=Object.entries(brief).filter(([,v])=>typeof v==="string"&&v.trim());
+  return rows.length?`<div class="brief-grid">${rows.map(([k,v])=>`<div class="brief"><b>${esc(labels[k]||k)}</b>${esc(v)}</div>`).join("")}</div>`:""
+}
+function listCards(items,type="blue",titleKey="title",bodyKeys=["body","description","claim","attack","risk","change","finding"]){
+  return arr(items).map((item,index)=>{
+    if(typeof item==="string")return `<div class="list-card ${type}">${esc(item)}</div>`;
+    const title=text(item[titleKey],item.label,item.id,`${index+1}번 항목`);
+    const body=bodyKeys.map(k=>item?.[k]).find(v=>typeof v==="string"&&v.trim())||JSON.stringify(item);
+    const status=text(item.status,item.confidence,item.severity);
+    return `<div class="list-card ${type}"><b>${esc(title)}${status?` · ${esc(status)}`:""}</b>${esc(body)}</div>`
+  }).join("")
+}
+function genericLifecycle(value){
+  if(!value||typeof value!=="object")return '<div class="meta">연결된 생애주기 기록이 없습니다.</div>';
+  return `<div class="detail-grid">${Object.entries(value).slice(0,12).map(([k,v])=>`<div class="detail-cell"><b>${esc(k)}</b>${esc(typeof v==="object"?JSON.stringify(v):v)}</div>`).join("")}</div>`
+}
+function civicEntriesFor(id){
+  return arr(civicData.entries).filter(e=>String(e.policy_id||e.bill_id||e.parent_policy_id||"")===String(id))
+}
+async function openBill(id){
+  const summary=allBills.find(b=>String(b.id)===String(id));if(!summary)return;
+  history.replaceState(null,"",`${location.pathname}${location.search}#bill=${encodeURIComponent(id)}`);
+  dialog.showModal();modal.innerHTML='<div class="loading">원문·근거·위험·포크를 불러오고 있습니다.</div>';
+  try{
+    const bill=await loadReport(summary);const official=bill.official||summary.official||{};const deep=bill.deep_review||{};
+    const claims=arr(deep.claim_ledger);const attacks=arr(deep.deep_red_team);const chains=arr(deep.evidence_chains);
+    const forks=arr(bill.fork_candidates);const citizenForks=arr(bill.forks);const civic=civicEntriesFor(id);
+    modal.innerHTML=`
+      <div class="modal-head">
+        <div><span class="tag">${esc(bill.category||summary.category||"분류 확인")}</span><h2>${esc(bill.title||summary.title)}</h2>
+        <div class="meta">정책 ID ${esc(id)} · ${esc(bill.committee||summary.committee||"소관위원회 확인 필요")} · ${esc(safeDate(bill.proposed_date||summary.proposed_date))}</div></div>
+        <button class="close" id="closeDialog">닫기</button>
+      </div>
+      <section class="modal-section"><h3>30초 이해</h3>${briefHtml(bill.thirty_second_brief)||`<div class="analysis-box">${esc(bill.card_summary||bill.summary||summary.card_summary||"설명 준비 중")}</div>`}</section>
+      <section class="modal-section"><h3>공식자료와 현재 상태</h3>
+        <div class="official-box">${esc(bill.official_summary||bill.summary||official.summary||summary.summary||"공식 제안이유·주요내용 연결 상태를 확인해야 합니다.")}</div>
+        <div class="source-row" style="margin-top:10px">
+          ${cleanUrl(official.source_url)?`<a class="btn btn-navy btn-small" href="${esc(official.source_url)}" target="_blank" rel="noopener">국회 공식 원문</a>`:""}
+          <span class="profile">분석 ${esc(bill.analysis_review_state||summary.analysis_review_state||"자동 구조화")}</span>
+          <span class="profile">신뢰도 ${esc(bill.analysis_confidence||summary.analysis_confidence||"확인 필요")}</span>
+        </div>
+      </section>
+      <section class="modal-section"><h3>영향 관점</h3><div class="profile-row">${profileHtml(deep.profiles||bill.profiles||summary.profiles)}</div></section>
+      <section class="modal-section"><h3>주장·근거 상태</h3>${claims.length?`<div class="list-stack">${listCards(claims,"blue")}</div>`:'<div class="analysis-box">독립 근거와 연결된 주장 원장은 아직 비어 있거나 추가 검토가 필요합니다.</div>'}${chains.length?`<div class="list-stack" style="margin-top:9px">${listCards(chains,"green")}</div>`:""}</section>
+      <section class="modal-section"><h3>사전 취약성 검토</h3>${attacks.length?`<div class="list-stack">${listCards(attacks,"red")}</div>`:`<div class="analysis-box">${esc(bill.largest_risk||summary.largest_risk||"Fast-Fail 검토가 필요합니다.")}</div>`}</section>
+      <section class="modal-section"><h3>자동 제안 포크</h3>${forks.length?forks.map((f,index)=>`<div class="fork-card"><b>${esc(f.label||`포크 ${index+1}`)} · ${esc(f.title||"대안")}</b><p>${esc(f.change||f.body||"변경내용 확인 필요")}</p>${f.risk?`<p><b>남는 위험</b> ${esc(f.risk)}</p>`:""}</div>`).join(""):'<div class="analysis-box">Fork Studio에서 원안을 기준으로 새로운 포크를 생성할 수 있습니다.</div>'}</section>
+      <section class="modal-section"><h3>공개 포크와 시민 기록</h3>${citizenForks.length?`<div class="list-stack">${listCards(citizenForks,"green")}</div>`:""}${civic.length?`<div class="list-stack">${listCards(civic,"blue")}</div>`:'<div class="meta">현재 연결된 공개 시민 포크 기록이 없습니다.</div>'}</section>
+      <section class="modal-section"><h3>정책 생애주기</h3>${genericLifecycle(lifecycleData?.policies?.[id])}</section>
+      <div class="modal-actions">
+        <a class="btn btn-blue" href="${esc(studioLink(id,"policy-detail"))}">이 정책 AI 분석·포크</a>
+        ${cleanUrl(official.source_url)?`<a class="btn btn-soft" href="${esc(official.source_url)}" target="_blank" rel="noopener">공식 원문 열기</a>`:""}
+        <button class="btn btn-soft" id="copyPolicyLink">이 정책 링크 복사</button>
+      </div>`;
+    document.getElementById("closeDialog").addEventListener("click",()=>dialog.close());
+    document.getElementById("copyPolicyLink").addEventListener("click",async()=>{await navigator.clipboard.writeText(location.href);document.getElementById("copyPolicyLink").textContent="복사됨"})
+  }catch(error){
+    modal.innerHTML=`<div class="modal-head"><h2>${esc(summary.title)}</h2><button class="close" id="closeDialog">닫기</button></div><div class="analysis-box" style="margin-top:15px">${esc(error.message)}</div><div class="modal-actions"><a class="btn btn-blue" href="${esc(studioLink(id,"policy-detail-error"))}">그래도 Fork Studio에서 열기</a></div>`;
+    document.getElementById("closeDialog").addEventListener("click",()=>dialog.close())
+  }
+}
+dialog.addEventListener("close",()=>{if(location.hash.startsWith("#bill="))history.replaceState(null,"",location.pathname+location.search)});
+[searchInput,statusFilter,sortSelect].forEach(el=>el.addEventListener(el===searchInput?"input":"change",render));
+document.getElementById("mobileMenu").addEventListener("click",()=>{const links=[["정책 광장","./"],["정책 탐색","#policies"],["새 정책 제안","fork-studio-ai.html?mode=new"],["Fork Studio","fork-studio-ai.html"],["운영 원칙","#principles"]];const choice=prompt(links.map((x,i)=>`${i+1}. ${x[0]}`).join("\n"));const row=links[Number(choice)-1];if(row)location.href=row[1]});
+boot();
 </script>
 </body>
 </html>
