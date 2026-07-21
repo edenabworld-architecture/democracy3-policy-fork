@@ -1,0 +1,1661 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-07-22T07:13:01+09:00",
+  "bill": {
+    "id": "PRC_L2M6K0L7T1R6S0Q9R1P9Q5Y9W3X2V4",
+    "policy_type": "국회 법률안",
+    "jurisdiction": {
+      "country": "대한민국",
+      "level": "국가",
+      "name": "대한민국",
+      "code": "KR"
+    },
+    "category": "교육",
+    "category_basis": "법안명 기준 자동분류",
+    "title": "교원의 지위 향상 및 교육활동 보호를 위한 특별법 일부개정법률안",
+    "status": "자동 검토 초안",
+    "stage": "의안 접수",
+    "committee": "소관위원회 미정 또는 확인 필요",
+    "proposed_date": "2026-07-21",
+    "updated_at": "2026-07-22",
+    "review_count": 0,
+    "summary": "쉽게 말해, 교육부장관이 교원의 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관인 중앙교육활동보호센터를 설치ㆍ운영하도록 함.",
+    "official_excerpt": "제안이유 서이초 교사 사망 사건이 발생한 지 3년이 지난 현재까지도 교육활동 침해 문제는 여전히 우려스러운 수준임. 최근 3년간(2023년부터 2025년까지) 교육활동 침해행위에 대한 교권보호위원회 심의는 매년 4천 건 이상 이루어졌고, 2025년 한 해 16개 시도교육청에 접수된 교권침해 상담 건수는 5만 7,966건에 달함. 또한, 2023년 9월부터 2026년 2월까지 약 2년 6개월간 교육감이 ‘정당한 생활지도’에 해당한다는 의견서를 제출한 아동학대 신고가 1,352건에 이르는 등 아동학대 신고 제도가 악용되는 문제도 심각한 수준임. 교원은 국가를 대신하여 학생을 교육하는 사람임. 따라서 정당한 교육활동이 침해되거나 그로 인하여…",
+    "official_summary": "제안이유\n\n서이초 교사 사망 사건이 발생한 지 3년이 지난 현재까지도 교육활동 침해 문제는 여전히 우려스러운 수준임. 최근 3년간(2023년부터 2025년까지) 교육활동 침해행위에 대한 교권보호위원회 심의는 매년 4천 건 이상 이루어졌고, 2025년 한 해 16개 시도교육청에 접수된 교권침해 상담 건수는 5만 7,966건에 달함. 또한, 2023년 9월부터 2026년 2월까지 약 2년 6개월간 교육감이 ‘정당한 생활지도’에 해당한다는 의견서를 제출한 아동학대 신고가 1,352건에 이르는 등 아동학대 신고 제도가 악용되는 문제도 심각한 수준임.\n교원은 국가를 대신하여 학생을 교육하는 사람임. 따라서 정당한 교육활동이 침해되거나 그로 인하여 법적 분쟁에 휘말린 경우 이를 교원 개인이 홀로 감당하도록 두어서는 아니 되며, 국가가 책임지고 교원을 보호하는 제도를 마련할 필요가 있음. 그러나 현행법상 법률지원단의 지원은 법률 상담 중심에 머물러 있어 조사ㆍ수사나 소송 단계에 놓인 교원을 실질적으로 보호하는 데 한계가 있고, 정작 보호가 가장 절실한 사안 초기에 조력이 이루어지지 못하는 실정임. 아울러 그동안 마련된 교육활동 보호 제도가 현장에서 실제로 작동하는지 점검ㆍ조사하고 그 결과를 제도 개선으로 환류하는 체계도 미비함.\n이에 교원의 정당한 교육활동에 대한 국가와 지방자치단체의 보호 책임을 법률에 명시하고, 교육활동 침해 피해교원이 조사ㆍ수사 및 법률적 분쟁에 대응하기 위한 법률지원단의 지원을 받을 수 있도록 하며, 법률지원단이 소송 수행에 필요한 지원을 조사ㆍ수사 또는 소송의 시작 단계부터 지체 없이 제공하도록 하고, 교육부장관이 교원의 정당한 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관을 설치ㆍ운영하도록 하려는 것임.\n\n주요내용\n\n가. 교원의 정당한 교육활동에 대한 국가와 지방자치단체의 보호 책임을 이 법의 목적 및 교원에 대한 예우 규정에 명시함(안 제1조 및 제2조제3항 신설).\n나. 교육부장관 및 교육감이 실시하는 실태조사의 대상에 법률지원단의 구성 및 운영에 관한 사항을 추가함(안 제16조제1항).\n다. 피해교원에 대한 보호조치에 조사ㆍ수사 및 법률적 분쟁에 대응하기 위한 법률지원단의 지원을 추가함(안 제20조제1항제3호 신설).\n라. 법률지원단의 업무에 소송 수행에 필요한 지원 등을 추가하고, 정당한 교육활동이 아동학대범죄로 신고된 경우 등에는 해당 교원이 조사ㆍ수사 시작 단계부터 지체 없이 법률지원단의 조력을 받을 수 있도록 함(안 제21조).\n마. 교육부장관이 교원의 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관인 중앙교육활동보호센터를 설치ㆍ운영하도록 함(안 제29조의3 신설).",
+    "official_summary_status": "연동 완료",
+    "analysis_status": "자동 검토 초안",
+    "analysis_method": "주장·논리·근거 분리 및 적대적 정책감사 v1.0",
+    "analysis_confidence": "보통",
+    "analysis_visibility": "전체 표시",
+    "analysis_review_state": "사람 검토 전",
+    "quality_flags": [],
+    "review_status": {
+      "official_source": "연동 완료",
+      "plain_language": "자동 초안",
+      "external_evidence": "미연결",
+      "clause_comparison": "미완료",
+      "human_review": "미완료"
+    },
+    "source_labels": [
+      {
+        "label": "국회 공식 원문",
+        "status": "연동 완료",
+        "kind": "official"
+      },
+      {
+        "label": "쉬운 설명·위험",
+        "status": "자동 초안",
+        "kind": "automatic"
+      },
+      {
+        "label": "외부 근거",
+        "status": "미연결",
+        "kind": "missing"
+      },
+      {
+        "label": "사람 검토",
+        "status": "미완료",
+        "kind": "missing"
+      }
+    ],
+    "analysis_generated_at": "2026-07-22T07:13:01+09:00",
+    "analysis_basis": "국회가 공개한 ‘제안이유 및 주요내용’만 사용한 자동 초안입니다. 찬성 논리, 반대 논리, 위험과 수정안은 검토를 시작하기 위한 가설입니다. 법안 조문 전문, 비용추계서, 위원회 검토보고서, 회의록, 외부 통계와 이해관계자 의견을 확인하기 전에는 결론으로 사용해서는 안 됩니다.",
+    "card_summary": "쉽게 말해, 교육부장관이 교원의 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관인 중앙교육활동보호센터를 설치ㆍ운영하도록 함.",
+    "why_now": "법안이 제시한 문제: 서이초 교사 사망 사건이 발생한 지 3년이 지난 현재까지도 교육활동 침해 문제는 여전히 우려스러운 수준임. 제안된 변경: 교육부장관이 교원의 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관인 중앙교육활동보호센터를 설치ㆍ운영하도록 함.",
+    "claimed_benefit": "지원 사각지대를 줄이고 필요한 대상의 보호나 혜택을 넓힐 수 있다는 주장입니다.",
+    "strongest_objection": "새 의무가 기존 제도와 겹치고 현장에서는 실제 개선 없이 서류만 늘리는 규제가 될 수 있습니다.",
+    "largest_risk": "현장 문제는 남고 행정비용과 허위안심만 증가할 수 있음",
+    "analysis_clues": [
+      "공식 제안이유에 수치·사례가 제시되어 문제 인식의 근거를 확인할 단서가 있음",
+      "변경하려는 제도 방향이 공식 요약에 제시되어 있음",
+      "관련 개정 조문이 공식 요약에 표시되어 원문 대조가 가능함"
+    ],
+    "verified_evidence": [
+      "현재 연결된 자료만으로 독립적으로 검증이 끝난 외부 근거는 없습니다."
+    ],
+    "unverified_claims": [
+      "공식 요약에 나온 수치·사례는 원자료와 산출방식을 아직 대조하지 않았습니다.",
+      "법안이 제시한 문제 진단은 발의자의 주장으로서 독립 검증 전입니다.",
+      "법안이 예상하는 효과는 시행자료가 없는 사전 주장으로서 검증 전입니다."
+    ],
+    "problem_definition": "서이초 교사 사망 사건이 발생한 지 3년이 지난 현재까지도 교육활동 침해 문제는 여전히 우려스러운 수준임.",
+    "proposed_change": "교육부장관이 교원의 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관인 중앙교육활동보호센터를 설치ㆍ운영하도록 함.",
+    "affected_groups": [
+      "교육감과 지방교육행정",
+      "학생·학습자",
+      "교원·교사",
+      "지방자치단체",
+      "아동"
+    ],
+    "beneficiaries": [
+      "잠재적 수혜 후보(자동 추출): 교육감과 지방교육행정, 학생·학습자, 교원·교사, 지방자치단체, 아동",
+      "실제 수혜 범위는 법안 조문과 적용요건을 확인해야 확정할 수 있음"
+    ],
+    "cost_bearers": [
+      "행정·재정 부담 가능 주체(자동 추정): 교육감과 지방교육행정, 학생·학습자, 교원·교사, 지방자치단체, 아동",
+      "비용 규모와 부담 귀속은 비용추계서·하위법령 확인 전에는 확정할 수 없음"
+    ],
+    "authority_changes": [
+      "기관·사업자·개인에게 새로운 의무를 부과하거나 기존 의무를 확대할 가능성",
+      "행정기관의 허가·등록·지정·승인 권한 범위 변경 가능성"
+    ],
+    "strengths": [
+      "공식 제안이유에 수치·사례가 제시되어 문제 인식의 근거를 확인할 단서가 있음",
+      "변경하려는 제도 방향이 공식 요약에 제시되어 있음",
+      "관련 개정 조문이 공식 요약에 표시되어 원문 대조가 가능함"
+    ],
+    "weaknesses": [
+      "재정·인력 소요와 비용 부담 주체가 공식 요약에 드러나지 않습니다.",
+      "시행 후 재검토·일몰·중단 조건이 공식 요약에 보이지 않습니다.",
+      "예외·사각지대·경계사례를 어떻게 처리할지 공식 요약만으로는 알기 어렵습니다."
+    ],
+    "risks": [
+      "새 의무의 집행비용, 담당기관 역량, 위반 시 책임기준 검토 필요",
+      "지원대상 선정기준, 재정 지속가능성, 사각지대와 도덕적 해이 검토 필요",
+      "기존 조직과의 기능 중복, 책임소재 분산, 추가 행정비용 검토 필요"
+    ],
+    "counterarguments": [
+      "새 의무가 기존 제도와 겹치고 현장에서는 실제 개선 없이 서류만 늘리는 규제가 될 수 있습니다.",
+      "지원 확대가 실제 취약계층보다 신청능력이 높은 집단에 유리하고 재정의 경직성을 키울 수 있습니다.",
+      "새 조직이나 절차가 기존 기관과 겹쳐 책임소재를 흐리고 행정비용만 늘릴 수 있습니다."
+    ],
+    "loopholes": [
+      "대상요건과 환수기준이 약하면 명의분산·중복신청·형식적 자격맞추기로 제도를 우회할 수 있음"
+    ],
+    "red_team_cases": [
+      {
+        "title": "서류 준수 공격",
+        "attack": "기관이 실제 개선 없이 계획서·보고서만 작성해 법적 의무를 충족한 것처럼 보이게 함",
+        "consequence": "현장 문제는 남고 행정비용과 허위안심만 증가할 수 있음",
+        "guardrail": "결과지표, 표본감사, 현장검증, 공개보고, 반복 미달 시 시정명령",
+        "severity": "높음"
+      },
+      {
+        "title": "지원제도 포획",
+        "attack": "정보와 행정역량이 좋은 집단이 기준을 선점하고 실제 취약계층은 신청에서 탈락함",
+        "consequence": "정책 혜택이 필요도가 아닌 신청능력과 조직력에 따라 배분될 수 있음",
+        "guardrail": "자동선정·찾아가는 신청, 중복검증, 이의신청, 수혜분포 공개, 주기적 기준조정",
+        "severity": "중간"
+      }
+    ],
+    "failure_modes": [
+      {
+        "condition": "문제 규모와 원인에 대한 독립 검증 없이 시행",
+        "failure": "정책 수단이 실제 원인과 어긋나 효과가 작거나 역효과가 발생함",
+        "warning": "초기 성과지표가 개선되지 않는데 적용범위와 예산만 확대됨",
+        "response": "시행 전 기준선 공개, 대안 비교, 제한된 시범사업, 중단 기준 설정"
+      },
+      {
+        "condition": "집행기관의 인력·예산·전문성이 부족함",
+        "failure": "현장점검 없이 서류심사만 남고 기관별 편차가 커짐",
+        "warning": "처리 지연, 형식적 보고서 반복, 민원과 예외요청 급증",
+        "response": "업무량 추계, 전담인력, 표준지침, 현장감사, 단계적 시행"
+      }
+    ],
+    "fork_levers": [
+      {
+        "dimension": "적용대상",
+        "question": "누구에게 적용하고 누구를 예외로 둘 것인가?",
+        "options": "전면 적용 / 고위험 대상 우선 / 규모별 단계 적용 / 취약계층·영세주체 예외"
+      },
+      {
+        "dimension": "시행속도",
+        "question": "한 번에 시행할지 시험 후 확대할지 결정해야 함",
+        "options": "즉시 시행 / 시범지역 / 단계적 확대 / 성과조건부 확대"
+      },
+      {
+        "dimension": "검증과 종료",
+        "question": "실패를 누가 어떻게 확인하고 멈출 수 있는가?",
+        "options": "일몰 / 정기 재승인 / 독립평가 / 자동중단 기준"
+      },
+      {
+        "dimension": "권한 배분",
+        "question": "결정권·추천권·동의권·해임권을 한 주체에 모을지 나눌지 선택해야 함",
+        "options": "단독권한 / 복수기관 교차견제 / 독립추천 / 시민·전문가 참여"
+      },
+      {
+        "dimension": "비용 배분",
+        "question": "국가·지자체·기관·사업자·수혜자 중 누가 얼마를 부담할 것인가?",
+        "options": "전액 국비 / 매칭 / 규모별 분담 / 성과연동 / 비용상한"
+      }
+    ],
+    "fork_candidates": [
+      {
+        "label": "A",
+        "type": "보편·간편형",
+        "title": "넓은 대상과 간단한 신청",
+        "change": "대상 범위를 넓히고 신청서류와 심사를 최소화합니다.",
+        "solves": "복잡한 요건 때문에 필요한 사람이 탈락하는 문제",
+        "benefit": "접근성과 수혜율을 높일 수 있습니다.",
+        "risk": "재정지출과 불필요한 지원이 늘 수 있습니다.",
+        "cost": "비용 높음 가능 — 대상 규모 추계 필요",
+        "clause_hint": "안 제1조 및 제2조제3항 신설",
+        "evidence_needed": "잠재 대상자 수, 1인당 비용, 중복지원 규모",
+        "status": "자동 수정안 아이디어 · 사람 검토 전"
+      },
+      {
+        "label": "B",
+        "type": "정밀지원형",
+        "title": "필요도 기반 선별·자동안내",
+        "change": "소득·재산·위기정보로 우선대상을 정하고 행정자료를 활용해 받을 가능성이 있는 사람에게 먼저 안내합니다.",
+        "solves": "재정 누수와 정보취약계층의 미신청 문제",
+        "benefit": "필요도가 높은 사람에게 재원을 집중할 수 있습니다.",
+        "risk": "자동판정 오류와 개인정보 결합 위험이 있습니다.",
+        "cost": "비용 중간 — 자료연계·이의신청 체계 필요",
+        "clause_hint": "안 제1조 및 제2조제3항 신설",
+        "evidence_needed": "탈락오류율, 개인정보 영향평가, 이의신청 처리량",
+        "status": "자동 수정안 아이디어 · 사람 검토 전"
+      },
+      {
+        "label": "C",
+        "type": "성과연동형",
+        "title": "지원·평가·재조정 결합",
+        "change": "일정 기간 지원한 뒤 생활안정·고용·건강 등 목적에 맞는 결과를 평가해 지원방식을 조정합니다.",
+        "solves": "지원이 계속되지만 실제 효과를 확인하지 않는 문제",
+        "benefit": "정책효과와 재정 지속가능성을 함께 관리할 수 있습니다.",
+        "risk": "개인의 상황을 단순한 성과지표로 판단해 부당한 중단이 생길 수 있습니다.",
+        "cost": "비용 중간 — 평가·사후관리 비용 필요",
+        "clause_hint": "안 제1조 및 제2조제3항 신설",
+        "evidence_needed": "성과지표 타당성, 장기효과, 중단 시 피해",
+        "status": "자동 수정안 아이디어 · 사람 검토 전"
+      }
+    ],
+    "fork_hidden_reason": "",
+    "deep_review": {
+      "status": "복수 위험프로필 증거사슬형 심층 검토 초안",
+      "scope": "국회 ‘제안이유 및 주요내용’을 바탕으로 복수 위험축을 동시에 공격한 초안입니다. 조문 전문·비용추계·위원회 자료·외부 통계 대조 전에는 확정평가가 아닙니다.",
+      "generated_at": "2026-07-22T07:13:01+09:00",
+      "profile": {
+        "key": "organization_power",
+        "label": "행정조직·권한배분",
+        "score": 8,
+        "matched_signals": [
+          "위원회",
+          "기관",
+          "센터",
+          "설치",
+          "장관",
+          "지방자치단체"
+        ],
+        "confidence": "높음",
+        "role": "주유형"
+      },
+      "profiles": [
+        {
+          "key": "organization_power",
+          "label": "행정조직·권한배분",
+          "score": 8,
+          "matched_signals": [
+            "위원회",
+            "기관",
+            "센터",
+            "설치",
+            "장관",
+            "지방자치단체"
+          ],
+          "confidence": "높음",
+          "role": "주유형"
+        },
+        {
+          "key": "education_system",
+          "label": "교육제도",
+          "score": 6,
+          "matched_signals": [
+            "교육",
+            "학생",
+            "교원",
+            "학습"
+          ],
+          "confidence": "높음",
+          "role": "부유형 1"
+        },
+        {
+          "key": "subsidy_fiscal",
+          "label": "재정·지원배분",
+          "score": 4,
+          "matched_signals": [
+            "지원"
+          ],
+          "confidence": "보통",
+          "role": "부유형 2"
+        }
+      ],
+      "central_conflict": "지원이 꼭 필요한 대상에게 도달하면서 사각지대·중복지원·재정 누수를 어떻게 동시에 줄일 것인가?",
+      "mechanism_chain": [
+        {
+          "step": "문제",
+          "content": "서이초 교사 사망 사건이 발생한 지 3년이 지난 현재까지도 교육활동 침해 문제는 여전히 우려스러운 수준임.",
+          "failure_question": "문제의 규모·원인·대상이 독립자료로 확인되는가?"
+        },
+        {
+          "step": "법적 수단",
+          "content": "교육부장관이 교원의 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관인 중앙교육활동보호센터를 설치ㆍ운영하도록 함.",
+          "failure_question": "실제 원인에 작용하는가, 보이는 절차와 조직만 바꾸는가?"
+        },
+        {
+          "step": "권한·비용 이동",
+          "content": "새 권한·의무·예산·정보접근이 어느 기관과 집단으로 이동하는지 확인해야 합니다.",
+          "failure_question": "편익을 얻는 주체와 비용·위험을 지는 주체가 분리되는가?"
+        },
+        {
+          "step": "집행과 유인",
+          "content": "집행기관과 정책대상은 법의 취지뿐 아니라 자신에게 유리한 방식으로 적응합니다.",
+          "failure_question": "준수보다 우회·은폐·책임전가·지표조작이 더 유리하지 않은가?"
+        },
+        {
+          "step": "직접 결과",
+          "content": "정책이 내세운 목표가 실제 결과지표에서 개선되는지 확인해야 합니다.",
+          "failure_question": "활동량·보고량이 아니라 국민의 실제 결과가 개선되는가?"
+        },
+        {
+          "step": "2차 효과와 되돌림",
+          "content": "가격·시장구조·권력·지역격차·기본권에 나타나는 간접효과와 실패 시 되돌림을 검토합니다.",
+          "failure_question": "부작용을 조기에 발견하고 축소·중단·보상할 수 있는가?"
+        }
+      ],
+      "claim_ledger": [
+        {
+          "id": "C01",
+          "claim": "서이초 교사 사망 사건이 발생한 지 3년이 지난 현재까지도 교육활동 침해 문제는 여전히 우려스러운 수준임.",
+          "claim_type": "수치·규모 주장",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "원자료, 분모, 산출방식, 기간별 추세와 비교집단",
+          "rejection_condition": "수치의 분모·기간·출처가 불명확하거나 재현되지 않는 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C02",
+          "claim": "최근 3년간(2023년부터 2025년까지) 교육활동 침해행위에 대한 교권보호위원회 심의는 매년 4천 건 이상 이루어졌고, 2025년 한 해 16개 시도교육청에 접수된 교권침해 상담 건수는 5만 7, 966건에 달함.",
+          "claim_type": "수치·규모 주장",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "원자료, 분모, 산출방식, 기간별 추세와 비교집단",
+          "rejection_condition": "수치의 분모·기간·출처가 불명확하거나 재현되지 않는 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C03",
+          "claim": "또한, 2023년 9월부터 2026년 2월까지 약 2년 6개월간 교육감이 ‘정당한 생활지도’에 해당한다는 의견서를 제출한 아동학대 신고가 1, 352건에 이르는 등 아동학대 신고 제도가 악용되는 문제도 심각한 수준임.",
+          "claim_type": "수치·규모 주장",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "원자료, 분모, 산출방식, 기간별 추세와 비교집단",
+          "rejection_condition": "수치의 분모·기간·출처가 불명확하거나 재현되지 않는 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C04",
+          "claim": "교원은 국가를 대신하여 학생을 교육하는 사람임.",
+          "claim_type": "기타 정책 주장",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "주장을 직접 뒷받침하는 공식자료와 반대자료",
+          "rejection_condition": "독립자료로 확인되지 않거나 반대증거가 더 강한 경우",
+          "confidence": "낮음"
+        },
+        {
+          "id": "C05",
+          "claim": "따라서 정당한 교육활동이 침해되거나 그로 인하여 법적 분쟁에 휘말린 경우 이를 교원 개인이 홀로 감당하도록 두어서는 아니 되며, 국가가 책임지고 교원을 보호하는 제도를 마련할 필요가 있음.",
+          "claim_type": "원인 주장",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "원인과 결과의 시간순서, 대안원인 통제, 비교집단 또는 자연실험",
+          "rejection_condition": "다른 요인이 문제를 더 크게 설명하거나 제안된 원인과 결과가 함께 변하지 않는 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C06",
+          "claim": "그러나 현행법상 법률지원단의 지원은 법률 상담 중심에 머물러 있어 조사ㆍ수사나 소송 단계에 놓인 교원을 실질적으로 보호하는 데 한계가 있고, 정작 보호가 가장 절실한 사안 초기에 조력이 이루어지지 못하는 실정임.",
+          "claim_type": "문제 진단",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "최근 공식 통계, 현행제도 운영자료, 피해·사각지대와 집단별 분포",
+          "rejection_condition": "문제 규모가 작거나 일시적이며 현행제도 보완으로 해결 가능한 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C07",
+          "claim": "아울러 그동안 마련된 교육활동 보호 제도가 현장에서 실제로 작동하는지 점검ㆍ조사하고 그 결과를 제도 개선으로 환류하는 체계도 미비함.",
+          "claim_type": "문제 진단",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "최근 공식 통계, 현행제도 운영자료, 피해·사각지대와 집단별 분포",
+          "rejection_condition": "문제 규모가 작거나 일시적이며 현행제도 보완으로 해결 가능한 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C08",
+          "claim": "이에 교원의 정당한 교육활동에 대한 국가와 지방자치단체의 보호 책임을 법률에 명시하고, 교육활동 침해 피해교원이 조사ㆍ수사 및 법률적 분쟁에 대응하기 위한 법률지원단의 지원을 받을 수 있도록 하며, 법률지원단이 소송 수행에 필요한 지원을 조사ㆍ수사 또는 소송의 시작 단계부터 지체 없이 제공하도록 하고, 교육부장관이 교원의 정당한 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관을 설치ㆍ운영하도록 하려는 것임.",
+          "claim_type": "수치·규모 주장",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "원자료, 분모, 산출방식, 기간별 추세와 비교집단",
+          "rejection_condition": "수치의 분모·기간·출처가 불명확하거나 재현되지 않는 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C11",
+          "claim": "교원의 정당한 교육활동에 대한 국가와 지방자치단체의 보호 책임을 이 법의 목적 및 교원에 대한 예우 규정에 명시함",
+          "claim_type": "수치·규모 주장",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "원자료, 분모, 산출방식, 기간별 추세와 비교집단",
+          "rejection_condition": "수치의 분모·기간·출처가 불명확하거나 재현되지 않는 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C13",
+          "claim": "교육부장관 및 교육감이 실시하는 실태조사의 대상에 법률지원단의 구성 및 운영에 관한 사항을 추가함",
+          "claim_type": "권한·의무 변경",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "현행법·개정안 조문, 권한 흐름, 집행기관·비용·불복절차",
+          "rejection_condition": "권한은 확대되지만 통제·책임·자원이 불충분하거나 기존제도와 중복되는 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C15",
+          "claim": "피해교원에 대한 보호조치에 조사ㆍ수사 및 법률적 분쟁에 대응하기 위한 법률지원단의 지원을 추가함",
+          "claim_type": "효과·편익 주장",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "유사제도 성과, 시범사업, 비용편익, 부작용과 장기추적 자료",
+          "rejection_condition": "결과지표가 개선되지 않거나 부작용과 비용이 편익보다 큰 경우",
+          "confidence": "검증 필요"
+        },
+        {
+          "id": "C17",
+          "claim": "법률지원단의 업무에 소송 수행에 필요한 지원 등을 추가하고, 정당한 교육활동이 아동학대범죄로 신고된 경우 등에는 해당 교원이 조사ㆍ수사 시작 단계부터 지체 없이 법률지원단의 조력을 받을 수 있도록 함",
+          "claim_type": "문제 진단",
+          "source_type": "발의자 제안이유·주요내용",
+          "source_status": "국회 공식 공개문서",
+          "verification_status": "독립 검증 전",
+          "required_evidence": "최근 공식 통계, 현행제도 운영자료, 피해·사각지대와 집단별 분포",
+          "rejection_condition": "문제 규모가 작거나 일시적이며 현행제도 보완으로 해결 가능한 경우",
+          "confidence": "검증 필요"
+        }
+      ],
+      "critical_assumptions": [
+        {
+          "assumption": "법안이 지목한 문제가 실제로 제안된 원인 때문에 발생한다.",
+          "why_critical": "원인 진단이 틀리면 제도는 바뀌지만 문제는 남습니다.",
+          "disproof": "독립 통계나 비교집단에서 다른 원인이 더 크게 설명될 경우",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "assumption": "새 권한이나 의무를 맡을 기관에 인력·예산·전문성이 있다.",
+          "why_critical": "집행역량이 없으면 법률은 서류상 의무로만 남습니다.",
+          "disproof": "담당 인력·예산·처리기간 추계가 없거나 기존 업무도 적체된 경우",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "assumption": "새 조직이 기존 기관의 기능중복을 줄이고 책임을 명확히 한다.",
+          "why_critical": "조직 신설이 문제해결보다 예산과 절차만 늘릴 수 있습니다.",
+          "disproof": "동일 업무를 여러 기관이 수행하고 실패 책임이 분산되는 경우",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "assumption": "새 권한의 범위가 법률에서 충분히 제한된다.",
+          "why_critical": "하위법령과 내부지침으로 권한이 계속 확장될 수 있습니다.",
+          "disproof": "핵심 기준이 ‘필요한 사항’ 형태로 광범위하게 위임되는 경우",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "assumption": "새 조직이 기존 기관과 다른 고유 기능을 수행한다.",
+          "why_critical": "조직 신설은 쉽게 되지만 중복조직의 폐지는 어렵습니다.",
+          "disproof": "기존 부처·위원회와 업무·예산·보고선이 중복되는 경우",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "assumption": "권한 확대와 함께 독립적 통제와 책임이 강화된다.",
+          "why_critical": "권한만 집중되고 감사·불복·정보공개가 약하면 행정권력이 비대해집니다.",
+          "disproof": "포괄위임, 비공개 의사결정, 내부 자체평가만 존재하는 경우",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "assumption": "제안된 수단이 다른 대안보다 비용 대비 효과가 높다.",
+          "why_critical": "법률 개정이 가장 적합한 수단인지 확인해야 합니다.",
+          "disproof": "기존 제도 보완이나 비규제 대안이 더 낮은 비용으로 같은 효과를 내는 경우",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "assumption": "예상하지 못한 부작용을 발견하고 수정할 수 있다.",
+          "why_critical": "정책 실패가 고착되는 것을 막아야 합니다.",
+          "disproof": "평가·일몰·재승인·중단 조건이 없는 경우",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "assumption": "제도 변경이 학생의 학습·안전·기회에 실제로 도움이 된다.",
+          "why_critical": "조직과 선발방식 변화가 학생 성과와 무관할 수 있습니다.",
+          "disproof": "행정지표만 개선되고 학습격차·중도탈락·학교만족도는 악화되는 경우",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "assumption": "지역·가정배경에 따른 교육격차를 확대하지 않는다.",
+          "why_critical": "선택권이나 평가제도는 정보와 자원이 많은 가정에 더 유리할 수 있습니다.",
+          "disproof": "소득·지역·장애·이주배경별 접근성과 성과격차가 커지는 경우",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "assumption": "교원과 학교가 지표 맞추기보다 교육목적에 맞게 행동한다.",
+          "why_critical": "평가와 책임 강화는 시험교육·학생선별·기록조작을 유발할 수 있습니다.",
+          "disproof": "쉬운 학생 선별, 평가대상 제외, 시험집중과 비교육 업무가 증가하는 경우",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "assumption": "지원대상 기준이 실제 필요도를 정확히 구분한다.",
+          "why_critical": "누락과 부정수급을 동시에 줄여야 합니다.",
+          "disproof": "탈락오류·중복수혜·소득역전 현상이 크게 나타나는 경우",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        },
+        {
+          "assumption": "지원이 목표행동이나 생활개선을 실제로 유발한다.",
+          "why_critical": "현금·보조금 지급 자체가 성과는 아닙니다.",
+          "disproof": "비교집단 대비 핵심 성과가 개선되지 않는 경우",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        },
+        {
+          "assumption": "재원이 장기간 지속 가능하다.",
+          "why_critical": "중단되면 수혜자의 의존과 행정 혼란이 커질 수 있습니다.",
+          "disproof": "수요 증가율이 재원 증가율을 지속적으로 초과하는 경우",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        }
+      ],
+      "actor_incentives": [
+        {
+          "actor": "교육감과 지방교육행정",
+          "formal_role": "법안의 직접 또는 간접 영향주체",
+          "likely_incentive": "자신의 권리·비용·권한에 유리한 방향으로 제도에 적응",
+          "gaming_risk": "법률상 형식과 실제 행동 사이의 차이를 이용할 가능성",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "actor": "학생·학습자",
+          "formal_role": "법안의 직접 또는 간접 영향주체",
+          "likely_incentive": "자신의 권리·비용·권한에 유리한 방향으로 제도에 적응",
+          "gaming_risk": "법률상 형식과 실제 행동 사이의 차이를 이용할 가능성",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "actor": "교원·교사",
+          "formal_role": "법안의 직접 또는 간접 영향주체",
+          "likely_incentive": "자신의 권리·비용·권한에 유리한 방향으로 제도에 적응",
+          "gaming_risk": "법률상 형식과 실제 행동 사이의 차이를 이용할 가능성",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "actor": "지방자치단체",
+          "formal_role": "법안의 직접 또는 간접 영향주체",
+          "likely_incentive": "자신의 권리·비용·권한에 유리한 방향으로 제도에 적응",
+          "gaming_risk": "법률상 형식과 실제 행동 사이의 차이를 이용할 가능성",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "actor": "수혜 신청자",
+          "formal_role": "자격 입증과 지원 사용",
+          "likely_incentive": "지원 극대화와 자격 유지",
+          "gaming_risk": "소득·재산·사업구조를 형식적으로 조정",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        },
+        {
+          "actor": "집행기관",
+          "formal_role": "대상선정·지급·환수",
+          "likely_incentive": "신속 집행과 감사위험 최소화",
+          "gaming_risk": "정교한 판단보다 서류가 완벽한 신청자를 선호",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        },
+        {
+          "actor": "중개기관·공급자",
+          "formal_role": "지원서비스 제공",
+          "likely_incentive": "지원단가와 이용자 수 확대",
+          "gaming_risk": "필요하지 않은 서비스 공급과 가격 부풀리기",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        },
+        {
+          "actor": "납세자·비수혜자",
+          "formal_role": "재원 부담",
+          "likely_incentive": "형평성과 재정 지속성",
+          "gaming_risk": "혜택과 부담의 분리가 커지면 제도 신뢰가 약화",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        }
+      ],
+      "deep_red_team": [
+        {
+          "title": "목표와 수단의 불일치",
+          "attacker": "정책 추진기관",
+          "incentive": "가시적인 제도 변경으로 성과를 보여주려는 유인",
+          "path": "문제의 근본원인보다 법률로 바꾸기 쉬운 절차·조직·의무만 확대",
+          "harmed": "정책 대상과 납세자",
+          "warning": "제도 변경은 완료됐지만 핵심 결과지표가 개선되지 않음",
+          "defense": "원인모형 공개, 대안비교, 시범사업, 기준선·중단조건",
+          "residual": "사회문제의 다원적 원인 때문에 단일 성과지표는 한계가 있음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "책임의 분산",
+          "attacker": "관련 기관들",
+          "incentive": "실패 책임을 다른 주체에 전가하려는 유인",
+          "path": "권한은 공유하지만 최종 책임기관과 처리기한은 불명확하게 설계",
+          "harmed": "민원인과 정책 대상",
+          "warning": "기관 간 이송·협의·검토가 반복되고 처리기간이 증가",
+          "defense": "단일 책임기관, 역할표, 법정 처리기한, 실패책임 공개",
+          "residual": "복합정책에서는 완전한 단일책임 구조가 어려울 수 있음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "성과지표 조작",
+          "attacker": "집행기관·수탁기관",
+          "incentive": "예산과 조직을 유지하기 위해 성과를 높게 보이려는 유인",
+          "path": "쉬운 대상만 선택하거나 측정지표를 실제 목적과 분리",
+          "harmed": "어려운 대상과 장기적 정책효과",
+          "warning": "보고지표는 개선되지만 민원·피해·현장평가는 나빠짐",
+          "defense": "복수지표, 부작용지표, 원자료 공개, 독립평가, 표본감사",
+          "residual": "평가지표가 많아지면 행정부담과 책임분산이 증가",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "조직 신설을 통한 예산·정원 고착",
+          "attacker": "부처·위원회·이해관계집단",
+          "incentive": "새 조직과 직위·예산을 장기 유지하려는 유인",
+          "path": "한시적 문제를 이유로 상설기구를 만들고 성과와 무관하게 기능 확대",
+          "harmed": "납세자·기존기관·정책대상",
+          "warning": "성과자료 없이 정원·예산·산하기관이 계속 증가",
+          "defense": "설치기한, 일몰, 기능중복 심사, 정원·예산 상한, 독립 성과평가",
+          "residual": "일몰 직전 형식적 성과와 정치적 연장 가능성이 남음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "포괄위임을 통한 권한 팽창",
+          "attacker": "행정부·신설기관",
+          "incentive": "법률보다 유연하게 권한범위를 확대하려는 유인",
+          "path": "핵심 기준을 시행령·고시·내부지침의 ‘필요한 사항’으로 위임",
+          "harmed": "국민·기업·지방정부·국회의 통제권",
+          "warning": "하위규정 개정으로 적용대상·자료요구·제재범위가 계속 확대",
+          "defense": "법률유보, 위임범위 명시, 국회보고, 규제영향평가, 사법심사",
+          "residual": "기술·현장변화에 대한 신속 대응은 느려질 수 있음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "기관 간 책임 떠넘기기",
+          "attacker": "신설기관·기존부처·지방정부",
+          "incentive": "실패와 민원책임을 다른 기관에 넘기려는 유인",
+          "path": "공동협의·지원·조정이라는 표현으로 최종결정권과 책임을 불명확하게 함",
+          "harmed": "민원인·정책대상·현장공무원",
+          "warning": "기관 간 이송과 협의가 반복되고 처리기한이 길어짐",
+          "defense": "단일 책임기관, 권한표, 법정 처리기한, 공동사건 추적, 책임공개",
+          "residual": "복합정책의 협업 필요와 단일책임 사이 긴장은 남음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "전문가·위원회 포획",
+          "attacker": "업계·전문직단체·정치권",
+          "incentive": "위원 구성과 전문기준을 통해 정책결정을 선점할 유인",
+          "path": "동일 네트워크가 추천·심사·평가를 반복 점유하고 이해충돌을 숨김",
+          "harmed": "소수의견·신규진입자·일반 시민",
+          "warning": "위원 경력과 소속이 반복되고 회의록·이해충돌 자료가 비공개",
+          "defense": "공개모집, 임기제한, 구성 다양성, 이해충돌 공개, 시민위원·소수의견",
+          "residual": "형식적 다양성을 갖춰도 실질 정보와 의제설정 권력은 집중될 수 있음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "평가지표 맞추기와 학생 선별",
+          "attacker": "학교·교육행정·교원",
+          "incentive": "성과평가와 예산·평판을 높이려는 유인",
+          "path": "시험 대비에 집중하고 저성과·특수지원 학생을 제외·전학·결석 처리",
+          "harmed": "취약학생·특수교육 대상·장기결석 학생",
+          "warning": "평균점수는 오르지만 제외학생·전학·중도탈락이 증가",
+          "defense": "학생구성 위험조정, 포용지표, 원자료 감사, 장기성과와 학생경험 평가",
+          "residual": "지표가 복잡해질수록 교육현장의 행정부담과 조작기회가 증가",
+          "severity": "높음",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "title": "정보격차에 의한 선택권 포획",
+          "attacker": "정보와 이동수단이 많은 가정·사교육 시장",
+          "incentive": "좋은 학교·과정·지원에 먼저 접근하려는 유인",
+          "path": "복잡한 신청과 정보비대칭을 이용해 선택권과 특례를 선점",
+          "harmed": "저소득·농어촌·이주·장애학생",
+          "warning": "선택권 확대 뒤 계층·지역별 참여율과 성과격차가 확대",
+          "defense": "자동안내, 단순신청, 교통·돌봄 지원, 무작위·균형배정, 격차공개",
+          "residual": "균형배정이 가족의 선택권과 학교 특성화를 제한할 수 있음",
+          "severity": "높음",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "title": "정치·이념적 교육통제",
+          "attacker": "임명권자·교육행정·다수 정치세력",
+          "incentive": "교육과정·인사·예산을 정치적 정체성 강화에 이용할 유인",
+          "path": "인사·교재·평가·지원사업을 통해 비판적 견해와 소수교육을 축소",
+          "harmed": "학생·교원·학부모의 표현과 교육자율",
+          "warning": "정권교체마다 교육과정·인사·지원기준이 급격히 변경",
+          "defense": "독립 심의, 다원적 구성, 공개근거, 학문·교육자유, 사법적 불복",
+          "residual": "독립기구 역시 특정 전문가집단에 포획될 가능성이 남음",
+          "severity": "높음",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "title": "학교 현장의 행정업무 폭증",
+          "attacker": "중앙·지방 교육행정",
+          "incentive": "새 정책의 이행을 보고서와 시스템 입력으로 확인하려는 유인",
+          "path": "교원과 학교에 계획·실적·증빙업무를 전가",
+          "harmed": "학생의 수업시간과 교원의 교육역량",
+          "warning": "정책사업 수와 보고시간은 늘지만 수업·상담시간은 감소",
+          "defense": "업무량 영향평가, 자동연계, 보고 통폐합, 현장 표본검증",
+          "residual": "자동화가 새로운 데이터 입력·감시 부담으로 변할 수 있음",
+          "severity": "높음",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "title": "자격기준 맞추기",
+          "attacker": "신청자·대행업체",
+          "incentive": "실질 필요보다 형식적 자격을 충족하려는 유인",
+          "path": "소득·재산·사업체·가구구성을 일시적으로 조정하거나 명의를 분산",
+          "harmed": "정직한 신청자, 더 취약하지만 기준 밖에 있는 사람, 납세자",
+          "warning": "특정 기준선 바로 아래에 신청자가 비정상적으로 집중",
+          "defense": "기간평균, 실질지배 확인, 중복검증, 사후환수와 선의의 오류 구분",
+          "residual": "강한 검증은 개인정보 침해와 정당한 수혜자의 위축을 낳을 수 있음",
+          "severity": "높음",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        }
+      ],
+      "second_order_effects": [
+        {
+          "effect": "행정부담 증가",
+          "direction": "위험",
+          "mechanism": "새 의무·보고·협의절차가 기존 업무와 중첩",
+          "monitor": "처리시간·인력·보고서 수·민원 적체",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "effect": "책임성과 투명성 개선 가능성",
+          "direction": "기회",
+          "mechanism": "권한과 의무가 명확히 규정되면 추적이 쉬워짐",
+          "monitor": "책임기관 표시·성과공개·정정 속도",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "effect": "지역·기관별 격차",
+          "direction": "위험",
+          "mechanism": "같은 법률도 자원과 역량 차이로 다르게 집행",
+          "monitor": "지역별 처리기간·성과·민원·예산",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "effect": "법률과 현실의 괴리",
+          "direction": "위험",
+          "mechanism": "현장 유인과 맞지 않는 의무는 형식적 준수로 전환",
+          "monitor": "서류상 준수율과 실제 결과의 차이",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "effect": "행정조정 개선 가능성",
+          "direction": "기회",
+          "mechanism": "분산된 업무와 책임을 한 조직이 통합할 수 있음",
+          "monitor": "처리기간·중복예산·기관이송·민원해결률",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "effect": "관료제와 규제범위 확대",
+          "direction": "위험",
+          "mechanism": "조직 생존을 위해 새로운 업무·자료요구·규제를 계속 발굴",
+          "monitor": "정원·예산·규정·자료요구 건수",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "effect": "사교육·정보시장 확대",
+          "direction": "위험",
+          "mechanism": "복잡한 선발·평가·선택제도는 정보구매 능력의 가치를 높임",
+          "monitor": "사교육비·컨설팅 이용·계층별 참여격차",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "effect": "교원 전문성 또는 행정화",
+          "direction": "양면",
+          "mechanism": "책임성과 지원이 전문성을 높이거나 보고업무를 늘릴 수 있음",
+          "monitor": "수업·상담시간, 행정시간, 교원 이직·만족도",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "effect": "가격 인상과 지원금 자본화",
+          "direction": "위험",
+          "mechanism": "공급이 제한된 시장에서 지원금이 가격상승으로 흡수",
+          "monitor": "지원 전후 가격·임대료·서비스단가",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        },
+        {
+          "effect": "근로·소득 증가의 역유인",
+          "direction": "위험",
+          "mechanism": "자격 기준선에서 추가소득보다 혜택 상실이 더 큼",
+          "monitor": "기준선 주변 소득분포와 수급탈락 후 생활변화",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        },
+        {
+          "effect": "행정자료 통합의 확대",
+          "direction": "양면",
+          "mechanism": "정밀선별을 위해 개인정보 결합이 증가",
+          "monitor": "연계데이터 항목·오류정정·접근기록",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        },
+        {
+          "effect": "지역·계층별 공급격차",
+          "direction": "위험",
+          "mechanism": "지원은 같아도 서비스 공급이 부족한 지역은 혜택을 사용하지 못함",
+          "monitor": "지역별 이용률·대기시간·공급자 수",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        }
+      ],
+      "stress_tests": [
+        {
+          "scenario": "예산과 인력이 계획의 절반만 확보되는 경우",
+          "question": "핵심 기능을 유지하려면 무엇을 우선하고 무엇을 중단할 것인가?",
+          "pass_condition": "우선순위·최소서비스·단계시행 기준이 법률 또는 계획에 명시",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "scenario": "집행기관이 법의 취지에 소극적이거나 반대하는 경우",
+          "question": "의도적 지연·최소이행·책임회피를 어떻게 발견하고 교정하는가?",
+          "pass_condition": "처리기한·공개지표·독립감사·이의제기·시정명령이 존재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "scenario": "가장 영리한 이해관계자가 법의 경계조건을 이용하는 경우",
+          "question": "명의·계약·조직·데이터 형식을 바꿔도 실질적으로 적용되는가?",
+          "pass_condition": "실질우선·우회행위·특수관계·정기 정의갱신 규정이 존재",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "scenario": "정책이 예상과 반대로 피해를 키우는 경우",
+          "question": "피해를 얼마나 빨리 발견하고 중단·축소·보상할 수 있는가?",
+          "pass_condition": "부작용지표·중단조건·일몰·피해구제와 책임주체가 명시",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "scenario": "신청자가 예상보다 두 배 늘고 재원은 그대로인 경우",
+          "question": "대상 축소·단가 조정·대기·추가재원 중 어떤 규칙을 적용하는가?",
+          "pass_condition": "자동조정·우선순위·재정상한·의회 재승인 규칙이 존재",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        }
+      ],
+      "evidence_tests": [
+        {
+          "claim": "문제의 규모가 법 개정을 정당화할 만큼 크다.",
+          "required_evidence": "최근 3~5년 공식 통계, 분모가 있는 발생률, 지역·집단별 분포",
+          "rejection_condition": "절대건수만 제시되거나 추세·비교집단에서 문제가 확인되지 않음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "claim": "제안된 수단이 문제의 원인에 직접 작용한다.",
+          "required_evidence": "인과경로, 기존 제도 실패자료, 국내외 비교와 대안비교",
+          "rejection_condition": "수단이 원인보다 결과나 행정절차만 바꾸고 대안비교가 없음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "claim": "편익이 행정·재정·권리비용보다 크다.",
+          "required_evidence": "비용추계, 인력·시스템 구축비, 권리영향과 기회비용",
+          "rejection_condition": "직접예산만 계산하고 민간·지방·권리비용을 누락",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "claim": "새 조직이 중복을 줄이고 책임성과 처리속도를 높인다.",
+          "required_evidence": "기능맵, 기존기관 대비 업무·예산·인력, 처리기간과 민원이송",
+          "rejection_condition": "기존 조직은 유지된 채 정원·보고·협의절차만 증가",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "claim": "추가 권한에 상응하는 민주적·사법적 통제가 존재한다.",
+          "required_evidence": "위임범위, 공개·감사·불복·국회보고와 실제 통제 사례",
+          "rejection_condition": "포괄위임과 비공개 의사결정이 늘고 외부통제는 약함",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "claim": "제도 변경이 학생의 학습·기회·안전을 개선한다.",
+          "required_evidence": "학생구성 위험조정 성과, 격차, 중도탈락, 만족도와 장기추적",
+          "rejection_condition": "행정성과만 개선되고 취약학생 격차·배제·사교육비가 증가",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "claim": "학교와 교원의 행동이 교육목적에 맞게 변화한다.",
+          "required_evidence": "수업·상담·행정시간, 학생선별, 평가대상 제외와 질적 조사",
+          "rejection_condition": "시험교육·학생선별·보고업무가 늘고 수업시간이 감소",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        },
+        {
+          "claim": "지원대상이 실제 필요집단과 일치한다.",
+          "required_evidence": "수혜·탈락자의 소득·재산·위험분포, 누락률·부정수급률",
+          "rejection_condition": "집행률만 제시하고 사각지대·오선정 자료가 없음",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        },
+        {
+          "claim": "지원이 가격상승이나 공급자 이익이 아닌 수혜자 편익으로 귀착된다.",
+          "required_evidence": "지원 전후 가격·수량·품질·공급자 마진과 비교시장",
+          "rejection_condition": "지원액만큼 가격이 오르거나 공급량·품질이 개선되지 않음",
+          "profile_key": "subsidy_fiscal",
+          "profile_label": "재정·지원배분",
+          "profile_role": "부유형 2"
+        }
+      ],
+      "evidence_chains": [
+        {
+          "attack": "목표와 수단의 불일치",
+          "profile": "행정조직·권한배분",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "문제의 근본원인보다 법률로 바꾸기 쉬운 절차·조직·의무만 확대",
+          "guardrail": "원인모형 공개, 대안비교, 시범사업, 기준선·중단조건",
+          "residual_risk": "사회문제의 다원적 원인 때문에 단일 성과지표는 한계가 있음",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
+        },
+        {
+          "attack": "책임의 분산",
+          "profile": "행정조직·권한배분",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "권한은 공유하지만 최종 책임기관과 처리기한은 불명확하게 설계",
+          "guardrail": "단일 책임기관, 역할표, 법정 처리기한, 실패책임 공개",
+          "residual_risk": "복합정책에서는 완전한 단일책임 구조가 어려울 수 있음",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
+        },
+        {
+          "attack": "성과지표 조작",
+          "profile": "행정조직·권한배분",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "쉬운 대상만 선택하거나 측정지표를 실제 목적과 분리",
+          "guardrail": "복수지표, 부작용지표, 원자료 공개, 독립평가, 표본감사",
+          "residual_risk": "평가지표가 많아지면 행정부담과 책임분산이 증가",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
+        },
+        {
+          "attack": "조직 신설을 통한 예산·정원 고착",
+          "profile": "행정조직·권한배분",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "한시적 문제를 이유로 상설기구를 만들고 성과와 무관하게 기능 확대",
+          "guardrail": "설치기한, 일몰, 기능중복 심사, 정원·예산 상한, 독립 성과평가",
+          "residual_risk": "일몰 직전 형식적 성과와 정치적 연장 가능성이 남음",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
+        },
+        {
+          "attack": "포괄위임을 통한 권한 팽창",
+          "profile": "행정조직·권한배분",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "핵심 기준을 시행령·고시·내부지침의 ‘필요한 사항’으로 위임",
+          "guardrail": "법률유보, 위임범위 명시, 국회보고, 규제영향평가, 사법심사",
+          "residual_risk": "기술·현장변화에 대한 신속 대응은 느려질 수 있음",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
+        },
+        {
+          "attack": "기관 간 책임 떠넘기기",
+          "profile": "행정조직·권한배분",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "공동협의·지원·조정이라는 표현으로 최종결정권과 책임을 불명확하게 함",
+          "guardrail": "단일 책임기관, 권한표, 법정 처리기한, 공동사건 추적, 책임공개",
+          "residual_risk": "복합정책의 협업 필요와 단일책임 사이 긴장은 남음",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
+        },
+        {
+          "attack": "전문가·위원회 포획",
+          "profile": "행정조직·권한배분",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "동일 네트워크가 추천·심사·평가를 반복 점유하고 이해충돌을 숨김",
+          "guardrail": "공개모집, 임기제한, 구성 다양성, 이해충돌 공개, 시민위원·소수의견",
+          "residual_risk": "형식적 다양성을 갖춰도 실질 정보와 의제설정 권력은 집중될 수 있음",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
+        },
+        {
+          "attack": "평가지표 맞추기와 학생 선별",
+          "profile": "교육제도",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "시험 대비에 집중하고 저성과·특수지원 학생을 제외·전학·결석 처리",
+          "guardrail": "학생구성 위험조정, 포용지표, 원자료 감사, 장기성과와 학생경험 평가",
+          "residual_risk": "지표가 복잡해질수록 교육현장의 행정부담과 조작기회가 증가",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
+        },
+        {
+          "attack": "정보격차에 의한 선택권 포획",
+          "profile": "교육제도",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "복잡한 신청과 정보비대칭을 이용해 선택권과 특례를 선점",
+          "guardrail": "자동안내, 단순신청, 교통·돌봄 지원, 무작위·균형배정, 격차공개",
+          "residual_risk": "균형배정이 가족의 선택권과 학교 특성화를 제한할 수 있음",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
+        },
+        {
+          "attack": "정치·이념적 교육통제",
+          "profile": "교육제도",
+          "claim_ids": [
+            "C01",
+            "C02",
+            "C03"
+          ],
+          "logic": "발의자의 문제·효과 주장이 참이더라도, 이해관계자의 실제 유인이 법의 형식과 다른 행동을 만들 수 있는지 검토합니다.",
+          "failure_path": "인사·교재·평가·지원사업을 통해 비판적 견해와 소수교육을 축소",
+          "guardrail": "독립 심의, 다원적 구성, 공개근거, 학문·교육자유, 사법적 불복",
+          "residual_risk": "독립기구 역시 특정 전문가집단에 포획될 가능성이 남음",
+          "fork_links": [
+            "A",
+            "B",
+            "C"
+          ],
+          "verification_status": "조문·외부근거 대조 전"
+        }
+      ],
+      "design_requirements": [
+        "정책 목표와 기준선을 수치 또는 검증 가능한 문장으로 명시",
+        "집행 책임기관, 처리기한, 필요한 인력·예산과 실패 책임을 명시",
+        "권리침해·비용전가·지역격차를 측정할 부작용 지표를 별도 공개",
+        "시행 후 독립평가, 일몰 또는 재승인, 중단·축소 기준을 마련",
+        "이의제기·정정·피해구제와 수정이력 공개절차를 마련",
+        "신설 전 기존기관 기능·예산·정원과의 중복분석 및 폐지·통합계획을 공개",
+        "핵심 권한·자료요구·제재범위는 법률에서 제한하고 포괄위임을 금지",
+        "설치기한·정원·예산상한·독립평가와 자동폐지 또는 재승인을 결합",
+        "평균성과 외에 취약학생 격차·배제·중도탈락·학생경험을 평가",
+        "교원 수업·상담시간과 행정부담 영향을 사전·사후 측정",
+        "정치·이념적 통제를 막는 독립성·다원성·공개근거와 불복절차를 마련",
+        "대상선정의 누락오류·중복수혜·환수와 선의의 오류를 구분",
+        "가격·공급자 마진·지역별 이용률을 추적해 지원금 자본화를 감시",
+        "재정상한·자동조정·종료지원과 기준선 주변의 역유인을 완화"
+      ],
+      "depth_summary": {
+        "profiles": 3,
+        "claims": 12,
+        "assumptions": 14,
+        "actors": 8,
+        "attacks": 12,
+        "second_order_effects": 12,
+        "stress_tests": 5,
+        "evidence_tests": 9,
+        "evidence_chains": 10
+      },
+      "residual_uncertainty": [
+        "법률안 조문 전문과 현행법 대비표가 아직 자동 대조되지 않았습니다.",
+        "비용추계서·미첨부 사유서와 실제 행정인력 자료가 아직 반영되지 않았습니다.",
+        "위원회 검토보고서·회의록과 정부·이해관계자 답변이 아직 반영되지 않았습니다.",
+        "외부 통계와 국내외 유사제도의 시행성과를 독립적으로 대조하지 않았습니다.",
+        "주장 원장의 모든 항목은 현재 독립 검증 전 상태입니다."
+      ]
+    },
+    "official_documents": [
+      {
+        "document": "제안이유 및 주요내용",
+        "status": "연동 완료",
+        "importance": "법안이 주장하는 문제·목적·변경방향",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2M6K0L7T1R6S0Q9R1P9Q5Y9W3X2V4&ageFrom=22&ageTo=22"
+      },
+      {
+        "document": "법률안 조문 전문",
+        "status": "상세페이지·첨부파일 확인 필요",
+        "importance": "실제 권리·의무·예외·위임·제재 확인",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2M6K0L7T1R6S0Q9R1P9Q5Y9W3X2V4&ageFrom=22&ageTo=22"
+      },
+      {
+        "document": "신·구조문 대비표",
+        "status": "존재 여부 확인 필요",
+        "importance": "현행법과 개정안의 문장 단위 차이",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2M6K0L7T1R6S0Q9R1P9Q5Y9W3X2V4&ageFrom=22&ageTo=22"
+      },
+      {
+        "document": "비용추계서·미첨부 사유서",
+        "status": "존재 여부 확인 필요",
+        "importance": "국가·지자체·민간의 재정·인력 부담",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2M6K0L7T1R6S0Q9R1P9Q5Y9W3X2V4&ageFrom=22&ageTo=22"
+      },
+      {
+        "document": "소관위원회 검토보고서",
+        "status": "위원회 심사 진행 후 확인",
+        "importance": "전문위원의 법체계·집행·비용·쟁점 검토",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2M6K0L7T1R6S0Q9R1P9Q5Y9W3X2V4&ageFrom=22&ageTo=22"
+      },
+      {
+        "document": "위원회 회의록·찬반토론",
+        "status": "회의 개최 후 확인",
+        "importance": "질의·반론·정부답변·수정논의",
+        "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2M6K0L7T1R6S0Q9R1P9Q5Y9W3X2V4&ageFrom=22&ageTo=22"
+      }
+    ],
+    "fork_readiness": {
+      "level": "중간",
+      "points": 4,
+      "max_points": 5,
+      "reasons": [
+        "문제 문장 분리 가능",
+        "변경방향 분리 가능",
+        "영향주체 후보 식별",
+        "관련 조문 단서 존재"
+      ],
+      "missing": [
+        "소관위원회·심사자료",
+        "법안 조문 전문",
+        "비용추계서",
+        "위원회 검토보고서·회의록"
+      ],
+      "meaning": "정책의 우수성 점수가 아니라 수정안을 설계하기 위해 확보된 정보의 준비 정도"
+    },
+    "thirty_second_brief": {
+      "problem": "서이초 교사 사망 사건이 발생한 지 3년이 지난 현재까지도 교육활동 침해 문제는 여전히 우려스러운 수준임.",
+      "change": "교육부장관이 교원의 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관인 중앙교육활동보호센터를 설치ㆍ운영하도록…",
+      "who": "교육감과 지방교육행정, 학생·학습자, 교원·교사, 지방자치단체",
+      "proposer_claim": "지원 사각지대를 줄이고 필요한 대상의 보호나 혜택을 넓힐 수 있다는 주장입니다.",
+      "largest_risk": "현장 문제는 남고 행정비용과 허위안심만 증가할 수 있음",
+      "decision": "지원이 꼭 필요한 대상에게 도달하면서 사각지대·중복지원·재정 누수를 어떻게 동시에 줄일 것인가?"
+    },
+    "one_minute_brief": {
+      "problem": "서이초 교사 사망 사건이 발생한 지 3년이 지난 현재까지도 교육활동 침해 문제는 여전히 우려스러운 수준임.",
+      "change": "교육부장관이 교원의 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관인 중앙교육활동보호센터를 설치ㆍ운영하도록…",
+      "who": "교육감과 지방교육행정, 학생·학습자, 교원·교사, 지방자치단체",
+      "decision": "지원이 꼭 필요한 대상에게 도달하면서 사각지대·중복지원·재정 누수를 어떻게 동시에 줄일 것인가?"
+    },
+    "proposer_argument_map": {
+      "source_type": "발의자의 제안이유 및 주요내용",
+      "separation_rule": "정치인의 주장, 주장이 제시한 근거, 그 근거에서 결론으로 이어지는 논리를 각각 분리하며 어느 것도 사실로 자동 확정하지 않습니다.",
+      "claims": [
+        {
+          "id": "C01",
+          "claim": "서이초 교사 사망 사건이 발생한 지 3년이 지난 현재까지도 교육활동 침해 문제는 여전히 우려스러운 수준임.",
+          "claim_type": "수치·규모 주장",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C02",
+          "claim": "최근 3년간(2023년부터 2025년까지) 교육활동 침해행위에 대한 교권보호위원회 심의는 매년 4천 건 이상 이루어졌고, 2025년 한 해 16개 시도교육청에 접수된 교권침해 상담 건수는 5만 7, 966건에 달함.",
+          "claim_type": "수치·규모 주장",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C03",
+          "claim": "또한, 2023년 9월부터 2026년 2월까지 약 2년 6개월간 교육감이 ‘정당한 생활지도’에 해당한다는 의견서를 제출한 아동학대 신고가 1, 352건에 이르는 등 아동학대 신고 제도가 악용되는 문제도 심각한 수준임.",
+          "claim_type": "수치·규모 주장",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C04",
+          "claim": "교원은 국가를 대신하여 학생을 교육하는 사람임.",
+          "claim_type": "기타 정책 주장",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C05",
+          "claim": "따라서 정당한 교육활동이 침해되거나 그로 인하여 법적 분쟁에 휘말린 경우 이를 교원 개인이 홀로 감당하도록 두어서는 아니 되며, 국가가 책임지고 교원을 보호하는 제도를 마련할 필요가 있음.",
+          "claim_type": "원인 주장",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C06",
+          "claim": "그러나 현행법상 법률지원단의 지원은 법률 상담 중심에 머물러 있어 조사ㆍ수사나 소송 단계에 놓인 교원을 실질적으로 보호하는 데 한계가 있고, 정작 보호가 가장 절실한 사안 초기에 조력이 이루어지지 못하는 실정임.",
+          "claim_type": "문제 진단",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C07",
+          "claim": "아울러 그동안 마련된 교육활동 보호 제도가 현장에서 실제로 작동하는지 점검ㆍ조사하고 그 결과를 제도 개선으로 환류하는 체계도 미비함.",
+          "claim_type": "문제 진단",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C08",
+          "claim": "이에 교원의 정당한 교육활동에 대한 국가와 지방자치단체의 보호 책임을 법률에 명시하고, 교육활동 침해 피해교원이 조사ㆍ수사 및 법률적 분쟁에 대응하기 위한 법률지원단의 지원을 받을 수 있도록 하며, 법률지원단이 소송 수행에 필요한 지원을 조사ㆍ수사 또는 소송의 시작 단계부터 지체 없이 제공하도록 하고, 교육부장관이 교원의 정당한 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관을 설치ㆍ운영하도록 하려는 것임.",
+          "claim_type": "수치·규모 주장",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C11",
+          "claim": "교원의 정당한 교육활동에 대한 국가와 지방자치단체의 보호 책임을 이 법의 목적 및 교원에 대한 예우 규정에 명시함",
+          "claim_type": "수치·규모 주장",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C13",
+          "claim": "교육부장관 및 교육감이 실시하는 실태조사의 대상에 법률지원단의 구성 및 운영에 관한 사항을 추가함",
+          "claim_type": "권한·의무 변경",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C15",
+          "claim": "피해교원에 대한 보호조치에 조사ㆍ수사 및 법률적 분쟁에 대응하기 위한 법률지원단의 지원을 추가함",
+          "claim_type": "효과·편익 주장",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        },
+        {
+          "id": "C17",
+          "claim": "법률지원단의 업무에 소송 수행에 필요한 지원 등을 추가하고, 정당한 교육활동이 아동학대범죄로 신고된 경우 등에는 해당 교원이 조사ㆍ수사 시작 단계부터 지체 없이 법률지원단의 조력을 받을 수 있도록 함",
+          "claim_type": "문제 진단",
+          "speaker": "발의자·제안이유",
+          "status": "독립 검증 전"
+        }
+      ],
+      "stated_evidence": [
+        "그러나 현행법상 법률지원단의 지원은 법률 상담 중심에 머물러 있어 조사ㆍ수사나 소송 단계에 놓인 교원을 실질적으로 보호하는 데 한계가 있고, 정작 보호가 가장 절실한 사안 초기에 조력이 이루어지지 못하는 실정임.",
+        "아울러 그동안 마련된 교육활동 보호 제도가 현장에서 실제로 작동하는지 점검ㆍ조사하고 그 결과를 제도 개선으로 환류하는 체계도 미비함.",
+        "이에 교원의 정당한 교육활동에 대한 국가와 지방자치단체의 보호 책임을 법률에 명시하고, 교육활동 침해 피해교원이 조사ㆍ수사 및 법률적 분쟁에 대응하기 위한 법률지원단의 지원을 받을 수 있도록 하며, 법률지원단이 소송 수행에 필요한 지원을 조사ㆍ수사 또는 소송의 시작 단계부터 지체 없이 제공하도록 하고, 교육부장관이 교원의 정당한 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관을 설치ㆍ운영하도록 하려는 것임.",
+        "교육부장관 및 교육감이 실시하는 실태조사의 대상에 법률지원단의 구성 및 운영에 관한 사항을 추가함(안 제16조제1항).",
+        "피해교원에 대한 보호조치에 조사ㆍ수사 및 법률적 분쟁에 대응하기 위한 법률지원단의 지원을 추가함(안 제20조제1항제3호 신설).",
+        "법률지원단의 업무에 소송 수행에 필요한 지원 등을 추가하고, 정당한 교육활동이 아동학대범죄로 신고된 경우 등에는 해당 교원이 조사ㆍ수사 시작 단계부터 지체 없이 법률지원단의 조력을 받을 수 있도록 함(안 제21조).",
+        "교육부장관이 교원의 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관인 중앙교육활동보호센터를 설치ㆍ운영하도록 함(안 제29조의3 신설)."
+      ],
+      "logic_chain": [
+        {
+          "step": 1,
+          "label": "문제 주장",
+          "content": "서이초 교사 사망 사건이 발생한 지 3년이 지난 현재까지도 교육활동 침해 문제는 여전히 우려스러운 수준임."
+        },
+        {
+          "step": 2,
+          "label": "정책수단",
+          "content": "교육부장관이 교원의 교육활동 보호와 학생의 학습권 보장을 위한 모니터링ㆍ평가ㆍ조사ㆍ대응 등의 업무를 수행하는 전담기관인 중앙교육활동보호센터를 설치ㆍ운영하도록 함."
+        },
+        {
+          "step": 3,
+          "label": "기대결과",
+          "content": "지원 사각지대를 줄이고 필요한 대상의 보호나 혜택을 넓힐 수 있다는 주장입니다."
+        }
+      ],
+      "unproven_links": [
+        "공식 요약에 나온 수치·사례는 원자료와 산출방식을 아직 대조하지 않았습니다.",
+        "법안이 제시한 문제 진단은 발의자의 주장으로서 독립 검증 전입니다.",
+        "법안이 예상하는 효과는 시행자료가 없는 사전 주장으로서 검증 전입니다."
+      ],
+      "verification_status": "발의자 주장 분리 완료 · 독립 검증 전"
+    },
+    "adversarial_audit": {
+      "mission": "정책을 옹호하는 것이 아니라, 실패·악용·부정부패·기관포획·우회 가능성을 가장 강한 조건에서 찾아 무너뜨린 뒤 살아남는 설계만 남깁니다.",
+      "attack_count": 12,
+      "top_attacks": [
+        {
+          "title": "목표와 수단의 불일치",
+          "attacker": "정책 추진기관",
+          "incentive": "가시적인 제도 변경으로 성과를 보여주려는 유인",
+          "path": "문제의 근본원인보다 법률로 바꾸기 쉬운 절차·조직·의무만 확대",
+          "harmed": "정책 대상과 납세자",
+          "warning": "제도 변경은 완료됐지만 핵심 결과지표가 개선되지 않음",
+          "defense": "원인모형 공개, 대안비교, 시범사업, 기준선·중단조건",
+          "residual": "사회문제의 다원적 원인 때문에 단일 성과지표는 한계가 있음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "책임의 분산",
+          "attacker": "관련 기관들",
+          "incentive": "실패 책임을 다른 주체에 전가하려는 유인",
+          "path": "권한은 공유하지만 최종 책임기관과 처리기한은 불명확하게 설계",
+          "harmed": "민원인과 정책 대상",
+          "warning": "기관 간 이송·협의·검토가 반복되고 처리기간이 증가",
+          "defense": "단일 책임기관, 역할표, 법정 처리기한, 실패책임 공개",
+          "residual": "복합정책에서는 완전한 단일책임 구조가 어려울 수 있음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "성과지표 조작",
+          "attacker": "집행기관·수탁기관",
+          "incentive": "예산과 조직을 유지하기 위해 성과를 높게 보이려는 유인",
+          "path": "쉬운 대상만 선택하거나 측정지표를 실제 목적과 분리",
+          "harmed": "어려운 대상과 장기적 정책효과",
+          "warning": "보고지표는 개선되지만 민원·피해·현장평가는 나빠짐",
+          "defense": "복수지표, 부작용지표, 원자료 공개, 독립평가, 표본감사",
+          "residual": "평가지표가 많아지면 행정부담과 책임분산이 증가",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "조직 신설을 통한 예산·정원 고착",
+          "attacker": "부처·위원회·이해관계집단",
+          "incentive": "새 조직과 직위·예산을 장기 유지하려는 유인",
+          "path": "한시적 문제를 이유로 상설기구를 만들고 성과와 무관하게 기능 확대",
+          "harmed": "납세자·기존기관·정책대상",
+          "warning": "성과자료 없이 정원·예산·산하기관이 계속 증가",
+          "defense": "설치기한, 일몰, 기능중복 심사, 정원·예산 상한, 독립 성과평가",
+          "residual": "일몰 직전 형식적 성과와 정치적 연장 가능성이 남음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "포괄위임을 통한 권한 팽창",
+          "attacker": "행정부·신설기관",
+          "incentive": "법률보다 유연하게 권한범위를 확대하려는 유인",
+          "path": "핵심 기준을 시행령·고시·내부지침의 ‘필요한 사항’으로 위임",
+          "harmed": "국민·기업·지방정부·국회의 통제권",
+          "warning": "하위규정 개정으로 적용대상·자료요구·제재범위가 계속 확대",
+          "defense": "법률유보, 위임범위 명시, 국회보고, 규제영향평가, 사법심사",
+          "residual": "기술·현장변화에 대한 신속 대응은 느려질 수 있음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "기관 간 책임 떠넘기기",
+          "attacker": "신설기관·기존부처·지방정부",
+          "incentive": "실패와 민원책임을 다른 기관에 넘기려는 유인",
+          "path": "공동협의·지원·조정이라는 표현으로 최종결정권과 책임을 불명확하게 함",
+          "harmed": "민원인·정책대상·현장공무원",
+          "warning": "기관 간 이송과 협의가 반복되고 처리기한이 길어짐",
+          "defense": "단일 책임기관, 권한표, 법정 처리기한, 공동사건 추적, 책임공개",
+          "residual": "복합정책의 협업 필요와 단일책임 사이 긴장은 남음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "전문가·위원회 포획",
+          "attacker": "업계·전문직단체·정치권",
+          "incentive": "위원 구성과 전문기준을 통해 정책결정을 선점할 유인",
+          "path": "동일 네트워크가 추천·심사·평가를 반복 점유하고 이해충돌을 숨김",
+          "harmed": "소수의견·신규진입자·일반 시민",
+          "warning": "위원 경력과 소속이 반복되고 회의록·이해충돌 자료가 비공개",
+          "defense": "공개모집, 임기제한, 구성 다양성, 이해충돌 공개, 시민위원·소수의견",
+          "residual": "형식적 다양성을 갖춰도 실질 정보와 의제설정 권력은 집중될 수 있음",
+          "severity": "높음",
+          "profile_key": "organization_power",
+          "profile_label": "행정조직·권한배분",
+          "profile_role": "주유형"
+        },
+        {
+          "title": "평가지표 맞추기와 학생 선별",
+          "attacker": "학교·교육행정·교원",
+          "incentive": "성과평가와 예산·평판을 높이려는 유인",
+          "path": "시험 대비에 집중하고 저성과·특수지원 학생을 제외·전학·결석 처리",
+          "harmed": "취약학생·특수교육 대상·장기결석 학생",
+          "warning": "평균점수는 오르지만 제외학생·전학·중도탈락이 증가",
+          "defense": "학생구성 위험조정, 포용지표, 원자료 감사, 장기성과와 학생경험 평가",
+          "residual": "지표가 복잡해질수록 교육현장의 행정부담과 조작기회가 증가",
+          "severity": "높음",
+          "profile_key": "education_system",
+          "profile_label": "교육제도",
+          "profile_role": "부유형 1"
+        }
+      ],
+      "corruption_and_capture_checks": [
+        {
+          "vector": "권한집중",
+          "status": "집중 공격 필요",
+          "signals": [
+            "위원회",
+            "장관"
+          ],
+          "question": "권한집중이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?"
+        },
+        {
+          "vector": "재량·특혜",
+          "status": "집중 공격 필요",
+          "signals": [
+            "지원"
+          ],
+          "question": "재량·특혜이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?"
+        },
+        {
+          "vector": "부정부패·이해충돌",
+          "status": "상시 점검",
+          "signals": [],
+          "question": "부정부패·이해충돌이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?"
+        },
+        {
+          "vector": "감시·정보남용",
+          "status": "집중 공격 필요",
+          "signals": [
+            "제출"
+          ],
+          "question": "감시·정보남용이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?"
+        },
+        {
+          "vector": "처벌·규제남용",
+          "status": "상시 점검",
+          "signals": [],
+          "question": "처벌·규제남용이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?"
+        },
+        {
+          "vector": "예산누수",
+          "status": "집중 공격 필요",
+          "signals": [
+            "지원"
+          ],
+          "question": "예산누수이 제도 안에서 은폐·우회·고착될 경로는 무엇인가?"
+        }
+      ],
+      "largest_risk": "현장 문제는 남고 행정비용과 허위안심만 증가할 수 있음",
+      "status": "자동 적대검증 초안 · 조문·사례·감사자료 대조 전"
+    },
+    "questions": [
+      "법안이 제시한 문제의 규모와 원인이 독립된 통계·연구로 확인되는가?",
+      "적용대상, 예외, 권리구제 절차가 조문에 구체적으로 규정되어 있는가?",
+      "재정 소요와 비용 부담 주체가 비용추계서에 제시되어 있는가?",
+      "예상하지 못한 부작용을 발견하고 수정할 재검토 장치가 있는가?"
+    ],
+    "scores": {
+      "문제정의": 4,
+      "근거": 3,
+      "재정": 0,
+      "집행": 3,
+      "기본권": 0,
+      "통제장치": 0,
+      "성과측정": 1,
+      "재검토": 0
+    },
+    "progress_timeline": [
+      {
+        "label": "제안",
+        "date": "2026-07-21"
+      }
+    ],
+    "forks": [],
+    "official": {
+      "age": "22",
+      "bill_no": "2220066",
+      "proposer": "백승아의원 등 18인",
+      "lead_proposer": "백승아",
+      "co_proposers": "박해철,권향엽,박희승,김문수,김준환,황정아,이재강,정일영,장철민,이용선,박정,윤후덕,곽상언,임미애,송재봉,김현정,고민정",
+      "result": "",
+      "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2M6K0L7T1R6S0Q9R1P9Q5Y9W3X2V4&ageFrom=22&ageTo=22",
+      "summary_api": "BPMBILLSUMMARY",
+      "detail_api": "BILLINFODETAIL",
+      "committee_presented_at": "",
+      "committee_processed_at": "",
+      "committee_result": "",
+      "law_submitted_at": "",
+      "law_processed_at": "",
+      "plenary_processed_at": ""
+    }
+  }
+}
