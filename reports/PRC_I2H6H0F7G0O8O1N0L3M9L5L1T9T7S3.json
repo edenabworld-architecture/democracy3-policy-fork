@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-21T07:14:03+09:00",
+  "generated_at": "2026-07-21T20:25:16+09:00",
   "bill": {
     "id": "PRC_I2H6H0F7G0O8O1N0L3M9L5L1T9T7S3",
     "policy_type": "국회 법률안",
@@ -2059,7 +2059,7 @@
       ],
       "review_log": [
         {
-          "at": "2026-07-21T07:14:03+09:00",
+          "at": "2026-07-21T20:25:16+09:00",
           "actor": "자동 조사 모듈",
           "action": "공식자료 위치·주장유형·성숙도 재평가",
           "result": "구조화·자료확보 준비",
@@ -2074,7 +2074,7 @@
       "verified_review_store": {
         "schema_version": "1.0",
         "methodology_version": "verified-review-store-v2",
-        "merged_at": "2026-07-21T07:14:03+09:00",
+        "merged_at": "2026-07-21T20:25:16+09:00",
         "official_documents": [],
         "external_evidence": [],
         "clause_comparisons": [],
@@ -2088,7 +2088,7 @@
         "operator_notes": ""
       },
       "provenance": {
-        "automatic_generated_at": "2026-07-21T07:14:03+09:00",
+        "automatic_generated_at": "2026-07-21T20:25:16+09:00",
         "manual_store_methodology": "verified-review-store-v2",
         "manual_updated_at": "",
         "authorship": "창안 및 원안 설계: 박찬성"
