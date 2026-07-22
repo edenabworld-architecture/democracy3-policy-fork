@@ -1,0 +1,44 @@
+name: Public Korean Quality Gate
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "index.html"
+      - "bills-index.json"
+      - "bills.json"
+      - "reports/**"
+      - "scripts/validate_public_korean.py"
+  pull_request:
+    paths:
+      - "index.html"
+      - "bills-index.json"
+      - "bills.json"
+      - "reports/**"
+      - "scripts/validate_public_korean.py"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-public-korean:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate public Korean and encoding
+        run: python scripts/validate_public_korean.py
+
+      - name: Upload quality report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-quality-report
+          path: public-quality-report.json
+          if-no-files-found: ignore
