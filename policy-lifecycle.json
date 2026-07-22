@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-22T14:18:55.808682+00:00",
+  "generated_at": "2026-07-22T20:05:40.607764+00:00",
   "summary": {
     "policies": 109,
     "stage_counts": {
@@ -27,7 +27,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2R6S0N7O1M5N1L6K3K8S2S7R2S3Q0&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -48,6 +48,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_S2R6S0N7O1M5N1L6K3K8S2S7R2S3Q0-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -63,6 +71,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "fcf502e4aba61e31d10de9c290acd75613b74c4415bad321da54578c4cb0a1de",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "선거관리위원회법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -84,7 +108,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_I2N6T0T6S1Q8X1W4V2R1Q4Z2Y5X3F0&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -105,6 +129,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_I2N6T0T6S1Q8X1W4V2R1Q4Z2Y5X3F0-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -120,6 +152,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "990fd4f082db9165ea2537fac768af7b95f343ce43692123d1dd282a6ea76cdd",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "문화예술진흥법 전부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -141,7 +189,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2J6K0J7H2H0G1G3O2P7N5N3M0K9L2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -162,6 +210,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_C2J6K0J7H2H0G1G3O2P7N5N3M0K9L2-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -177,6 +233,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "ac79e36a919a398ffe2ed67876e0db7ccbc446649fa4d8f19e5d51e35fc119c0",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "자율주행자동차의 도로운행 등에 관한 법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -198,7 +270,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2V6W0E7C1D6B1C5A0A4I1J3H0I9G9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -219,6 +291,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_X2V6W0E7C1D6B1C5A0A4I1J3H0I9G9-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -234,6 +314,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "1fce33a7beab2b8f07b3b47fe7af9a313af3356072ec48c40160cc26d092149b",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "주민소환에 관한 법률 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -255,7 +351,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_P2Q6O0N7N1V6V1T6V4T0T5R5H2H9F0&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -276,6 +372,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_P2Q6O0N7N1V6V1T6V4T0T5R5H2H9F0-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -291,6 +395,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "b41dd700b2a67dd15ac84d988f3359904fb391fa0a260106ea4a773de21c4194",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "형법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -312,7 +432,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2Q6Z0Z7X1W6X1V5W0S4Q3Q7P1P5N7&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -333,6 +453,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_Q2Q6Z0Z7X1W6X1V5W0S4Q3Q7P1P5N7-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -348,6 +476,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "37da2dd239378cc03fcacdc3cbdd4eb180363b916f9910f3a5e53d2002a25d0b",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "지방자치법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -369,7 +513,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2P6P0O7O1N6J1J5H0I3G4H7F2N9O3&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -390,6 +534,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_Q2P6P0O7O1N6J1J5H0I3G4H7F2N9O3-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -405,6 +557,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "b65c74b7d3aa806855091c0276fb5f8d23b537b7200e437d02d4cb07f959651b",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "공직선거법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -426,7 +594,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_B2Y6Y0U3S1S8Q1Z1X3W4V2D6C8B0A3&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -447,6 +615,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_B2Y6Y0U3S1S8Q1Z1X3W4V2D6C8B0A3-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -462,6 +638,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "4500757f552947ca3b9cbec217abd9830f6e000677bde2f41015cb1fb0980fbc",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "양성평등기본법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -483,7 +675,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2F6N0N7M2K0L1J0J1S6S1Q6R4P7O1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -504,6 +696,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_F2F6N0N7M2K0L1J0J1S6S1Q6R4P7O1-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -519,6 +719,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "9e767cd37be113bcac065dd6fe4e3fac37471e34ea1ac756babf88834a6d2f9a",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "형사소송법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -540,7 +756,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_I2G6H0F7G1E6F0A9Z5Z1X2Z4X0X9F1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -561,6 +777,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_I2G6H0F7G1E6F0A9Z5Z1X2Z4X0X9F1-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -576,6 +800,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "a8c54d0ff1e4d166f16b1b270c8eac696ec71b4031cc7e44f561b084d99d01b4",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "재외공관의 해외진출기업 지원에 관한 법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -597,7 +837,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2X6Y0F7G2F0F1D4C0C6K0L1J4K7I4&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -618,6 +858,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_Y2X6Y0F7G2F0F1D4C0C6K0L1J4K7I4-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -633,6 +881,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "a0e747045d84ae8696f67b0a6a4e2bf550d114bdf185ef9608ec3d15260fe2c3",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "스토킹범죄의 처벌 등에 관한 법률 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -654,7 +918,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2E6C0C4B2J9J1H6I1H2H2F3O8O4M9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -675,6 +939,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_D2E6C0C4B2J9J1H6I1H2H2F3O8O4M9-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -690,6 +962,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "34e4b64ea5d7803be6aa3d88d7938f4700d883f85d3b7e17d07a9a7cbad60066",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "개인정보 보호법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -711,7 +999,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2G6C0C7A1B6A1A5Z1G4H2G3G6E4D9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -732,6 +1020,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_H2G6C0C7A1B6A1A5Z1G4H2G3G6E4D9-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -747,6 +1043,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "18807afc508d20b5976f88c7e69983144b605016f2f0a161127e2272b00be299",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "각급 법원의 설치와 관할구역에 관한 법률 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -768,7 +1080,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2X6F0G7E1D6D1C5D1Y6Z1X5X1W9U3&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -789,6 +1101,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_X2X6F0G7E1D6D1C5D1Y6Z1X5X1W9U3-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -804,6 +1124,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "acdf070b6d31b2ee19a650eceb0d439c111e1b8ede5d63f23a235d785c0b06dd",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "민사조정법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -825,7 +1161,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2E6M0M7K2J0J1I4I0Q7R0P0Q5O7N8&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -846,6 +1182,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_D2E6M0M7K2J0J1I4I0Q7R0P0Q5O7N8-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -861,6 +1205,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "a0bca6557d9c44f7a88b46b2fc811ca10163841e222f7ff104291a9482f991e9",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "스토킹방지 및 피해자보호 등에 관한 법률 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -882,7 +1242,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2O6M0L7L1T5T1S6T4R1R2P2F6F8E8&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -903,6 +1263,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_N2O6M0L7L1T5T1S6T4R1R2P2F6F8E8-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -918,6 +1286,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "0cf430d675d0009ced5f74bef381903fc6d0f651067ff75bcba55b11bc77af00",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "교원의 지위 향상 및 교육활동 보호를 위한 특별법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -939,7 +1323,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2C6Z0Y6H0E9D1L5K2J9I4F9O1N4J2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -960,6 +1344,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_R2C6Z0Y6H0E9D1L5K2J9I4F9O1N4J2-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -975,6 +1367,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "1e40da605dc2a8477f186aef0abc0680483a6fb154ff3988aa6d0a51c1669c6b",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "빈집 및 소규모주택 정비에 관한 특례법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -996,7 +1404,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2Q6R0N7M0K3J0Q9Y0X0W1W0V4D3C7&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1017,6 +1425,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_S2Q6R0N7M0K3J0Q9Y0X0W1W0V4D3C7-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1032,6 +1448,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "307e7c5d007843658dc9b79eddc6b581acde2c7e88077d6b7ebf03d056e6800c",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국유림의 경영 및 관리에 관한 법률 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1053,7 +1485,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_U2S6T0R7S1Q4Y1Z0X5Y8W2X7V7R9R3&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1074,6 +1506,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_U2S6T0R7S1Q4Y1Z0X5Y8W2X7V7R9R3-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1089,6 +1529,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "c0ec62ddfdfb4eddc86b947e643e619be92529cabe56b7b1ec225f2be02e3997",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "청소년 보호법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1110,7 +1566,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2V6U0D5B2Y2C1B3Z3V5U2R1A6X4W6&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1131,6 +1587,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_Y2V6U0D5B2Y2C1B3Z3V5U2R1A6X4W6-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1146,6 +1610,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "d460e1976d749a3dad85b36383f2e04535fcd270147a60eab34a300a400f8562",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1167,7 +1647,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_B2Z6V0W6V1T8D1C7A2Z1H5H7H3F5D5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1188,6 +1668,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_B2Z6V0W6V1T8D1C7A2Z1H5H7H3F5D5-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1203,6 +1691,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "25d755cc811a5df9aec86f48d6ba436b5171e1be27e27991001b117298152b07",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "도로교통법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1224,7 +1728,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2T6R0R7Q1Y3Y1W7X2V0W0U5V9D7B4&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1245,6 +1749,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_S2T6R0R7Q1Y3Y1W7X2V0W0U5V9D7B4-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1260,6 +1772,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "2c2d835a1a5ff2499aac4d2ede467c412b2b5030f3adcf9e2f9baaf28a2b9439",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "경찰공무원법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1281,7 +1809,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2I6G0G5F1G5N1M7N2L6L3K3K4S0R2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1302,6 +1830,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_H2I6G0G5F1G5N1M7N2L6L3K3K4S0R2-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1317,6 +1853,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "8968ad489a42b2727b2c415332fe00811f0c678cec4526b324d71039e3461172",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "전자정부법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1338,7 +1890,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2M6K0L7T1R6S0Q9R1P9Q5Y9W3X2V4&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1359,6 +1911,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_L2M6K0L7T1R6S0Q9R1P9Q5Y9W3X2V4-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1374,6 +1934,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "0cf430d675d0009ced5f74bef381903fc6d0f651067ff75bcba55b11bc77af00",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "교원의 지위 향상 및 교육활동 보호를 위한 특별법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1395,7 +1971,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2G6E0F7N1L5M1K6L3J5J1G2E1E7C5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1416,6 +1992,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_F2G6E0F7N1L5M1K6L3J5J1G2E1E7C5-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1431,6 +2015,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "e8e83cc456abe9c04748a67286ce9fe1a56fc406b7677665f49401707d6980f5",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국가공무원법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1452,7 +2052,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2B6I0J7H1G5G1E6F3N5O4M2K1L8J9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1473,6 +2073,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_Z2B6I0J7H1G5G1E6F3N5O4M2K1L8J9-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1488,6 +2096,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "f18e3da13d7980cf241b97017f541f28c4d1b67ab755a504478721ac275c9b25",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "지방공무원법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1509,7 +2133,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_E2F4N0L7L0K5L1J0J1F5D5E7D4D4B5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1530,6 +2154,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_E2F4N0L7L0K5L1J0J1F5D5E7D4D4B5-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1545,6 +2177,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "f9bc522224564008581193ab64931d5d11350f8d4d6bd52e797f627fd0a6a6d6",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "기초연금법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1566,7 +2214,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2T6R0Z7A1Y3Z1X0Y3W3E3E2D4E4C6&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1587,6 +2235,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_S2T6R0Z7A1Y3Z1X0Y3W3E3E2D4E4C6-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1602,6 +2258,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "49420066f75abbee01f7e4e221d1dcfbd11569d60060ec6b4e8bf14ed15de088",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "공동주택관리법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1623,7 +2295,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_B2Z6A0Y7Y1H5F1F4D4F0D0D2Z4Z0Y9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1644,6 +2316,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_B2Z6A0Y7Y1H5F1F4D4F0D0D2Z4Z0Y9-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1659,6 +2339,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "794ba0f5fa88ce01f1771b177f4e0a75c1825b8e15ad4f0ddb7677481675a881",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "폐교재산의 활용촉진을 위한 특별법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1680,7 +2376,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2T6R0N7O1M4K1L0J3S0S1R2R0Q8O0&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1701,6 +2397,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_S2T6R0N7O1M4K1L0J3S0S1R2R0Q8O0-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1716,6 +2420,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "d59e5a646ffba7cca904383e003419f2c35af4ed9c22389f5ebd592ab259d583",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "폐기물관리법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1737,7 +2457,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2F6G0N7P0N6N1L6K4L7S0T1R3S3R7&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1758,6 +2478,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_H2F6G0N7P0N6N1L6K4L7S0T1R3S3R7-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1773,6 +2501,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "a0e747045d84ae8696f67b0a6a4e2bf550d114bdf185ef9608ec3d15260fe2c3",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "스토킹범죄의 처벌 등에 관한 법률 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1794,7 +2538,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2A6Y0Z7X1Y5W0E9E2D0E3C2C3B5J1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1815,6 +2559,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_Z2A6Y0Z7X1Y5W0E9E2D0E3C2C3B5J1-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1830,6 +2582,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "d460e1976d749a3dad85b36383f2e04535fcd270147a60eab34a300a400f8562",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1851,7 +2619,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_G2F6F0N7L2M0L1L0J0R6S2Q8R8P7Q2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-21",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1872,6 +2640,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0001"
+        },
+        {
+          "event_id": "PRC_G2F6F0N7L2M0L1L0J0R6S2Q8R8P7Q2-V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0002"
         }
       ],
       "versions": [
@@ -1887,6 +2663,22 @@
             "official_result": "",
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0002",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "b65c74b7d3aa806855091c0276fb5f8d23b537b7200e437d02d4cb07f959651b",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "공직선거법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
           }
         }
       ],
@@ -1908,7 +2700,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_E2F6D0E7M2M0L1J0K0I9J3F8F3D4E8&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -1937,6 +2729,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_E2F6D0E7M2M0L1J0K0I9J3F8F3D4E8-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -1971,6 +2771,22 @@
             "committee": "행정안전위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "0568bc1e9d51a0aa9698f6ed75bc350929c5d1e90df9371a220fd61555434446",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "공직선거법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "행정안전위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -1991,7 +2807,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2M6K0K7T2T0R1S0Q0P8P3L6M3K9K7&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2020,6 +2836,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_N2M6K0K7T2T0R1S0Q0P8P3L6M3K9K7-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2054,6 +2878,22 @@
             "committee": "행정안전위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "63a92ee64f4fccebb7b6e6cbee140cf4c2c6263aa4de552ed44f60a1f6316671",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "선거관리위원회법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "행정안전위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2074,7 +2914,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2Y6W0X4V0V2R0Q9Q1O7P0O1O4W7U9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2103,6 +2943,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_X2Y6W0X4V0V2R0Q9Q1O7P0O1O4W7U9-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2137,6 +2985,22 @@
             "committee": "행정안전위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "207c426d12cf56e8a3fdc03a844e423fa94bd09e62bc3d55074e10d291811587",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "공유재산 및 물품 관리법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "행정안전위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2157,7 +3021,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2F6G0F5F1D2E1C0K4L7J0K0I3J5H6&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2186,6 +3050,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_X2F6G0F5F1D2E1C0K4L7J0K0I3J5H6-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2218,6 +3090,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "1bbd366464dbcb31b4f207f4f8e69dddcd4ee05a2f081640935c38b7b8ac8ca2",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "철도산업발전기본법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2238,7 +3126,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2M6U0S7I2U0U1R7C4S5W2H7M4C4X5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2267,6 +3155,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_X2M6U0S7I2U0U1R7C4S5W2H7M4C4X5-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2301,6 +3197,22 @@
             "committee": "법제사법위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "3285321ffd4fe993032a58091a184f40fb98835fc14d5d1ee7257843ba70c1e2",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "형사소송법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "법제사법위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2321,7 +3233,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2T6A0B7Z2Y0Y0W8X4T4T2S4Q2R1P7&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2350,6 +3262,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_R2T6A0B7Z2Y0Y0W8X4T4T2S4Q2R1P7-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2384,6 +3304,22 @@
             "committee": "법제사법위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "3285321ffd4fe993032a58091a184f40fb98835fc14d5d1ee7257843ba70c1e2",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "형사소송법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "법제사법위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2404,7 +3340,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2K6G0H3F1G6E1F6D5D9L2K5K2I2J1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2433,6 +3369,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_K2K6G0H3F1G6E1F6D5D9L2K5K2I2J1-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2467,6 +3411,22 @@
             "committee": "재정경제기획위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "c105fb78ff83ff39a9d4085cdb0012dbcd179bbc87847ea401cbc587d55ec0e4",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국유재산특례제한법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "재정경제기획위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2487,7 +3447,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2B6J0H3I1G1H1F0G2O8O1M0N9M9K7&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2516,6 +3476,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_A2B6J0H3I1G1H1F0G2O8O1M0N9M9K7-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2550,6 +3518,22 @@
             "committee": "재정경제기획위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "27276a43f76e740012dc35c3372b569d8057f161434e13f6d6f00d550309e946",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "사회기반시설에 대한 민간투자법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "재정경제기획위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2570,7 +3554,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_B2Z6Y0Z7G1H5F1G4E5F4D4L3M0K2L8&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2599,6 +3583,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_B2Z6Y0Z7G1H5F1G4E5F4D4L3M0K2L8-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2631,6 +3623,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "13b442dfe9d0bf3ee4cdac71ad440bdeaad3fbdcea54378530307cf97f6def27",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "중소기업진흥에 관한 법률 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2651,7 +3659,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2S6T0R7R2Q0R0P9P4X6W2W9U6V7U8&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2680,6 +3688,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_X2S6T0R7R2Q0R0P9P4X6W2W9U6V7U8-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2714,6 +3730,22 @@
             "committee": "행정안전위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "a98c1f8b671b164c6cfa8b9a79bcbb6ccd480e416d982f8a579a814dd52af63b",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "정당법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "행정안전위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2734,7 +3766,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_V2W6D0E7D0B7B1A0A4I2H3H0F6G4F1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2763,6 +3795,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_V2W6D0E7D0B7B1A0A4I2H3H0F6G4F1-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2797,6 +3837,22 @@
             "committee": "농림축산식품해양수산위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "ff997d75aacc5f0521e9b9d590f99ac960d3ecfab0ae5d95d77d3c61d7a1405c",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "동물보호법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "농림축산식품해양수산위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2817,7 +3873,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2V6D0E7C0C9B1C6A1A5J3H2I0G2G3&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2846,6 +3902,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_X2V6D0E7C0C9B1C6A1A5J3H2I0G2G3-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2878,6 +3942,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "8ebdcd6059ea880adfae77d67ede08e65b932566babda8b9c65f2f4dc86f860b",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "계량에 관한 법률 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2898,7 +3978,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2Q6P0Q7O0O8W1V0V4T7U2T8T1P9P6&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -2927,6 +4007,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_Q2Q6P0Q7O0O8W1V0V4T7U2T8T1P9P6-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -2961,6 +4049,22 @@
             "committee": "국회운영위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "6006cec37a77929c2888b818d7e7a433955d1f3ae0d86af2a9e5fa44557cb516",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국회법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "국회운영위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -2981,7 +4085,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_J2K6S0S7R1S5Q0Q9P2X4X4V5W8V6V9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3010,6 +4114,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_J2K6S0S7R1S5Q0Q9P2X4X4V5W8V6V9-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3044,6 +4156,22 @@
             "committee": "과학기술정보방송통신위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "916153100c3449d74e00b4d417b4765416217b517e68d2b7962f2e8dd1259987",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "인공지능 발전과 신뢰 기반 조성 등에 관한 기본법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "과학기술정보방송통신위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3064,7 +4192,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2O6P0N7N2M0K1L1T4U8S3S7R6R9P6&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3093,6 +4221,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_S2O6P0N7N2M0K1L1T4U8S3S7R6R9P6-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3127,6 +4263,22 @@
             "committee": "국방위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "0a0358cb8b4b6c9add1a9bc907d0afe428fa3f347a4b0b4195b30da73d273ab0",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "군인사법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "국방위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3147,7 +4299,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2B6A0B7Z1Z4V0W9U4T7T5R3S1A6B4&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3176,6 +4328,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_D2B6A0B7Z1Z4V0W9U4T7T5R3S1A6B4-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3210,6 +4370,22 @@
             "committee": "정무위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "2350d7bcf97f87438ca434926f4684839e24dae91196e7a5c1b15ef24249ac2c",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "독점규제 및 공정거래에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "정무위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3230,7 +4406,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_A2A6Z0Z7X1Y4X1E4F0E7E2C3D3B6J2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3259,6 +4435,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_A2A6Z0Z7X1Y4X1E4F0E7E2C3D3B6J2-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3293,6 +4477,22 @@
             "committee": "행정안전위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "0568bc1e9d51a0aa9698f6ed75bc350929c5d1e90df9371a220fd61555434446",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "공직선거법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "행정안전위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3313,7 +4513,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2B6B0J7H0I9G1H7F0G3N4M7N3L3L5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3342,6 +4542,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_C2B6B0J7H0I9G1H7F0G3N4M7N3L3L5-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3376,6 +4584,22 @@
             "committee": "과학기술정보방송통신위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "f37a8314e71d92b4dd59602618d92fdd747de558a01f3aa8e5de7b75d18b31be",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "전기통신사업법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "과학기술정보방송통신위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3396,7 +4620,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2Y6W0X7V1U4U1C3C1B0C1A3A3Z6H3&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3425,6 +4649,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_Y2Y6W0X7V1U4U1C3C1B0C1A3A3Z6H3-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3459,6 +4691,22 @@
             "committee": "농림축산식품해양수산위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "6fc0c755be80f34b9c29a22cf63c556f2820c536bb97bcf14e70896f42bf7dc2",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "해양폐기물 및 해양오염퇴적물 관리법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "농림축산식품해양수산위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3479,7 +4727,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_D2M6K0J7I0E3C0B8C5A9J2H8G9G7G8&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3508,6 +4756,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_D2M6K0J7I0E3C0B8C5A9J2H8G9G7G8-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3540,6 +4796,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "9e7fb628c0f99ccd373791dbc446e16604fa14736a235f4b23e33077a467c53e",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "대·중소기업 상생협력 촉진에 관한 법률 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3560,7 +4832,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2B6Z0A7Y1Z3X1Y4G5E3F1D6E7C4K2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3589,6 +4861,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_F2B6Z0A7Y1Z3X1Y4G5E3F1D6E7C4K2-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3621,6 +4901,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "77892ae31ae9c931d4d30bd51e4b64dd751126d33582e07e574d57038abbea71",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "재생에너지자립도시 조성 및 지원에 관한 특별법안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3641,7 +4937,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2Y6W0X7W1D0E1C6D5B4A1A1P0Q1O1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3670,6 +4966,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_X2Y6W0X7W1D0E1C6D5B4A1A1P0Q1O1-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3704,6 +5008,22 @@
             "committee": "문화체육관광위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "560cc475948d46a5b8e12ce5b47f40c0dbb3eec26619d1b8dfef8db1396522f5",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국민체육진흥법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "문화체육관광위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3724,7 +5044,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2N6O0M7M1L0M1K3K3G7F2F7D9E3D5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3753,6 +5073,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_F2N6O0M7M1L0M1K3K3G7F2F7D9E3D5-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3785,6 +5113,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "0af79e24349253671e183e09bdc356de127e7c215d70311a7ae588759c965891",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국민건강증진법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3805,7 +5149,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_H2F6F0E7F0M7N1M5K0K9I4K4Y2Z1X2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3834,6 +5178,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_H2F6F0E7F0M7N1M5K0K9I4K4Y2Z1X2-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3868,6 +5220,22 @@
             "committee": "기후에너지환경노동위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "9b2bb903226db0be08f3b4a68fd53ede3cd6140a33cebc180dc7e24ebb5e6903",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "청년고용촉진 특별법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "기후에너지환경노동위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3888,7 +5256,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Y2Y6X0Y6W1W1V1C0E0C9C4B8Z6A5V5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -3917,6 +5285,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_Y2Y6X0Y6W1W1V1C0E0C9C4B8Z6A5V5-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -3951,6 +5327,22 @@
             "committee": "기후에너지환경노동위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "d9e142e9abe13bf1bc635bb967ff315246e08ae802af7b63b58617c517711a95",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "건설폐기물의 재활용촉진에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "기후에너지환경노동위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -3971,7 +5363,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2P6O0M7M1U3V1U4S5S1R0R6G9F3F3&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -4000,6 +5392,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_O2P6O0M7M1U3V1U4S5S1R0R6G9F3F3-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -4032,6 +5432,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "935526d9a1e9d0bf3558268a6ced9a269303c91bdd2b3f836c91371329d1095c",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "산업입지 및 개발에 관한 법률 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -4052,7 +5468,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2N6L0M6U1S6T1R0S2Q0R1Z1X5X2W7&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -4081,6 +5497,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_M2N6L0M6U1S6T1R0S2Q0R1Z1X5X2W7-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -4113,6 +5537,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "63f87d684036d4e26b62172820735274a1eb712efc1ba5cbb4be2d4b20ed51e0",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "유아교육법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -4133,7 +5573,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2R6S0Q7R1M5N0M9K5K4I1J2R1S1Q0&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -4162,6 +5602,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_T2R6S0Q7R1M5N0M9K5K4I1J2R1S1Q0-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -4196,6 +5644,22 @@
             "committee": "기후에너지환경노동위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "5c88eff7eda272bdfd986a58c3018f5ee452e41b745cf296688cac2ada571282",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "수소경제 육성 및 수소 안전관리에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "기후에너지환경노동위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -4216,7 +5680,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2D6E0D7Y1Z3X1Y4W5X2V0D7D6C2D5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -4245,6 +5709,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_F2D6E0D7Y1Z3X1Y4W5X2V0D7D6C2D5-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -4277,6 +5749,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "a92d93edbca869b94c3dacf4fd4d49603b0a93e210514ed542c9b616d069865a",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "새만금사업 추진 및 지원에 관한 특별법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -4297,7 +5785,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_N2L6M0U7S1T6R1R5Q1R9M2N6L3K7K4&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -4326,6 +5814,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_N2L6M0U7S1T6R1R5Q1R9M2N6L3K7K4-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -4360,6 +5856,22 @@
             "committee": "정무위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "36a15f99202d10c7eb734750d3535f301b975c93357423f107f0942c2f51e0c0",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "대규모유통업에서의 거래 공정화에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "정무위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -4380,7 +5892,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2N6Y0A7B2L0C1C0L2C7D4Q1T3W4L2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -4409,6 +5921,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_S2N6Y0A7B2L0C1C0L2C7D4Q1T3W4L2-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -4443,6 +5963,22 @@
             "committee": "농림축산식품해양수산위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "c079350e668ea4d221345b25713949ef33f313776e2196e9f3cd3d23294ff2bc",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "해수욕장의 이용 및 관리에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "농림축산식품해양수산위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -4463,7 +5999,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_L2K6K0J7R0R9Q0Q9O3N0O0V2W2U2V2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -4492,6 +6028,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_L2K6K0J7R0R9Q0Q9O3N0O0V2W2U2V2-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -4526,6 +6070,22 @@
             "committee": "기후에너지환경노동위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "7728dae5a89c96107701dbe3f890c8e90d1759a18a33d8357b6a7bad6a5d4b6e",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "기후테크 육성 및 혁신 생태계 조성에 관한 특별법안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "기후에너지환경노동위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -4546,7 +6106,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2R6S0A7B1Z6Z1Y5W1X9S5T5S8S7Q1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-20",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -4575,6 +6135,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0002"
+        },
+        {
+          "event_id": "PRC_T2R6S0A7B1Z6Z1Y5W1X9S5T5S8S7Q1-V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0003"
         }
       ],
       "versions": [
@@ -4609,6 +6177,22 @@
             "committee": "재정경제기획위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0003",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "8cbd74922d01d27eb706342cad3e8c4394174435af32d8d4338866e35426b421",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "조세특례제한법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "재정경제기획위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -4629,7 +6213,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2P5O0W8U2V5U0S9L3J6G0E5C7B3J8&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -4690,6 +6274,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_Q2P5O0W8U2V5U0S9L3J6G0E5C7B3J8-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -4788,6 +6380,22 @@
             "committee": "기후에너지환경노동위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "d47f85b512c524e081018547f759c305dbf14aca469b033d4ee848838001833c",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "하천법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "기후에너지환경노동위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -4808,7 +6416,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_J2R6R0Q7R1P4P1O1W0W4U0V0T8U8S4&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -4869,6 +6477,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_J2R6R0Q7R1P4P1O1W0W4U0V0T8U8S4-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -4967,6 +6583,22 @@
             "committee": "법제사법위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "754f3b8040d676c765cf9533a19e4ed6921483b5d69ad436b9ee19b1141fedb8",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "소송촉진 등에 관한 특례법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "법제사법위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -4987,7 +6619,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2W6E0D7D0B3C1A7B4J3H2I9G7H0F4&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -5048,6 +6680,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_W2W6E0D7D0B3C1A7B4J3H2I9G7H0F4-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -5144,6 +6784,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "d26bf6ebc6c5277c641ed38ba7af60dcdecd790c49304f79409bea3e9adc59a5",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "모자보건법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -5164,7 +6820,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2E6F0D7D0C6D1B6B1J4K4I3H7H6F6&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -5225,6 +6881,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_W2E6F0D7D0C6D1B6B1J4K4I3H7H6F6-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -5323,6 +6987,22 @@
             "committee": "재정경제기획위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "8cbd74922d01d27eb706342cad3e8c4394174435af32d8d4338866e35426b421",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "조세특례제한법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "재정경제기획위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -5343,7 +7023,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2A6I0J7I1I6G1F4F5N5O1M4N0L8J5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -5404,6 +7084,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_C2A6I0J7I1I6G1F4F5N5O1M4N0L8J5-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -5502,6 +7190,22 @@
             "committee": "법제사법위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "ef5538b45286068495cdcc6eab8b25528209252ce288c26582795ce9a5c03524",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "형법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "법제사법위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -5522,7 +7226,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2Z6Y0G6H2F6P0O9M3N6M3U1S1R1S3&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -5583,6 +7287,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_C2Z6Y0G6H2F6P0O9M3N6M3U1S1R1S3-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -5679,6 +7391,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "d2011ae5ca180e897bf053c81a7d8b2c9187c7b142fed6897528401c486bb988",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "고등교육법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -5699,7 +7427,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2Q6Z0Y7Y0X1V1D3E4D5C2A5I9J5I1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -5760,6 +7488,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_S2Q6Z0Y7Y0X1V1D3E4D5C2A5I9J5I1-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -5858,6 +7594,22 @@
             "committee": "농림축산식품해양수산위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "a222c24aacfae1b074ab3c7daa8a8d8afc1fdad5362b72279b99e48a93d8ffa6",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "농어업인 삶의 질 향상 및 농어촌지역 개발촉진에 관한 특별법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "농림축산식품해양수산위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -5878,7 +7630,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2E6F0D7E1C0A1B6J1J2H3I6H1H9G1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -5939,6 +7691,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_W2E6F0D7E1C0A1B6J1J2H3I6H1H9G1-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -6037,6 +7797,22 @@
             "committee": "법제사법위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "ef5538b45286068495cdcc6eab8b25528209252ce288c26582795ce9a5c03524",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "형법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "법제사법위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -6057,7 +7833,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2A6A0Y6X2X4W1X1S1T0R5Q3Q2P7P6&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -6118,6 +7894,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_S2A6A0Y6X2X4W1X1S1T0R5Q3Q2P7P6-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -6214,6 +7998,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "099b66a1062f21f15cf91349d2ab45f24d82f865ffe9336f681af13e65c1e1ec",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "아동복지법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -6234,7 +8034,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2Q6R0Q6M2L4J1K4I3R6R0S5Q4P3X4&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -6295,6 +8095,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_R2Q6R0Q6M2L4J1K4I3R6R0S5Q4P3X4-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -6393,6 +8201,22 @@
             "committee": "행정안전위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "965dc23256ef96c92a82968e7a60c72f0491c3e4af876e1f867a7d4538877680",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "총포·도검·화약류 등의 안전관리에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "행정안전위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -6413,7 +8237,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2W6V0T6T0A9Z1Y2X3G9F4D3C7W0V5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -6474,6 +8298,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_O2W6V0T6T0A9Z1Y2X3G9F4D3C7W0V5-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -6570,6 +8402,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "364ef248779ae7ae07cd3b9377551ce9986aea1c4fd2909baa2f89bcb0a01d78",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "농공단지 경쟁력 강화에 관한 특별법안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -6590,7 +8438,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Q2P6Q0L7M1K5L1J7K4I6I0R2P0P7O9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -6651,6 +8499,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_Q2P6Q0L7M1K5L1J7K4I6I0R2P0P7O9-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -6749,6 +8605,22 @@
             "committee": "재정경제기획위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "8cbd74922d01d27eb706342cad3e8c4394174435af32d8d4338866e35426b421",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "조세특례제한법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "재정경제기획위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -6769,7 +8641,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2H6F0G7F0F9D1E8M2K2L1J6K2I9Q1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -6830,6 +8702,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_Z2H6F0G7F0F9D1E8M2K2L1J6K2I9Q1-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -6928,6 +8808,22 @@
             "committee": "행정안전위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "1d358306fef34ee92e795b81b421161568e3bbc83158937d96054019cfba1669",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "새만금특별지방자치단체연합 설치 및 지원에 관한 특별법안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "행정안전위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -6948,7 +8844,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2Q6R0P7Q1O5W1X7V2W3U0V8T3P2P1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -7009,6 +8905,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_S2Q6R0P7Q1O5W1X7V2W3U0V8T3P2P1-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -7107,6 +9011,22 @@
             "committee": "국회운영위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "6006cec37a77929c2888b818d7e7a433955d1f3ae0d86af2a9e5fa44557cb516",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국회법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "국회운영위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -7127,7 +9047,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2F6D0E7M0K7L1J6K2I2J4Q9R6Q6O6&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -7188,6 +9108,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_F2F6D0E7M0K7L1J6K2I2J4Q9R6Q6O6-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -7284,6 +9212,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "e1d2ffc4922ca8e8151b63e82dafb21ac78cea28180f2e428753437cc9ca8157",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "자동차손해배상 보장법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -7304,7 +9248,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2W6D0C6K1L9J1I1G3H9Q0O2N8M9U9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -7365,6 +9309,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_X2W6D0C6K1L9J1I1G3H9Q0O2N8M9U9-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -7461,6 +9413,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "7624ade09f21ee3187a6a71d797254baa33826cd659d62721abd8ea4824dc89d",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "건축법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -7481,7 +9449,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_G2E6C0L6K1S9R1Q1O3P8L0J2I7J5I1&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -7542,6 +9510,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_G2E6C0L6K1S9R1Q1O3P8L0J2I7J5I1-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -7640,6 +9616,22 @@
             "committee": "재정경제기획위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "54d63fd97b8fe6df4c986403095b30c01a9be0337b597520914d6f1cb1bcbeb0",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국가를 당사자로 하는 계약에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "재정경제기획위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -7660,7 +9652,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2S6R0S7Q1Q3O1X0X3V2W5U2V4T0B0&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -7721,6 +9713,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_S2S6R0S7Q1Q3O1X0X3V2W5U2V4T0B0-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -7817,6 +9817,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "49420066f75abbee01f7e4e221d1dcfbd11569d60060ec6b4e8bf14ed15de088",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "공동주택관리법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -7837,7 +9853,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2A6B0J7K1I5I1H0F1G0O1O1N5L0M5&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -7898,6 +9914,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_C2A6B0J7K1I5I1H0F1G0O1O1N5L0M5-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -7996,6 +10020,22 @@
             "committee": "법제사법위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "3285321ffd4fe993032a58091a184f40fb98835fc14d5d1ee7257843ba70c1e2",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "형사소송법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "법제사법위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -8016,7 +10056,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_O2P6N0O7W1U0V1T6U3S4S2A4B0Z4X3&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -8077,6 +10117,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_O2P6N0O7W1U0V1T6U3S4S2A4B0Z4X3-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -8175,6 +10223,22 @@
             "committee": "기후에너지환경노동위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "79b36852ef1fdbbb8a7f106f43de8f235d6214ec8896e3b941e2880797a0b7a9",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "노동조합 및 노동관계조정법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "기후에너지환경노동위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -8195,7 +10259,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2T6S0S7A0Y7Z0Y9Y5W2S1T8R8S4Q9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -8256,6 +10320,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_T2T6S0S7A0Y7Z0Y9Y5W2S1T8R8S4Q9-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -8352,6 +10424,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "0791de5e660970c26bc47082c3f629f1824292fe929d992298a626e6fad585ba",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "건강검진기본법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -8372,7 +10460,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_T2U6S0T7R0P7Q0Y9Y5W2X3W8W9U6D4&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -8433,6 +10521,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_T2U6S0T7R0P7Q0Y9Y5W2X3W8W9U6D4-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -8529,6 +10625,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "d9549f122114814e461b6fbbec7c29e8603cbe88cdbb4ce77bf9f80d57703cd7",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "지역보건법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -8549,7 +10661,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_F2F6D0E7Z0Y7Z0X9X5V1X3E3F5D0B2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -8610,6 +10722,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_F2F6D0E7Z0Y7Z0X9X5V1X3E3F5D0B2-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -8706,6 +10826,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "1cc80e3dc5ca5802e6bf57be734d17b1aee27e08276ee81111eb2ba98dbf2412",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국민건강보험법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -8726,7 +10862,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_E2F6D0E1M2K6L1J6J0I6J1Y4Y4W3V8&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -8787,6 +10923,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_E2F6D0E1M2K6L1J6J0I6J1Y4Y4W3V8-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -8885,6 +11029,22 @@
             "committee": "법제사법위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "621ec9006ecd7f3a5161d890e35d1b1796abc20150b9f13fb90eabf3a3218d27",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "민사소송법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "법제사법위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -8905,7 +11065,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2K6L0J7K1I3J1E0D1D4C2D5B0B2J0&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -8966,6 +11126,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_M2K6L0J7K1I3J1E0D1D4C2D5B0B2J0-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -9064,6 +11232,22 @@
             "committee": "국방위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "f0d1ebf79987e1c908421aa42404c36abb04045ff6597a7421f5e6d5f9d2d27a",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "군수품관리법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "국방위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -9084,7 +11268,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2C6B0B1J2K6I1I6H0F6G4O3O6N2N8&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -9145,6 +11329,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_C2C6B0B1J2K6I1I6H0F6G4O3O6N2N8-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -9243,6 +11435,22 @@
             "committee": "법제사법위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "3285321ffd4fe993032a58091a184f40fb98835fc14d5d1ee7257843ba70c1e2",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "형사소송법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "법제사법위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -9263,7 +11471,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_R2R6Q0O7P1W5X1W0W3U1V3U7P0Q3O8&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -9324,6 +11532,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_R2R6Q0O7P1W5X1W0W3U1V3U7P0Q3O8-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -9422,6 +11638,22 @@
             "committee": "행정안전위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "fedc009378f255d7a104d58eaaaa1169db7a5db91ec32e7d83eb630415a3bd29",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국가경찰과 자치경찰의 조직 및 운영에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "행정안전위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -9442,7 +11674,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_K2K6G0P6O1M5L1H4H5F1F1N9K8I0R9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-16",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -9503,6 +11735,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0006"
+        },
+        {
+          "event_id": "PRC_K2K6G0P6O1M5L1H4H5F1F1N9K8I0R9-V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0007"
         }
       ],
       "versions": [
@@ -9601,6 +11841,22 @@
             "committee": "농림축산식품해양수산위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0007",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "d2c8df82ab6d157642dff30eba89d6afd71a9f64c70a7bde20db56fa6bb1b774",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "임업 및 산촌 진흥촉진에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "농림축산식품해양수산위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -9621,7 +11877,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_W2D6E0D7B1B4A0B8I4J6H2G8G0E3F2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-15",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -9690,6 +11946,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0007"
+        },
+        {
+          "event_id": "PRC_W2D6E0D7B1B4A0B8I4J6H2G8G0E3F2-V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0008"
         }
       ],
       "versions": [
@@ -9804,6 +12068,22 @@
             "committee": "재정경제기획위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "8cbd74922d01d27eb706342cad3e8c4394174435af32d8d4338866e35426b421",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "조세특례제한법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "재정경제기획위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -9824,7 +12104,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_Z2V6W0U7U1T3U1S4S1B1Z4Z6X6Z1X7&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-15",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -9893,6 +12173,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0007"
+        },
+        {
+          "event_id": "PRC_Z2V6W0U7U1T3U1S4S1B1Z4Z6X6Z1X7-V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0008"
         }
       ],
       "versions": [
@@ -10007,6 +12295,22 @@
             "committee": "재정경제기획위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "6facfd9ba5e0b076956a9641a5c42a94b01a646b9f75f64f9cf26dcbce8bbdf2",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국가재정법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "재정경제기획위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -10027,7 +12331,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_C2B6Z0Y6Z2V9T1S6R4B6C4A8Z2X5G2&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-15",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -10096,6 +12400,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0007"
+        },
+        {
+          "event_id": "PRC_C2B6Z0Y6Z2V9T1S6R4B6C4A8Z2X5G2-V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0008"
         }
       ],
       "versions": [
@@ -10210,6 +12522,22 @@
             "committee": "농림축산식품해양수산위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "902b3aa5a6bf20e8debcf0d783f916dbbcc42beffa27788b8e819b5072b89537",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "농업·농촌 공익기능 증진 직접지불제도 운영에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "농림축산식품해양수산위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -10230,7 +12558,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_M2M6U0V7T0U6S1R5R1Z0A4Y7Z1X0V9&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-15",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -10299,6 +12627,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0007"
+        },
+        {
+          "event_id": "PRC_M2M6U0V7T0U6S1R5R1Z0A4Y7Z1X0V9-V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0008"
         }
       ],
       "versions": [
@@ -10413,6 +12749,22 @@
             "committee": "국회운영위원회",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "23261af9be55442dc81e4eb5281194ef9bd386eb35d4e928524ab070ea57ab5d",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "국가인권위원회법 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "국회운영위원회",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -10433,7 +12785,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_E2N6J0J6R0Q8N1W1W1W7C0C6B4V2U4&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-15",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -10502,6 +12854,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 의안 접수",
           "version_id": "V0007"
+        },
+        {
+          "event_id": "PRC_E2N6J0J6R0Q8N1W1W1W7C0C6B4V2U4-V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 의안 접수",
+          "version_id": "V0008"
         }
       ],
       "versions": [
@@ -10614,6 +12974,22 @@
             "committee": "소관위원회 미정 또는 확인 필요",
             "updated_at": "2026-07-22"
           }
+        },
+        {
+          "version_id": "V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "ec0d0063b9db8b6c0386d9c31d2a0ea13df9cf2fdd1f82edf0f8aa03fe2cf2fa",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "건설산업기본법 일부개정법률안",
+            "stage": "의안 접수",
+            "official_result": "",
+            "committee": "소관위원회 미정 또는 확인 필요",
+            "updated_at": "2026-07-23"
+          }
         }
       ],
       "next_accountability_question": "예산·실행률·성과·부작용을 어떤 공식자료로 확인할 것인가?"
@@ -10634,7 +13010,7 @@
       "official_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_X2V6W0U7C1D0B1B4A3B5Z5Z3H4G1G7&ageFrom=22&ageTo=22",
       "dates": {
         "proposed": "2026-07-15",
-        "updated": "2026-07-22"
+        "updated": "2026-07-23"
       },
       "budget": {
         "planned": 0,
@@ -10703,6 +13079,14 @@
           "source": "공식자료 자동추적",
           "summary": "정책 상태 기록: 위원회 심사",
           "version_id": "V0007"
+        },
+        {
+          "event_id": "PRC_X2V6W0U7C1D0B1B4A3B5Z5Z3H4G1G7-V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "type": "policy_state_change",
+          "source": "공식자료 자동추적",
+          "summary": "정책 상태 기록: 위원회 심사",
+          "version_id": "V0008"
         }
       ],
       "versions": [
@@ -10816,6 +13200,22 @@
             "official_result": "",
             "committee": "문화체육관광위원회",
             "updated_at": "2026-07-22"
+          }
+        },
+        {
+          "version_id": "V0008",
+          "at": "2026-07-22T20:05:40.607764+00:00",
+          "source": "자동 공식상태 추적",
+          "hash": "1152f1aa5a7c5215f567bc6b3a71664a1892ca52d73b457417e20a87b459ee65",
+          "changed_fields": [
+            "updated_at"
+          ],
+          "snapshot": {
+            "title": "게임산업진흥에 관한 법률 일부개정법률안",
+            "stage": "위원회 심사",
+            "official_result": "",
+            "committee": "문화체육관광위원회",
+            "updated_at": "2026-07-23"
           }
         }
       ],
