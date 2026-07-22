@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-07-23T05:15:15+09:00",
+  "generated_at": "2026-07-23T07:16:35+09:00",
   "bill": {
     "id": "PRC_S2Q6R0N7M0K3J0Q9Y0X0W1W0V4D3C7",
     "policy_type": "국회 법률안",
@@ -10,12 +10,12 @@
       "name": "대한민국",
       "code": "KR"
     },
-    "category": "기타",
-    "category_basis": "자동분류",
+    "category": "농림·해양",
+    "category_basis": "소관위원회 기준",
     "title": "국유림의 경영 및 관리에 관한 법률 일부개정법률안",
     "status": "자동 검토 초안",
-    "stage": "의안 접수",
-    "committee": "소관위원회 미정 또는 확인 필요",
+    "stage": "소관위원회 회부·심사 대기",
+    "committee": "농림축산식품해양수산위원회",
     "proposed_date": "2026-07-21",
     "updated_at": "2026-07-23",
     "review_count": 0,
@@ -58,7 +58,7 @@
         "kind": "missing"
       }
     ],
-    "analysis_generated_at": "2026-07-23T05:15:15+09:00",
+    "analysis_generated_at": "2026-07-23T07:16:35+09:00",
     "analysis_basis": "국회가 공개한 ‘제안이유 및 주요내용’만 사용한 자동 초안입니다. 찬성 논리, 반대 논리, 위험과 수정안은 검토를 시작하기 위한 가설입니다. 법안 조문 전문, 비용추계서, 위원회 검토보고서, 회의록, 외부 통계와 이해관계자 의견을 확인하기 전에는 결론으로 사용해서는 안 됩니다.",
     "card_summary": "쉽게 말해, 산지 경매 취득 후 단기 시세차익을 노리는 먹튀성 투기 행위를 근절하고, 국가의 산지 매수 예산이 본연의 산림 보전 및 공익 증진 목적에 맞게 공정하고 효율적으로 집행되도록 제도를 개선하려는 내용입니다.",
     "why_now": "법안이 제시한 문제: 최근 부동산 경매 시장과 산림 분야 일각에서 이 제도의 취지를 악용하는 심각한 투기 행위가 빈번하게발생하고 있습니다. 제안된 변경: 산지 경매 취득 후 단기 시세차익을 노리는 먹튀성 투기 행위를 근절하고, 국가의 산지 매수 예산이 본연의 산림 보전 및 공익 증진 목적에 맞게 공정하고 효율적으로 집행되도록 제도를 개선하려는 내용입니다.",
@@ -201,7 +201,7 @@
     "deep_review": {
       "status": "복수 위험프로필 증거사슬형 심층 검토 초안",
       "scope": "국회 ‘제안이유 및 주요내용’을 바탕으로 복수 위험축을 동시에 공격한 초안입니다. 조문 전문·비용추계·위원회 자료·외부 통계 대조 전에는 확정평가가 아닙니다.",
-      "generated_at": "2026-07-23T05:15:15+09:00",
+      "generated_at": "2026-07-23T07:16:35+09:00",
       "profile": {
         "key": "subsidy_fiscal",
         "label": "재정·지원배분",
@@ -725,29 +725,29 @@
       },
       {
         "document": "소관위원회 검토보고서",
-        "status": "위원회 심사 진행 후 확인",
+        "status": "심사자료 확인 필요",
         "importance": "전문위원의 법체계·집행·비용·쟁점 검토",
         "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2Q6R0N7M0K3J0Q9Y0X0W1W0V4D3C7&ageFrom=22&ageTo=22"
       },
       {
         "document": "위원회 회의록·찬반토론",
-        "status": "회의 개최 후 확인",
+        "status": "회의자료 확인 필요",
         "importance": "질의·반론·정부답변·수정논의",
         "source_url": "http://likms.assembly.go.kr/bill/billDetail.do?billId=PRC_S2Q6R0N7M0K3J0Q9Y0X0W1W0V4D3C7&ageFrom=22&ageTo=22"
       }
     ],
     "fork_readiness": {
-      "level": "중간",
-      "points": 4,
+      "level": "높음",
+      "points": 5,
       "max_points": 5,
       "reasons": [
         "문제 문장 분리 가능",
         "변경방향 분리 가능",
         "영향주체 후보 식별",
-        "관련 조문 단서 존재"
+        "관련 조문 단서 존재",
+        "소관위원회 확인"
       ],
       "missing": [
-        "소관위원회·심사자료",
         "법안 조문 전문",
         "비용추계서",
         "위원회 검토보고서·회의록"
