@@ -1,4 +1,4 @@
-name: Public Korean Quality Gate
+name: Public Display Quality Gate
 
 on:
   workflow_dispatch:
@@ -9,6 +9,7 @@ on:
       - "bills.json"
       - "reports/**"
       - "scripts/validate_public_korean.py"
+      - "scripts/validate_public_schema_compat.py"
   pull_request:
     paths:
       - "index.html"
@@ -16,29 +17,29 @@ on:
       - "bills.json"
       - "reports/**"
       - "scripts/validate_public_korean.py"
+      - "scripts/validate_public_schema_compat.py"
 
 permissions:
   contents: read
 
 jobs:
-  validate-public-korean:
+  validate-public-display:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Validate public Korean and encoding
+      - name: Validate Korean, encoding and repeated risks
         run: python scripts/validate_public_korean.py
-
-      - name: Upload quality report
+      - name: Validate UI and report schema compatibility
+        run: python scripts/validate_public_schema_compat.py
+      - name: Upload quality reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: public-quality-report
-          path: public-quality-report.json
+          name: public-display-quality-reports
+          path: |
+            public-quality-report.json
+            public-schema-compatibility-report.json
           if-no-files-found: ignore
