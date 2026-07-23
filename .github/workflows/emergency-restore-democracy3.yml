@@ -1,0 +1,86 @@
+name: Emergency restore Democracy 3.0
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/emergency-restore-democracy3.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: democracy3-emergency-restore
+  cancel-in-progress: false
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore last known good site and workflows
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          GOOD_COMMIT="c38fc5e378c1355006e8b9624ab8b6b30f551512"
+
+          git checkout "$GOOD_COMMIT" -- index.html
+          git checkout "$GOOD_COMMIT" -- .github/workflows
+
+          git rm --ignore-unmatch .github/workflows/apply-encoding-v1.2.yml
+          git rm --ignore-unmatch .github/workflows/emergency-restore-democracy3.yml
+          git rm --ignore-unmatch apply-encoding-v1.2.yml
+
+      - name: Validate restored release
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python validate_release.py
+
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          html = Path("index.html").read_text(encoding="utf-8")
+          scripts = re.findall(
+              r"<script(?:\s[^>]*)?>(.*?)</script>",
+              html,
+              flags=re.S | re.I,
+          )
+
+          if not scripts:
+              raise SystemExit("index.html JavaScript block not found")
+
+          Path("/tmp/democracy3-index.js").write_text(
+              "\n".join(scripts),
+              encoding="utf-8",
+          )
+          PY
+
+          node --check /tmp/democracy3-index.js
+
+      - name: Commit restoration
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git config user.name "democracy3-recovery-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "Nothing to restore."
+            exit 0
+          fi
+
+          git commit -m "긴급 복구: 정상 사이트와 자동 갱신 복원"
+          git push origin HEAD:main
