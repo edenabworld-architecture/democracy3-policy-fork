@@ -280,7 +280,7 @@ const countOf=value=>Array.isArray(value)?value.length:Number(value||0)||0;
 
 function hasMojibake(value){
   const s=String(value||"");
-  return / |Ã.|Â.|â€|â€™|ì[\x80-\xBF]|ë[\x80-\xBF]|ðŸ/.test(s)
+  return /(?:\uFFFD|Ã.|Â.|â€|â€™|ì[\x80-\xBF]|ë[\x80-\xBF]|ðŸ)/.test(s)
 }
 function looksRawJson(value){
   const s=String(value||"").trim();
@@ -325,7 +325,7 @@ function normalizeRisk(value){
 }
 function maturityOf(bill){
   const explicit=text(bill.maturity_level,bill.analysis_level,bill.review_level).toUpperCase();
-  const match=explicit.match(/S([0-8])/);
+  const match=explicit.match(/\bS([0-8])\b/);
   if(match)return Math.min(8,Math.max(0,Number(match[1])));
   const officialDocs=countOf(bill.official_documents)+countOf(obj(bill.verified_review).official_documents);
   const clauses=countOf(bill.clause_comparisons)+countOf(obj(bill.verified_review).clause_comparisons);
